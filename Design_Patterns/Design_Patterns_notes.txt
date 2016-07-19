@@ -13,3 +13,10 @@ Take what varies and “encapsulate” it so it won’t affect the rest of your 
 Strategy Pattern
 ~~~~~~~~~~~~~~~~~	
 	The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
+
+Observer Pattern
+~~~~~~~~~~~~~~~~
+	The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.
+	
+	The subject and observers define the one-to-many relationship. The observers are dependent on the subject such that when the subject’s state changes, the observers get notified. Depending on the style of notification, the observer may also be updated with new values.
+	

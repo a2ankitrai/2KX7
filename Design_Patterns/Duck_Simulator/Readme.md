@@ -1,0 +1,4 @@
+Readme
+======
+
+Strategy Pattern
