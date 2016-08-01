@@ -2,7 +2,13 @@ DS
 - Linked List 
 - Stacks
 - Queues 
-- Graphs
+- Tree (Traversals, BST, Red-Black)
+- Trie		
+- Graphs(BFS-DFS)
+
+Big Endian & Little Endian
+Bit shifting
+
 
 Algorithms
 - Searching
