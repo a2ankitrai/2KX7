@@ -17,7 +17,7 @@ If all leaf nodes are at height `h` or `h-1` and also without any missing number
 	
 	
 ## Binary tree implementation
-```
+```java
 public class BinaryTree {
 
 	public BTNode root;
