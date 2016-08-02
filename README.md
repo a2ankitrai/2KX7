@@ -4,7 +4,7 @@
 - Linked List 
 - Stacks
 - Queues 
-- Tree (Traversals, BST, Red-Black)
+- [Tree (Traversals, BST, Red-Black)](./DS/Tree/tree_chap1.md)
 - Trie		
 - Graphs(BFS-DFS)
 -  Skip Lists

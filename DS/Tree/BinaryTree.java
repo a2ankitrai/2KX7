@@ -50,21 +50,21 @@ public class BinaryTree {
 			return ;
 		}
 		String treeElements = "";
-		BTNode temp = root;
 
 		Stack<BTNode> s = new Stack<BTNode>();
+		s.push(root);
 
-		while (temp != null || !s.empty()) {
+		while (!s.empty()) {
+			BTNode temp = s.pop();
 
-			if (temp == null) {
-				temp = s.pop();
-			}
 			System.out.println(treeElements);
 			treeElements += temp.data + " --> ";
 			if (temp.right != null) {
 				s.push(temp.right);
 			}
-			temp = temp.left;
+			if (temp.left != null) {
+				s.push(temp.left);
+			}
 		}
 
 		System.out.println(treeElements);
@@ -80,9 +80,7 @@ public class BinaryTree {
 		String treeElements = "";
 		boolean done =  false;
 
-		
-
-		/*while (!done) {
+		while (!done) {
 			if (curr != null) {
 				s.push(curr);
 				curr = curr.left;
@@ -95,8 +93,39 @@ public class BinaryTree {
 					curr = curr.right;
 				}
 			}
-		}*/
+		}
 		System.out.println(treeElements);
+	}
+
+	public void postOrderTraversalIterative() {
+		if (root == null) {
+			System.out.println("Empty tree");
+			return ;
+		}
+
+		Stack<BTNode> s = new Stack<BTNode>();
+		String treeElements = "";
+		s.push(root);
+
+		while (!s.empty()) {
+			BTNode curr = s.peek();
+			if (curr.left == null && curr.right == null) {
+				treeElements += " -> " + curr.data;
+				s.pop();
+			} else {
+				if (curr.right != null ) {
+					s.push(curr.right);
+					curr.right = null;
+				}
+				if (curr.left != null) {
+					s.push(curr.left);
+					curr.left = null;
+				}
+			}
+		}
+
+		System.out.println(treeElements);
+
 	}
 
 	public static void main(String[] args) {
@@ -124,11 +153,11 @@ public class BinaryTree {
 
 		BinaryTree bt = new BinaryTree(root);
 
-		//		bt.preOrderTraversal();
+		bt.preOrderTraversal();
 		//		bt.preOrderTraversalRecursive(root);
 		//		bt.inOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalRecursive(root);
-		bt.inOrderTraversalIterative();
+		//		bt.postOrderTraversalIterative();
 	}
 
 }
