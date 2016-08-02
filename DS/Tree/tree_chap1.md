@@ -140,7 +140,7 @@ public void inOrderTraversalIterative() {
 
 **Postorder Traversal of Binary tree**  
 There is one more approach other than below but this one is optimal
-```
+```java
 public List<Integer> postorderTraversal(TreeNode root) {
     List<Integer> res = new ArrayList<Integer>();
  
