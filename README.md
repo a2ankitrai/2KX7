@@ -1,6 +1,6 @@
 # 2KX7
 
-# DS                               
+## DS                               
 - Linked List 
 - Stacks
 - Queues 
@@ -9,12 +9,12 @@
 - Graphs(BFS-DFS)
 -  Skip Lists
 
-
-Big Endian & Little Endian
-Bit shifting
-
-
-# Algorithms
+## Algorithms
 - Searching
 - Sorting
 - Knapsack
+
+## Other Computation topics
+- Big Endian & Little Endian
+- Bit shifting
+
