@@ -43,7 +43,7 @@ public class BinaryTree {
 ## Binary tree traversals
 **Preorder**: Each node is preocessed before (pre) either of its sub-trees.  
 _Recursive approach_
-```
+```java
 public void preOrderTraversalRecursive(BTNode root) {
 		if (root != null) {
 			System.out.print(root.data + " --> ");
@@ -55,7 +55,7 @@ public void preOrderTraversalRecursive(BTNode root) {
 
 _Iterative approach_  
 This code works but it is heavily under optimal. This was your 1st attempt.
-```
+```java
 public void preOrderTraversal() {
 		if (root == null) {
 			System.out.println("Empty tree");
@@ -84,7 +84,7 @@ public void preOrderTraversal() {
 ```
 
 A more optimal code
-```
+```java
 public void preOrderTraversal() {
 		if (root == null) {
 			System.out.println("Empty tree");
@@ -109,7 +109,7 @@ public void preOrderTraversal() {
 ```
 
 **Inorder Iterative Traversal**
-```
+```java
 public void inOrderTraversalIterative() {
 		if (root == null) {
 			System.out.println("Empty tree");
@@ -141,35 +141,32 @@ public void inOrderTraversalIterative() {
 **Postorder Traversal of Binary tree**  
 There is one more approach other than below but this one is optimal
 ```java
-public List<Integer> postorderTraversal(TreeNode root) {
-    List<Integer> res = new ArrayList<Integer>();
- 
-    if(root==null) {
-        return res;
-    }
- 
-    Stack<TreeNode> stack = new Stack<TreeNode>();
-    stack.push(root);
- 
-    while(!stack.isEmpty()) {
-        TreeNode temp = stack.peek();
-        if(temp.left==null && temp.right==null) {
-            TreeNode pop = stack.pop();
-            res.add(pop.val);
-        }
-        else {
-            if(temp.right!=null) {
-                stack.push(temp.right);
-                temp.right = null;
-            }
- 
-            if(temp.left!=null) {
-                stack.push(temp.left);
-                temp.left = null;
-            }
-        }
-    }
- 
-    return res;
-}
+public void postOrderTraversalIterative() {
+		if (root == null) {
+			System.out.println("Empty tree");
+			return ;
+		}
+
+		Stack<BTNode> s = new Stack<BTNode>();
+		String treeElements = "";
+		s.push(root);
+
+		while (!s.empty()) {
+			BTNode curr = s.peek();
+			if (curr.left == null && curr.right == null) {
+				treeElements += " -> " + curr.data;
+				s.pop();
+			} else {
+				if (curr.right != null ) {
+					s.push(curr.right);
+					curr.right = null;
+				}
+				if (curr.left != null) {
+					s.push(curr.left);
+					curr.left = null;
+				}
+			}
+		}
+		System.out.println(treeElements);
+	}
 ```
