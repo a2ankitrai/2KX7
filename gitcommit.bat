@@ -6,7 +6,7 @@ git add .
 echo:
 
 echo Commiting to local repository....
-git commit -m "updated files"
+git commit -m %1
 echo:
 
 echo Configuring git username and user email...
