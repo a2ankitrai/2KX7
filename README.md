@@ -4,7 +4,11 @@
 - Linked List 
 - Stacks
 - Queues 
-- [Tree (Traversals, BST, Red-Black)](./DS/Tree/tree_chap1.md)
+- Trees
+  - [Traversal - Inorder, Preorder, PostOrder](./DS/Tree/tree_chap1.md)  
+  - Binary search trees
+- Hash tables  
+- Heaps  
 - Trie		
 - Graphs(BFS-DFS)
 -  Skip Lists
@@ -12,11 +16,12 @@
 ## Algorithms
 - Analysis of Algorithms
 - Searching and Sorting
-- Greedy Algorithms
-- Dynamic Programming
 - Divide and Conquer
+- Dynamic Programming
+- Greedy Algorithms
 - Backtracking
 - Bit Algorithms
+- Approximation
 - [Geeks4Geeks Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 
 ## Other Computation topics
@@ -25,4 +30,7 @@
 
 ## Java
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
+
+## General
+- [Interview Prepation](./Arbit/interview_prep.md)
 
