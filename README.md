@@ -16,6 +16,7 @@
 - Dynamic Programming
 - Divide and Conquer
 - Backtracking
+- Bit Algorithms
 - [Geeks4Geeks Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 
 ## Other Computation topics
