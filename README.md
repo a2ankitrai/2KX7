@@ -10,9 +10,13 @@
 -  Skip Lists
 
 ## Algorithms
-- Searching
-- Sorting
-- Knapsack
+- Analysis of Algorithms
+- Searching and Sorting
+- Greedy Algorithms
+- Dynamic Programming
+- Divide and Conquer
+- Backtracking
+- [Geeks4Geeks Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 
 ## Other Computation topics
 - Big Endian & Little Endian
