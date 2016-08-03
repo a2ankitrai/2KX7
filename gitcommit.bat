@@ -1,16 +1,19 @@
 @ECHO OFF 
 
-git add .
 echo Staging newly added or modified files... 
+git add .
+echo
 
-git commit -m "updated files"
 echo Commiting to local repository....
+git commit -m "updated files"
+echo
 
-
+echo Configuring git username and user email...
 git config user.name "a2ankitrai"
 git config user.email a2.ankitrai@gmail.com
-echo Configuring git username and user email...
+echo
 
-git push origin master
 echo pushing to remote repository...
+git push origin master
+echo
 
