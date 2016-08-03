@@ -1,4 +1,5 @@
 @ECHO OFF 
+echo:
 
 echo Staging newly added or modified files... 
 git add .
