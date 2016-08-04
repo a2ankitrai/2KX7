@@ -1,4 +1,5 @@
 import java.util.Stack;
+import java.util.*;
 
 public class BinaryTree {
 
@@ -53,11 +54,8 @@ public class BinaryTree {
 
 		Stack<BTNode> s = new Stack<BTNode>();
 		s.push(root);
-
 		while (!s.empty()) {
 			BTNode temp = s.pop();
-
-			System.out.println(treeElements);
 			treeElements += temp.data + " --> ";
 			if (temp.right != null) {
 				s.push(temp.right);
@@ -66,7 +64,6 @@ public class BinaryTree {
 				s.push(temp.left);
 			}
 		}
-
 		System.out.println(treeElements);
 	}
 
@@ -123,9 +120,32 @@ public class BinaryTree {
 				}
 			}
 		}
-
 		System.out.println(treeElements);
+	}
 
+	public void levelOrderTraversalReverse() {
+		if (root == null) {
+			return;
+		}
+
+		Stack<BTNode> s = new Stack<BTNode>();
+		Queue<BTNode> q = new LinkedList<BTNode>();
+
+		q.offer(root);
+		while(!q.isEmpty()){
+			BTNode temp = q.poll();
+
+			if(temp.right != null){
+				q.offer(temp.right);
+			}
+			if(temp.left != null){
+				q.offer(temp.left);
+			}
+			s.push(temp);			
+		}
+		while(!s.empty()){
+			System.out.print("-> "+ s.pop().data);
+		}
 	}
 
 	public static void main(String[] args) {
@@ -153,11 +173,13 @@ public class BinaryTree {
 
 		BinaryTree bt = new BinaryTree(root);
 
-		bt.preOrderTraversal();
+		//		bt.preOrderTraversal();
 		//		bt.preOrderTraversalRecursive(root);
 		//		bt.inOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalIterative();
+
+		bt.levelOrderTraversalReverse();
 	}
 
 }
