@@ -21,8 +21,7 @@ Take what varies and `encapsulate` it so it won't affect the rest of your code. 
 
   The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.
 	
-  The subject and observers define the one-to-many relationship. The observers are dependent on the subject such that when the subject's state changes, the observers get notified. Depending on the style of notification, the observer may also be updated with new values.
-	
+  The subject and observers define the one-to-many relationship. The observers are dependent on the subject such that when the subject's state changes, the observers get notified. Depending on the style of notification, the observer may also be updated with new values.	
 	
   ###The power of Loose Coupling
   - Strive for loosely coupled designs between objects that interact. When two objects are loosely coupled, they can interact, but have very little knowledge of each other.  
