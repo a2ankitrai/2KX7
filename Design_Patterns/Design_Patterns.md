@@ -25,8 +25,7 @@ Take what varies and `encapsulate` it so it won't affect the rest of your code. 
 	
 	
   ###The power of Loose Coupling
-  - Strive for loosely coupled designs between objects that interact. When two objects are loosely coupled, they can interact, but have very little knowledge of each other.
-  
+  - Strive for loosely coupled designs between objects that interact. When two objects are loosely coupled, they can interact, but have very little knowledge of each other.  
   - The Observer Pattern provides an object design where subjects and observers are loosely coupled.
 ---	
 
