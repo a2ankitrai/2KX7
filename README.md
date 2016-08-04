@@ -24,12 +24,16 @@
 - Approximation
 - [Geeks4Geeks Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 
-## Other Computation topics
-- Big Endian & Little Endian
-- Bit shifting
 
 ## Java
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
+
+## Design Patterns
+- [Overview](./Design_Patterns/Design_Patterns.md)
+
+## Other Computation topics
+- Big Endian & Little Endian
+- Bit shifting
 
 ## General
 - [Interview Prepation](./Arbit/interview_prep.md)
