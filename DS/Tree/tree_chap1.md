@@ -1,7 +1,13 @@
  
 #Trees 
+Unlike Array and Linked List, which are linear data structures, tree is hierarchical (or non-linear) data structure.  
 
-Tree is a non-linear data structure.
+Saying that the structure of a tree is hierarchical means that things are ordered above or below other things. For example, the army is hierarchical, with generals above colonels, and colonels above lieutenants, etc.
+  
+- If we organize keys in form of a tree (with some ordering e.g., BST), we can search for a given key in moderate time (quicker than Linked List and slower than arrays). **Self-balancing search trees like AVL and Red-Black trees guarantee an upper bound of O(Logn) for search.**
+
+- We can insert/delete keys in moderate time (quicker than Arrays and slower than Unordered Linked Lists). **Self-balancing search trees like AVL and Red-Black trees guarantee an upper bound of O(Logn) for insertion/deletion.**
+
 
 ### Binary Tree
 In Binary Tree each node has zero child, one child or two children.
@@ -12,8 +18,25 @@ If each node has exactly two children or no children.
 ___Full Binary Tree___: 
 If each node has exactly two children and all leaf nodes are at same level.	
 
-***Complete Binary Tree***: 
-If all leaf nodes are at height `h` or `h-1` and also without any missing number of sequence.  
+***Complete Binary Tree***: A Binary Tree is complete Binary Tree if all levels are completely filled except possibly the last level and the last level has all keys as left as possible.
+If all leaf nodes are at height `h` or `h-1` and also without any missing number of sequence. 
+
+```
+               18
+           /       \  
+         15         30  
+        /  \        /  \
+      40    50    100   40
+	  
+               18
+           /       \  
+         15         30  
+        /  \        /  \
+      40    50    100   40
+     /  \   /
+    8   7  9 	  
+	  
+```
 	
 	
 ## Binary tree implementation

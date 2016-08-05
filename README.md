@@ -6,8 +6,11 @@
 - Queues 
 - Trees
   - [Traversal - Inorder, Preorder, PostOrder](./DS/Tree/tree_chap1.md)  
-  - Binary search trees
-- Hash tables  
+  - Balanced Binary Tree
+    - AVL tree 
+    - Red-Black tree	
+  - Binary search trees  
+- Hashing 
 - Heaps  
 - Trie		
 - Graphs(BFS-DFS)
