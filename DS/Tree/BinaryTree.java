@@ -132,20 +132,42 @@ public class BinaryTree {
 		Queue<BTNode> q = new LinkedList<BTNode>();
 
 		q.offer(root);
-		while(!q.isEmpty()){
+		while (!q.isEmpty()) {
 			BTNode temp = q.poll();
 
-			if(temp.right != null){
+			if (temp.right != null) {
 				q.offer(temp.right);
 			}
-			if(temp.left != null){
+			if (temp.left != null) {
 				q.offer(temp.left);
 			}
-			s.push(temp);			
+			s.push(temp);
 		}
-		while(!s.empty()){
-			System.out.print("-> "+ s.pop().data);
+		while (!s.empty()) {
+			System.out.print("-> " + s.pop().data);
 		}
+	}
+
+	public void trueLevelOrderTraversal() {
+		if (root == null)
+			return;
+
+		Queue<BTNode> q = new LinkedList<BTNode>();
+		q.offer(root);
+		int level = 1 ;
+		while (!q.isEmpty()) {
+			BTNode temp = q.poll();
+			System.out.println("Level " + level + ": " + temp.data);
+			if (temp.left != null) {
+				q.offer(temp.left);
+				level++;
+			}		
+			if (temp.right != null) {
+				q.offer(temp.right);																	
+			}	
+
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -178,8 +200,8 @@ public class BinaryTree {
 		//		bt.inOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalIterative();
-
-		bt.levelOrderTraversalReverse();
+		//		bt.levelOrderTraversalReverse();
+		bt.trueLevelOrderTraversal();
 	}
 
 }
