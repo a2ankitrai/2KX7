@@ -35,6 +35,8 @@
 ## Design Patterns
 - [Overview](./Design_Patterns/Design_Patterns.md)
 
+## Discrete Math
+
 ## Other Computation topics
 - Big Endian & Little Endian
 - Bit shifting

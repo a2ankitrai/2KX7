@@ -197,3 +197,67 @@ public void postOrderTraversalIterative() {
 
 **Level Order Traversal (also Line by Line)**
 
+- ***Simple***
+	
+	```java
+	public void myLevelOrderTraversal() {
+		Queue<BTNode> q = new LinkedList<BTNode>();
+		q.offer(root);
+		ArrayList<Integer> res = new ArrayList<Integer>();
+
+		while (!q.isEmpty()) {
+			BTNode temp = q.poll();
+			res.add(temp.data);
+			if (temp.left != null)
+				q.offer(temp.left);
+			if (temp.right != null)
+				q.offer(temp.right);
+		}
+
+		for (int data : res) {
+			System.out.print(data + " -> ");
+		}
+
+	}
+	```
+
+- ***Line By Line***
+
+  ```java
+  int height(BTNode root) {
+		if (root == null)
+			return 0;
+		else {
+			/* compute  height of each subtree */
+			int lheight = height(root.left);
+			int rheight = height(root.right);
+
+			/* use the larger one */
+			if (lheight > rheight)
+				return (lheight + 1);
+			else return (rheight + 1);
+		}
+	}
+
+	public void myLevelOrderLineByLine() {
+		int h = height(root);
+		int i;
+		for (i = 1; i <= h; i++) {
+			System.out.println("Level " + i + ": ");
+			printGivenLevel(root, i);
+			System.out.println("\n");
+		}
+	}
+
+	/* Print nodes at the given level */
+	void printGivenLevel (BTNode root , int level) {
+		if (root == null)
+			return;
+		if (level == 1)
+			System.out.print(root.data + " ");
+		else if (level > 1) {
+			printGivenLevel(root.left, level - 1);
+			printGivenLevel(root.right, level - 1);
+		}
+	}
+	```
