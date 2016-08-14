@@ -19,7 +19,7 @@
 ## Algorithms
 - [Overview](./Algo/analysisOfAlgorithms.md)
 - Analysis of Algorithms
-- Searching and Sorting
+- [Searching and Sorting](./Algo/Sorting.md)
 - Divide and Conquer
 - Dynamic Programming
 - Greedy Algorithms
