@@ -25,7 +25,7 @@ class MergeSortWOSentinel {
 			auxRight[j] = a[q + 1 + j];
 		}
 
-		int i = 0, j = 0;
+		/*int i = 0, j = 0;
 		int k = p;
 
 		while (i < n1 && j < n2) {
@@ -50,17 +50,25 @@ class MergeSortWOSentinel {
 			j++;
 			k++;
 		}
+		*/
 
-
-		/*for (int k = p, i = 0, j = 0; k <= r; k++) {
-			if (i < n1 && (j >= n2 || auxLeft[i] < auxRight[j])) {
+		for (int k = p, i = 0, j = 0; k <= r; k++) {
+			if (i < n1 && j < n2) {
+				if (auxLeft[i] <= auxRight[j]) {
+					a[k] = auxLeft[i];
+					i++;
+				} else {
+					a[k] = auxRight[j];
+					j++;
+				}
+			} else if (i < n1 && j >= n2) {
 				a[k] = auxLeft[i];
-				i = i + 1;
-			} else {
+				i++;
+			} else if (i >= n1 && j < n2) {
 				a[k] = auxRight[j];
-				j = j + 1;
+				j++;
 			}
-		}*/
+		}
 
 	}
 
@@ -70,7 +78,7 @@ class MergeSortWOSentinel {
 		int a[] = {5, 2, 29, 9, 15, 4, 3, 2};
 
 		a = ms.mergeSort(a, 0, a.length - 1);
-		for (int i=0; i<a.length;i++) {
+		for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i] + " -> ");
 		}
 	}
