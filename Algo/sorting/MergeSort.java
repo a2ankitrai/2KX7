@@ -21,7 +21,7 @@ class MergeSort {
 			left[i] = a[p + i ];
 
 		for (int j = 0; j < n2; j++)
-			right[j] = a[q + +1 + j];
+			right[j] = a[q + 1 + j];
 
 		left[n1] = 9999;
 		right[n2] = 9999;
@@ -42,8 +42,8 @@ class MergeSort {
 	public static void main(String[] args) {
 
 		MergeSort ms =  new MergeSort();
-		//int b[] = {54, 24, 76, 2, 5, 24, 1, 56, 99, 345, 312, 203};
-		int b[] = {5, 2, 1, 3, 7, 4};
+		int b[] = {54, 24, 76, 2, 5, 24, 1, 56, 99, 345, 312, 203};
+		//int b[] = {5, 2, 1, 3, 7, 4};
 		int[] sortedArr = ms.mergesorter(b, 0, b.length - 1);
 
 		for (int i : sortedArr) {
