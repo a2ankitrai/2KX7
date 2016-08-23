@@ -28,7 +28,7 @@ Take what varies and `encapsulate` it so it won't affect the rest of your code. 
   - The Observer Pattern provides an object design where subjects and observers are loosely coupled.
 ---	
 
-##Decorator Pattern
+## Decorator Pattern
 
   The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
 		
