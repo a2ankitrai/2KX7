@@ -96,7 +96,7 @@ class MaximumSubArray {
 		}
 
 		/****
-		*Brute Force approach O(n2)
+		*Brute Force approach O(n^2)
 		*/
 		SubArrayObject maxSubArrayBruteForce = null;
 		maxSubArrayBruteForce = msa.getMaxSubArrayBruteForce(a);
