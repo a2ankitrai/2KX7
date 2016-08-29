@@ -24,3 +24,20 @@ Recurrences go hand in hand with the divide-and-conquer paradigm, because they g
   
   
   [Maximum Sub Array](./DivideAndConquer/MaximumSubArray.java)
+
+---
+
+## Strassen's algorithm for matrix multiplication
+
+**??**  
+ 
+---
+
+## Solving recurrences
+
+1. **Substitution method** 
+2. **Recursion-tree method**
+3. **Master method**
+
+
+  

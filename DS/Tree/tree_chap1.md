@@ -1,5 +1,5 @@
  
-#Trees 
+# Trees 
 Unlike Array and Linked List, which are linear data structures, tree is hierarchical (or non-linear) data structure.  
 
 Saying that the structure of a tree is hierarchical means that things are ordered above or below other things. For example, the army is hierarchical, with generals above colonels, and colonels above lieutenants, etc.
