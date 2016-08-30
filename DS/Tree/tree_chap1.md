@@ -9,7 +9,7 @@ Saying that the structure of a tree is hierarchical means that things are ordere
 - We can insert/delete keys in moderate time (quicker than Arrays and slower than Unordered Linked Lists). **Self-balancing search trees like AVL and Red-Black trees guarantee an upper bound of O(Logn) for insertion/deletion.**
 
 
-### Binary Tree
+## Binary Tree
 In Binary Tree each node has zero child, one child or two children.
 
 ***Strict Binary Tree***:
