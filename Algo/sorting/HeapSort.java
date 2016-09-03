@@ -38,6 +38,18 @@ class HeapSort {
 		}
 	}
 
+	public int heapExtractMax(int[] a) {
+		if (heapsize <= 0) {
+			System.out.println("heap underflow");
+			return -1;
+		}
+		int max = -1;
+		max = a[0];
+		a[0] = a[heapsize - 1];
+		maxHeapify(a, 0);
+		return max;
+	}
+
 	public void sort(int[] a) {
 		buildMaxHeap(a);
 		for (int i = a.length - 1; i >= 1 ; i--) {
@@ -56,6 +68,5 @@ class HeapSort {
 		for (int i : b) {
 			System.out.print(i + " -> ");
 		}
-
 	}
 }
