@@ -1,6 +1,32 @@
-#Java Q & A - I
+# Java Q & A - I
 
-##Autoboxing Q + A
+## Variable Declaration
+
+**Q.** Declaring variables inside or outside of a loop? What is the difference between below snippets of code?
+
+**1.**
+```java
+ String str;
+    while(condition){
+        str = calculateStr();
+        .....
+    }
+```
+
+**2.**
+```java
+while(condition){
+        String str = calculateStr();
+        .....
+    }
+```
+
+**A.** **The scope of local variables should always be the smallest possible.**
+So, since `str` is not used outside the loop, the smallest possible scope for `str` is within the while loop.
+
+So, the answer is *emphatically* that `str` absolutely ought to be declared within the while loop. No ifs, no ands, no buts.	
+
+## Autoboxing Q + A
 
 **Q.** Why does the first group of statements print true, but the second false?  	
 ```java
@@ -20,7 +46,7 @@
 
 **A.**  The second prints `false` because `b1` and `b2` are references to different Integer objects. The first and third code fragments rely on autoboxing. Surprisingly the first prints true because values between -128 and 127 appear to refer to the same immutable Integer objects (Java's implementation of `valueOf()` retrieves a cached values if the integer is between -128 and 127), while Java constructs new objects for each integer outside this range.	
 
-##Algorithm Analysis
+## Algorithm Analysis
 
 **Q.** How do I increase the amount of memory and stack space that Java allocates?  
 
