@@ -30,6 +30,7 @@
 
 
 ## Java
+- [Tricky Questions](./Java/java_qna_1.md)
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
 ## Design Patterns

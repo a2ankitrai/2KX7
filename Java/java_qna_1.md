@@ -1,6 +1,6 @@
-#Java Q & A - I
+# Java Q & A - I
 
-##Autoboxing Q + A
+## Autoboxing Q + A
 
 **Q.** Why does the first group of statements print true, but the second false?  	
 ```java
@@ -20,7 +20,7 @@
 
 **A.**  The second prints `false` because `b1` and `b2` are references to different Integer objects. The first and third code fragments rely on autoboxing. Surprisingly the first prints true because values between -128 and 127 appear to refer to the same immutable Integer objects (Java's implementation of `valueOf()` retrieves a cached values if the integer is between -128 and 127), while Java constructs new objects for each integer outside this range.	
 
-##Algorithm Analysis
+## Algorithm Analysis
 
 **Q.** How do I increase the amount of memory and stack space that Java allocates?  
 
