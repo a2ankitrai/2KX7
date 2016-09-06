@@ -1,5 +1,31 @@
 # Java Q & A - I
 
+## Variable Declaration
+
+**Q.** Declaring variables inside or outside of a loop? What is the difference between below snippets of code?
+
+**1.**
+```java
+ String str;
+    while(condition){
+        str = calculateStr();
+        .....
+    }
+```
+
+**2.**
+```java
+while(condition){
+        String str = calculateStr();
+        .....
+    }
+```
+
+**A.** **The scope of local variables should always be the smallest possible.**
+So, since `str` is not used outside the loop, the smallest possible scope for `str` is within the while loop.
+
+So, the answer is *emphatically* that `str` absolutely ought to be declared within the while loop. No ifs, no ands, no buts.	
+
 ## Autoboxing Q + A
 
 **Q.** Why does the first group of statements print true, but the second false?  	

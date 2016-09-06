@@ -22,3 +22,15 @@ array A. That is, although A[1...A:length] may contain numbers, only the element
  - With the array representation for storing an n-element heap, the leaves are the nodes indexed by [n/2]+1, [n/2]+2 ,...,n.
 	
 [heapsort java code](./sorting/HeapSort.java)	
+
+---
+
+## QuickSort
+
+QuickSort works by partitioning the input array into 3 arrays. We choose the last element of the array as the pivot element and then we scan from the 0th element to the last but one element. While scanning if the element is smaller than the pivot it is being kept in the first array and if the element is larger than the pivot it is being kept in the second array. Finally the pivot element is replaced with the first element of the second array (i.e. array of the elements larger than the pivot element). The pivot is now at its correct position in the finally sorted array. 
+
+We repeat this procedure both to left and right arrays of the pivot.
+
+The Worst case running time is n^2 and the average case is O(n * log n).
+
+	[java code](./sorting/QuickSort.java)
