@@ -51,3 +51,9 @@ to an immutable object, by making the field public you give up the flexibility t
 switch to a new internal data representation in which the field does not exist.
 
 ---
+
+## Minimize mutability
+
+An immutable class is simply a class whose instances cannot be modified.To make a class immutable, follow these five rules:
+
+1. **Don’t provide any methods that modify the object’s state** (known as mutators).
