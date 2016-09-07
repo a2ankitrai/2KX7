@@ -57,3 +57,34 @@ switch to a new internal data representation in which the field does not exist.
 An immutable class is simply a class whose instances cannot be modified.To make a class immutable, follow these five rules:
 
 1. **Don’t provide any methods that modify the object’s state** (known as mutators).
+
+2. **Ensure that the class can’t be extended.** Preventing subclassing is generally accomplished
+by making the class final, but there is an alternative. The alternative to making an immutable class final is to make all of
+its constructors private or package-private, and to add public static factories in
+place of the public constructors.
+
+3. **Make all fields final.**
+
+4. **Make all fields private.** This prevents clients from obtaining access to mutable
+objects referred to by fields and modifying these objects directly. While it
+is technically permissible for immutable classes to have public final fields containing
+primitive values or references to immutable objects, it is not recommended
+because it precludes changing the internal representation in a later
+release.
+
+5. **Ensure exclusive access to any mutable components.** If your class has any
+fields that refer to mutable objects, ensure that clients of the class cannot obtain
+references to these objects. Never initialize such a field to a client-provided object
+reference or return the object reference from an accessor. Make defensive
+copies (Item 39) in constructors, accessors, and readObject methods.
+
+---
+
+## Favor composition over inheritance
+
+Instead of extending an existing class, give your new class a private field that references
+an instance of the existing class. This design is called ***composition*** because the
+existing class becomes a component of the new one. Each instance method in the
+new class invokes the corresponding method on the contained instance of the
+existing class and returns the results. This is known as ***forwarding***, and the methods
+in the new class are known as ***forwarding methods***.
