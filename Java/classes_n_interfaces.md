@@ -76,7 +76,21 @@ release.
 fields that refer to mutable objects, ensure that clients of the class cannot obtain
 references to these objects. Never initialize such a field to a client-provided object
 reference or return the object reference from an accessor. Make defensive
-copies (Item 39) in constructors, accessors, and readObject methods.
+copies in constructors, accessors, and readObject methods.
+
+Advantages of Immutability:-
+
+**Immutable objects are simple.** An immutable object can be in exactly one state, the state in which it was created.
+
+**Immutable objects are inherently thread-safe; they require no synchronization.**
+They cannot be corrupted by multiple threads accessing them concurrently.Therefore, **immutable objects can be shared freely.**
+
+An immutable class can provide static factories  that cache frequently requested instances to avoid creating
+new instances when existing ones would do. All the boxed primitive classes and
+BigInteger do this. Using such static factories causes clients to share instances
+instead of creating new ones, reducing memory footprint and garbage collection
+costs. 
+
 
 ---
 
@@ -88,3 +102,46 @@ existing class becomes a component of the new one. Each instance method in the
 new class invokes the corresponding method on the contained instance of the
 existing class and returns the results. This is known as ***forwarding***, and the methods
 in the new class are known as ***forwarding methods***.
+
+---
+
+## Prefer interfaces to abstract classes
+
+**interfaces and abstract classes.** The most obvious difference between the two mechanisms is that abstract classes are permitted
+to contain implementations for some methods while interfaces are not.
+
+**Existing classes can be easily retrofitted to implement a new interface.** All
+you have to do is add the required methods if they don’t yet exist and add an
+implements clause to the class declaration. For example, many existing classes
+were retrofitted to implement the Comparable interface when it was introduced
+into the platform. Existing classes cannot, in general, be retrofitted to extend a
+new abstract class.
+
+**Interfaces are ideal for defining mixins.** Loosely speaking, a mixin is a type
+that a class can implement in addition to its “primary type” to declare that it provides
+some optional behavior. For example, Comparable is a mixin interface that
+allows a class to declare that its instances are ordered with respect to other mutually
+comparable objects. Abstract classes can’t be used to define mixins for the same reason that they can’t
+be retrofitted onto existing classes: a class cannot have more than one parent, and
+there is no reasonable place in the class hierarchy to insert a mixin.
+
+**Interfaces allow the construction of nonhierarchical type frameworks.**
+Type hierarchies are great for organizing some things, but other things don’t fall
+neatly into a rigid hierarchy.
+
+Exceptions:
+
+Using abstract classes to define types that permit multiple implementations
+has one great advantage over using interfaces: **It is far easier to evolve an
+abstract class than an interface.** If, in a subsequent release, you want to add a
+new method to an abstract class, you can always add a concrete method containing
+a reasonable default implementation. All existing implementations of the abstract
+class will then provide the new method. This does not work for interfaces.
+
+**Once an interface is released and widely implemented, it is almost impossible to change.**
+
+To summarize, an interface is generally the best way to define a type that
+permits multiple implementations. An exception to this rule is the case where ease
+of evolution is deemed more important than flexibility and power. Under these
+circumstances, you should use an abstract class to define the type, but only if you
+understand and can accept the limitations.
