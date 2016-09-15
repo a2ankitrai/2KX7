@@ -2,8 +2,7 @@
 
 ## DS                               
 - Linked List 
-- Stacks
-- Queues 
+- [Stacks and Queues](./DS/stack_n_queue.md) 
 - Trees
   - [Traversal - Inorder, Preorder, PostOrder](./DS/Tree/tree_chap1.md)  
   - Balanced Binary Tree
@@ -39,9 +38,15 @@
 
 ## Discrete Math
 
+## JavaScript
+- [My Learnings](https://github.com/a2ankitrai/JS_Learning)
+- [JS - interview](https://github.com/adam-s/js-interview-review)
+
 ## Other Computation topics
 - Big Endian & Little Endian
 - Bit shifting
+- [What happens when](https://github.com/alex/what-happens-when)
+- [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 
 ## General
 - [Interview Prepation](./Arbit/interview_prep.md)
