@@ -1,7 +1,5 @@
 class QueueAsArray {
 
-	// underflow and overflow check remaining ..
-
 	private int[] q;
 	private int size = 5;
 	int qHead, qTail;
@@ -14,7 +12,7 @@ class QueueAsArray {
 
 	public boolean isOverFlow() {
 		int qDiff = qHead - qTail;
-		if (qDiff == 1 || qDiff == q.length)
+		if (qDiff == 1 || Math.abs(qDiff) == q.length - 1)
 			return true;
 		else return false;
 	}
@@ -43,7 +41,7 @@ class QueueAsArray {
 		if (isUnderFlow()) {
 			System.out.println("Queue underflow");
 			return -1;
-		}		
+		}
 
 		int x = q[qHead];
 		if (qHead == (q.length - 1)) {
@@ -51,7 +49,7 @@ class QueueAsArray {
 		} else {
 			qHead++;
 		}
-		System.out.println(x +" removed from Queue");
+		System.out.println(x + " removed from Queue");
 		return x;
 	}
 
@@ -78,21 +76,17 @@ class QueueAsArray {
 		q.enqueue(42);
 
 		q.showQueueElements();
-
+		q.enqueue(42);
 		q.dequeue();
 
 		q.showQueueElements();
 
 		q.dequeue();
-		q.dequeue();
-
+		q.enqueue(67);
+		q.enqueue(42);
+		 
 		q.showQueueElements();
-
-		q.enqueue(53);
-		q.enqueue(77);
-
-		q.showQueueElements();
-
+	  
 	}
 
 }
