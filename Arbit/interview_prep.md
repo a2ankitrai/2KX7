@@ -1,6 +1,6 @@
 #Interview Preparation
 ---
->Before everything else,getting ready is the secret of success. 
+>Before everything else, getting ready is the secret of success. 
 	-H. FORD
 	
 ##The interview lifecycle
