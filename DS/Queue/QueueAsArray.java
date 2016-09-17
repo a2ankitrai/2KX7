@@ -6,7 +6,7 @@ class QueueAsArray {
 
 	public QueueAsArray() {
 		q = new int[size];
-		qHead = 0;
+		qHead = -1;
 		qTail = 0;
 	}
 
@@ -29,11 +29,14 @@ class QueueAsArray {
 			return;
 		}
 		System.out.println(x + " added to Queue");
-		q[qTail] = x;
-		if (qTail == (q.length - 1)) {
+		if(qTail == qHead){
+			q[qTail] =x;
+		}
+		else{
+			q[++qTail] = x;	
+		}
+		if (qTail == (q.length)) {
 			qTail = 0;
-		} else {
-			qTail++;
 		}
 	}
 
