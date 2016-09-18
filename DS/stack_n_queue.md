@@ -11,10 +11,16 @@ or FIFO, policy.
 
 ## Questions and Answers
 
-> Show how to implement a queue using two stacks. Analyze the running time of the queue operations.
+### Show how to implement a queue using two stacks. Analyze the running time of the queue operations.
 
 Let the two stacks be `A` and `B`.
 
 `ENQUEUE` pushes elements on `B`. `DEQUEUE` pops elements from `A`. If `A` is empty, the contents of `B` are transfered to `A` by popping them out of `B` and pushing them to `A`. That way they appear in reverse order and are popped in the original.
 
 A `DEQUEUE` operation can perform in Θ(n) time, but that will happen only when `A` is empty. If many `ENQUEUE`s and `DEQUEUE`s are performed, the total time will be linear to the number of elements, not to the largest length of the queue.
+
+### Show how to implement a stack using two queues. Analyze the running time of the stack operations.
+
+We have two queues and mark one of them as active. `PUSH` queues an element on the active queue. `POP` should dequeue all but one element of the active queue and queue them on the inactive. The roles of the queues are then reversed, and the final element left in the (now) inactive queue is returned.
+
+The `PUSH` operation is Θ(1), but the `POP` operation is Θ(n) where n is the number of elements in the stack.

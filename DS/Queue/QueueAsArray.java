@@ -6,7 +6,7 @@ class QueueAsArray {
 
 	public QueueAsArray() {
 		q = new int[size];
-		qHead = -1;
+		qHead = 0;
 		qTail = 0;
 	}
 
@@ -29,14 +29,13 @@ class QueueAsArray {
 			return;
 		}
 		System.out.println(x + " added to Queue");
-		if(qTail == qHead){
-			q[qTail] =x;
-		}
-		else{
-			q[++qTail] = x;	
-		}
-		if (qTail == (q.length)) {
+
+		q[qTail] = x;
+
+		if (qTail == (q.length - 1)) {
 			qTail = 0;
+		} else {
+			qTail++;
 		}
 	}
 
@@ -85,11 +84,11 @@ class QueueAsArray {
 		q.showQueueElements();
 
 		q.dequeue();
-		q.enqueue(67);
-		q.enqueue(42);
-		 
+		q.enqueue(56);
+		q.enqueue(43);
+		q.enqueue(45);
 		q.showQueueElements();
-	  
+
 	}
 
 }
