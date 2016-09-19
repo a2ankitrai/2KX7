@@ -29,7 +29,11 @@
 
 
 ## Java
+- OOPS
 - [Classes & Interfaces](./Java/classes_n_interfaces.md)
+- Garbage Collection
+- Collections framework
+- Threads and Concurrency
 - [Basic Questions and Answers](./Java/java_qna_1.md)
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
