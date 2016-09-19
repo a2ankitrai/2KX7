@@ -23,15 +23,17 @@ Take what varies and `encapsulate` it so it won't affect the rest of your code. 
 	
   The subject and observers define the one-to-many relationship. The observers are dependent on the subject such that when the subject's state changes, the observers get notified. Depending on the style of notification, the observer may also be updated with new values.	
 	
-  ### The power of Loose Coupling
+### The power of Loose Coupling
   - Strive for loosely coupled designs between objects that interact. When two objects are loosely coupled, they can interact, but have very little knowledge of each other.  
+  
   - The Observer Pattern provides an object design where subjects and observers are loosely coupled.
+  
 ---	
 
 ## Decorator Pattern
 
   The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
 		
-  ### The Open-Closed Principle
+### The Open-Closed Principle
   Classes should be open for extension, but closed for modification.
 	
