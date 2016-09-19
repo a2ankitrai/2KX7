@@ -138,16 +138,25 @@ class LinkedList {
 		}
 	}
 
+	public Node search(int key) {
+		Node temp = head;
+
+		while (temp != null && temp.data != key) {
+			temp = temp.next;
+		}
+		return temp;
+	}
+
 	public void reverseLL() {
 		Node currentNode = head, prevLink = null, temp = null;
-		
+
 		while (currentNode != null) {
 			temp = currentNode.next;
 			currentNode.next = prevLink;
 			prevLink = currentNode;
 			currentNode = temp;
 		}
-		
+
 	}
 
 	public static void main(String[] args) {
@@ -170,9 +179,12 @@ class LinkedList {
 		ll.deleteNodeByIndex(3);
 
 		ll.printList();
-		ll.reverseLL();
-		System.out.println("\nAfter Reversing: ");
-		ll.printList();
+		//	ll.reverseLL();
+		//	System.out.println("\nAfter Reversing: ");
+		//	ll.printList();
 		//System.out.println("\nLinkedList size: " + ll.getCountRecursively());
+		System.out.println();
+		System.out.println(ll.search(39) == null ? null : ll.search(39).data);
+		System.out.println(ll.search(22) == null ? null : ll.search(22).data);
 	}
 }
