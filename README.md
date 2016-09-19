@@ -43,7 +43,7 @@
 - [JS - interview](https://github.com/adam-s/js-interview-review)
 
 ## Other Computation topics
-- Big Endian & Little Endian
+- [Big Endian & Little Endian](./Arbit/big_n_little_endian.md)
 - Bit shifting
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
