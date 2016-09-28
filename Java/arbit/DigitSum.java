@@ -1,3 +1,7 @@
+
+/** Calculate the Sum of the digit given. If negative return the positive sum
+*/
+
 class DigitSum {
 
 	public static int digit_sum(long number){

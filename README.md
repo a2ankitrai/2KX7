@@ -9,7 +9,7 @@
     - AVL tree 
     - Red-Black tree	
   - Binary search trees  
-- Hashing 
+- [Hash Table](./DS/hash_table.md)  
 - Heaps  
 - Trie		
 - Graphs(BFS-DFS)
