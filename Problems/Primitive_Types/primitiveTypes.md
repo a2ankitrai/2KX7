@@ -17,7 +17,7 @@ The primitive types in Java are boolean, char, byte, short, int, long, float, an
 
 # Bitwise operators
 
-The signed left shift operator `<<` shifts a bit pattern to the left, and the signed right shift operator ">>" shifts a bit pattern to the right. The bit pattern is given by the left-hand operand, and the number of positions to shift by the right-hand operand. The unsigned right shift operator ">>>" shifts a zero into the leftmost position, while the leftmost position after `>>` depends on sign extension.
+The signed left shift operator `<<` shifts a bit pattern to the left, and the signed right shift operator `>>` shifts a bit pattern to the right. The bit pattern is given by the left-hand operand, and the number of positions to shift by the right-hand operand. The unsigned right shift operator `>>>` shifts a zero into the leftmost position, while the leftmost position after `>>` depends on sign extension.
 
 On applying bit shift operators to integers left shift operator `<<` **doubles** the left-hand operand by the amount of the right-hand operand. Conversely the right shift operator `>>` halves the left-hand operand by the amount of right hand operand
 
@@ -25,9 +25,9 @@ for e.g.
 16 << 2  = 64
 4 >> 1   = 2
 
-**1) >> (Signed right shift)** In Java, the operator ‘>>’ is signed right shift operator. All integers are signed in Java, and it is fine to use >> for negative numbers. The operator ‘>>’ uses the sign bit (left most bit) to fill the trailing positions after shift. If the number is negative, then 1 is used as a filler and if the number is positive, then 0 is used as a filler. For example, if binary representation of number is 10….100, then right shifting it by 2 using >> will make it 11…….1.
+**1) `>>` (Signed right shift)** In Java, the operator `>>` is signed right shift operator. All integers are signed in Java, and it is fine to use >> for negative numbers. The operator `>>` uses the sign bit (left most bit) to fill the trailing positions after shift. If the number is negative, then 1 is used as a filler and if the number is positive, then 0 is used as a filler. For example, if binary representation of number is 10….100, then right shifting it by 2 using `>>` will make it 11…….1.
 
-**2) >>> (Unsigned right shift)** In Java, the operator ‘>>>’ is unsigned right shift operator. It always fills 0 irrespective of the sign of the number.
+**2) `>>>` (Unsigned right shift)** In Java, the operator `>>>` is unsigned right shift operator. It always fills 0 irrespective of the sign of the number.
 
 In binary search to calculate the mid value don't use the following code
 ```
