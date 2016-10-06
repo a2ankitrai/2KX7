@@ -1,7 +1,7 @@
 # 2KX7
 
 ## DS                               
-- Linked List 
+- [Linked List](./DS/linked_list.md) 
 - [Stacks and Queues](./DS/stack_n_queue.md) 
 - Trees
   - [Traversal - Inorder, Preorder, PostOrder](./DS/Tree/tree_chap1.md)  
