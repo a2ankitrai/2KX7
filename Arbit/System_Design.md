@@ -18,3 +18,9 @@ The idea of these questions is to have a discussion about the problem at hand. W
 ## Scaling
 
 Vertical scaling :  increasing processors (cores, caches), DISK, RAM
+
+Horizontal scaling:  using mutliple servers from the start only
+
+
+## Scalability
+
