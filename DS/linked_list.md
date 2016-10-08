@@ -6,6 +6,8 @@ A linked list is a data structure in which the objects are arranged in a linear 
 
 [Doubly Linked List](./LL/DoublyLinkedList.java)
 
+- Insertion and Deletion speed comparision in Singly Linked List Vs Doubly Linked List ?
+
 ---
 
 ## Problems on Linked List
