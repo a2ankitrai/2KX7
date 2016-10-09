@@ -8,7 +8,7 @@
   - Balanced Binary Tree
     - AVL tree 
     - Red-Black tree	
-  - Binary search trees  
+  - [Binary search trees](./DS/Tree/binary_search_tree.md)  
 - [Hash Table](./DS/hash_table.md)  
 - Heaps  
 - Trie		

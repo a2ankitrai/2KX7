@@ -17,3 +17,7 @@ A linked list is a data structure in which the objects are arranged in a linear 
 	
 - Checking for cyclicity in a Linked List.
 	[solution](../Problems/LinkedList/CheckingCycle.java)
+
+- Check for median of a circular linked list.	
+	
+- Check for starting node of overlapping lists	
