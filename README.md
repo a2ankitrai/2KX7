@@ -31,7 +31,7 @@
 ## Java
 - OOPS
 - [Classes & Interfaces](./Java/classes_n_interfaces.md)
-- Garbage Collection
+- [Garbage Collection](./Java/garbage_collection.md)
 - Collections framework
 - [Threads and Concurrency](./Java/Thread_n_Concurrency.md)
 - [Basic Questions and Answers](./Java/java_qna_1.md)
