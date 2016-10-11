@@ -33,7 +33,14 @@ Take what varies and `encapsulate` it so it won't affect the rest of your code. 
 ## Decorator Pattern
 
   The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+  
+  ??? content missing ???
 		
 ### The Open-Closed Principle
   Classes should be open for extension, but closed for modification.
+	
+---
+
+## Factory Pattern
+
 	

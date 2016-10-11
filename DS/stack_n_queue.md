@@ -1,4 +1,3 @@
-
 # Stacks and Queues
 
 Stacks and queues are dynamic sets in which the element removed from the set
@@ -8,6 +7,7 @@ or LIFO, policy. Similarly, in a queue, the element deleted is always the one th
 has been in the set for the longest time: the queue implements a first-in, first-out,
 or FIFO, policy.
 
+---
 
 ## Questions and Answers
 
@@ -24,3 +24,10 @@ A `DEQUEUE` operation can perform in Θ(n) time, but that will happen only when 
 We have two queues and mark one of them as active. `PUSH` queues an element on the active queue. `POP` should dequeue all but one element of the active queue and queue them on the inactive. The roles of the queues are then reversed, and the final element left in the (now) inactive queue is returned.
 
 The `PUSH` operation is Θ(1), but the `POP` operation is Θ(n) where n is the number of elements in the stack.
+
+---
+
+## Problems
+
+- stack with max operation. Design a stack that supports a max operation.All operations must be 0(1) time. You can use 0(n) additional space, beyond what is required for the elements themselves.
+
