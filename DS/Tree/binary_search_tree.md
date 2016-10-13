@@ -55,6 +55,11 @@ public void treeInsert(int data) {
 	}
 ```
 
+### Binary Search Tree Delete
+
+
+
+
 ---
 
 ## Problems
