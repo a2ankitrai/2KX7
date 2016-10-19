@@ -12,7 +12,7 @@
 - [Hash Table](./DS/hash_table.md)  
 - Heaps  
 - Trie		
-- Graphs(BFS-DFS)
+- Graphs(./DS/graph.md) 
 -  Skip Lists
 
 ## Algorithms
