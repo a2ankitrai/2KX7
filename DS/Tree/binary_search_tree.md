@@ -64,12 +64,11 @@ The overall strategy for deleting a node from a binary search tree `T` has three
 - If `Z` has just one child, then we elevate that child to take `Z’s` position in the tree
 by modifying `Z’s` parent to replace `Z` by `Z’s` child.
 
-- If Z has two children, then we find Z’s successor y—which must be in Z’s right subtree—and have y take Z’s position in the tree. The rest of Z’s original right
-subtree becomes y’s new right subtree, and Z’s left subtree becomes y’s new left subtree.
+- If `Z` has two children, then we find `Z’s` successor `y`—which must be in `Z’s` right subtree—and have `y` take `Z’s` position in the tree. The rest of `Z’s` original right subtree becomes `y’s` new right subtree, and `Z’s` left subtree becomes `y’s` new left subtree.
 
 In order to move subtrees around within the binary search tree, we define a
-subroutine TRANSPLANT, which replaces one subtree as a child of its parent with
-another subtree. When TRANSPLANT replaces the subtree rooted at node u with
+subroutine **TRANSPLANT**, which replaces one subtree as a child of its parent with
+another subtree. When **TRANSPLANT** replaces the subtree rooted at node `u` with
 the subtree rooted at node `v`, node `u’s` parent becomes node `v’s` parent, and `u’s`
 parent ends up having v as its appropriate child.
 
@@ -89,7 +88,7 @@ public void transplant(Node u, Node v) {
 ```
 
 With the TRANSPLANT procedure in hand, here is the procedure that deletes
-node ´ from binary search tree T :
+node `Z` from binary search tree T :
 
 ```java
 public void delete(Node z) {
