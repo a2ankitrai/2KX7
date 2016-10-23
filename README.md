@@ -20,7 +20,7 @@
 - Analysis of Algorithms
 - [Searching and Sorting](./Algo/Sorting.md)
 - [Divide and Conquer](./Algo/Divide_and_Conquer.md)
-- Dynamic Programming
+- [Dynamic Programming](./Algo/dynamic_programming.md)
 - Greedy Algorithms
 - Backtracking
 - Bit Algorithms
