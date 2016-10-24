@@ -38,6 +38,10 @@ If all leaf nodes are at height `h` or `h-1` and also without any missing number
 	  
 ```
 	
+The depth of a node n is the number of nodes on the search path from the root to n,
+not including n itself. The height of a binary tree is the maximum depth of any node
+in that tree.	
+	
 	
 ## Binary tree implementation
 ```java
@@ -64,7 +68,7 @@ public class BinaryTree {
 ```	
 
 ## Binary tree traversals
-**Preorder**: Each node is preocessed before (pre) either of its sub-trees.  
+**Preorder**: Each node is processed before (pre) either of its sub-trees.  
 _Recursive approach_
 ```java
 public void preOrderTraversalRecursive(BTNode root) {
