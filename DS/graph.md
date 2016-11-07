@@ -1,33 +1,33 @@
+# Graph
 
-if you are required to find a path of any sort, it is usually a graph problem.
+## Representations of graphs
 
-what components a graph consists of. In fact there are only two, nodes and edges. A node (or vertex) is a discrete position in the graph. An edge (or connection) is a link between two vertices that can be either directed or undirected and may have a cost associated with it. An undirected edge means that there is no restriction on the direction you can travel along the edge.
+Two standard ways to represent a graph G = (V,E): as a collection of adjacency lists or as an adjacency matrix.
 
-An easy way to think about edges and vertices is that edges are a function of two vertices that returns a cost.
+Because the adjacency-list representation
+provides a compact way to represent **sparse** graphs—those for which `|E|` is much
+less than `|V|^2` - it is usually the method of choice. We may prefer an adjacency-matrix representation, however, when the
+graph is **dense** - `|E|` is close to `|V|^2` -or when we need to be able to tell quickly
+if there is an edge connecting two given vertices.
 
-the mathematical description of graphs, a graph G = {V, E} is defined as a set of vertices, V, and a collection of edges (which is not necessarily a set), E. An edge can then be defined as (u, v) where u and v are elements of V.
+The **adjacency-list representation** of a graph `G = (V,E)` consists of an array
+Adj of `|V|` lists, one for each vertex in `V` . For each `u ϵ V` , the adjacency list
+`Adj[u]` contains all the vertices `v` such that there is an edge `(u,v) ϵ E`. That is,
+`Adj[u]` consists of all the vertices adjacent to `u` in `G`. (Alternatively, it may contain
+pointers to these vertices.)
 
-Order – The number of vertices in a graph
-Size – The number of edges in a graph
+If `G` is a directed graph, the sum of the lengths of all the adjacency lists is `|E|`,
+since an edge of the form `(u,v)` is represented by having `v` appear in `Adj[u]`. If `G` is
+an undirected graph, the sum of the lengths of all the adjacency lists is `2|E|`, since
+if `(u,v)` is an undirected edge, then `u` appears in `v`’s adjacency list and vice versa.
+For both directed and undirected graphs, the adjacency-list representation has the
+desirable property that the amount of memory it requires is **`Θ(V+E)`**.
 
-An example of one of the simplest types of graphs is a singly linked list! 
+A potential disadvantage of the adjacency-list representation is that it provides
+no quicker way to determine whether a given edge `(u,v)` is present in the graph
+than to search for `v` in the adjacency list `Adj[u]`. An adjacency-matrix representation
+of the graph remedies this disadvantage, but at the cost of using asymptotically
+more memory.
 
-***Cost Function:***
-
-```
-cost(X, Y) := if (X.link = Y) return 1;
-           else if (X = Y) return 0;
-           else "Not possible"
-```
-This cost function represents the fact that we can only move directly to the link node from our current node. 
-
-A more formal definition of a tree is that it is a connected acyclic graph. This simply means that there are no cycles in the graph and every node is connected to at least one other node in the graph.
-
-## Basic methods for searching graphs
-
-There are two methods for searching graphs that are extremely prevalent, the Depth First Search and the Breadth First Search.
-
-The depth first search is well geared towards problems where we want to find any solution to the problem (not necessarily the shortest path), or to visit all of the nodes in the graph.
-
-A classic application of the depth first search; the flood-fill. The flood-fill operation will be familiar to anyone who has used a graphic painting application. The concept is to fill a bounded region with a single color, without leaking outside the boundaries.
+## Breadth-first search
 
