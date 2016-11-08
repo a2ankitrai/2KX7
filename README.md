@@ -35,13 +35,16 @@
 - Collections framework
 - [Threads and Concurrency](./Java/Thread_n_Concurrency.md)
 - [Basic Questions and Answers](./Java/java_qna_1.md)
+- [Inside JVM](./Java/Inside_JVM.md)
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
+
 
 ## Design Patterns
 - [Overview](./Design_Patterns/Design_Patterns.md)
 - [System Design](./Arbit/System_Design.md)
 
-## Discrete Math
+## [Mathematics]((./Arbit/Mathematics.md))
+
 
 ## JavaScript
 - [My Learnings](https://github.com/a2ankitrai/JS_Learning)
