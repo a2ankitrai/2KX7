@@ -10,7 +10,7 @@ public class Vertex {
 	Vertex parent;
 	String name;
 	int discoveryTime;
-	int FinishedTime;
+	int finishedTime;
 
 	public Vertex(String name) {
 		this.name = name;

@@ -1,8 +1,14 @@
 # Mathematics
 
+---
+
 ## Representing numbers in different bases
 
+---
+
 ## Integer number factorization
+
+---
 
 ## Prime numbers
 
@@ -38,6 +44,26 @@ public boolean isPrime (int n)
 --- 
 ### The Sieve of Eratosthenes
 
+The Sieve of Eratosthenes will generate all the primes from 2 to a given number n. It begins by assuming that all numbers are prime. It then takes the first prime number and removes all of its multiples. It then applies the same method to the next prime number. This is continued until all numbers have been processed. Below is the code for the sieve:
+
+```
+public boolean[] sieve(int n)
+{
+   boolean[] prime=new boolean[n+1];
+   Arrays.fill(prime,true);
+   prime[0]=false;
+   prime[1]=false;
+   int m=Math.sqrt(n);
+
+   for (int i=2; i<=m; i++)
+      if (prime[i])
+         for (int k=i*i; k<=n; k+=i)
+            prime[k]=false;
+
+   return prime;
+}
+```
+
 
 
 - How to efficiently find all prime divisors of an integer.
@@ -45,7 +71,28 @@ public boolean isPrime (int n)
 
 ## Greatest common divisor (GCD)
 
-The GCD of two integers gives you the greatest integer that divides both integers.
+The greatest common divisor (GCD) of two numbers a and b is the greatest number that divides evenly into both a and b. Naively we could start from the smallest of the two numbers and work our way downwards until we find a number that divides into both of them:
 
-**efficient algorithm for computing GCD**
+```
+for (int i=Math.min(a,b); i>=1; i--)
+   if (a%i==0 && b%i==0)
+      return i;
+```
+
+Although this method is fast enough for most applications, there is a faster method called Euclid’s algorithm. Euclid’s algorithm iterates over the two numbers until a remainder of 0 is found.
+
+This algorithm can be easily coded as a recursive function:
+
+```
+//assume that a and b cannot both be 0
+public int GCD(int a, int b)
+{
+   if (b==0) return a;
+   return GCD(b,a%b);
+}
+```
+
+**efficient algorithm for computing GCD** - *Euclid’s algorithm*
+
+
 

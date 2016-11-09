@@ -85,6 +85,6 @@ public class Graph {
 		}
 		u.color = Vertex.Color.BLACK;
 		time++;
-		u.FinishedTime = time;
+		u.finishedTime = time;
 	}
 }

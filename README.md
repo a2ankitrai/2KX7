@@ -13,7 +13,7 @@
 - Heaps  
 - Trie		
 - Graphs(./DS/graph.md) 
--  Skip Lists
+- Skip Lists
 
 ## Algorithms
 - [Overview](./Algo/analysisOfAlgorithms.md)
