@@ -43,7 +43,7 @@
 - [Overview](./Design_Patterns/Design_Patterns.md)
 - [System Design](./Arbit/System_Design.md)
 
-## [Mathematics]((./Arbit/Mathematics.md))
+## [Mathematics](./Arbit/Mathematics.md)
 
 
 ## JavaScript
