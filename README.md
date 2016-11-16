@@ -29,7 +29,7 @@
 
 
 ## Java
-- OOPS
+- [OOPS](./Java/oops_n_ooad.md)
 - [Classes & Interfaces](./Java/classes_n_interfaces.md)
 - [Garbage Collection](./Java/garbage_collection.md)
 - Collections framework
@@ -53,7 +53,7 @@
 ## Other Computation topics
 - [Big Endian & Little Endian](./Arbit/big_n_little_endian.md)
 - [Bit Operations](./Arbit/Bit_Operations.md)
-- Caching - Memcached & Redis
+- [Caching](./Arbit/Cache.md)
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 
