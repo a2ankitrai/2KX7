@@ -48,12 +48,15 @@
 
 ## JavaScript
 - [My Learnings](https://github.com/a2ankitrai/JS_Learning)
+- AngularJS
 - [JS - interview](https://github.com/adam-s/js-interview-review)
 
 ## Other Computation topics
 - [Big Endian & Little Endian](./Arbit/big_n_little_endian.md)
 - [Bit Operations](./Arbit/Bit_Operations.md)
 - [Caching](./Arbit/Cache.md)
+	- [Redis n MemCache](redis.md)
+- [Storage](./Arbit/storage.md)	
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 
