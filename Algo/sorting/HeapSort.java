@@ -31,6 +31,11 @@ class HeapSort {
 		}
 	}
 
+	/**
+	* 	elements in the subarray A([n/2]+1.... n) are all leaves of the tree, and so each is 
+	*	a 1-element heap to begin with. The procedure BUILD-MAX-HEAP goes through
+	*	the remaining nodes of the tree and runs MAX-HEAPIFY on each one.
+	*/
 	public void buildMaxHeap(int[] a) {
 		heapsize = a.length;
 		for (int i = (a.length / 2) - 1; i >= 0; i--) {

@@ -10,7 +10,7 @@
     - Red-Black tree	
   - [Binary search trees](./DS/Tree/binary_search_tree.md)  
 - [Hash Table](./DS/hash_table.md)  
-- Heaps  
+- [Heaps](./DS/heap.md)  
 - Trie		
 - Graphs(./DS/graph.md) 
 - Skip Lists
@@ -55,7 +55,7 @@
 - [Big Endian & Little Endian](./Arbit/big_n_little_endian.md)
 - [Bit Operations](./Arbit/Bit_Operations.md)
 - [Caching](./Arbit/Cache.md)
-	- [Redis n MemCache](redis.md)
+	- Redis n MemCache
 - [Storage](./Arbit/storage.md)	
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
