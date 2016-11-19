@@ -10,7 +10,15 @@ Take what varies and `encapsulate` it so it won't affect the rest of your code. 
 - ***Favor composition over inheritance.***
 	When you put two classes together in a HAS-A relationship you're using composition. Creating systems using composition gives you a lot more flexibility. Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behavior at runtime as long as the object you're composing with implements the correct behavior interface.
 
-	
+---
+# Creational design patterns
+
+These design patterns are all about class instantiation. This pattern can be further divided into class-creation patterns and object-creational patterns. While class-creation patterns use inheritance effectively in the instantiation process, object-creation patterns use delegation effectively to get the job done.
+
+
+
+---	
+		
 ## Strategy Pattern
 
 The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.

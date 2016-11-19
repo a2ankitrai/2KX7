@@ -38,6 +38,11 @@ class DoublyLinkedList {
 		}
 	}
 
+	/**
+	* The important things to remember are
+	*	(1) to check for the null pointer and
+	*	(2) to update the head or tail pointer as necessary.
+	*/
 	public void delete(int key) {
 		if (head == null) {
 			System.out.println("Empty Linked List");
@@ -49,7 +54,11 @@ class DoublyLinkedList {
 			if (temp == null) {
 				System.out.println(key + " Key not found");
 			} else {
-				temp.prev.next = temp.next;
+				if (temp != head) {
+					temp.prev.next = temp.next;
+				} else {
+					head = temp.next;
+				}
 				if (temp.next != null)
 					temp.next.prev = temp.prev;
 				System.out.println(key + " Key Removed");
@@ -69,7 +78,7 @@ class DoublyLinkedList {
 			}
 			System.out.println(s);
 		}
-	} 
+	}
 
 	public static void main(String[] args) {
 		DoublyLinkedList dL = new DoublyLinkedList();

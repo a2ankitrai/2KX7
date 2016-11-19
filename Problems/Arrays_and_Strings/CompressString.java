@@ -2,12 +2,30 @@ class CompressString {
 
 	public static String compress(String s) {
 
-		int[] charCount = new int[256];
+		char[] sArr = s.toCharArray();
+		String o = "";
+		boolean firstTimeFlag = true;
+		int ctr = 0;
+		char currentChar = sArr[0];
+		for (int i = 0; i < sArr.length; i++) {
 
-		for (int i = 0; i < s.length(); i++) {
-			int val = (int)s.charAt(i);
-			charCount[val]++;
+			if (firstTimeFlag == true) {
+				o += sArr[i];
+				firstTimeFlag = false;
+				currentChar = sArr[i];
+				ctr++;
+			} else {
+				if (sArr[i] == currentChar) {
+					ctr++;
+				} else {
+					o += ctr;
+					ctr = 0;
+					firstTimeFlag = true;
+					i--;
+				}
+			}
 		}
+		return o;
 	}
 
 	public static void main(String[] args) {
