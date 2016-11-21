@@ -59,6 +59,7 @@
 - [Storage](./Arbit/storage.md)	
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
+- Real-life application architectures
 
 ## General
 - [Interview Prepation](./Arbit/interview_prep.md)
