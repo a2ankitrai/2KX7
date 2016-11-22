@@ -1,6 +1,8 @@
 # 2KX7
 
-## DS                               
+## DS                  
+- String
+- Array             
 - [Linked List](./DS/linked_list.md) 
 - [Stacks and Queues](./DS/stack_n_queue.md) 
 - Trees
@@ -9,6 +11,7 @@
     - AVL tree 
     - Red-Black tree	
   - [Binary search trees](./DS/Tree/binary_search_tree.md)  
+- B-Tree  
 - [Hash Table](./DS/hash_table.md)  
 - [Heaps](./DS/heap.md)  
 - Trie		
@@ -24,6 +27,7 @@
 - Greedy Algorithms
 - Backtracking
 - Bit Algorithms
+- Mathematical Algorithms
 - Approximation
 - [Geeks4Geeks Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 
@@ -36,6 +40,7 @@
 - [Threads and Concurrency](./Java/Thread_n_Concurrency.md)
 - [Basic Questions and Answers](./Java/java_qna_1.md)
 - [Inside JVM](./Java/Inside_JVM.md)
+- [Java APIs](./Java/Java_API.md)
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
 
@@ -56,6 +61,7 @@
 - [Bit Operations](./Arbit/Bit_Operations.md)
 - [Caching](./Arbit/Cache.md)
 	- Redis n MemCache
+- 	
 - [Storage](./Arbit/storage.md)	
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)

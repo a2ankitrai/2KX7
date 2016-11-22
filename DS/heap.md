@@ -45,3 +45,10 @@ END
 ```
 What is the worst case time complexity of the above algo?
 Although the worst case complexity looks like O(nLogn), upper bound of time complexity is O(n).
+
+
+--- 
+
+# Java APIs
+
+java.util.PriorityQueue<E> extends AbstractQueue<E> :  minHeap
