@@ -33,8 +33,10 @@ For each component, you need to write the specific APIs for each component. You 
 
 Vertical scaling :  increasing processors (cores, caches), DISK, RAM
 
-Horizontal scaling:  using mutliple servers from the start only
+Horizontal scaling:  using mutliple servers and incresing them as the load increses.
 
+---
 
-## Scalability
+### Some Famous Designs
 
+- [Google Docs](http://blog.gainlo.co/index.php/2016/03/22/system-design-interview-question-how-to-design-google-docs/)

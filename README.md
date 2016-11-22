@@ -61,11 +61,14 @@
 - [Bit Operations](./Arbit/Bit_Operations.md)
 - [Caching](./Arbit/Cache.md)
 	- Redis n MemCache
-- 	
 - [Storage](./Arbit/storage.md)	
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 - Real-life application architectures
+- [Technologies](./Arbit/AdditionalTopics.md)	
+- MapReduce
+
+
 
 ## General
 - [Interview Prepation](./Arbit/interview_prep.md)
