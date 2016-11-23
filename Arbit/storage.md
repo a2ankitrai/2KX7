@@ -1,6 +1,46 @@
 # Storage
 ---
 
+## HDD
+
+- Stores data on a series of constantly-spinning magnetic disks, called platters.
+
+- Actuator arm with read/write heads positions the heads over the correct area of the drive to read/write (nanometers above platters).
+
+- The drive may need to read from multiple locations in order to launch a program or load a file, which means it may have to wait for the platters to spin into the proper position multiple times before it can complete the command.
+
+- If a drive is asleep or in a low-power state, it can take several seconds more for the disk to spin up to full power.
+
+- Latency measured in milliseconds.
+
+- SAS – Serial Attached SCSI – faster than HDD but still with a spinning platter.
+
+---
+
+## SSD (solid-state drive)
+
+- Don't rely on moving parts or spinning disks.
+
+- Data is saved to a pool of [NAND flash](http://whatis.techtarget.com/definition/NAND-flash-memory)  .
+
+- NAND itself is made up of what are called floating gate transistors. Unlike the transistor designs used in DRAM, which must be refreshed multiple times per second, NAND flash is designed to retain its charge state even when not powered up.
+
+- NAND flash is organized in a grid. The entire grid layout is referred to as a block, while the individual rows that make up the grid are called a page.
+
+- Common page sizes are 2K, 4K, 8K, or 16K, with 128 to 256 pages per block.
+
+- Block size therefore typically varies between 256KB and 4MB.
+
+- Data read/written at the page level (individual rows within the grid).
+
+- Data erased at the block level (requires a high amount of voltage).
+
+- Latency measured in microseconds.
+
+- SSD controllers have caches and a DDR3 memory pool to help with managing the NAND.
+
+---
+
 ## RAID
 
 RAID (redundant array of independent disks; originally redundant array of inexpensive disks) provides a way of storing the same data in different places (thus, redundantly) on multiple hard disks (though not all RAID levels provide redundancy). By placing data on multiple disks, input/output (I/O) operations can overlap in a balanced way, improving performance. Since multiple disks increase the mean time between failures (MTBF), storing data redundantly also increases fault tolerance.

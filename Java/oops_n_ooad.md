@@ -1,5 +1,9 @@
 # OOPS and OOAD
 
+# S.O.L.I.D. principles in java
+
+![SOLID principle](./solid_class_design_principles.png) 
+
 ## Object-Oriented Analysis
 
 Object-oriented analysis is a method of analysis that examines requirements from the perspective of the classes and objects found in the vocabulary of the problem domain.

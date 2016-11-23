@@ -7,6 +7,20 @@ or LIFO, policy. Similarly, in a queue, the element deleted is always the one th
 has been in the set for the longest time: the queue implements a first-in, first-out,
 or FIFO, policy.
 
+## Applications of stack:
+
+-Balancing of symbols
+
+-Infix to Postfix /Prefix conversion
+
+-Redo-undo features at many places like editors, photoshop.
+
+-Forward and backward feature in web browsers
+
+-Used in many algorithms like Tower of Hanoi, tree traversals, stock span problem, histogram problem.
+
+-Other applications can be Backtracking, Knight tour problem, rat in a maze, N queen problem and sudoku solver
+
 ---
 
 ## Questions and Answers

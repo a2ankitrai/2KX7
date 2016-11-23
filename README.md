@@ -15,8 +15,9 @@
 - [Hash Table](./DS/hash_table.md)  
 - [Heaps](./DS/heap.md)  
 - Trie		
-- Graphs(./DS/graph.md) 
+- [Graphs](./DS/graph.md) 
 - Skip Lists
+- [Arbit](./DS/arbit.md)
 
 ## Algorithms
 - [Overview](./Algo/analysisOfAlgorithms.md)
@@ -26,6 +27,7 @@
 - [Dynamic Programming](./Algo/dynamic_programming.md)
 - Greedy Algorithms
 - Backtracking
+- Shuffling
 - Bit Algorithms
 - Mathematical Algorithms
 - Approximation

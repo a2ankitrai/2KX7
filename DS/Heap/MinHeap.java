@@ -1,3 +1,7 @@
+/*
+Not Working ...
+**/
+
 class MinHeap {
 
 	private int[] a;
@@ -6,11 +10,12 @@ class MinHeap {
 
 	public MinHeap() {
 		a = new int[10];
+		heapSize = -1;
 	}
 
 	public MinHeap(int size) {
 		a = new int[size];
-		/*heapSize = size;*/
+		heapSize = -1;
 	}
 
 	public int getParent(int i) {
@@ -78,6 +83,32 @@ class MinHeap {
 		while (i > 0 && a[i] > a[getParent(i)]) {
 			swap(a, i, getParent(i));
 			i = getParent(i);
+		}
+	}
+
+	public void insert(int key) {
+		if (heapSize == a.length) {
+			System.out.println("Heap Overflow");
+			return;
+		}
+		heapSize++;
+		a[heapSize] = Integer.MIN_VALUE;
+		decreaseKey(heapSize, key);
+	}
+
+	public static void main(String[] args) {
+		MinHeap mh = new MinHeap(20);
+		mh.insert(13);
+		mh.insert(2);
+		mh.insert(5);
+		mh.insert(3);
+		mh.insert(7);
+		mh.insert(1);
+		mh.insert(98);
+		mh.insert(17);
+
+		for(int i : mh.a){
+			System.out.println(i);
 		}
 	}
 

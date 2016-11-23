@@ -13,3 +13,4 @@ Stateless objects are always thread safe. *Stateless objects has no fields and r
 ## Race Conditions
 
 A race condition occurs when  the correctness of a computation depends on the relative timing or interleaving of multiple threads by the runtime; in other words, when getting the right answer relies on lucky timing. The most common type of race condition is check then act, where a potentially stale observation is used to make a decision on what to do next.
+

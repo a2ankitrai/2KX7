@@ -14,6 +14,33 @@ An iterator over a collection. Iterator takes the place of Enumeration in the Ja
 
 **Methods**
 
-boolean hasNext() : Returns true if the iteration has more elements
-E next() : 			Returns the next element in the iteration.
-void remove( ) :    Removes the current element. Throws IllegalStateException if an attempt is made to call remove( ) that is not preceded by a call to next( ).
+- `boolean hasNext()` : Returns true if the iteration has more elements.
+
+- `E next()` : 			Returns the next element in the iteration.
+
+- `void remove( )` :    Removes the current element. Throws IllegalStateException if an attempt is made to call remove( ) that is not preceded by a call to next( ).
+
+---
+
+## ArrayList
+
+ArrayList<Integer> arr = new ArrayList<Integer>();
+ 
+- Add element to the end of the List
+```
+	 arr.add(x);
+```
+
+- Get the Size of the List
+```
+	arr.size();
+```
+
+---
+
+## Collections class
+
+- *Swap method for swapping two elements in an ArrayList*
+```
+	Collections.swap(arr, index,  size-1);
+```	
