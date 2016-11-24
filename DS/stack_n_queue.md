@@ -9,17 +9,17 @@ or FIFO, policy.
 
 ## Applications of stack:
 
--Balancing of symbols
+- Balancing of symbols
 
--Infix to Postfix /Prefix conversion
+- Infix to Postfix /Prefix conversion
 
--Redo-undo features at many places like editors, photoshop.
+- Redo-undo features at many places like editors, photoshop.
 
--Forward and backward feature in web browsers
+- Forward and backward feature in web browsers
+ 
+- Used in many algorithms like Tower of Hanoi, tree traversals, stock span problem, histogram problem.
 
--Used in many algorithms like Tower of Hanoi, tree traversals, stock span problem, histogram problem.
-
--Other applications can be Backtracking, Knight tour problem, rat in a maze, N queen problem and sudoku solver
+- Other applications can be Backtracking, Knight tour problem, rat in a maze, N queen problem and sudoku solver
 
 ---
 
