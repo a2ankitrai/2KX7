@@ -33,7 +33,7 @@ For each component, you need to write the specific APIs for each component. You 
 
 Vertical scaling :  increasing processors (cores, caches), DISK, RAM
 
-Horizontal scaling:  using mutliple servers and incresing them as the load increses.
+Horizontal scaling:  using mutliple servers and increasing them as the load increses.
 
 ---
 
