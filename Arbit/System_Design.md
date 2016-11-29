@@ -39,63 +39,63 @@ Horizontal scaling:  using mutliple servers and incresing them as the load incre
 
 ## System Design Question Concepts
 
-- Amount of data (disk)
+- **Amount of data (disk)**
 
-- RAID configuration
+- **RAID configuration**
 
-- Amount of RAM – does everything need to be in RAM? (a lot of times – yes)
+- **Amount of RAM – does everything need to be in RAM? (a lot of times – yes)**
 
-- Requests/sec
+- **Requests/sec**
 
-- Request time
+- **Request time**
 
-- Data transfer rates
+- **Data transfer rates**
 
-- Network requests in single data center
+- **Network requests in single data center**
 
-- Geographically separated locations
+- **Geographically separated locations**
 
-- Operations should never be more than nlogn, preferably n
+- **Operations should never be more than nlogn, preferably n**
 
-- Sharding/Partitioning (by user/date/content-type/alphabetically) – how do we rebalance?
+- **Sharding/Partitioning (by user/date/content-type/alphabetically) – how do we rebalance?**
 
-- Frontend/backend
+- **Frontend/backend**
 
-- Backups? Backup a single user on how many servers?
+- **Backups? Backup a single user on how many servers?**
 
-- Many requests for the same data/lots of updates – all in cache
+- **Many requests for the same data/lots of updates – all in cache**
 
-- Distribute so that the network is negligible
+- **Distribute so that the network is negligible**
 
-- Parallelizing network requests
+- **Parallelizing network requests**
 
-- Fan-out (scatter and gather)
+- **Fan-out (scatter and gather)**
 
-- Caching
+- **Caching**
 
-- Load-balancing
+- **Load-balancing**
 
-- High availability
+- **High availability**
 
-- MapReduce
+- **MapReduce**
 
-- CDN
+- **CDN**
 
-- Queues
+- **Queues**
 
-- Timeouts
+- **Timeouts**
 
-- Fail fast
+- **Fail fast**
 
-- Circuit breakers
+- **Circuit breakers**
 
-- Throttling
+- **Throttling**
 
-- Consistent hashing for sharding/partitioning
+- **Consistent hashing for sharding/partitioning**
 
-- Compression
+- **Compression**
 
-- Possible to work harder on writes in order to make reads easier
+- **Possible to work harder on writes in order to make reads easier**
 
 ---
 

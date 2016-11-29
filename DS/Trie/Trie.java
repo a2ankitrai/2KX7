@@ -65,8 +65,13 @@ class Trie {
 		}
 	}
 
-	public List<String> getWordsFromPrefix(String prefix){
+	public List<String> getWordsFromPrefix(String prefix) {
 		List<String> wordList =  new ArrayList<String>();
+		Map<Character, TrieNode> children = root.children;
+
+		for (int i = 0; i < prefix.length; i++) {
+			
+		}
 	}
 
 	public static void main(String[] args) {
