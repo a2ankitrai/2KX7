@@ -16,6 +16,10 @@
 - [Heaps](./DS/heap.md)  
 - Trie		
 - [Graphs](./DS/graph.md) 
+	- Minimum Spanning Trees
+	- Single Source Shortest Paths
+	- All Source Shortest Paths
+	- Maximum Flow
 - Skip Lists
 - [Arbit](./DS/arbit.md)
 
