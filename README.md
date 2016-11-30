@@ -38,7 +38,7 @@
 - [OOPS](./Java/oops_n_ooad.md)
 - [Classes & Interfaces](./Java/classes_n_interfaces.md)
 - [Garbage Collection](./Java/garbage_collection.md)
-- Collections framework
+- [Collections and Generics](./Java/collection_n_generics.md)
 - [Threads and Concurrency](./Java/Thread_n_Concurrency.md)
 - [Basic Questions and Answers](./Java/java_qna_1.md)
 - [Inside JVM](./Java/Inside_JVM.md)
