@@ -1,5 +1,7 @@
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 class Trie {
 
@@ -58,7 +60,7 @@ class Trie {
 	}
 
 	public boolean search(String word) {
-		if (searchNode(word) != null && ) {
+		if (searchNode(word) != null ) {
 			return true;
 		} else {
 			return false;
@@ -69,9 +71,7 @@ class Trie {
 		List<String> wordList =  new ArrayList<String>();
 		Map<Character, TrieNode> children = root.children;
 
-		for (int i = 0; i < prefix.length; i++) {
-			
-		}
+		 
 	}
 
 	public static void main(String[] args) {
@@ -80,6 +80,6 @@ class Trie {
 		trie.insert("ass");
 		trie.insert("asshole");
 
-		System
+		System.out.println();
 	}
 }
