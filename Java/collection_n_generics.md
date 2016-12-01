@@ -1,5 +1,5 @@
 # Generics
-
+ 
 ---
 
 ## Benefits
@@ -134,12 +134,71 @@ Map<String, List<String>> myMap = new HashMap<>();
 
 In generic code, the question mark (?), called the wildcard, represents an unknown type. The wildcard can be used in a variety of situations: as the type of a parameter, field, or local variable; sometimes as a return type (though it is better programming practice to be more specific). The wildcard is never used as a type argument for a generic method invocation, a generic class instance creation, or a supertype.
 
+### Upper Bounded Wildcards
+
+To declare an upper-bounded wildcard, use the wildcard character ('?'), followed by the extends keyword, followed by its upper bound. Note that, in this context, extends is used in a general sense to mean either "extends" (as in classes) or "implements" (as in interfaces).
+
+```java
+public static void process(List<? extends Foo> list) {
+    for (Foo elem : list) {
+        // ...
+    }
+}
+```
+
+### Unbounded Wildcards
+
+The unbounded wildcard type is specified using the wildcard character (?), for example, List<?>. This is called a list of unknown type. There are two scenarios where an unbounded wildcard is a useful approach:
+
+If you are writing a method that can be implemented using functionality provided in the Object class.
+When the code is using methods in the generic class that don't depend on the type parameter. For example, List.size or List.clear. In fact, Class<?> is so often used because most of the methods in Class<T> do not depend on T.
+
+```java
+public static void printList(List<?> list) {
+    for (Object elem: list)
+        System.out.print(elem + " ");
+    System.out.println();
+}
+```
+
+### Lower Bounded Wildcards
+
+A lower bounded wildcard is expressed using the wildcard character ('?'), following by the super keyword, followed by its lower bound: `<? super A>`.
+
+**Note: You can specify an upper bound for a wildcard, or you can specify a lower bound, but you cannot specify both.**
+
+```java
+	public static void addNumbers(List<? super Integer> list) {
+		for (int i = 1; i <= 10; i++) {
+			list.add(i);
+		}
+
+		System.out.println(list);
+	}
+
+```
 
 
+### Guidelines for Wildcard Use
 
+**An "In" Variable**
+	An "in" variable serves up data to the code. Imagine a copy method with two arguments: copy(src, dest). The src argument provides the data to be copied, so it is the "in" parameter.
 
+**An "Out" Variable**
+	An "out" variable holds data for use elsewhere. In the copy example, copy(src, dest), the dest argument accepts data, so it is the "out" parameter.
 
+Of course, some variables are used both for "in" and "out" purposes — this scenario is also addressed in the guidelines.
 
+You can use the "in" and "out" principle when deciding whether to use a wildcard and what type of wildcard is appropriate. The following list provides the guidelines to follow:
+---
+**Wildcard Guidelines: **
 
+- An "in" variable is defined with an upper bounded wildcard, using the extends keyword.
+- An "out" variable is defined with a lower bounded wildcard, using the super keyword.
+- In the case where the "in" variable can be accessed using methods defined in the Object class, use an unbounded wildcard.
+- In the case where the code needs to access the variable as both an "in" and an "out" variable, do not use a wildcard.
 
+	---
 
+These guidelines do not apply to a method's return type. Using a wildcard as a return type should be avoided because it forces programmers using the code to deal with wildcards.
+ 
