@@ -34,3 +34,15 @@ We repeat this procedure both to left and right arrays of the pivot.
 The Worst case running time is n^2 and the average case is O(n * log n).
 
 [java code](./sorting/QuickSort.java)
+
+To DO
+----
+
+- Randomized version of Quicksort? Picking a random element rather than the last.
+
+- Quicksort variation for duplicate elements in input
+
+---
+
+## Counting Sort
+

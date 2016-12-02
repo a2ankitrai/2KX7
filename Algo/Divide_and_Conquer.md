@@ -27,12 +27,17 @@ Recurrences go hand in hand with the divide-and-conquer paradigm, because they g
 
 ---
 
-## Strassen's algorithm for matrix multiplication
+## Problems
 
-**??**  
- 
+-  Algo to find the Kth smallest element in an unsorted array
+	Use quicksort to randomly select a pivot element and partition the array into two halves. Based on the index of the pivot's element choose and the left or right subarray for finding the solution.
+	
+	Finding the median is just a special case of this where K = n/2
+	
+	Implement this.. code this
+	
+
 ---
-
 ## Solving recurrences
 
 1. **Substitution method** 
