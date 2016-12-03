@@ -1,33 +1,160 @@
 # Graph
+---
+
+![graph_representation](./graph_representation.png)
+
+Graph is a data structure that consists of following two components:
+1. A finite set of vertices also called as nodes.
+2. A finite set of ordered pair of the form (u, v) called as edge. The pair is ordered because (u, v) is not same as (v, u) in case of directed graph(di-graph). The pair of form (u, v) indicates that there is an edge from vertex u to vertex v. The edges may contain weight/value/cost.
+
+**Real life applications:**
+
+Networks: telephone, circuits, social (e.g. LinkedIn, Facebook)
+![graph_examples](./_image/graph_examples.png)
+
+---
+
+![graph_processing_problems](./_image/graph_processing_problems.png)
 
 ## Representations of graphs
 
-Two standard ways to represent a graph G = (V,E): as a collection of adjacency lists or as an adjacency matrix.
+1. Adjacency Matrix
+2. Adjacency List
 
-Because the adjacency-list representation
-provides a compact way to represent **sparse** graphs—those for which `|E|` is much
-less than `|V|^2` - it is usually the method of choice. We may prefer an adjacency-matrix representation, however, when the
-graph is **dense** - `|E|` is close to `|V|^2` -or when we need to be able to tell quickly
-if there is an edge connecting two given vertices.
+There are other representations also like, **Incidence Matrix** and **Incidence List**. The choice of the graph representation is situation specific.
 
-The **adjacency-list representation** of a graph `G = (V,E)` consists of an array
-Adj of `|V|` lists, one for each vertex in `V` . For each `u ϵ V` , the adjacency list
-`Adj[u]` contains all the vertices `v` such that there is an edge `(u,v) ϵ E`. That is,
-`Adj[u]` consists of all the vertices adjacent to `u` in `G`. (Alternatively, it may contain
-pointers to these vertices.)
+**Adjacency Matrix:**
 
-If `G` is a directed graph, the sum of the lengths of all the adjacency lists is `|E|`,
-since an edge of the form `(u,v)` is represented by having `v` appear in `Adj[u]`. If `G` is
-an undirected graph, the sum of the lengths of all the adjacency lists is `2|E|`, since
-if `(u,v)` is an undirected edge, then `u` appears in `v`’s adjacency list and vice versa.
-For both directed and undirected graphs, the adjacency-list representation has the
-desirable property that the amount of memory it requires is **`Θ(V+E)`**.
+Adjacency Matrix is a 2D array of size **V x V** where **V** is the number of vertices in a graph. Let the 2D array be `adj[][]`, a slot `adj[i][j] = 1` indicates that there is an edge from vertex i to vertex j. Adjacency matrix for undirected graph is always symmetric. Adjacency Matrix is also used to represent weighted graphs. If `adj[i][j] = w`, then there is an edge from vertex i to vertex j with weight w.
 
-A potential disadvantage of the adjacency-list representation is that it provides
-no quicker way to determine whether a given edge `(u,v)` is present in the graph
-than to search for `v` in the adjacency list `Adj[u]`. An adjacency-matrix representation
-of the graph remedies this disadvantage, but at the cost of using asymptotically
-more memory.
+![adjacency_matrix_representation.png](./adjacency_matrix_representation.png)
+
+**Pros:** Representation is easier to implement and follow. Removing an edge takes O(1) time. Queries like whether there is an edge from vertex ‘u’ to vertex ‘v’ are efficient and can be done O(1).
+
+**Cons:** Consumes more space O(V^2). Even if the graph is sparse(contains less number of edges), it consumes the same space. Adding a vertex is O(V^2) time.
+
+
+**Adjacency List**
+
+An array of linked lists is used. Size of the array is equal to number of vertices. Let the array be array[]. An entry array[i] represents the linked list of vertices adjacent to the ith vertex. This representation can also be used to represent a weighted graph. The weights of edges can be stored in nodes of linked lists.
+
+![adjacency_list_representation](./adjacency_list_representation.png)
+
+### Space and Time comparision
+
+![comparision_Matrix_vs_List](./_image/comparision_Matrix_vs_List.png)	
+
+---
 
 ## Breadth-first search
 
+Visit all the adjacent vertex before proceeding further.Put unvisited vertices on a queue.
+
+```java
+public void bfs(int s) {
+		boolean[] visited = new boolean[v];
+
+		Queue<Integer> q = new LinkedList<Integer>();
+		visited[s] = true;
+		q.offer(s);
+
+		while (!q.isEmpty()) {
+			Integer ns = q.poll();
+
+			System.out.println(ns + " ");
+
+			Iterator<Integer> it = adjList[ns].listIterator();
+
+			while (it.hasNext()) {
+				int n = it.next();
+				if (!visited[n]) {
+					visited[n] = true;
+					q.offer(n);
+				}
+			}
+		}
+
+	}
+```
+
+### Applications of Breadth First Search
+
+- **GPS Navigation systems:** Breadth First Search is used to find all neighboring locations.
+- **Peer to Peer Networks.** In Peer to Peer Networks like BitTorrent, Breadth First Search is used to find all neighbor nodes.
+---
+
+## Depth-first search
+
+Use stack for iterative approach or recursion.
+
+Recursive approach:
+```java
+public void dfsRecursive(int source) {
+		boolean[] marked = new boolean[v];
+		int[] edgeTo = new int[v];
+
+		dfsRecursiveMain(source, marked, edgeTo);
+	}
+
+	public void dfsRecursiveMain(int s, boolean[] marked, int[] edgeTo) {
+		marked[s] = true;
+		for (int w : adjList[s]) {
+			if (!marked[w]) {
+				dfsRecursiveMain(w, marked, edgeTo);
+				edgeTo[w] = s;
+			}
+		}
+	}
+```
+
+Iterative approach:
+```java
+public void dfs(int source) {
+		boolean[] visited = new boolean[v];
+
+		Stack<Integer> s = new Stack<Integer>();
+		visited[source] = true;
+		s.push(source);
+
+		while (!s.isEmpty()) {
+			Integer ns = s.pop();
+
+			System.out.println(ns + " ");
+
+			Iterator<Integer> it = adjList[ns].descendingIterator();
+
+			while (it.hasNext()) {
+				int n = it.next();
+				if (!visited[n]) {
+					visited[n] = true;
+					s.push(n);
+				}
+			}
+		}
+	}
+```
+
+
+**Application of DFS** : ?
+
+
+---
+
+## Graph processing Challenges
+
+- Is the graph bipartite?
+	- Simple DFS based solution would do it.
+
+- Find a cycle in graph.
+	- **Euler cycle** : Is there a cycle that uses each edge exactly once.
+		A connected graph is Eulerian iff all vertices have even degree.out
+		
+	- ** Hamiltonion Cycle**: Find a cycle that visits every vertex exactly once. (Travelling salesman problem)	Classic NP-complete problem.
+
+- Are two graphs identical? Graph Isomorphism. No one knows.	
+	
+- Lay out a graph in the plane without crossing edges?
+	- linear time DFS-based planarity Algorithm (Tarjan)
+	
+	
+## [Graph Problems](http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
