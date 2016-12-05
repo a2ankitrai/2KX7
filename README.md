@@ -16,6 +16,8 @@
 - [Heaps](./DS/heap.md)  
 - Trie		
 - [Graphs](./DS/graph.md) 
+	- Cycle Detection (Directed and Undirected Graphs)
+	- Topological Sorting
 	- Minimum Spanning Trees
 	- Single Source Shortest Paths
 	- All Source Shortest Paths
@@ -47,6 +49,7 @@
 - [Basic Questions and Answers](./Java/java_qna_1.md)
 - [Inside JVM](./Java/Inside_JVM.md)
 - [Java APIs](./Java/Java_API.md)
+- Servlets
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
 
@@ -62,6 +65,10 @@
 - AngularJS
 - [JS - interview](https://github.com/adam-s/js-interview-review)
 
+## Database
+- SQL and NoSQL comparision
+
+
 ## Other Computation topics
 - [Big Endian & Little Endian](./Arbit/big_n_little_endian.md)
 - [Bit Operations](./Arbit/Bit_Operations.md)
@@ -73,8 +80,7 @@
 - Real-life application architectures
 - [Technologies](./Arbit/AdditionalTopics.md)	
 - MapReduce
-
-
+- BigData
 
 ## General
 - [Interview Prepation](./Arbit/interview_prep.md)

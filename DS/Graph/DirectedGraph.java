@@ -4,17 +4,18 @@ import java.util.Queue;
 import java.util.Iterator;
 import java.util.Stack;
 
-public class AdjListGraph {
+// Same as AdjListGraph but have directed edges
+public class DirectedGraph {
 
 	private int v;
 	private LinkedList<Integer> adjList[];
+	private boolean[] marked;
 
-	public AdjListGraph(int verticesSize) {
+	public DirectedGraph(int verticesSize) {
 		adjList = (LinkedList<Integer>[])new LinkedList[verticesSize];
 		v = verticesSize;
-		/* for (List<Integer> listNode : adjList) {
-			listNode = new LinkedList<Integer>();
-		}*/
+		marked = new boolean[verticesSize];
+
 		for (int i = 0; i < verticesSize; i++) {
 			adjList[i] = new LinkedList<Integer>();
 		}
@@ -55,28 +56,32 @@ public class AdjListGraph {
 	}
 
 	public void dfs(int source) {
-		boolean[] visited = new boolean[v];
-
 		Stack<Integer> s = new Stack<Integer>();
-		visited[source] = true;
+		Stack<Integer> op = new Stack<Integer>();
+
+		marked[source] = true;
 		s.push(source);
 
 		while (!s.isEmpty()) {
 			Integer ns = s.pop();
 
-			System.out.println(ns + " ");
-
 			Iterator<Integer> it = adjList[ns].descendingIterator();
 
 			while (it.hasNext()) {
 				int n = it.next();
-				if (!visited[n]) {
-					visited[n] = true;
+				if (!marked[n]) {
+					marked[n] = true;
 					s.push(n);
 				}
 			}
+			op.push(ns);
+		}
+
+		while(!op.isEmpty()) {
+			System.out.print(op.pop() + " ");
 		}
 	}
+
 	public void dfsRecursive(int source) {
 		boolean[] marked = new boolean[v];
 		int[] edgeTo = new int[v];
@@ -94,69 +99,43 @@ public class AdjListGraph {
 		}
 	}
 
-	private boolean checkForCycleUtil(int source, boolean[] marked) {
-		marked[source] = true;
+	void topologicalSortHelper(int v, boolean[] marked, Stack<Integer> s) {
 
-		for (int i : adjList[source]) {
-			if (marked[i]) {
-				return true;
-			}
-			if (checkForCycleUtil(i, marked)) {
-				return true;
+		marked[v] = true;
+
+		for (int i : adjList[v]) {
+			if (!marked[i]) {
+				topologicalSortHelper(i, marked, s);
 			}
 		}
-		return false;
+		s.push(v);
 	}
 
-	public boolean isCyclic() {
+	public void topologicalSort() {
+		Stack<Integer> op = new Stack<Integer>();
 		boolean[] marked = new boolean[v];
-		for (int i = 0; i < marked.length; i++) {
-			marked[i] = false;
-		}
 
 		for (int i = 0; i < v; i++) {
-			if (checkForCycleUtil(i, marked)) {
-				return true;
+			if (!marked[i]) {
+				topologicalSortHelper(i, marked, op);
 			}
 		}
-		return false;
+
+		while (!op.isEmpty()){
+			System.out.print(op.pop() + " ");
+		}
 	}
 
-
 	public static void main(String[] args) {
-		AdjListGraph g = new AdjListGraph(4);
+		DirectedGraph g = new DirectedGraph(6);
 
-		g.addEdge(0, 1);
-		g.addEdge(0, 2);
-		g.addEdge(1, 2);
-		g.addEdge(2, 0);
+		g.addEdge(5, 2);
+		g.addEdge(5, 0);
+		g.addEdge(4, 0);
+		g.addEdge(4, 1);
 		g.addEdge(2, 3);
-		g.addEdge(3, 3);
+		g.addEdge(3, 1);
 
-		System.out.println("Following is Breadth First Traversal " +
-		                   "(starting from vertex 2)");
-
-		g.bfs(2);
-
-		System.out.println("Following is Depth First Traversal " +
-		                   "(starting from vertex 2)");
-
-		g.dfs(2);
-
-		System.out.println("Cyclicity checks");
-
-		System.out.println("Is graph g1 cyclic :" + g.isCyclic());
-
-		AdjListGraph g2 = new AdjListGraph(4);
-
-		g2.addEdge(0, 1);
-		g2.addEdge(0, 2);
-		//g.addEdge(1, 2);
-		//g.addEdge(2, 0);
-		g2.addEdge(2, 3);
-		//g.addEdge(3, 3);
-
-		System.out.println("Is graph g2 cyclic :" + g2.isCyclic());
-
+		g.topologicalSort();
 	}
 }

@@ -10,6 +10,7 @@ Graph is a data structure that consists of following two components:
 **Real life applications:**
 
 Networks: telephone, circuits, social (e.g. LinkedIn, Facebook)
+
 ![graph_examples](./_image/graph_examples.png)
 
 ---
@@ -81,6 +82,7 @@ public void bfs(int s) {
 
 - **GPS Navigation systems:** Breadth First Search is used to find all neighboring locations.
 - **Peer to Peer Networks.** In Peer to Peer Networks like BitTorrent, Breadth First Search is used to find all neighbor nodes.
+
 ---
 
 ## Depth-first search
@@ -135,11 +137,115 @@ public void dfs(int source) {
 ```
 
 
-**Application of DFS** : ?
+**Application of DFS** :
+
+- Detect a cycle in a graph.
+
+---
+
+## Directed Graphs or Digraph
+
+Set of vertices connected pairwise by **directed** edges.
+
+- Digraph Search
+	
+	### Reachability application: program control-flow analysis
+		
+	- **Every program is a digraph**	
+		- Vertex = basic block of instructions(straight line program)
+		- Edge = jump
+		
+	- **Dead-code elimination**
+		Find (and remove) unreachable code
+		
+	- **Infinite loop detection**
+		Determine whether exit is unreachable
+	
+	**Mark-sweep garbage collector** - Use DFS on diagraph to find reachable objects and the free the memory of unreachable ones.
+
+	BFS in diagraph application : web crawler
+
+---	
+
+## Topological Sort
+
+Order of things which should be done before one another.
+
+DAG: Directed Acyclic Graph
+
+- If directed cycle, topological order impossible.
+- If no directed cycle, DFS-based algorithm finds a topological order.
+
+DFS can be used to detect a cycle in a graph: Write code??
+
+**Directed cyclic detection application:** cyclic inheritance
+
+Java compiler does cyclic detection. If class A extends class B, class B extends class C and class C extends class A; there is a error of cyclic inheritance.
+
+In topological sorting, we need to print a vertex before its adjacent vertices. Use a temporary stack. Perform the DFS operation and rather than outputting the vertex, store it in a stack. After DFS for all the elements have been finished pop the stack. The order vould be topologically sorted.
+
+	
+
+```java
+void topologicalSortHelper(int v, boolean[] marked, Stack<Integer> s) {
+
+		marked[v] = true;
+
+		for (int i : adjList[v]) {
+			if (!marked[i]) {
+				topologicalSortHelper(i, marked, s);
+			}
+		}
+		s.push(v);
+	}
+
+public void topologicalSort() {
+		Stack<Integer> op = new Stack<Integer>();
+		boolean[] marked = new boolean[v];
+
+		for (int i = 0; i < v; i++) {
+			if (!marked[i]) {
+				topologicalSortHelper(i, marked, op);
+			}
+		}
+
+		while (!op.isEmpty()){
+			System.out.print(op.pop() + " ");
+		}
+	}
+```	
+	
+---
+
+## Strongly-connected components
+
+Vertices v and w are **strongly connected** if there is a directed path from v to w and a directed path from w to v. Strong connectivity is an equivalence relation.
+
+---
+
+## Minimum Spanning Tree
+
+A spanning tree of graph G is subgraph T that is both a **tree**(connected and acyclic) and **spanning**(includes all the vertices). The goal is to find a minimum weight spanning tree. A minimum spanning tree has (V – 1) edges where V is the number of vertices in the given graph.
+
+![mst_applications](./_image/mst_applications.png)
+
+### Kruskal's algorithm
+
+1. Sort all the edges in non-decreasing order of their weight.
+
+2. Pick the smallest edge. Check if it forms a cycle with the spanning tree 
+formed so far. If cycle is not formed, include this edge. Else, discard it.  
+
+3. Repeat step#2 until there are (V-1) edges in the spanning tree.
+
 
 
 ---
 
+### Prim's algorithm
+
+
+---
 ## Graph processing Challenges
 
 - Is the graph bipartite?
