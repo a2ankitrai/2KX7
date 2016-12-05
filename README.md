@@ -62,7 +62,7 @@
 
 ## JavaScript
 - [My Learnings](https://github.com/a2ankitrai/JS_Learning)
-- AngularJS
+- [AngularJS](./Arbit/angular.md)
 - [JS - interview](https://github.com/adam-s/js-interview-review)
 
 ## Database

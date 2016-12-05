@@ -46,3 +46,5 @@ To DO
 
 ## Counting Sort
 
+Linear sorting algorithm that can sort in O(n) time. It has a condition that the input is in range of [0-K] where K is some integer.
+
