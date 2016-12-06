@@ -1,5 +1,4 @@
 # Threads and Concurrency
-
 ---
 
 # Thread Safety
