@@ -69,6 +69,8 @@ public boolean[] sieve(int n)
 - How to efficiently find all prime divisors of an integer.
 - checking if a number is prime or finding the Nth prime number are fundamental tasks with multiple applications.
 
+---
+
 ## Greatest common divisor (GCD)
 
 The greatest common divisor (GCD) of two numbers a and b is the greatest number that divides evenly into both a and b. Naively we could start from the smallest of the two numbers and work our way downwards until we find a number that divides into both of them:
@@ -94,5 +96,9 @@ public int GCD(int a, int b)
 
 **efficient algorithm for computing GCD** - *Euclid’s algorithm*
 
+---
+ 
+## Sum of Numbers
 
+sum of n integers = n*(n+1)/2
 
