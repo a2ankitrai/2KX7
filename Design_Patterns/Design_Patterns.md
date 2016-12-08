@@ -11,8 +11,6 @@ Creates objects without exposing the instantiation logic to the client and Refer
 
 The factory pattern allows you to create objects without specifying the exact class of object that will be created.
 
-
-
 ### Factory Method
 
 ### Abstract Factory

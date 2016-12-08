@@ -1,11 +1,8 @@
 # Stacks and Queues
 
-Stacks and queues are dynamic sets in which the element removed from the set
-by the DELETE operation is prespecified. In a stack, the element deleted from
-the set is the one most recently inserted: the stack implements a last-in, first-out,
-or LIFO, policy. Similarly, in a queue, the element deleted is always the one that
-has been in the set for the longest time: the queue implements a first-in, first-out,
-or FIFO, policy.
+Stacks and queues are dynamic sets in which the element removed from the set by the DELETE operation is prespecified. In a stack, the element deleted from the set is the one most recently inserted: the stack implements a **last-in, first-out**, or **LIFO**, policy. 
+
+Similarly, in a queue, the element deleted is always the one that has been in the set for the longest time: the queue implements a **first-in, first-out**,or **FIFO**, policy.
 
 ## Applications of stack:
 
@@ -20,6 +17,16 @@ or FIFO, policy.
 - Used in many algorithms like Tower of Hanoi, tree traversals, stock span problem, histogram problem.
 
 - Other applications can be Backtracking, Knight tour problem, rat in a maze, N queen problem and sudoku solver
+
+--- 
+
+## Applications of Queue:
+
+Queue is used when things don’t have to be processed immediately, but have to be processed in First-In First-Out order like Breadth First Search. This property of Queue makes it also useful in following kind of scenarios. 
+
+- When a resource is shared among multiple consumers. Examples include CPU scheduling, Disk Scheduling.
+
+- When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes. Examples include IO Buffers, pipes, file IO, etc.
 
 ---
 
@@ -41,7 +48,10 @@ The `PUSH` operation is Θ(1), but the `POP` operation is Θ(n) where n is the n
 
 ---
 
-## Problems
+## Stack Problems
 
 - stack with max operation. Design a stack that supports a max operation.All operations must be 0(1) time. You can use 0(n) additional space, beyond what is required for the elements themselves.
 
+---
+
+## Queue Problems

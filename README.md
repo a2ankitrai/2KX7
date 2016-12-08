@@ -67,6 +67,7 @@
 
 ## Database
 - SQL and NoSQL comparision
+- What is Database indexing
 
 
 ## Other Computation topics
