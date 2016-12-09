@@ -30,6 +30,49 @@ Queue is used when things don’t have to be processed immediately, but have to 
 
 ---
 
+## Double-ended queue (dequeue)	
+
+A double-ended queue (dequeue or deque) is an abstract data type that generalizes a queue, that supports element insertion and removal at both ends.
+
+### Applications of Deque:
+
+Since Deque supports both stack and queue operations, it can be used as both. The Deque data structure supports clockwise and anticlockwise rotations in O(1) time which can be useful in certain applications.
+
+Also, the problems where elements need to be removed and or added both ends can be efficiently solved using Deque.
+
+Summary of Deque methods
+
+||**First Element (Head)**||	**Last Element (Tail)**||
+|:-:|:-------------------:|:--------------------:|
+||*Throws exception*	|*Special value*	|*Throws exception*	|*Special value*|
+|**Insert**		|addFirst(e)	|offerFirst(e)	|addLast(e)		|offerLast(e)|
+|**Remove**		|removeFirst()	|pollFirst()	|removeLast()	|pollLast()|
+|**Examine**	|getFirst()	|peekFirst()  	|getLast() 		|peekLast()|
+
+
+
+In java the general-purpose implementations include `LinkedList` and `ArrayDeque` classes. The `ArrayDeque` class is the resizable array implementation of the Deque interface, whereas the `LinkedList` class is the list implementation.
+
+Most ArrayDeque operations run in amortized constant time. Exceptions include remove, removeFirstOccurrence, removeLastOccurrence, contains, iterator.remove(), and the bulk operations, all of which run in linear time.
+
+The iterators returned by this class's iterator method are fail-fast: If the deque is modified at any time after the iterator is created, in any way except through the iterator's own remove method, the iterator will generally throw a ConcurrentModificationException. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
+
+### Difference between ArrayDeque and LinkedList implementation
+
+- The LinkedList implementation is more flexible than the ArrayDeque implementation. LinkedList implements all optional list operations. null elements are allowed in the LinkedList implementation but not in the ArrayDeque implementation.
+
+- In terms of efficiency, ArrayDeque is more efficient than the LinkedList for add and remove operation at both ends. The best operation in a LinkedList implementation is removing the current element during the iteration. LinkedList implementations are not ideal structures to iterate.
+
+---
+
+## My implementations
+
+- ArrayList - ??
+- LinkedList - ??
+
+---
+
+
 ## Questions and Answers
 
 ### Show how to implement a queue using two stacks. Analyze the running time of the queue operations.

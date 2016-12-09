@@ -9,7 +9,7 @@ A Binary Heap is a Binary Tree with following properties.
 
 **Why array based representation for Binary Heap?**
 
-Since a Binary Heap is a Complete Binary Tree, it can be easily represented as array and array based representation is space efficient. If the parent node is stored at index I, the left child can be calculated by 2 * I + 1 and right child by 2 * I + 2 (assuming the indexing starts at 0).
+Since a Binary Heap is a Complete Binary Tree, it can be easily represented as array and array based representation is space efficient. If the parent node is stored at index `I`, the left child can be calculated by `2 * I + 1` and right child by `2 * I + 2` (assuming the indexing starts at 0).
 
 ---
 
@@ -44,11 +44,28 @@ BUILD-HEAP(A)
 END
 ```
 What is the worst case time complexity of the above algo?
+
 Although the worst case complexity looks like O(nLogn), upper bound of time complexity is O(n).
 
 
 --- 
 
+## Priority Queue
+
+??
+
+### Applications of Priority Queue:
+
+- CPU Scheduling
+- Graph algorithms like **Dijkstra’s shortest path algorithm**, **Prim’s Minimum Spanning Tree**, etc
+
+---
+
+## Fibonacci Heap
+
+??
+
+---
 # Java APIs
 
 java.util.PriorityQueue<E> extends AbstractQueue<E> :  minHeap

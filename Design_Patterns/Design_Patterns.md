@@ -11,6 +11,13 @@ Creates objects without exposing the instantiation logic to the client and Refer
 
 The factory pattern allows you to create objects without specifying the exact class of object that will be created.
 
+**Examples*
+
+- java.sql.DriverManager#getConnection()
+- java.net.URL#openConnection()
+- java.lang.Class#newInstance()
+- java.lang.Class#forName()
+
 ### Factory Method
 
 ### Abstract Factory
@@ -35,6 +42,11 @@ The factory pattern allows you to create objects without specifying the exact cl
 ### Decorator
 
 ### Flyweight
+
+**Intent**
+
+- Use sharing to support large numbers of fine-grained objects efficiently.
+
 
 ### Memento
 
