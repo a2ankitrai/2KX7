@@ -30,7 +30,7 @@ class AddTwoNumbers {
 
 
 		if (temp1 != null) {
-			sumList.append()
+			sumList.append();
 		}
 		if (temp2 != null) {
 			sumCurrent.next = new LinkedList.Node(temp2.data + carryOver);

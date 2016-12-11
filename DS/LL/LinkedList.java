@@ -125,6 +125,14 @@ class LinkedList {
 		return count;
 	}
 
+	public int countForLoop() {
+		int count = 0;
+		for (Node temp = head; temp != null; temp = temp.next) {
+			count++;
+		}
+		return count;
+	}
+
 	/* Returns count of nodes in linked list */
 	public int getCountRecursively() {
 		return getCountR(head);
@@ -182,6 +190,8 @@ class LinkedList {
 		ll.reverseLL();
 		System.out.println("\nAfter Reversing: ");
 		ll.printList();
+		System.out.println("\nCount : " + ll.countForLoop());
+
 		//System.out.println("\nLinkedList size: " + ll.getCountRecursively());
 		/* System.out.println();
 		System.out.println(ll.search(39) == null ? null : ll.search(39).data);

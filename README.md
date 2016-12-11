@@ -44,6 +44,7 @@
 - [OOPS](./Java/oops_n_ooad.md)
 - [Classes & Interfaces](./Java/classes_n_interfaces.md)
 - [Garbage Collection](./Java/garbage_collection.md)
+- [Exceptions](./Java/exceptions.md)
 - [Collections and Generics](./Java/collection_n_generics.md)
 - [Threads and Concurrency](./Java/Thread_n_Concurrency.md)
 - [Basic Questions and Answers](./Java/java_qna_1.md)
@@ -66,6 +67,7 @@
 - [JS - interview](https://github.com/adam-s/js-interview-review)
 
 ## Database
+- [No SQL Databases](./Database/nosql.md)
 - SQL and NoSQL comparision
 - What is Database indexing
 
@@ -76,11 +78,12 @@
 - [Caching](./Arbit/Cache.md)
 	- Redis n MemCache
 - [Storage](./Arbit/storage.md)	
+- Security
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)
 - Real-life application architectures
 - [Technologies](./Arbit/AdditionalTopics.md)	
-- MapReduce
+- [Latency](./Arbit/latency.md)
 - BigData
 
 ## General

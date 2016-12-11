@@ -1,115 +1,106 @@
-/*
-Not Working ...
-**/
-
 class MinHeap {
 
-	private int[] a;
+	private int[] heap;
 	private int heapSize;
+	private int capacity;
 
 
-	public MinHeap() {
-		a = new int[10];
-		heapSize = -1;
+	public MinHeap(int capacity) {
+		this.heap = new int[capacity + 1];
+		this.heapSize = 0;
+		this.capacity = capacity;
 	}
 
-	public MinHeap(int size) {
-		a = new int[size];
-		heapSize = -1;
+	private int getParent(int i) {
+		return (i / 2);
 	}
 
-	public int getParent(int i) {
-		if (i == 0) {
-			return -1;
-		}
-
-		return (i - 1) / 2;
+	private int getLeftChild(int i) {
+		return (2 * i);
 	}
 
-	public int getLeft(int i) {
+	private int getRightChild(int i) {
 		return (2 * i + 1);
 	}
 
-	public int getRight(int i) {
-		return (2 * i + 2);
+	private void swap(int i, int j) {
+		int temp = heap[i];
+		heap[i] = heap[j];
+		heap[j] = temp;
 	}
 
-	public int getHeapMinimum() {
-		return a[0];
+	private boolean isLeaf(int pos) {
+		return pos > (heapSize / 2);
 	}
 
-	public void swap(int[] a, int i, int j) {
-		int temp = a[i];
-		a[i] = a[j];
-		a[j] = temp;
-	}
-
-	public void minHeapify(int[] a, int i) {
-		int l = getLeft(i);
-		int r = getRight(i);
-		int smallest = a[i];
-
-		if (l < smallest) {
-			smallest = l;
-		}
-		if (r < smallest) {
-			smallest = r;
-		}
-
-		if (a[i] != smallest) {
-			swap(a, i, smallest);
-			minHeapify(a, i);
-		}
-	}
-
-	public int extractHeapMinimum() {
-		if (heapSize < 1) {
-			System.out.println("Heap underflow");
-			return -1;
-		}
-		int min = a[0];
-		swap(a, min, heapSize - 1);
-		heapSize--;
-		minHeapify(a, 0);
-		return min;
-	}
-
-	public void decreaseKey(int i, int key) {
-		if (key > a[i]) {
-			System.out.println("New key cannot be larger than current key");
+	private void heapify(int pos) {
+		if (isLeaf(pos))
 			return;
+
+		int left = getLeftChild(pos);
+		int right = getRightChild(pos);
+
+		int min = pos;
+
+		/**
+		* Check whether left and right child indexes are still within the heapsize
+		*/
+
+		if (left <= heapSize && heap[left] < heap[min]) {
+			min = left;
 		}
-		a[i] = key;
-		while (i > 0 && a[i] > a[getParent(i)]) {
-			swap(a, i, getParent(i));
-			i = getParent(i);
+		if (right <= heapSize && heap[right] < heap[min]) {
+			min = right;
+		}
+
+		if (min != pos) {
+			swap(pos, min);
+			heapify(min);
 		}
 	}
 
-	public void insert(int key) {
-		if (heapSize == a.length) {
-			System.out.println("Heap Overflow");
-			return;
+	public void insert(int data) {
+		if (heapSize == capacity) {
+			System.out.println("Heap overflow");
+			return ;
 		}
-		heapSize++;
-		a[heapSize] = Integer.MIN_VALUE;
-		decreaseKey(heapSize, key);
+
+		heap[++heapSize] = data;
+		int current  = heapSize;
+
+		int parent = getParent(current);
+
+		while (parent >= 1 && heap[parent] > heap[current]) {
+			swap(parent, current);
+			current = getParent(current);
+			parent = getParent(current);
+		}
+
+		/*while (current >= 1 && heap[current/2] > heap[current]) {
+			swap(current/2, current);
+			current = current/2;
+		}*/
+	}
+
+	public int extractMin() {
+		if (heapSize == 0) {return -1;}
+
+		int poppedItem = heap[1];
+		swap(1, heapSize--);
+		heapify(1);
+		heap[heapSize + 1] = 0;
+		return poppedItem;
 	}
 
 	public static void main(String[] args) {
-		MinHeap mh = new MinHeap(20);
-		mh.insert(13);
-		mh.insert(2);
-		mh.insert(5);
-		mh.insert(3);
-		mh.insert(7);
-		mh.insert(1);
-		mh.insert(98);
-		mh.insert(17);
-
-		for(int i : mh.a){
-			System.out.println(i);
+		MinHeap mh = new MinHeap(10);
+		int a[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+		for (int i : a) {
+			mh.insert(i);
 		}
+		while (mh.heapSize != 0)
+			System.out.println(mh.extractMin());
+
 	}
 
 }
