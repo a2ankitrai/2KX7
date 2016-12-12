@@ -15,6 +15,8 @@ Examples:
 
 ## Columnar
 
+Column family databases are designed for large volumes of data, read and write performance, and high availability.
+
 Examples:
 - Cassendra
 - DynamoDB (Amazon)
@@ -31,10 +33,13 @@ Applications:
 Examples:
 - Redis
 - Memcached
+- Riak
 
 ---
 
 ## Graph Database
+
+Graph database is a database that uses graph structures for semantic queries with nodes, edges and properties to represent and store data.
 
 Applications:
 - People who liked this product are likely to like that product as well. Finding relationships to give recommendations and suggesstion in Shopping apps.
@@ -42,4 +47,16 @@ Applications:
 
 Examples:
 - Neo4j
-- Infinite Graph
+- InfiniteGraph 
+
+---
+
+# CAP Theorem
+
+**Consistency** – All the servers in the system will have the same data so anyone using the system will get the same copy regardless of which server answers their request.
+
+**Availability** – The system will always respond to a request (even if it's not the latest data or consistent across the system or just a message saying the system isn't working).
+
+**Partition Tolerance** – The system continues to operate as a whole even if individual servers fail or can't be reached.
+
+![cap](./cap.png)
