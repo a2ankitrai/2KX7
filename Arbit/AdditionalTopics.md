@@ -19,3 +19,31 @@ Services like Bootstrap CDN let users load the CSS and Javascript files for Twit
 - **Enterprises improve server reliability** as CDNs are part of failover plans to route traffic to new locations should a server be taken offline
 
 ---
+
+# OSI 7 layers
+
+
+---
+
+# DNS routing
+
+
+--- 
+
+# Devops pipelines
+
+
+---
+
+#  tcp vs udp
+
+---
+
+# CIDR ranges
+
+---
+
+# ETL
+
+
+---

@@ -1,3 +1,18 @@
+# Searching
+
+## Binary Search
+
+## Implementation code
+
+??
+
+
+## Problems on binary search
+
+??
+
+
+---
 
 # Sorting
 

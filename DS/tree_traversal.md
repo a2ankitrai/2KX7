@@ -1,73 +1,5 @@
- 
-# Trees 
-Unlike Array and Linked List, which are linear data structures, tree is hierarchical (or non-linear) data structure.  
+# Binary tree traversals
 
-Saying that the structure of a tree is hierarchical means that things are ordered above or below other things. For example, the army is hierarchical, with generals above colonels, and colonels above lieutenants, etc.
-  
-- If we organize keys in form of a tree (with some ordering e.g., BST), we can search for a given key in moderate time (quicker than Linked List and slower than arrays). **Self-balancing search trees like AVL and Red-Black trees guarantee an upper bound of O(Logn) for search.**
-
-- We can insert/delete keys in moderate time (quicker than Arrays and slower than Unordered Linked Lists). **Self-balancing search trees like AVL and Red-Black trees guarantee an upper bound of O(Logn) for insertion/deletion.**
-
-
-## Binary Tree
-In Binary Tree each node has zero child, one child or two children.
-
-***Strict Binary Tree***:
-If each node has exactly two children or no children.
-
-___Full Binary Tree___: 
-If each node has exactly two children and all leaf nodes are at same level.	
-
-***Complete Binary Tree***: A Binary Tree is complete Binary Tree if all levels are completely filled except possibly the last level and the last level has all keys as left as possible.
-If all leaf nodes are at height `h` or `h-1` and also without any missing number of sequence. 
-
-```
-               18
-           /       \  
-         15         30  
-        /  \        /  \
-      40    50    100   40
-	  
-               18
-           /       \  
-         15         30  
-        /  \        /  \
-      40    50    100   40
-     /  \   /
-    8   7  9 	  
-	  
-```
-	
-The depth of a node n is the number of nodes on the search path from the root to n,
-not including n itself. The height of a binary tree is the maximum depth of any node
-in that tree.	
-	
-	
-## Binary tree implementation
-```java
-public class BinaryTree {
-
-	public BTNode root;
-
-	static class BTNode {
-		public int data;
-		public BTNode left;
-		public BTNode right;
-
-		public BTNode(int data) {
-			this.data = data;
-			left =  null;
-			right = null;
-		}
-	}
-
-	public BinaryTree(BTNode root) {
-		this.root = root;
-	}
-}	
-```	
-
-## Binary tree traversals
 **Preorder**: Each node is processed before (pre) either of its sub-trees.  
 _Recursive approach_
 ```java
@@ -80,37 +12,10 @@ public void preOrderTraversalRecursive(BTNode root) {
 	}
 ```
 
-_Iterative approach_  
-This code works but it is heavily under optimal. This was your 1st attempt.
-```java
-public void preOrderTraversal() {
-		if (root == null) {
-			System.out.println("Empty tree");
-			return ;
-		}
-		String treeElements = "";
-		BTNode temp = root;
+_Iterative approach_
 
-		Stack<BTNode> s = new Stack<BTNode>();
+Push the root node on stack. While the stack is not empty; pop the stack. Push the right child (if not null) of popped element to the stack. Push the left child(if not null) of popped element to the stack.
 
-		while (temp != null || !s.empty()) {
-
-			if (temp == null) {
-				temp = s.pop();
-			}
-			System.out.println(treeElements);
-			treeElements += temp.data + " --> ";
-			if (temp.right != null) {
-				s.push(temp.right);
-			}
-			temp = temp.left;
-		}
-
-		System.out.println(treeElements);
-	}
-```
-
-A more optimal code
 ```java
 public void preOrderTraversal() {
 		if (root == null) {
@@ -166,7 +71,9 @@ public void inOrderTraversalIterative() {
 ```
 
 **Postorder Traversal of Binary tree**  
-There is one more approach other than below but this one is optimal
+
+Push the root node on to a stack. Peek the top element. If its left and right child are null the pop the element otherwise push the right child to the stack and deleting the right child link followed by pushing the left child and deleting the link.
+
 ```java
 public void postOrderTraversalIterative() {
 		if (root == null) {
@@ -265,3 +172,34 @@ public void postOrderTraversalIterative() {
 		}
 	}
 	```
+	
+--- 
+
+## BFS
+
+```java
+public void bfs() {
+		if (root == null) {
+			System.out.println("Empty tree");
+			return;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		Queue<BTNode> q = new LinkedList<BTNode>();
+
+		q.offer(root);
+
+		while (!q.isEmpty()) {
+			BTNode temp = q.poll();
+			sb.append(temp.data + " ");
+			if (temp.left != null) {
+				q.offer(temp.left);
+			}
+			if (temp.right != null) {
+				q.offer(temp.right);
+			}
+		}
+		System.out.println(sb);
+	}
+```	
+	

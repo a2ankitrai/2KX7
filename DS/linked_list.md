@@ -46,12 +46,9 @@ List list = Collections.synchronizedList(new LinkedList(...));
 
 The iterators returned by this class's iterator and listIterator methods are fail-fast: if the list is structurally modified at any time after the iterator is created, in any way except through the Iterator's own remove or add methods, the iterator will throw a `ConcurrentModificationException`. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
 
-
-
 ---
 
 - Insertion and Deletion speed comparision in Singly Linked List Vs Doubly Linked List ?
-
 
 ## Problems on Linked List
 

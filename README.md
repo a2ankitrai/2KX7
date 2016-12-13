@@ -5,9 +5,9 @@
 - [Array](./DS/array.md)             
 - [Linked List](./DS/linked_list.md) 
 - [Stacks and Queues](./DS/stack_n_queue.md) 
-- Trees
-  - [Traversal - Inorder, Preorder, PostOrder](./DS/Tree/tree_chap1.md)  
-  - Balanced Binary Tree
+- [Trees](./DS/tree_chap1.md)
+  - [Traversal - Inorder, Preorder, PostOrder](./DS/tree_traversal.md)  
+  - [Balanced Seach Tree](./DS/balanced_search_tree.md)
     - AVL tree 
     - Red-Black tree	
   - [Binary search trees](./DS/Tree/binary_search_tree.md)  

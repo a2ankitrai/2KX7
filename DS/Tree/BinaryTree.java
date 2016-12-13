@@ -77,7 +77,7 @@ public class BinaryTree {
 		String treeElements = "";
 		boolean done =  false;
 
-		while (!done) {
+		/*while (!done) {
 			if (curr != null) {
 				s.push(curr);
 				curr = curr.left;
@@ -90,7 +90,26 @@ public class BinaryTree {
 					curr = curr.right;
 				}
 			}
+		}*/
+
+		while (curr != null) {
+			s.push(curr);
+			curr = curr.left;
 		}
+
+		while (s.empty()) {
+			curr = s.pop();
+			treeElements += " --> " + curr.data;
+			if (curr.right != null) {
+				curr = curr.right;
+			}
+
+			while (curr != null) {
+				s.push(curr);
+				curr = curr.left;
+			}
+		}
+
 		System.out.println(treeElements);
 	}
 
@@ -123,6 +142,60 @@ public class BinaryTree {
 		System.out.println(treeElements);
 	}
 
+
+	/* computes number of nodes in tree */
+	int size(BTNode node) {
+		if (node == null)
+			return 0;
+		else
+			return (size(node.left) + 1 + size(node.right));
+	}
+
+	public int max(BTNode root) {
+		BTNode node = root;
+
+		if (node == null) {
+			return Integer.MIN_VALUE;
+		}
+
+		int res = node.data;
+		int leftMax = max(node.left);
+		int rightMax = max(node.right);
+
+		if (res < leftMax) {
+			res = leftMax;
+		}
+		if (res < rightMax) {
+			res = rightMax;
+		}
+
+		return res;
+	}
+
+	public void bfs() {
+		if (root == null) {
+			System.out.println("Empty tree");
+			return;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		Queue<BTNode> q = new LinkedList<BTNode>();
+
+		q.offer(root);
+
+		while (!q.isEmpty()) {
+			BTNode temp = q.poll();
+			sb.append(temp.data + " ");
+			if (temp.left != null) {
+				q.offer(temp.left);
+			}
+			if (temp.right != null) {
+				q.offer(temp.right);
+			}
+		}
+		System.out.println(sb);
+	}
+
 	public void levelOrderTraversalReverse() {
 		if (root == null) {
 			return;
@@ -148,6 +221,7 @@ public class BinaryTree {
 		}
 	}
 
+	// Not working ...
 	public void trueLevelOrderTraversal() {
 		if (root == null)
 			return;
@@ -161,13 +235,54 @@ public class BinaryTree {
 			if (temp.left != null) {
 				q.offer(temp.left);
 				level++;
-			}		
+			}
 			if (temp.right != null) {
-				q.offer(temp.right);																	
-			}	
+				q.offer(temp.right);
+			}
 
 		}
 
+	}
+
+	/*The function Compute the "height" of a tree. Height is the
+	 number f nodes along the longest path from the root node
+	 down to the farthest leaf node.*/
+	static int height(BTNode node) {
+		/* base case tree is empty */
+		if (node == null)
+			return 0;
+
+		/* If tree is not empty then height = 1 + max of left
+		   height and right heights */
+		return (1 + Math.max(height(node.left), height(node.right)));
+	}
+
+	/* Method to calculate the diameter and return it to main */
+	int diameter(BTNode root) {
+		/* base case if tree is empty */
+		if (root == null)
+			return 0;
+
+		/* get the height of left and right sub trees */
+		int lheight = height(root.left);
+		int rheight = height(root.right);
+
+		/* get the diameter of left and right subtrees */
+		int ldiameter = diameter(root.left);
+		int rdiameter = diameter(root.right);
+
+		/* Return max of following three
+		  1) Diameter of left subtree
+		 2) Diameter of right subtree
+		 3) Height of left subtree + height of right subtree + 1 */
+		return Math.max(lheight + rheight + 1,
+		                Math.max(ldiameter, rdiameter));
+
+	}
+
+	/* A wrapper over diameter(Node root) */
+	int diameter() {
+		return diameter(root);
 	}
 
 	public static void main(String[] args) {
@@ -192,16 +307,34 @@ public class BinaryTree {
 		l1e2.left = l2e3;
 		l1e2.right = l2e4;
 
+		//-------------------------------------------
+		//Level 3 - nodes
+
+		BTNode l3e1 = new BTNode(8);
+		BTNode l3e2 = new BTNode(9);
+		l2e1.left = l3e1;
+		l2e1.right = l3e2;
+		
+		//-------------------------------------------
+		//Level 4 - nodes		
+		BTNode l4e1 = new BTNode(10);
+		l3e1.right = l4e1;
+
 
 		BinaryTree bt = new BinaryTree(root);
 
 		//		bt.preOrderTraversal();
 		//		bt.preOrderTraversalRecursive(root);
-		//		bt.inOrderTraversalRecursive(root);
+		//	bt.inOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalIterative();
 		//		bt.levelOrderTraversalReverse();
-		bt.trueLevelOrderTraversal();
+		// 		bt.trueLevelOrderTraversal();
+
+		//		System.out.println(bt.max(root));
+		// 		bt.bfs();
+
+		System.out.println(bt.diameter());
 	}
 
 }
