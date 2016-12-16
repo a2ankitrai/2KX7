@@ -45,5 +45,9 @@ Services like Bootstrap CDN let users load the CSS and Javascript files for Twit
 
 # ETL
 
+Extract, Transform, Load (ETL) refers to a process in database usage and especially in data warehousing. The ETL process became a popular concept in the 1970s. Data extraction is where data is extracted from homogeneous or heterogeneous data sources; data transformation where the data is transformed for storing in the proper format or structure for the purposes of querying and analysis; data loading where the data is loaded into the final target database, more specifically, an operational data store, data mart, or data warehouse.
+
+
+
 
 ---
