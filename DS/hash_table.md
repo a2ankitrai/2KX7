@@ -34,11 +34,74 @@ element with key k hashes to slot h(k); we also say that h(k) is the hash value 
 The hash function reduces the range of array indices and hence the size of the array. Instead of a size of |U|, the array
 can have size m.	
 
-### Collision
+---
+
+## Hash functions
+
+A good hash function satisfies (approximately) the assumption of simple uniform hashing: each key is equally likely to hash to any of the m slots,  independently of where any other key has hashed to.
+
+### The division method
+
+In the division method for creating hash functions, we map a key k into one of m slots by taking the remainder of k divided by m. That is, the hash function is
+
+`h(k) =  k mod m `
+
+### The multiplication method
+
+The multiplication method for creating hash functions operates in two steps. First, we multiply the key k by a constant A in the range 0 < A < 1 and extract the fractional part of kA. Then, we multiply this value by m and take the floor of the result. In short, the hash function is
+
+`h(k) = Math.Floor( m (kA mod 1))`
+
+where “kA mod 1” means the fractional part of kA, that is, kA - Math.Floor[kA].
+
+### Universal Hashing
+
+Choose the hash function randomly in a way that is independent of the keys that are actually going to be stored. This approach, called universal hashing, can yield provably good performance on average, no matter which keys are being choosen.
+
+---
+## Hash functions in Java
+
+- **Positive integers.** The most commonly used method for hashing integers is called *modular hashing*: we choose the array size M to be prime, and, for any positive integer key k, compute the remainder when dividing k by M. This function is very easy to compute (k % M, in Java), and is effective in dispersing the keys evenly between 0 and M-1.
+
+- **Floating-point numbers.** If the keys are real numbers between 0 and 1, we might just multiply by M and round off to the nearest integer to get an index between 0 and M-1. Although it is intuitive, this approach is defective because it gives more weight to the most significant bits of the keys; the least significant bits play no role. One way to address this situation is to use modular hashing on the binary representation of the key (this is what Java does).
+
+- **Strings.** Modular hashing works for long keys such as strings, too: we simply treat them as huge integers. For example, the code below computes a modular hash function for a String s, where R is a small prime integer (Java uses 31).
+
+	```java
+	int hash = 0;
+	for (int i = 0; i < s.length(); i++)
+		hash = (R * hash + s.charAt(i)) % M;
+	```
+
+- **Java conventions.** Java helps us address the basic problem that every type of data needs a hash function by requiring that every data type must implement a method called `hashCode()` (which returns a 32-bit integer). The implementation of `hashCode()` for an object must be consistent with equals. That is, if `a.equals(b)` is true, then `a.hashCode()` must have the same numerical value as `b.hashCode()`. If the `hashCode()` values are the same, the objects may or may not be equal, and we must use `equals()` to decide which condition holds.	
+
+- Converting a hashCode() to an array index. Since our goal is an array index, not a 32-bit integer, we combine hashCode() with modular hashing in our implementations to produce integers between 0 and M-1 as follows:
+	
+	```java
+	private int hash(Key key) {
+	   return (key.hashCode() & 0x7fffffff) % M;
+	}
+	```
+	The code masks off the sign bit (to turn the 32-bit integer into a 31-bit nonnegative integer) and then computing the remainder when dividing by M, as in modular hashing.
+	
+---
+
+Three primary requirements in implementing a good hash function for a given data type:
+
+- It should be **deterministic**—equal keys must produce the same hash value.
+
+- It should be **efficient** to **compute**.
+
+- It should **uniformly distribute** the keys.	
+	
+
+---
+ 
+## Collision
 
 Two keys may hash to the same slot in hash Table.
 
-**Collision resolution by chaining**
+### Collision resolution by chaining
 
 In chaining, we place all the elements that hash to the same slot into the same linked list.
 
@@ -79,31 +142,7 @@ Time complexity of search insert and delete is O(1) if  α is O(1)
 
 ---
 
-## Hash functions
-
-A good hash function satisfies (approximately) the assumption of simple uniform hashing: each key is equally likely to hash to any of the m slots,  independently of where any other key has hashed to.
-
-### The division method
-
-In the division method for creating hash functions, we map a key k into one of m slots by taking the remainder of k divided by m. That is, the hash function is
-
-`h(k) =  k mod m `
-
-### The multiplication method
-
-The multiplication method for creating hash functions operates in two steps. First, we multiply the key k by a constant A in the range 0 < A < 1 and extract the fractional part of kA. Then, we multiply this value by m and take the floor of the result. In short, the hash function is
-
-`h(k) = Math.Floor( m (kA mod 1))`
-
-where “kA mod 1” means the fractional part of kA, that is, kA - Math.Floor[kA].
-
-### Universal Hashing
-
-Choose the hash function randomly in a way that is independent of the keys that are actually going to be stored. This approach, called universal hashing, can yield provably good performance on average, no matter which keys are being choosen.
-
----
-
-## Open addressing
+### Open addressing
 
 In Open Addressing, all elements are stored in the hash table itself. So at any point, size of table must be greater than or equal to total number of keys.
 

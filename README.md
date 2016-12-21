@@ -57,6 +57,7 @@
 ## Design Patterns
 - [Overview](./Design_Patterns/Design_Patterns.md)
 - [System Design](./Arbit/System_Design.md)
+- [Object Oriented Designs](./Arbit/OODesigns.md)
 
 ## [Mathematics](./Arbit/Mathematics.md)
 
