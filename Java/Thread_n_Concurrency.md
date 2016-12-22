@@ -1,6 +1,23 @@
 # Threads and Concurrency
 ---
 
+## Thread Implementation
+
+By extending the Thread class or implmenting the Runnable interface. In both cases need to implement the run() method
+
+## Sleep, Yield and Join
+
+---
+
+## Synchronized
+
+---
+
+## Waiting and Notifying
+
+
+---
+
 # Thread Safety
 
 A class is thread safe if it behaves correctly when accessed from multiple threads, regardless of the scheduling or 

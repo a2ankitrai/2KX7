@@ -35,7 +35,7 @@ class MergeSortedArrays {
 			iters.add(array.iterator());
 		}
 		PriorityQueue<ArrayEntry> minHeap = new PriorityQueue<>(
-		((int)sortedArrays.size()), new Comparator<ArrayEntry>() {
+		(sortedArrays.size()), new Comparator<ArrayEntry>() {
 			@Override
 			public int compare(ArrayEntry o1, ArrayEntry o2) {
 				return Integer.compare(o1.value, o2.value);
