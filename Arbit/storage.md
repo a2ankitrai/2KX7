@@ -90,3 +90,9 @@ Because both disks are operational, data can be read from them simultaneously, w
 
 
 ---
+
+## File System model
+
+**Page.** Contiguous block of data (e.g. a file or 4096-byte chunk).
+
+**Probe.** First access to page (e.g., from disk to memory).

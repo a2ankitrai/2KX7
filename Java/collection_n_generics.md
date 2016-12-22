@@ -208,3 +208,31 @@ These guidelines do not apply to a method's return type. Using a wildcard as a r
 
 - Java compiler error: generic array creation
 
+---
+
+---
+
+# Collections
+
+## List <Interface>
+
+A List is an ordered collection of elements. 
+
+Implementations:
+
+*ArrayList:* Growable/Shrinkable array
+
+*LinkedList:* 
+
+*CopyOnWriteArrayList:* A thread-safe variant of ArrayList in which all mutative operations (add, set, and so on) are implemented by making a fresh copy of the underlying array. This is ordinarily too costly, but may be more efficient than alternatives when traversal operations vastly outnumber mutations, and is useful when you cannot or don't want to synchronize traversals, yet need to preclude interference among concurrent threads.
+
+## Set
+
+A collection that contains no duplicate elements is a set.
+
+There are two main Set implementations: HashSet and TreeSet. HashSet hashes the elements and distributes them into buckets by the hash value. Tree set is backed by a balanced tree, which makes it ordered and navigable
+
+## Map
+
+an object that maps keys to values, an associative array, a table: the map.
+

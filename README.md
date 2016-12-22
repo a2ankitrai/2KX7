@@ -7,11 +7,11 @@
 - [Stacks and Queues](./DS/stack_n_queue.md) 
 - [Trees](./DS/tree_chap1.md)
   - [Traversal - Inorder, Preorder, PostOrder](./DS/tree_traversal.md)  
+  - [Binary search trees](./DS/Tree/binary_search_tree.md)
   - [Balanced Seach Tree](./DS/balanced_search_tree.md)
     - AVL tree 
     - Red-Black tree	
-  - [Binary search trees](./DS/Tree/binary_search_tree.md)  
-- B-Tree  
+	- B-Tree
 - [Hash Table](./DS/hash_table.md)  
 - [Heaps](./DS/heap.md)  
 - Trie		
