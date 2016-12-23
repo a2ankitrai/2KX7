@@ -24,7 +24,10 @@ try {
 		Thread.sleep(1000);
 	} catch (InterruptedException e) {
 		e.printStackTrace();
-	}```
+	}
+```
+
+**Sleep Properties**
 
 - **sleep()** is a static method that is being called on the currently executing thread (it is always the current thread that is put to sleep). 
 - while sleeping, the thread still owns synchronization locks it has acquired;
