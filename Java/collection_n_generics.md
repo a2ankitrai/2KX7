@@ -214,6 +214,11 @@ These guidelines do not apply to a method's return type. Using a wildcard as a r
 
 # Collections
 
+## Interfaces
+
+![colls-coreInterfaces](./_image/colls-coreInterfaces.gif)
+
+
 ## List <Interface>
 
 A List is an ordered collection of elements. 
