@@ -72,6 +72,12 @@ public void inOrderTraversalIterative() {
 
 **Postorder Traversal of Binary tree**  
 
+Post-order traversal is useful in some types of tree operations:
+
+- Tree deletion. In order to free up allocated memory of all nodes in a tree, the nodes must be deleted in the order where the current node can only be deleted when both of its left and right subtrees are deleted.
+
+- Evaluating post-fix notation.
+
 Push the root node on to a stack. Peek the top element. If its left and right child are null the pop the element otherwise push the right child to the stack and deleting the right child link followed by pushing the left child and deleting the link.
 
 ```java
@@ -104,6 +110,76 @@ public void postOrderTraversalIterative() {
 		System.out.println(treeElements);
 	}
 ```  
+
+The above algorithm modifies the tree by deleting left and right references to a node. We can avoid this by maintaining a previous variable for detecting the previously visited node
+
+```java
+public void postOrderTraversalIterative2() {
+		if (root == null) {
+			System.out.println("Empty tree");
+			return ;
+		}
+
+		Stack<BTNode> s = new Stack<BTNode>();
+		String treeElements = "";
+		BTNode prev = null;
+
+		s.push(root);
+
+		while (!s.empty()) {
+			BTNode curr = s.peek();
+			// we are traversing down the tree
+			if (prev == null || prev.left == curr || prev.right == curr) {
+
+				if (curr.left != null) {
+					s.push(curr.left);
+				} else if (curr.right != null) {
+					s.push(curr.right);
+				}
+			} else if (prev == curr.left) {
+				s.push(curr.right);	// we are traversing up the tree from the left
+			} else {
+				treeElements += curr.data + " "; // we are traversing up the tree from the right when `prev == curr.right`
+				s.pop();
+			}
+
+			prev = curr;
+		}
+
+		System.out.println(treeElements);
+	}
+```
+
+An alternative solution is to use two stacks. It is doing a reversed pre-order traversal. That is, the order of traversal is a node, then its right child followed by its left child. This yields post-order traversal in reversed order. Using a second stack, we could reverse it back to the correct order.
+
+
+```java
+public void postOrderTraversalIterativeUsing2Stacks() {
+
+		Stack<BTNode> s = new Stack<BTNode>();
+		Stack<BTNode> output = new Stack<BTNode>();
+		String treeElements = "";
+		s.push(root);
+
+		while(!s.empty()){
+			BTNode curr = s.pop();
+			if(curr.left!=null){
+				s.push(curr.left);
+			}
+			if(curr.right!=null){
+				s.push(curr.right);
+			}
+			output.push(curr);
+		}
+
+		while(!output.empty()){
+			treeElements += output.pop().data + " ";
+		}
+
+		System.out.println(treeElements);
+	}
+```
+
 
 
 **Level Order Traversal (also Line by Line)**

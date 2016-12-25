@@ -120,6 +120,27 @@ There are two types of threaded binary trees.
 - If you are given two traversal sequences, can you construct the binary tree?
 	
 	It depends on what traversals are given. If one of the traversal methods is Inorder then the tree can be constructed, otherwise not.
-	
+
+- Print Ancestors of a given node in Binary Tree. [code](./Tree/PrintAncestors.java)
+
+```java
+public boolean printAncestorsFunc(BinaryTree.BTNode root, BinaryTree.BTNode target) {
+
+		if (root == null) {
+			return false;
+		}
+
+		if(root == target){
+			return true;
+		}
+
+		if (printAncestorsFunc(root.left, target) || printAncestorsFunc(root.right, target)) {
+			System.out.print(root.data + " ");
+			return true;
+		}
+
+		return false;
+	}
+```	
 	
 	

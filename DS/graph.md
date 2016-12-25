@@ -171,7 +171,7 @@ Set of vertices connected pairwise by **directed** edges.
 
 Order of things which should be done before one another.
 
-DAG: Directed Acyclic Graph
+	DAG: Directed Acyclic Graph
 
 - If directed cycle, topological order impossible.
 - If no directed cycle, DFS-based algorithm finds a topological order.
@@ -248,6 +248,12 @@ formed so far. If cycle is not formed, include this edge. Else, discard it.
 ---
 
 ## Shortest Path
+
+
+---
+
+## Maximum Flow
+
 
 
 ---

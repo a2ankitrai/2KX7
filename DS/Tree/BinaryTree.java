@@ -97,17 +97,17 @@ public class BinaryTree {
 			curr = curr.left;
 		}
 
-		while (s.empty()) {
+		while (!s.empty()) {
 			curr = s.pop();
 			treeElements += " --> " + curr.data;
 			if (curr.right != null) {
 				curr = curr.right;
+				while (curr != null) {
+					s.push(curr);
+					curr = curr.left;
+				}
 			}
 
-			while (curr != null) {
-				s.push(curr);
-				curr = curr.left;
-			}
 		}
 
 		System.out.println(treeElements);
@@ -142,6 +142,67 @@ public class BinaryTree {
 		System.out.println(treeElements);
 	}
 
+	public void postOrderTraversalIterative2() {
+		if (root == null) {
+			System.out.println("Empty tree");
+			return ;
+		}
+
+		Stack<BTNode> s = new Stack<BTNode>();
+		String treeElements = "";
+		BTNode prev = null;
+
+		s.push(root);
+
+		while (!s.empty()) {
+			BTNode curr = s.peek();
+
+			if (prev == null || prev.left == curr || prev.right == curr) {
+
+				if (curr.left != null) {
+					s.push(curr.left);
+				} else if (curr.right != null) {
+					s.push(curr.right);
+				}
+			} else if (prev == curr.left) {
+				s.push(curr.right);
+			} else {
+				treeElements += curr.data + " ";
+				s.pop();
+			}
+
+			prev = curr;
+		}
+
+
+		System.out.println(treeElements);
+	}
+
+
+	public void postOrderTraversalIterativeUsing2Stacks() {
+
+		Stack<BTNode> s = new Stack<BTNode>();
+		Stack<BTNode> output = new Stack<BTNode>();
+		String treeElements = "";
+		s.push(root);
+
+		while(!s.empty()){
+			BTNode curr = s.pop();
+			if(curr.left!=null){
+				s.push(curr.left);
+			}
+			if(curr.right!=null){
+				s.push(curr.right);
+			}
+			output.push(curr);
+		}
+
+		while(!output.empty()){
+			treeElements += output.pop().data + " ";
+		}
+
+		System.out.println(treeElements);
+	}
 
 	/* computes number of nodes in tree */
 	int size(BTNode node) {
@@ -314,9 +375,9 @@ public class BinaryTree {
 		BTNode l3e2 = new BTNode(9);
 		l2e1.left = l3e1;
 		l2e1.right = l3e2;
-		
+
 		//-------------------------------------------
-		//Level 4 - nodes		
+		//Level 4 - nodes
 		BTNode l4e1 = new BTNode(10);
 		l3e1.right = l4e1;
 
@@ -325,16 +386,20 @@ public class BinaryTree {
 
 		//		bt.preOrderTraversal();
 		//		bt.preOrderTraversalRecursive(root);
-		//	bt.inOrderTraversalRecursive(root);
+		//		bt.inOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalRecursive(root);
 		//		bt.postOrderTraversalIterative();
 		//		bt.levelOrderTraversalReverse();
 		// 		bt.trueLevelOrderTraversal();
-
+		// 		bt.inOrderTraversalIterative();
 		//		System.out.println(bt.max(root));
 		// 		bt.bfs();
 
-		System.out.println(bt.diameter());
+		//System.out.println(bt.diameter());
+
+		//		bt.postOrderTraversalIterative2();
+
+		bt.postOrderTraversalIterativeUsing2Stacks();
 	}
 
 }

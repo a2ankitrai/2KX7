@@ -190,7 +190,9 @@ A lower bounded wildcard is expressed using the wildcard character ('?'), follow
 Of course, some variables are used both for "in" and "out" purposes — this scenario is also addressed in the guidelines.
 
 You can use the "in" and "out" principle when deciding whether to use a wildcard and what type of wildcard is appropriate. The following list provides the guidelines to follow:
+
 ---
+
 **Wildcard Guidelines: **
 
 - An "in" variable is defined with an upper bounded wildcard, using the extends keyword.
@@ -214,26 +216,126 @@ These guidelines do not apply to a method's return type. Using a wildcard as a r
 
 # Collections
 
-## Interfaces
+![collection_cheat_sheet](./_image/collection_cheat_sheet.PNG)
 
-![colls-coreInterfaces](./_image/colls-coreInterfaces.gif)
+## Collection << Interface >>
 
+```java
+public interface Collection<E>
+extends Iterable<E>
+```
 
-## List <Interface>
+The root interface in the collection hierarchy. A collection represents a group of objects, known as its elements.
 
-A List is an ordered collection of elements. 
+## List << Interface >>
+
+```java
+public interface List<E>
+extends Collection<E>
+```
+
+An ordered collection (also known as a sequence). The user of this interface has precise control over where in the list each element is inserted. The user can access elements by their integer index (position in the list), and search for elements in the list.
+
+lists typically allow duplicate elements. 
+
+The `List` interface provides a special iterator, called a `ListIterator`, that allows element insertion and replacement, and bidirectional access in addition to the normal operations that the Iterator interface provides.
 
 Implementations:
 
-*ArrayList:* Growable/Shrinkable array
+---
 
-*LinkedList:* 
+### ArrayList (Class)
 
-*CopyOnWriteArrayList:* A thread-safe variant of ArrayList in which all mutative operations (add, set, and so on) are implemented by making a fresh copy of the underlying array. This is ordinarily too costly, but may be more efficient than alternatives when traversal operations vastly outnumber mutations, and is useful when you cannot or don't want to synchronize traversals, yet need to preclude interference among concurrent threads.
+```java
+public class ArrayList<E>
+extends AbstractList<E>
+implements List<E>, RandomAccess, Cloneable, Serializable
+```
 
-## Set
+Resizable-array implementation of the `List` interface. 
 
-A collection that contains no duplicate elements is a set.
+Implements all optional list operations, and permits all elements, including null. In addition to implementing the List interface, this class provides methods to manipulate the size of the array that is used internally to store the list. (This class is roughly equivalent to Vector, except that **it is unsynchronized**.)
+
+The `size`, `isEmpty`, `get`, `set`, `iterator`, and `listIterator` operations run in constant time. The add operation runs in *amortized constant time*, that is, adding n elements requires O(n) time. All of the other operations run in linear time (roughly speaking). The constant factor is low compared to that for the `LinkedList` implementation.
+
+Each ArrayList instance has a capacity. As elements are added to an ArrayList, its capacity grows automatically.
+
+An application can increase the capacity of an ArrayList instance before adding a large number of elements using the `ensureCapacity` operation. This may reduce the amount of incremental reallocation.
+
+```java
+public void ensureCapacity(int minCapacity)
+```
+
+**this implementation is not synchronized.** To externally synchronize the list should be "wrapped" using the `Collections.synchronizedList` method. This is best done at creation time, to prevent accidental unsynchronized access to the list:
+
+```java
+   List list = Collections.synchronizedList(new ArrayList(...));
+```
+
+The iterators returned by this class's iterator and listIterator methods are **fail-fast**: if the list is structurally modified at any time after the iterator is created, in any way except through the iterator's own remove or add methods, the iterator will throw a `ConcurrentModificationException`. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
+
+---
+   
+### Vector (Class)   
+
+```java
+public class Vector<E>
+extends AbstractList<E>
+implements List<E>, RandomAccess, Cloneable, Serializable
+```
+
+The `Vector` class implements a growable array of objects. Like an array, it contains components that can be accessed using an integer index. However, the size of a `Vector` can grow or shrink as needed to accommodate adding and removing items after the `Vector` has been created.
+
+As of the Java 2 platform v1.2, this class was retrofitted to implement the `List` interface, making it a member of the Java Collections Framework. Unlike the new collection implementations, `Vector` is synchronized. If a thread-safe implementation is not needed, it is recommended to use `ArrayList` in place of `Vector`.
+
+---
+
+### CopyOnWriteArrayList (Class) 
+
+```java
+public class CopyOnWriteArrayList<E>
+extends Object
+implements List<E>, RandomAccess, Cloneable, Serializable
+```
+
+A thread-safe variant of `ArrayList` in which all mutative operations (add, set, and so on) are implemented by making a fresh copy of the underlying array. 
+
+This is ordinarily too costly, but may be more efficient than alternatives when traversal operations vastly outnumber mutations, and is useful when you cannot or don't want to synchronize traversals, yet need to preclude interference among concurrent threads.
+
+The "snapshot" style iterator method uses a reference to the state of the array at the point that the iterator was created. This array never changes during the lifetime of the iterator, so interference is impossible and the iterator is guaranteed not to throw `ConcurrentModificationException`. The iterator will not reflect additions, removals, or changes to the list since the iterator was created. Element-changing operations on iterators themselves (remove, set, and add) are not supported. These methods throw `UnsupportedOperationException`.
+
+Memory consistency effects: As with other concurrent collections, actions in a thread prior to placing an object into a `CopyOnWriteArrayList` **happen-before** actions subsequent to the access or removal of that element from the `CopyOnWriteArrayList` in another thread.
+
+---
+
+###	LinkedList (Class)
+
+```java
+public class LinkedList<E>
+extends AbstractSequentialList<E>
+implements List<E>, Deque<E>, Cloneable, Serializable
+```
+
+Doubly-linked list implementation of the `List` and `Deque` interfaces. Implements all optional list operations, and permits all elements (including `null`).
+
+**this implementation is not synchronized**. To synchronize the list should be "wrapped" using the `Collections.synchronizedList` method. This is best done at creation time, to prevent accidental unsynchronized access to the list:
+
+```java
+   List list = Collections.synchronizedList(new LinkedList(...));
+```
+
+---
+
+## Set << Interface >>
+
+```java
+public interface Set<E>
+extends Collection<E>
+```
+
+A collection that contains no duplicate elements. More formally, sets contain no pair of elements `e1` and `e2` such that `e1.equals(e2)`, and at most one `null` element. As implied by its name, this interface models the mathematical *set* abstraction.
+
+
 
 There are two main Set implementations: HashSet and TreeSet. HashSet hashes the elements and distributes them into buckets by the hash value. Tree set is backed by a balanced tree, which makes it ordered and navigable
 

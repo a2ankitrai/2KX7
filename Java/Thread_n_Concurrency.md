@@ -56,7 +56,9 @@ There are three overloaded join functions.
 
 - `public final synchronized void join(long millis)`: wait for the thread on which it’s called to be dead or wait for specified milliseconds. 
 
-- public final synchronized void join(long millis, int nanos): wait for thread to die for given milliseconds plus nanoseconds.
+- `public final synchronized void join(long millis, int nanos)`: wait for thread to die for given milliseconds plus nanoseconds.
+
+**ReverseHello**
 
 ---
 
@@ -64,7 +66,7 @@ There are three overloaded join functions.
 
 Interruption is a mechanism whereby a thread that is waiting (or sleeping) can be made to prematurely stop waiting.
 
-The InterruptedException is thrown by the Thread.sleep() method. In general, InterruptedException is thrown when another thread interrupts the thread calling the blocking method. The other thread interrupts the blocking/sleeping thread by calling interrupt() on it:
+The InterruptedException is thrown by the `Thread.sleep()` method. In general, `InterruptedException` is thrown when another thread interrupts the thread calling the blocking method. The other thread interrupts the blocking/sleeping thread by calling interrupt() on it:
 
 ```java
 thr.interrupt();
@@ -86,9 +88,36 @@ Crucially, **each process has its own memory space**.  A **thread** is a subdivi
 
 ## Waiting and Notifying
 
+Wait, Noitfy and NotifyAll methods are defined in Object class not in Thread beacause it's the object whose lock is acquired or released while calling wait or notify respectively. When a thread enters a synchronized block w.r.t. an object it acquires it's lock. Within the thread `run()` method if `wait` is called on the object whose lock this thread is acquired; that lock will be released. The thread may again acquire a lock on this object in future when notify will be called from another thread.
+
+### Wait
+
+Object wait methods has three variance, one which waits indefinitely for any other thread to call notify or notifyAll method on the object to wake up the current thread. Other two variances puts the current thread in wait for specific amount of time before they wake up.
+
+### notify
+
+notify method wakes up only one thread waiting on the object and that thread starts execution. So if there are multiple threads waiting for an object, this method will wake up only one of them. The choice of the thread to wake depends on the OS implementation of thread management.
+
+### notifyAll
+
+notifyAll method wakes up all the threads waiting on the object, although which one will process first depends on the OS implementation.
+
 
 ---
 
+# BlockingQueue
+
+`java.util.concurrent.BlockingQueue` is a java Queue that support operations that wait for the queue to become non-empty when retrieving and removing an element, and wait for space to become available in the queue when adding an element.
+
+Java BlockingQueue interface is part of java collections framework and it’s primarily used for implementing producer consumer problem.
+Java provides several BlockingQueue implementations such as ArrayBlockingQueue, LinkedBlockingQueue, PriorityBlockingQueue, SynchronousQueue etc.
+
+**Important Methods**
+- `put(E e)`: This method is used to insert elements to the queue. If the queue is full, it waits for the space to be available.
+- `E take()`: This method retrieves and remove the element from the head of the queue. If queue is empty it waits for the element to be available.
+
+
+---
 # Thread Safety
 
 A class is thread safe if it behaves correctly when accessed from multiple threads, regardless of the scheduling or 
