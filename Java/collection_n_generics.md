@@ -293,6 +293,8 @@ As of the Java 2 platform v1.2, this class was retrofitted to implement the `Lis
 ### CopyOnWriteArrayList (Class) 
 
 ```java
+package java.util.concurrent
+
 public class CopyOnWriteArrayList<E>
 extends Object
 implements List<E>, RandomAccess, Cloneable, Serializable
@@ -335,9 +337,25 @@ extends Collection<E>
 
 A collection that contains no duplicate elements. More formally, sets contain no pair of elements `e1` and `e2` such that `e1.equals(e2)`, and at most one `null` element. As implied by its name, this interface models the mathematical *set* abstraction.
 
+### HashSet (Class)
+
+```java
+public class HashSet<E>
+extends AbstractSet<E>
+implements Set<E>, Cloneable, Serializable
+```
+
+This class implements the Set interface, backed by a hash table (actually a `HashMap` instance). It makes no guarantees as to the iteration order of the set; in particular, it does not guarantee that the order will remain constant over time. This class permits the null element.
+
+Offers constant time performance for the basic operations (add, remove, contains and size), assuming the hash function disperses the elements properly among the buckets. Iterating over this set requires time proportional to the sum of the HashSet instance's size (the number of elements) plus the "capacity" of the backing HashMap instance (the number of buckets). Thus, it's very important not to set the initial capacity too high (or the load factor too low) if iteration performance is important.
 
 
-There are two main Set implementations: HashSet and TreeSet. HashSet hashes the elements and distributes them into buckets by the hash value. Tree set is backed by a balanced tree, which makes it ordered and navigable
+
+
+
+
+
+---
 
 ## Map
 
