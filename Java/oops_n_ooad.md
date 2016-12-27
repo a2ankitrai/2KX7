@@ -94,3 +94,25 @@ a call to `super()` or `this()`).
 
 - Calls to `this()` and `super()` cannot be in the same constructor. You can
 have one or the other, but never both.
+
+---
+
+## Abstraction
+
+The process of abstraction in Java is used to hide certain details and only show the essential features of the object. In other words, it deals with the outside view of an object (interface). The only good example i see for this across different sites is interface.
+
+Abstraction in Java is achieved by  using interface and abstract class in Java.
+
+--- 
+
+## Encapsulation
+
+Its basically about hiding the state of object with the help of modifiers like private,public,protected etc. we expose the state thru public methods only if require.
+
+---
+
+## Abstraction and Encapsulation difference
+
+- Abstraction is implemented in Java using interface and abstract class while Encapsulation is implemented using private, package-private and protected access modifier.
+ 
+- Encapsulation is also called data hiding. 
