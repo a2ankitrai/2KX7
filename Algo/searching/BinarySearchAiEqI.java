@@ -1,6 +1,6 @@
 import java.util.List;
 
-class BinarySearchAiEqI extends Parent implements Interface {
+class BinarySearchAiEqI {
 	public static int searchEntryEqualToItsIndex(List<Integer> A) {
 		int left = 0, right = A.size() - 1;
 		while (left <= right) {
