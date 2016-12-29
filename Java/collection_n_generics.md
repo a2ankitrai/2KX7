@@ -191,24 +191,20 @@ Of course, some variables are used both for "in" and "out" purposes — this sce
 
 You can use the "in" and "out" principle when deciding whether to use a wildcard and what type of wildcard is appropriate. The following list provides the guidelines to follow:
 
----
-
-**Wildcard Guidelines: **
+**Wildcard Guidelines:**
 
 - An "in" variable is defined with an upper bounded wildcard, using the extends keyword.
 - An "out" variable is defined with a lower bounded wildcard, using the super keyword.
 - In the case where the "in" variable can be accessed using methods defined in the Object class, use an unbounded wildcard.
 - In the case where the code needs to access the variable as both an "in" and an "out" variable, do not use a wildcard.
 
-	---
-
 These guidelines do not apply to a method's return type. Using a wildcard as a return type should be avoided because it forces programmers using the code to deal with wildcards.
  
 ---
 
-## ??
+## Java compiler error: generic array creation
 
-- Java compiler error: generic array creation
+Effective Java; Item 26. 
 
 ---
 
@@ -254,7 +250,7 @@ implements List<E>, RandomAccess, Cloneable, Serializable
 
 Resizable-array implementation of the `List` interface. 
 
-Implements all optional list operations, and permits all elements, including null. In addition to implementing the List interface, this class provides methods to manipulate the size of the array that is used internally to store the list. (This class is roughly equivalent to Vector, except that **it is unsynchronized**.)
+Implements all optional list operations, and permits all elements, including `null`. In addition to implementing the List interface, this class provides methods to manipulate the size of the array that is used internally to store the list. (This class is roughly equivalent to Vector, except that **it is unsynchronized**.)
 
 The `size`, `isEmpty`, `get`, `set`, `iterator`, and `listIterator` operations run in constant time. The add operation runs in *amortized constant time*, that is, adding n elements requires O(n) time. All of the other operations run in linear time (roughly speaking). The constant factor is low compared to that for the `LinkedList` implementation.
 
@@ -347,9 +343,9 @@ implements Set<E>, Cloneable, Serializable
 
 This class implements the Set interface, backed by a hash table (actually a `HashMap` instance). It makes no guarantees as to the iteration order of the set; in particular, it does not guarantee that the order will remain constant over time. This class permits the null element.
 
-HashSet is internally implemented using HashMap in Java.
+`HashSet` is internally implemented using `HashMap` in Java.
 
-HashMap allows duplicate values and this property is exploited while implementing HashSet in Java. Since HashSet implements Set interface it needs to guarantee uniqueness and this is achieved by storing elements as keys with same value always. HashSet can be used in place of ArrayList to store the object if you require no duplicate and don't care about insertion order
+`HashMap` allows duplicate values and this property is exploited while implementing `HashSet` in Java. Since `HashSet` implements `Set` interface it needs to guarantee uniqueness and this is achieved by storing elements as keys with same value always. `HashSet` can be used in place of `ArrayList` to store the object if you require no duplicate and don't care about insertion order
 
 Since HashSet doesn't provide any direct method for retrieving object e.g. get(Key key) from HashMap or get(int index) from List, only way to get object from HashSet is via Iterator.
 
@@ -381,9 +377,9 @@ implements Set<E>, Cloneable, Serializable
 
 Hash table and linked list implementation of the `Set` interface, with predictable iteration order. This implementation differs from HashSet in that it maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is the order in which elements were inserted into the set (insertion-order).
 
-This class provides all of the optional Set operations, and permits null elements. Like HashSet, it provides constant-time performance for the basic operations (add, contains and remove), assuming the hash function disperses elements properly among the buckets. Performance is likely to be just slightly below that of HashSet, due to the added expense of maintaining the linked list, with one exception: Iteration over a LinkedHashSet requires time proportional to the size of the set, regardless of its capacity. Iteration over a HashSet is likely to be more expensive, requiring time proportional to its capacity.
+This class provides all of the optional `Set` operations, and permits `null` elements. Like `HashSet`, it provides constant-time performance for the basic operations (`add`, `contains` and `remove`), assuming the hash function disperses elements properly among the buckets. Performance is likely to be just slightly below that of `HashSet`, due to the added expense of maintaining the linked list, with one exception: Iteration over a `LinkedHashSet` requires time proportional to the size of the set, regardless of its capacity. Iteration over a `HashSet` is likely to be more expensive, requiring time proportional to its capacity.
 
-Both HashSet and LinkedHashSet allows null.
+Both `HashSet` and `LinkedHashSet` allows null.
 
 ---
 
@@ -395,9 +391,9 @@ extends AbstractSet<E>
 implements NavigableSet<E>, Cloneable, Serializable
 ```
 
-A NavigableSet implementation based on a TreeMap. The elements are ordered using their natural ordering, or by a Comparator provided at set creation time, depending on which constructor is used.
+A `NavigableSet` implementation based on a `TreeMap`. The elements are ordered using their natural ordering, or by a `Comparator` provided at set creation time, depending on which constructor is used.
 
-This implementation provides guaranteed log(n) time cost for the basic operations (add, remove and contains).
+This implementation provides guaranteed log(n) time cost for the basic operations (`add`, `remove` and `contains`).
 
 Both `HashSet` and `LinkedHashSet` allows null but `TreeSet` doesn't allow `null` and throw `java.lang.NullPointerException` when you will insert `null` into `TreeSet`. Since `TreeSet` uses `compareTo()` method of respective elements to compare them  which throws NullPointerException while comparing with `null`.
 
@@ -420,9 +416,9 @@ public interface SortedSet<E>
 extends Set<E>
 ```
 
-A Set that further provides a total ordering on its elements. The elements are ordered using their natural ordering, or by a Comparator typically provided at sorted set creation time. The set's iterator will traverse the set in ascending element order. Several additional operations are provided to take advantage of the ordering. (This interface is the set analogue of SortedMap.)
+A `Set` that further provides a total ordering on its elements. The elements are ordered using their natural ordering, or by a `Comparator` typically provided at sorted set creation time. The set's iterator will traverse the set in ascending element order. Several additional operations are provided to take advantage of the ordering. (This interface is the set analogue of SortedMap.)
 
-All elements of a SortedSet must implement the Comparable interface (or be accepted by the specified Comparator) and all such elements must be mutually comparable (i.e, Mutually Comparable simply means that two objects accept each other as the argument to their compareTo method)
+All elements of a SortedSet must implement the `Comparable` interface (or be accepted by the specified `Comparator`) and all such elements must be mutually comparable (i.e, Mutually Comparable simply means that two objects accept each other as the argument to their compareTo method)
 
 ## NavigableSet << Interface >>
 
@@ -447,7 +443,7 @@ implements Serializable
 
 A `Set` that uses an internal `CopyOnWriteArrayList` for all of its operations. Thus, it shares the same basic properties:
 
-- It is best suited for applications in which set sizes generally stay small, read-only operations vastly outnumber mutative operations, and you need to prevent interference among threads during traversal. (For example you can use CopyOnWriteArraySet to store object at start-up of application and let multiple application thread access them during application life time. If an new condition or object comes up during that time, it can also be added into this Set, with incurring cost of creating a new array.)
+- It is best suited for applications in which set sizes generally stay small, read-only operations vastly outnumber mutative operations, and you need to prevent interference among threads during traversal. (For example you can use `CopyOnWriteArraySet` to store object at start-up of application and let multiple application thread access them during application life time. If an new condition or object comes up during that time, it can also be added into this Set, with incurring cost of creating a new array.)
 
 - It is thread-safe.
 

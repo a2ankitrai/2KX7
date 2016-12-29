@@ -24,7 +24,46 @@ Every application has a single root scope. All other scopes are descendant scope
 
 - app.config module
 
-- Routing, States and stateProvider?
+---
+
+## Routing, States and stateProvider?
+
+### the difference between $routeProvider and $stateProvider?
+
+**Angular Routing - per $routeProvider docs**
+
+URLs to controllers and views (HTML partials). It watches $location.url() and tries to map the path to an existing route definition.
+
+Limitations:-
+
+- The page can only contain single ng-view on page
+
+- If your SPA has multiple small components on page which you wanted to render based on some condition, In such scenario $routeProvider fails.(for achieving the same we need to go for directive like ng-include, ng-switch, ng-if, ng-show actually which looks bad to have them in SPA)
+
+- You can not relate between two routes like parent and child relationship.
+
+- You cannot show and hide a part view based on url pattern.
+
+
+**ui-router - per $stateProvider docs**
+
+AngularUI Router is a routing framework for AngularJS, which allows you to organize the parts of your interface into a state machine. UI-Router is organized around states, which may optionally have routes, as well as other behavior, attached.
+
+States are bound to named, nested and parallel views, allowing you to powerfully manage your application's interface.
+
+**Multiple & Named Views**
+
+- Another great feature is the ability to have multiple ui-views view per template.
+
+- While multiple parallel views are a powerful feature, you'll often be able to manage your interfaces more effectively by nesting your views, and pairing those views with nested states.
+
+**Pros**
+
+- You can have multiple ui-view on single page.
+
+- Various view can be nested in each other and maintain by defining state in routing phase.
+
+---
 
 - Difference between angular 1 & 2?
 

@@ -136,6 +136,21 @@ A race condition occurs when  the correctness of a computation depends on the re
 
 ## Thread local variables
 
+`ThreadLocal` is used to create thread local variables. Every thread has it’s own `ThreadLocal` variable and they can use it’s `get()` and `set()` methods to get the default value or change it’s value local to Thread.
+
+When you have some object that is not thread-safe, but you want to avoid synchronizing access to that object you can use `ThreadLocal`.
+
+ThreadLocal in Java is a different way to achieve thread-safety, it doesn't address synchronization requirement, instead it eliminates sharing by providing explicitly copy of Object to each thread. Since Object is no more shared there is no requirement of Synchronization which can improve scalability and performance of application.
+
+### Usage of ThreadLocal class:
+
+-  ThreadLocal are fantastic to implement Per Thread Singleton classes or per thread context information like transaction id.
+
+- You can wrap any non Thread Safe object in ThreadLocal and suddenly its uses becomes Thread-safe, as its only being used by Thread Safe. One of the classic example of ThreadLocal is sharing SimpleDateForamt. Since SimpleDateFormat is not thread safe, having a global formatter may not work but having per Thread formatter will certainly work.
+
+
+
+
 ---
 
 ## Executors
