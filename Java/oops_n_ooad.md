@@ -4,6 +4,10 @@
 
 ![SOLID principle](./solid_class_design_principles.png) 
 
+- Open closed design principles says that new functionality should be added by introducing new classes, methods or fields instead of modifying already tried and tested code. One of the way to achieve this is Inheritance where class is extended to introduce new functionality on top of inherited basic features.
+
+
+
 ---
 
 ## Object-Oriented Analysis
@@ -116,3 +120,17 @@ Its basically about hiding the state of object with the help of modifiers like p
 - Abstraction is implemented in Java using interface and abstract class while Encapsulation is implemented using private, package-private and protected access modifier.
  
 - Encapsulation is also called data hiding. 
+
+
+**Abstraction** : you'll never buy a "device", but always buy something more specific : iPhone, GSII, Nokia 3310... Here, iPhone, GSII and N3310 are concrete things, device is abstract.
+ 
+**Encapsulation** : you've got several devices, all of them have got an USB port. You don't know what kind of printed circuit there's back, you just have to know you'll be able to plug an USB cable onto.
+
+
+---
+
+## Questions:-
+
+- Why Java doesn't support multiple inheritance?
+	
+	First reason is ambiguity around Diamond problem. Second reason is multiple inheritances does complicate the design and creates problem during casting, constructor chaining etc and given that there are not many scenario on which you need multiple inheritance its wise decision to omit it for the sake of simplicity.

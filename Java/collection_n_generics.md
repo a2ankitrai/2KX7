@@ -365,3 +365,11 @@ Since HashSet doesn't provide any direct method for retrieving object e.g. get(K
 
 an object that maps keys to values, an associative array, a table: the map.
 
+---
+
+## Questions
+
+-	What happens On HashMap in Java if the size of the HashMap  exceeds a given threshold defined by load factor ?
+
+	If the size of the Map exceeds a given threshold defined by load-factor e.g. if the load factor is .75 it will act to re-size the map once it filled 75%. Similar to other collection classes like ArrayList,  Java HashMap re-size itself by creating a new bucket array of size twice of the previous size of HashMap and then start putting every old element into that new bucket array. This process is called rehashing because it also applies the hash function to find new bucket location.
+
