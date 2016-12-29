@@ -51,7 +51,7 @@
 - [Inside JVM](./Java/Inside_JVM.md)
 - [Java APIs](./Java/Java_API.md)
 - [Networking](./Java/Networking.md)
-- Servlets
+- J2EE - Servlets
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
 
@@ -71,6 +71,7 @@
 ## Database
 - [No SQL Databases](./Database/nosql.md)
 - SQL and NoSQL comparision
+- [Database basics](./Database/database.md)
 - What is Database indexing
 
 

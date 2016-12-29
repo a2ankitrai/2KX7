@@ -142,6 +142,12 @@ A race condition occurs when  the correctness of a computation depends on the re
 
 ---
 
+## Locks (ReentrantLock)
+
+### Difference between ReentrantLock and Synchronized in Java
+
+---
+
 ## CyclicBarrier and CountDownLatch
 
 ---
