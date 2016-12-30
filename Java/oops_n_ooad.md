@@ -103,7 +103,7 @@ have one or the other, but never both.
 
 ## Abstraction
 
-The process of abstraction in Java is used to hide certain details and only show the essential features of the object. In other words, it deals with the outside view of an object (interface). The only good example i see for this across different sites is interface.
+The process of abstraction in Java is used to hide certain details and only show the essential features of the object. In other words, it deals with the outside view of an object (interface).
 
 Abstraction in Java is achieved by  using interface and abstract class in Java.
 
@@ -111,7 +111,7 @@ Abstraction in Java is achieved by  using interface and abstract class in Java.
 
 ## Encapsulation
 
-Its basically about hiding the state of object with the help of modifiers like private,public,protected etc. we expose the state thru public methods only if require.
+Its basically about hiding the state of object with the help of modifiers like private,public,protected etc. we expose the state through public methods only if require.
 
 ---
 
