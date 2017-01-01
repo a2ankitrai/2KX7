@@ -266,6 +266,62 @@ ConcurrentSkipListSet does not permit the use of null elements, because null arg
 
 an object that maps keys to values, an associative array, a table: the map.
 
+
+---
+
+## ConcurrentHashMap
+
+```java
+package java.util.concurrent; 
+
+public class ConcurrentHashMap<K,V>
+extends AbstractMap<K,V>
+implements ConcurrentMap<K,V>, Serializable
+```
+
+A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. This class obeys the same functional specification as `Hashtable`, and includes versions of methods corresponding to each method of `Hashtable`. However, even though all operations are thread-safe, retrieval operations do **not** entail locking, and there is **not** any support for locking the entire table in a way that prevents all access. This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.
+
+Retrieval operations (including `get`) generally do not block, so may overlap with update operations (including `put` and `remove`). Retrievals reflect the results of the most recently completed update operations holding upon their onset. For aggregate operations such as `putAll` and `clear`, concurrent retrievals may reflect insertion or removal of only some entries. Similarly, Iterators and Enumerations return elements reflecting the state of the hash table at some point at or since the creation of the iterator/enumeration. They do not throw `ConcurrentModificationException`. However, iterators are designed to be used by only one thread at a time.
+
+The allowed concurrency among update operations is guided by the optional `concurrencyLevel` constructor argument (default 16), which is used as a hint for internal sizing. The table is internally partitioned to try to permit the indicated number of concurrent updates without contention. Because placement in hash tables is essentially random, the actual concurrency will vary. Ideally, you should choose a value to accommodate as many threads as will ever concurrently modify the table. Using a significantly higher value than you need can waste space and time, and a significantly lower value can lead to thread contention. But overestimates and underestimates within an order of magnitude do not usually have much noticeable impact. A value of one is appropriate when it is known that only one thread will modify and all others will only read. Also, resizing this or any other kind of hash table is a relatively slow operation, so, when possible, it is a good idea to provide estimates of expected table sizes in constructors.
+
+Like `Hashtable` but unlike `HashMap`, this class does **not** allow `null` to be used as a key or value.
+
+---
+
+How ConcurrentHashMap is implemented in Java
+---
+
+`ConcurrentHashMap` is introduced as an alternative of Hashtable and provided all functions supported by Hashtable with an additional feature called **concurrency level**, which allows `ConcurrentHashMap` to partition Map. ConcurrentHashMap allows multiple readers to read concurrently without any blocking. This is achieved by partitioning Map into different parts based on concurrency level and locking only a portion of Map during updates. Default concurrency level is 16, and accordingly Map is divided into 16 part and each part is governed with a different lock. This means, 16 thread can operate on Map simultaneously until they are operating on different part of Map. This makes `ConcurrentHashMap` high performance despite keeping thread-safety intact.  Though, it comes with a caveat. Since update operations like `put()`, `remove()`, `putAll()` or `clear()` is not synchronized, **concurrent retrieval may not reflect most recent change on Map**.
+
+In case of `putAll()` or `clear()`, which operates on whole Map, concurrent read may reflect insertion and removal of only some entries. Another important point to remember is iteration over CHM, `Iterator` returned by `keySet` of `ConcurrentHashMap` are weakly consistent and they only reflect state of `ConcurrentHashMap` at certain point and may not reflect any recent change. Iterator of `ConcurrentHashMap`'s keySet area also fail-safe and doesn’t throw `ConcurrentModificationExceptoin`.
+
+Default concurrency level is 16 and can be changed, by providing a number which make sense and work for you while creating `ConcurrentHashMap`. Since concurrency level is used for internal sizing and indicate number of concurrent update without contention, so, if you just have few writers or thread to update Map keeping it low is much better. `ConcurrentHashMap` also uses `ReentrantLock` to internally lock its segments.
+
+---
+
+When to use ConcurrentHashMap in Java
+---
+
+`ConcurrentHashMap` is best suited when you have multiple readers and few writers. If writers outnumber reader, or writer is equal to reader, than performance of `ConcurrentHashMap` effectively reduces to `synchronizedMap` or `Hashtable`. Performance of CHM drops, because you got to lock all portion of Map, and effectively each reader will wait for another writer, operating on that portion of Map. **	`ConcurrentHashMap` is a good choice for caches, which can be initialized during application start up and later accessed my many request processing threads.** As javadoc states, CHM is also a good replacement of `Hashtable` and should be used whenever possible, keeping in mind, that CHM provides slightly weeker form of synchronization than `Hashtable`.
+
+
+---
+
+**Constructors**
+
+- `ConcurrentHashMap()` - Creates a new, empty map with a default initial capacity (16), load factor (0.75) and concurrencyLevel (16).
+
+- `ConcurrentHashMap(int initialCapacity)` - Creates a new, empty map with the specified initial capacity, and with default load factor (0.75) and concurrencyLevel (16).
+
+- `ConcurrentHashMap(int initialCapacity, float loadFactor)` - Creates a new, empty map with the specified initial capacity and load factor and with the default concurrencyLevel (16).
+
+- `ConcurrentHashMap(int initialCapacity, float loadFactor, int concurrencyLevel)` - Creates a new, empty map with the specified initial capacity, load factor and concurrency level.
+
+- `ConcurrentHashMap(Map<? extends K,? extends V> m)` - Creates a new map with the same mappings as the given map.
+
+
+
 ---
 
 ## Questions

@@ -51,7 +51,7 @@ The primary tasks in object-oriented analysis (OOA) are:
 	- May throw different exceptions
 	- Methods from a superclass can be overloaded
 
-- Polymorphism applies to overriding, not to overloading.
+- Polymorphism applies to overriding, not to overloading. Also only methods are overriden instance variables are **NOT** overriden.
 
 - **Object type (not the reference variable's type), determines which overridden method is used at runtime**.
 
