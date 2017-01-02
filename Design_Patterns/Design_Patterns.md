@@ -40,9 +40,33 @@ The factory pattern allows you to create objects without specifying the exact cl
 ---
 
 ## Structural 
+---
 
 ### Adapter
 
+---
+
+## Facade
+
+The Facade design pattern simplifies the interface to a complex system; because it is usually composed of all the classes which make up the subsystems of the complex system.
+
+A Facade shields the user from the complex details of the system and provides them with a simplified view of it which is easy to use. It also decouples the code that uses the system from the details of the subsystems, making it easier to modify the system later.
+
+the Facade can be used to hide the inner workings of a third party library, or some legacy code. All that the client needs to do is interact with the Facade, and not the subsystem that it is encompassing.
+
+![facade_seq.PNG](./_image/facade_seq.PNG)
+
+Facade discusses encapsulating a complex subsystem within a single interface object. This reduces the learning curve necessary to successfully leverage the subsystem. It also promotes decoupling the subsystem from its potentially many clients. On the other hand, if the Facade is the only access point for the subsystem, it will limit the features and flexibility that "power users" may need.
+
+
+
+**Uses**:
+
+Service oriented architectures make use of the facade pattern. For example, in web services, one web service might provide access to a number of smaller services that have been hidden from the caller by the facade.
+
+
+
+---
 ### Bridge
 
 ### Composite
