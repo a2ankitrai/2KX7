@@ -46,7 +46,7 @@ class ConstantTimeDS {
 		Integer index = map.get(x);
 
 		if (index == null) {
-			System.out.println("Element already exists");
+			System.out.println("Element does not exists");
 			return;
 		}
 		map.remove(x);

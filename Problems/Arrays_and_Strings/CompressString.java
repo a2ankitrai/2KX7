@@ -25,7 +25,7 @@ class CompressString {
 				}
 			}
 		}
-		return o;
+		return o+ctr;
 	}
 
 	public static void main(String[] args) {

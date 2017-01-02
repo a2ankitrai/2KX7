@@ -42,6 +42,34 @@ The factory pattern allows you to create objects without specifying the exact cl
 ## Structural 
 
 ### Adapter
+---
+
+- Convert the interface of a class into another interface clients expect.
+
+- Adapter lets classes work together, that could not otherwise because of incompatible interfaces.
+
+![adapter-pattern.png](./_image/adapter-pattern.png)
+
+The classes/objects participating in adapter pattern:
+- **Target** - defines the domain-specific interface that Client uses.
+- **Adapter** - adapts the interface Adaptee to the Target interface.
+- **Adaptee** - defines an existing interface that needs adapting.
+- **Client** - collaborates with objects conforming to the Target interface.
+
+The Adapter pattern lets you to adapt what an object or a class exposes to what another object or class expects. It converts the interface of a class into another interface the client expects. It lets classes work together that couldn’t otherwise because of incompatible interfaces. It allows to fix the interface between the objects and the classes without modifying the objects and the classes directly.
+
+One can think of an Adapter as a real world adapter which is used to connect two different pieces of equipment that cannot be connected directly. An adapter sits in-between these equipments, it gets the flow from the equipment and provides it to the other equipment in the form it wants, which otherwise, is impossible to get due to their incompatible interfaces.
+
+An adapter uses composition to store the object it is supposed to adapt, and when the adapter’s methods are called, it translates those calls into something the adapted object can understand and passes the calls on to the adapted object. The code that calls the adapter never needs to know that it’s not dealing with the kind of object it thinks it is, but an adapted object instead.
+
+
+## Examples in Java
+
+- java.util.Arrays#asList()
+- java.io.InputStreamReader(InputStream) (returns a Reader)
+- java.io.OutputStreamWriter(OutputStream) (returns a Writer)
+
+---
 
 ### Bridge
 
