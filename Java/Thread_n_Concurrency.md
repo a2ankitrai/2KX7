@@ -149,8 +149,6 @@ ThreadLocal in Java is a different way to achieve thread-safety, it doesn't addr
 - You can wrap any non Thread Safe object in ThreadLocal and suddenly its uses becomes Thread-safe, as its only being used by Thread Safe. One of the classic example of ThreadLocal is sharing SimpleDateForamt. Since SimpleDateFormat is not thread safe, having a global formatter may not work but having per Thread formatter will certainly work.
 
 
-
-
 ---
 
 ## Executors

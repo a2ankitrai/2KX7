@@ -5,9 +5,7 @@
 ![SOLID principle](./solid_class_design_principles.png) 
 
 - Open closed design principles says that new functionality should be added by introducing new classes, methods or fields instead of modifying already tried and tested code. One of the way to achieve this is Inheritance where class is extended to introduce new functionality on top of inherited basic features.
-
-
-
+ 
 ---
 
 ## Object-Oriented Analysis
@@ -25,6 +23,48 @@ The primary tasks in object-oriented analysis (OOA) are:
 - Defining the behavior of the objects, i.e., object actions
 
 - Describing how the objects interact
+
+---
+
+## Relationship between Objects
+
+**Association**
+
+Association is a relationship between two objects. In other words, association defines the multiplicity between objects. Aggregation is a special form of association. Composition is a special form of aggregation.
+
+![association](./_image/association.jpg)
+
+**Aggregation**
+
+Aggregation is a special case of association. A directional association between objects. When an object ‘has-a’ another object, then you have got an aggregation between them. Direction between them specified which object contains the other object. Aggregation is also called a **Has-a** relationship.
+
+![aggregation](./_image/aggregation.jpg)
+
+**Composition**
+
+Composition is a special case of aggregation. In a more specific manner, a restricted aggregation is called composition. When an object contains the other object, if the contained object cannot exist without the existence of container object, then it is called composition.
+
+![composition](./_image/composition.jpg)
+
+
+**Generalization**
+
+Generalization uses a “is-a” relationship from a specialization to the generalization class. Common structure and behaviour are used from the specializtion to the generalized class. At a very broader level you can understand this as inheritance. Why I take the term inheritance is, you can relate this term very well. Generalization is also called a “Is-a” relationship.
+
+![generalization](./_image/generalization.jpg)
+
+**Realization**
+
+Realization is a relationship between the blueprint class and the object containing its respective implementation level details. This object is said to realize the blueprint class. In other words, you can understand this as the relationship between the interface and the implementing class
+
+![realization](./_image/realization.jpg)
+
+**Dependency**
+
+Change in structure or behaviour of a class affects the other related class, then there is a dependency between those two classes. It need not be the same vice-versa. When one class contains the other class it this happens.
+
+![dependency](./_image/dependency.jpg)
+
 
 ---
 
