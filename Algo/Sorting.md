@@ -174,12 +174,46 @@ public int partition(int[] a, int p, int r) {
 
 [java code](./sorting/QuickSort.java)
 
+---
+
+## Dual Pivot Quick Sort
+
+![dual_pivot_QS](./_image/dual_pivot_QS.png)
+
+1. For small arrays (length < 27), use the Insertion sort algorithm. (??)
+
+2. Choose two pivot elements P1 and P2. We can get, for example, the first element a[left] as P1 and the last element a[right] as P2.
+
+3. P1 must be less than P2, otherwise they are swapped. So, there are the following parts:
+	- part I with indices from left+1 to L–1 with elements, which are less than P1,
+	- part II with indices from L to K–1 with elements, which are greater or equal to P1 and less or equal to P2,
+	- part III with indices from G+1 to right–1 with elements greater than P2,
+	- part IV contains the rest of the elements to be examined with indices from K to G.
+
+4. The next element a[K] from the part IV is compared with two pivots P1 and P2, and placed to the corresponding part I, II, or III.
+
+5. The pointers L, K, and G are changed in the corresponding directions.
+
+6. The steps 4 - 5 are repeated while K ≤ G.
+
+7. The pivot element P1 is swapped with the last element from part I, the pivot element P2 is swapped with the first element from part III.
+
+8. The steps 1 - 7 are repeated recursively for every part I, part II, and part III.
+
+[DualPivotQuicksort](./DualPivotQuicksort.pdf)
+
+---
+
+We compare sorting methods by the number of the most "expensive" operations, which influence on effectiveness of the sorting techniques, — comparisons and swaps. Quicksort algorithm is an effective and wide-spread sorting procedure with ** C*n*ln(n) ** operations, where **n** is the size of the arranged array. The problem is to find an algorithm with the least coefficient **C**.
+
+---
+
 To DO
 ----
 
-- Randomized version of Quicksort? Picking a random element rather than the last.
+- Randomized version of Quicksort? Picking a random element rather than the last. ==>  Select Random element and swap it with last element.
 
-- Quicksort variation for duplicate elements in input
+- Quicksort variation for duplicate elements in input.
 
 
 ---

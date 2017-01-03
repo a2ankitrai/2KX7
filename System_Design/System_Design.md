@@ -29,76 +29,21 @@ Sketch the important components and the connections between them, but don't go i
 For each component, you need to write the specific APIs for each component. You may need to finish the detailed OOD design for a particular function. You may also need to design the database schema for the database.
 
 
-## Scaling
-
-Vertical scaling :  increasing processors (cores, caches), DISK, RAM
-
-Horizontal scaling:  using mutliple servers and increasing them as the load increses.
-
 ---
 
-## System Design Question Concepts
+## At the interview
 
-- **Amount of data (disk)**
+So what should you do at your interview?
 
-- **RAID configuration**
+First of all, follow the System Design Process. You already know how to apply it, so we'll be brief. Don't skip steps, don't make assumptions, start broad and go deep when asked.
 
-- **Amount of RAM – does everything need to be in RAM? (a lot of times – yes)**
+Second, keep in mind that system design questions serve as an idea exchange platform. Be prepared for discussions about tradeoffs, about pros and cons. Be prepared to give alternatives, to ask questions, to identify and solve bottlenecks, to go broad or deep depending on your interviewer's preferences.
 
-- **Requests/sec**
+Don't get defensive: whenever your interviewer challenges your architectural choices, acknowledge that rarely an idea is perfect, and outline the advantages and disadvantages of your choice. Be open to new constraints to pop up during the discussion and to adjust your architecture on the fly.
 
-- **Request time**
-
-- **Data transfer rates**
-
-- **Network requests in single data center**
-
-- **Geographically separated locations**
-
-- **Operations should never be more than nlogn, preferably n**
-
-- **Sharding/Partitioning (by user/date/content-type/alphabetically) – how do we rebalance?**
-
-- **Frontend/backend**
-
-- **Backups? Backup a single user on how many servers?**
-
-- **Many requests for the same data/lots of updates – all in cache**
-
-- **Distribute so that the network is negligible**
-
-- **Parallelizing network requests**
-
-- **Fan-out (scatter and gather)**
-
-- **Caching**
-
-- **Load-balancing**
-
-- **High availability**
-
-- **MapReduce**
-
-- **CDN**
-
-- **Queues**
-
-- **Timeouts**
-
-- **Fail fast**
-
-- **Circuit breakers**
-
-- **Throttling**
-
-- **Consistent hashing for sharding/partitioning**
-
-- **Compression**
-
-- **Possible to work harder on writes in order to make reads easier**
+Most of all, have fun. Dreaming up architectures is a very stimulating mental process - enjoy it and stay positive. You're already equipped with the right knowledge, just apply it during your interview and you'll do well.
 
 ---
-
 ### Some Famous Designs
 
 - [Google Docs](http://blog.gainlo.co/index.php/2016/03/22/system-design-interview-question-how-to-design-google-docs/)

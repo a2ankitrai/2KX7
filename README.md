@@ -58,11 +58,14 @@
 
 ## Design Patterns
 - [Overview](./Design_Patterns/Design_Patterns.md)
-- [System Design](./Arbit/System_Design.md)
 - [Object Oriented Designs](./Arbit/OODesigns.md)
 
-## [Mathematics](./Arbit/Mathematics.md)
+## System Design
+- [Approaching System Design Questions](./System_Design/System_Design.md)
+- [System Design Concepts](./System_Design/concepts.md)
 
+
+## [Mathematics](./Arbit/Mathematics.md)
 
 ## JavaScript
 - [My Learnings](https://github.com/a2ankitrai/JS_Learning)
