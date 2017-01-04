@@ -157,6 +157,10 @@ ThreadLocal in Java is a different way to achieve thread-safety, it doesn't addr
 
 ## Locks (ReentrantLock)
 
+`ReentrantLock` is a concrete implementation of `Lock` interface provided in Java concurrency package. `ReentrantLock` is mutual exclusive lock, similar to implicit locking provided by `synchronized` keyword in Java, with extended feature like fairness, which can be used to provide lock to longest waiting thread. 
+Lock is acquired by `lock()` method and held by Thread until a call to `unlock()` method.
+
+
 ### Difference between ReentrantLock and Synchronized in Java
 
 ---

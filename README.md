@@ -14,7 +14,7 @@
 	- B-Tree
 - [Hash Table](./DS/hash_table.md)  
 - [Heaps](./DS/heap.md)  
-- Trie		
+- [Trie](./DS/trie.md)		
 - [Graphs](./DS/graph.md) 
 	- Cycle Detection (Directed and Undirected Graphs)
 	- Topological Sorting

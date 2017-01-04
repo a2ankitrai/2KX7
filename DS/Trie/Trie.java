@@ -71,7 +71,24 @@ class Trie {
 		List<String> wordList =  new ArrayList<String>();
 		Map<Character, TrieNode> children = root.children;
 
-		 
+		String bWord = "";
+		TrieNode tempNode = null;
+		for (int i = 0; i < prefix.length(); i++) {
+			tempNode = children.get(prefix.charAt(i));
+			if (tempNode != null) {
+				children = tempNode.children;
+				bWord += tempNode.c;
+			} else {
+				break;
+			}
+		}		
+
+		if (tempNode != null) {
+			children = tempNode.children;
+		}
+
+
+		return wordList;
 	}
 
 	public static void main(String[] args) {
