@@ -153,6 +153,14 @@ ThreadLocal in Java is a different way to achieve thread-safety, it doesn't addr
 
 ## Executors
 
+Executor implementation in java uses thread pools which consists of worker threads. The entire management of worker threads is handled by the framework. So the overhead in memory management is much reduced compared to earlier multithreading approaches.
+
+The **Java Executor framework** provides multi-threading applications an easy abstraction layer. The executor abstraction layer hides the critical parts of concurrent execution and the programmer only concentrates on the business logic implementation. In java executor framework all parallel works are considered as tasks instead of simple threads. So the application now deals simply with instances of **Runnable** (which is basically collections of tasks or parallel works) and then it is passed to an **Executor** to process. The **ExecutorService** interface extends the simplistic **Executor** interface. The **Java Executor framework** has life cycle methods to manage the entire concurrent execution flow.
+
+The **Java Executor framework** creates tasks by using instances of **Runnable** or **Callable**. In case of Runnable, the `run ()` method does not return a value or throw any checked exception. But **Callable** is a more functional version in that area. It defines a `call ()` method that allows the return of some computed value which can be used in future processing and it also throws an exception if necessary.
+
+The FutureTask class is another important component which is used to get future information about the processing. An instance of this class can wrap either a Callable or a Runnable. You can get an instance of this as the return value of submit () method of an ExecutorService. You can also manually wrap your task in a FutureTask before calling execute () method.
+
 ---
 
 ## Locks (ReentrantLock)
@@ -170,3 +178,9 @@ Lock is acquired by `lock()` method and held by Thread until a call to `unlock()
 ---
 
 ## Deadlocks
+
+---
+
+## Producer - Consumer problem
+
+
