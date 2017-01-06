@@ -28,7 +28,15 @@ The factory pattern allows you to create objects without specifying the exact cl
 ### Abstract Factory
 
 ---
+
 ### Builder
+
+
+example in Java classes are;
+
+- java.lang.StringBuilder#append() (unsynchronized)
+
+- java.lang.StringBuffer#append() (synchronized)
 
 ---
 ### Prototype
