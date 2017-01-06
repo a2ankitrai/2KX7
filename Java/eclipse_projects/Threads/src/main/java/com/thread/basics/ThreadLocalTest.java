@@ -1,4 +1,4 @@
-package basics;
+package com.thread.basics;
 
 
 import java.io.IOException;

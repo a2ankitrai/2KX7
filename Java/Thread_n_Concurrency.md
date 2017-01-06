@@ -159,7 +159,53 @@ The **Java Executor framework** provides multi-threading applications an easy ab
 
 The **Java Executor framework** creates tasks by using instances of **Runnable** or **Callable**. In case of Runnable, the `run ()` method does not return a value or throw any checked exception. But **Callable** is a more functional version in that area. It defines a `call ()` method that allows the return of some computed value which can be used in future processing and it also throws an exception if necessary.
 
-The FutureTask class is another important component which is used to get future information about the processing. An instance of this class can wrap either a Callable or a Runnable. You can get an instance of this as the return value of submit () method of an ExecutorService. You can also manually wrap your task in a FutureTask before calling execute () method.
+The `FutureTask` class is another important component which is used to get future information about the processing. An instance of this class can wrap either a `Callable` or a `Runnable`. You can get an instance of this as the return value of submit () method of an `ExecutorService`. You can also manually wrap your task in a `FutureTask` before calling execute () method.
+
+---
+
+### Steps to implement the Java ThreadPoolExecutor.
+
+- A **pool** of multiple threads is created.
+
+- A **queue** is created holding all the tasks but these tasks are not yet assigned to threads from the pool.
+
+- **Rejection handler** is used to handle the situation when one or more tasks are not able to assign in the queue. As per the default rejection policy, it will simply throw a RejectedExecutionException runtime exception, and the application can catch it or discard it
+
+
+
+---
+
+### Executor << Interface >>
+
+```java
+package java.util.concurrent;
+
+public interface Executor {
+	void execute(Runnable arg0);
+}
+```
+
+An object that executes submitted Runnable tasks. This interface provides a way of decoupling task submission from the mechanics of how each task will be run, including details of thread use, scheduling, etc. An Executor is normally used instead of explicitly creating threads. For example, rather than invoking new Thread(new(RunnableTask())).start() for each of a set of tasks, you might use:
+
+```java
+ Executor executor = anExecutor;
+ executor.execute(new RunnableTask1());
+ executor.execute(new RunnableTask2());
+ ...
+``` 
+
+### ExecutorService << Interface >>
+
+```java
+public interface ExecutorService
+extends Executor
+```
+
+An Executor that provides methods to manage termination and methods that can produce a Future for tracking progress of one or more asynchronous tasks.
+
+An `ExecutorService` can be shut down, which will cause it to reject new tasks. Two different methods are provided for shutting down an `ExecutorService`. The `shutdown()` method will allow previously submitted tasks to execute before terminating, while the `shutdownNow()` method prevents waiting tasks from starting and attempts to stop currently executing tasks. Upon termination, an executor has no tasks actively executing, no tasks awaiting execution, and no new tasks can be submitted. An unused `ExecutorService` should be shut down to allow reclamation of its resources.
+
+
 
 ---
 
