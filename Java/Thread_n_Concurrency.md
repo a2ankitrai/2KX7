@@ -109,8 +109,8 @@ notifyAll method wakes up all the threads waiting on the object, although which 
 
 `java.util.concurrent.BlockingQueue` is a java Queue that support operations that wait for the queue to become non-empty when retrieving and removing an element, and wait for space to become available in the queue when adding an element.
 
-Java BlockingQueue interface is part of java collections framework and it’s primarily used for implementing producer consumer problem.
-Java provides several BlockingQueue implementations such as ArrayBlockingQueue, LinkedBlockingQueue, PriorityBlockingQueue, SynchronousQueue etc.
+Java `BlockingQueue` interface is part of java collections framework and it’s primarily used for implementing producer consumer problem.
+Java provides several BlockingQueue implementations such as `ArrayBlockingQueue`, `LinkedBlockingQueue`, `PriorityBlockingQueue`, `SynchronousQueue` etc.
 
 **Important Methods**
 - `put(E e)`: This method is used to insert elements to the queue. If the queue is full, it waits for the space to be available.
