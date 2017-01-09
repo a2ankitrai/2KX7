@@ -182,7 +182,7 @@ DFS can be used to detect a cycle in a graph: Write code??
 
 Java compiler does cyclic detection. If class A extends class B, class B extends class C and class C extends class A; there is a error of cyclic inheritance.
 
-In topological sorting, we need to print a vertex before its adjacent vertices. Use a temporary stack. Perform the DFS operation and rather than outputting the vertex, store it in a stack. After DFS for all the elements have been finished pop the stack. The order vould be topologically sorted.
+In topological sorting, we need to print a vertex before its adjacent vertices. Use a temporary stack. Perform the DFS operation and rather than outputting the vertex, store it in a stack. After DFS for all the elements have been finished pop the stack. The order would be topologically sorted.
 
 	
 
@@ -220,6 +220,10 @@ public void topologicalSort() {
 ## Strongly-connected components
 
 Vertices v and w are **strongly connected** if there is a directed path from v to w and a directed path from w to v. Strong connectivity is an equivalence relation.
+
+---
+
+## Union-Find
 
 ---
 

@@ -31,7 +31,7 @@
 - [Searching and Sorting](./Algo/Sorting.md)
 - [Divide and Conquer](./Algo/Divide_and_Conquer.md)
 - [Dynamic Programming](./Algo/dynamic_programming.md)
-- Greedy Algorithms
+- [Greedy Algorithms](./Algo/greedy_algorithms.md)
 - Backtracking
 - Shuffling
 - Bit Algorithms
