@@ -118,6 +118,20 @@ Java provides several BlockingQueue implementations such as `ArrayBlockingQueue`
 
 
 ---
+
+## Synchronizers
+---
+
+
+### Latches
+
+### FutureTask
+
+### Semaphores
+
+### Barriers
+
+---
 # Thread Safety
 
 A class is thread safe if it behaves correctly when accessed from multiple threads, regardless of the scheduling or 
@@ -219,9 +233,6 @@ Lock is acquired by `lock()` method and held by Thread until a call to `unlock()
 
 ---
 
-## CyclicBarrier and CountDownLatch
-
----
 
 ## Deadlocks
 
