@@ -68,8 +68,11 @@ Interruption is a mechanism whereby a thread that is waiting (or sleeping) can b
 
 The InterruptedException is thrown by the `Thread.sleep()` method. In general, `InterruptedException` is thrown when another thread interrupts the thread calling the blocking method. The other thread interrupts the blocking/sleeping thread by calling interrupt() on it:
 
+Thread provides the interrupt method for interrupting a thread and for querying whether a thread has been interrupted. Each thread has a boolean property
+that represents its interrupted status; interrupting a thread sets this status .
+
 ```java
-thr.interrupt();
+thread.interrupt();
 ```
 
 ---
@@ -107,25 +110,82 @@ notifyAll method wakes up all the threads waiting on the object, although which 
 
 # BlockingQueue
 
+Blocking queues provide blocking put and take methods as well as the timed equivalents offer and poll. If the queue is full, put blocks until space becomes available; if the queue is empty, take blocks until an element is available. Queues can be bounded or unbounded; unbounded queues are never full, so a put on an unbounded queue never blocks.
+
+Blocking queues support the *producer-consumer* design pattern.
+
 `java.util.concurrent.BlockingQueue` is a java Queue that support operations that wait for the queue to become non-empty when retrieving and removing an element, and wait for space to become available in the queue when adding an element.
 
 Java `BlockingQueue` interface is part of java collections framework and it’s primarily used for implementing producer consumer problem.
 Java provides several BlockingQueue implementations such as `ArrayBlockingQueue`, `LinkedBlockingQueue`, `PriorityBlockingQueue`, `SynchronousQueue` etc.
+
+`LinkedBlockingQueue` and `ArrayBlockingQueue` are FIFO queues, analogous to `LinkedList` and `ArrayList` but with better concurrent performance than a synchronized List. `PriorityBlockingQueue` is a priority-ordered queue, which is useful when you want to process elements in an order other than FIFO. Just like other sorted collections, `PriorityBlockingQueue` can compare elements according to their natural order (if they implement `Comparable`) or using a `Comparator`.
+
+`SynchronousQueue`, is not really a queue at all, in that it maintains no storage space for queued elements. Instead, it maintains a list of queued threads waiting to enqueue or dequeue an element. Since a `SynchronousQueue` has no storage capacity, put and take will block unless another thread is already waiting to participate in the handoff. Synchronous queues are generally suitable only when there are enough consumers that there nearly always will be one ready to take the handoff.
 
 **Important Methods**
 - `put(E e)`: This method is used to insert elements to the queue. If the queue is full, it waits for the space to be available.
 - `E take()`: This method retrieves and remove the element from the head of the queue. If queue is empty it waits for the element to be available.
 
 
+## Deques and Work Stealing
+
+A Deque is a double-ended queue that allows efficient insertion and removal from both the head and the tail. Implementations include `ArrayDeque` and `LinkedBlockingDeque`.
+
+A producer-consumer design has one shared work queue for all consumers; in a work stealing design, every consumer has its own deque. If a consumer exhausts the work in its own deque, it can steal work from the tail of someone else’s deque. Work stealing can be more scalable than a traditional producer-consumer design because workers don’t contend for a shared work queue; most of the time they access only their own deque, reducing contention. When a worker has to access another’s queue, it does so from the tail rather than the head, further reducing contention.
+
+Work stealing is well suited to problems in which consumers are also producers —
+when performing a unit of work is likely to result in the identification of
+more work. For example, processing a page in a web crawler usually results in
+the identification of new pages to be crawled. Similarly, many graph-exploring
+algorithms, such as marking the heap during garbage collection, can be efficiently
+parallelized using work stealing. When a worker identifies a new unit of work, it
+places it at the end of its own deque (or alternatively, in a work sharing design, on
+that of another worker); when its deque is empty, it looks for work at the end of
+someone else’s deque, ensuring that each worker stays busy.
+
 ---
 
 ## Synchronizers
----
 
+A *synchronizer* is any object that coordinates the control flow of threads based
+on its state. Blocking queues can act as synchronizers; other types of synchronizers
+include semaphores, barriers, and latches.
 
 ### Latches
 
+A *latch* is a synchronizer that can delay the progress of threads until it reaches
+its *terminal* state. A latch acts as a gate: until the latch reaches the
+terminal state the gate is closed and no thread can pass, and in the terminal
+state the gate opens, allowing all threads to pass. Once the latch reaches the
+terminal state, it cannot change state again, so it remains open forever. Latches
+can be used to ensure that certain activities do not proceed until other one-time
+activities complete, such as:
+
+- Ensuring that a computation does not proceed until resources it needs have been initialized.
+
+- Ensuring that a service does not start until other services on which it depends have started.
+
+- Waiting until all the parties involved in an activity, for instance the players in a multi-player game, are ready to proceed. In this case, the latch reaches the terminal state after all the players are ready.
+
+`CountDownLatch` is a flexible latch implementation that can be used in any of
+these situations; it allows one or more threads to wait for a set of events to occur.
+The latch state consists of a counter initialized to a positive number, representing
+the number of events to wait for. The `countDown` method decrements the counter,
+indicating that an event has occurred, and the await methods wait for the counter
+to reach zero, which happens when all the events have occurred. If the counter is
+nonzero on entry, `await` blocks until the counter reaches zero, the waiting thread
+is interrupted, or the wait times out.
+
+[Latch Code](./eclipse_projects/Threads/src/mainjava/com/thread/synchronizers/LatchTest.java)
+
+
 ### FutureTask
+
+`FutureTask` implements Future, which describes an abstract result-bearing computation. A computation represented by a `FutureTask` is implemented with a `Callable`, the result-bearing equivalent of `Runnable`, and can be in one of three states: waiting to run, running, or completed. Completion subsumes all the ways a computation can complete, including normal completion, cancellation, and exception. Once a `FutureTask` enters the completed state, it stays in that state forever.
+
+The behavior of Future.get depends on the state of the task. If it is completed, get returns the result immediately, and otherwise blocks until the task transitions to the completed state and then returns the result or throws an exception. `FutureTask` conveys the result from the thread executing the computation to the thread(s) retrieving the result; the specification of `FutureTask` guarantees that this transfer constitutes a safe publication of the result.
+
 
 ### Semaphores
 
