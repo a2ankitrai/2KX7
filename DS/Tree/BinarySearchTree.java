@@ -16,7 +16,7 @@ class BinarySearchTree {
 	public void inorderTreeWalk(Node x) {
 		if (x != null) {
 			inorderTreeWalk(x.left);
-			System.out.print("- " + x.data + " - ");			
+			System.out.print("- " + x.data + " - ");
 			inorderTreeWalk(x.right);
 		}
 	}
@@ -168,6 +168,7 @@ class BinarySearchTree {
 
 	}
 
+
 	public static void main(String[] args) {
 		BinarySearchTree bst  = new BinarySearchTree();
 		bst.treeInsert(12);
@@ -184,9 +185,9 @@ class BinarySearchTree {
 
 		bst.inorderTreeWalk(bst.root);
 
-		bst.delete(n1);	
+		bst.delete(n1);
 		System.out.println("");
-		bst.inorderTreeWalk(bst.root);		
+		bst.inorderTreeWalk(bst.root);
 
 	}
 

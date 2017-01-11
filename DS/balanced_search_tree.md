@@ -32,3 +32,7 @@ However, any number of black nodes may appear in a sequence.)
 ## B-Trees
 
 ![B-Trees](./_image/B-Trees.png)
+
+---
+
+## AVL Tree

@@ -13,8 +13,25 @@ class InsertionSort {
 			a[j + 1] = key;
 		}
 
+	}
+
+	public void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+
+	public void insertSortCompact(int[] a) {
+		for (int i = 1; i < a.length; i++) {
+			for (int j = i; j > 0 && a[j] < a[j - 1]; j--) { 
+				swap(a, j, j - 1);
+			}
+		}
+	}
+
+	public static void printArray(int[] a){
 		for (int i : a) {
-			System.out.print(i + " -> ");
+			System.out.print(i + " ");
 		}
 	}
 
@@ -24,7 +41,12 @@ class InsertionSort {
 
 		InsertionSort iS = new InsertionSort();
 
-		iS.insertSort(b);
+		//iS.insertSort(a);
+
+		iS.insertSortCompact(b);
+
+		printArray(b);
+
 	}
 
 }

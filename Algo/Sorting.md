@@ -4,8 +4,24 @@
 
 ## Implementation code
 
-??
+```java
+public int binarySearch(int a[], int key) {
 
+		int low = 0, mid, high = a.length - 1;
+
+		while (low <= high) {
+			mid = low + (high - low)/ 2;
+			if (a[mid] == key) {
+				return mid;
+			} else if (a[mid] < key) {
+				low = mid + 1;
+			} else {
+				high = mid - 1;
+			}
+		}
+		return -1;
+	}
+```
 
 ## Problems on binary search
 
@@ -41,6 +57,24 @@ public void insertSort(int[] a) {
 }
 ```
 
+**Compact version**
+
+```java
+public void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+
+public void insertSortCompact(int[] a) {
+	for (int i = 1; i < a.length; i++) {
+		for (int j = i; j > 0 && a[j] < a[j - 1]; j--) { 
+			swap(a, j, j - 1);
+		}
+	}
+}
+``` 
+
 
 Running time: **O(n<sup>2</sup>)**
 
@@ -48,6 +82,32 @@ Running time: **O(n<sup>2</sup>)**
 [java code](./sorting/InsertionSort.java)
    
 ---
+
+## Selection Sort
+
+This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list.
+
+The smallest element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array. This process continues moving unsorted array boundary by one element to the right.
+
+This algorithm is not suitable for large data sets as its average and worst case complexities are of Ο(n2), where n is the number of items.
+
+```java
+public void selectSort(int a[]) {
+		for (int i = 0; i < a.length - 1; i++) {
+			int min = i;
+			for (int j = i + 1; j < a.length; j++) {
+				if (a[min] > a[j])
+					min = j;
+			}
+			if (i != min) {
+				swap(a, min, i);
+			}
+		}
+	}
+```
+
+---
+
 ## MergeSort
 
 When you need a stable, O(N log N) sort, this is about your only option. The only downsides to it are that it uses O(N) auxiliary space and has a slightly larger constant than a quick sort.
@@ -145,6 +205,8 @@ We repeat this procedure both to left and right arrays of the pivot.
 
 The Worst case running time is n<sup>2</sup> and the average case is O(n * log n).
 
+Not Stable.
+
 ```java
 public void sort(int[] a, int p, int r) {
 		if (p < r) {
@@ -220,6 +282,8 @@ To DO
 
 ## Heapsort
 
+Not Stable
+
 Running time: `O(n * log n)`
 
 The (binary) heap data structure is an array object that we can view as a nearly [complete binary tree](./../DS/Tree/tree_chap1.md). The tree is completely
@@ -235,9 +299,54 @@ array A. That is, although A[1...A:length] may contain numbers, only the element
 
 ---
 
----
-
 ## Counting Sort
 
 Linear sorting algorithm that can sort in O(n) time. It has a condition that the input is in range of [0-K] where K is some integer.
 
+### Steps for counting sort
+
+- Create a new array (Count Array) of length `k+1` where k is the input range (0 - k).
+
+- Count the frequency of each digit using key as the index in the Count Array
+
+- Update the Count Array with running sum i.e. Number of elements before current elements by adding its previous element value.
+
+- Create a new Array of the size of original array. Access cumulates using key as index to move items.
+
+```java
+public static void countSort(int[] a, int k) {
+
+		int n = a.length;
+
+		int[] c = new int[k + 1];
+		int[] b = new int[a.length];
+
+		// Count frequency of each digit using key as index.
+		for (int i = 0; i < n; i++) {
+			c[a[i] + 1]++;
+		}
+
+		// Compute frequency cumulates which specify destinations.
+		for (int i = 0; i < k; i++) {
+			c[i + 1] += c[i];
+		}
+
+		// Access cumulates using key as index to move items.
+		for (int i = 0; i < n; i++) {
+			b[c[a[i]]++] = a[i];
+		}
+
+		// Copy back to the original array
+		for(int i=0; i<n; i++){
+			a[i] = b[i];
+		}
+	}
+```
+
+[Counting Sort code](./sorting/CountSort.java)
+
+---
+
+## Radix Sort
+
+![LSD_Radix_Sort](./../DS/_image/LSD_Radix_Sort.PNG)

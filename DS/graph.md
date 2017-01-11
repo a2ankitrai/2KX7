@@ -225,6 +225,8 @@ Vertices v and w are **strongly connected** if there is a directed path from v t
 
 ## Union-Find
 
+
+
 ---
 
 ## Minimum Spanning Tree

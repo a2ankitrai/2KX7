@@ -2,38 +2,41 @@ class CountSort {
 
 	// Does not work. There is some error. Run it. Fix it.
 
-	public static int[] sort(int[] a, int k) {
-		int[] c = new int[k];
+	public static void sort(int[] a, int k) {
+
+		int n = a.length;
+
+		int[] c = new int[k + 1];
 		int[] b = new int[a.length];
 
+		// Count frequency of each digit using key as index.
+		for (int i = 0; i < n; i++) {
+			c[a[i] + 1]++;
+		}
+
+		// Compute frequency cumulates which specify destinations. Running sum
 		for (int i = 0; i < k; i++) {
-			c[i] = 0;
+			c[i + 1] += c[i];
 		}
 
-		for (int j = 0; j < a.length; j++) {
-			++c[a[j]];
+		// Access cumulates using key as index to move items.
+		for (int i = 0; i < n; i++) {
+			b[c[a[i]]++] = a[i];
 		}
 
-		for (int i = 1; i < k; i++) {
-			c[i] += c[i - 1];
+		// Copy back to the original array
+		for(int i=0; i<n; i++){
+			a[i] = b[i];
 		}
-
-		for (int j = a.length - 1; j >= 0; j--) {
-			b[c[a[j] - 1]] = a[j];
-			--c[a[j]];
-
-		}
-
-		return b;
 	}
 
 	public static void main(String[] args) {
 		int[] a = {1, 4, 1, 2, 7, 5, 2};
 		int k = 8;
 
-		int[] b = sort(a, k);
+		sort(a, k);
 
-		for (int i : b) {
+		for (int i : a) {
 			System.out.print(i + " -> ");
 		}
 	}

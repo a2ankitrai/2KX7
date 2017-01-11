@@ -1,7 +1,7 @@
 # 2KX7
 
 ## DS                  
-- String
+- [String](./DS/string.md)
 - [Array](./DS/array.md)             
 - [Linked List](./DS/linked_list.md) 
 - [Stacks and Queues](./DS/stack_n_queue.md) 

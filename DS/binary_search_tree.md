@@ -111,8 +111,71 @@ public void delete(Node z) {
 	}
 ```
 
+
+**Delete alternative code**
+
+```java
+public static TreeNode deleteNode(TreeNode root, int value) {
+		if (root == null)
+			return null;
+		if (root.data > value) {
+			root.left = deleteNode(root.left, value);
+		} else if (root.data < value) {
+			root.right = deleteNode(root.right, value);
+
+		} else {
+			// if nodeToBeDeleted have both children
+			if (root.left != null && root.right != null) {
+				TreeNode temp = root;
+				// Finding minimum element from right
+				TreeNode minNodeForRight = minimumElement(temp.right);
+				// Replacing current node with minimum node from right subtree
+				root.data = minNodeForRight.data;
+				// Deleting minimum node from right now
+				deleteNode(root.right, minNodeForRight.data);
+
+			}
+			// if nodeToBeDeleted has only left child
+			else if (root.left != null) {
+				root = root.left;
+			}
+			// if nodeToBeDeleted has only right child
+			else if (root.right != null) {
+				root = root.right;
+			}
+			// if nodeToBeDeleted do not have child (Leaf node)
+			else
+				root = null;
+		}
+		return root;
+	}
+```
+
 ---
 
 ## Problems
+
+Q: Lowest Common Ancestor in a Binary Search Tree.
+
+```java
+class BinaryTree {
+
+	Node root;
+
+	public Node leastcommonAncestor(Node node, int n1, int n2) {
+
+		if (node == null) {
+			return null;
+		}
+
+		if (node.data > n1 && node.data > n2 ) {
+			return leastcommonAncestor(node.left, n1, n2);
+		} else if (node.data < n1 && node.data < n2) {
+			return leastcommonAncestor(node.right, n1, n2);
+		}
+		return node;
+	}
+}
+```
 
 Q: Inorder Tree Traversal without recursion and without stack!
