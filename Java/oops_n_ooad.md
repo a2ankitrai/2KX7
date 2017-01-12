@@ -166,6 +166,19 @@ Its basically about hiding the state of object with the help of modifiers like p
  
 **Encapsulation** : you've got several devices, all of them have got an USB port. You don't know what kind of printed circuit there's back, you just have to know you'll be able to plug an USB cable onto.
 
+---
+
+## Inheritance
+
+---
+
+## Polymorphism
+
+
+---
+
+## Inheritance Vs Composition
+
 
 ---
 

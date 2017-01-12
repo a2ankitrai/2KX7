@@ -13,3 +13,11 @@
 - Design and implement LRU cache.
 
 - Design a Traffic Controller System for a Junction
+
+-  Filesystem Design
+
+- Cards game design 
+
+- Restaurant/hotel booking system
+
+- parking lot Design
