@@ -22,7 +22,6 @@ public class LatchTest {
 						}
 						
 					} catch (InterruptedException ignored) {
-						// TODO: handle exception
 					}
 				}
 			};

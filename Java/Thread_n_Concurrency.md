@@ -134,33 +134,17 @@ A Deque is a double-ended queue that allows efficient insertion and removal from
 
 A producer-consumer design has one shared work queue for all consumers; in a work stealing design, every consumer has its own deque. If a consumer exhausts the work in its own deque, it can steal work from the tail of someone else’s deque. Work stealing can be more scalable than a traditional producer-consumer design because workers don’t contend for a shared work queue; most of the time they access only their own deque, reducing contention. When a worker has to access another’s queue, it does so from the tail rather than the head, further reducing contention.
 
-Work stealing is well suited to problems in which consumers are also producers —
-when performing a unit of work is likely to result in the identification of
-more work. For example, processing a page in a web crawler usually results in
-the identification of new pages to be crawled. Similarly, many graph-exploring
-algorithms, such as marking the heap during garbage collection, can be efficiently
-parallelized using work stealing. When a worker identifies a new unit of work, it
-places it at the end of its own deque (or alternatively, in a work sharing design, on
-that of another worker); when its deque is empty, it looks for work at the end of
-someone else’s deque, ensuring that each worker stays busy.
+Work stealing is well suited to problems in which consumers are also producers - when performing a unit of work is likely to result in the identification of more work. For example, processing a page in a web crawler usually results in the identification of new pages to be crawled. Similarly, many graph-exploring algorithms, such as marking the heap during garbage collection, can be efficiently parallelized using work stealing. When a worker identifies a new unit of work, it places it at the end of its own deque (or alternatively, in a work sharing design, on that of another worker); when its deque is empty, it looks for work at the end of someone else’s deque, ensuring that each worker stays busy.
 
 ---
 
 ## Synchronizers
 
-A *synchronizer* is any object that coordinates the control flow of threads based
-on its state. Blocking queues can act as synchronizers; other types of synchronizers
-include semaphores, barriers, and latches.
+A *synchronizer* is any object that coordinates the control flow of threads based on its state. Blocking queues can act as synchronizers; other types of synchronizers include **semaphores**, **barriers**, and **latches**.
 
 ### Latches
 
-A *latch* is a synchronizer that can delay the progress of threads until it reaches
-its *terminal* state. A latch acts as a gate: until the latch reaches the
-terminal state the gate is closed and no thread can pass, and in the terminal
-state the gate opens, allowing all threads to pass. Once the latch reaches the
-terminal state, it cannot change state again, so it remains open forever. Latches
-can be used to ensure that certain activities do not proceed until other one-time
-activities complete, such as:
+A *latch* is a synchronizer that can delay the progress of threads until it reaches its *terminal* state. A latch acts as a gate: until the latch reaches the terminal state the gate is closed and no thread can pass, and in the terminal state the gate opens, allowing all threads to pass. Once the latch reaches the terminal state, it cannot change state again, so it remains open forever. Latches can be used to ensure that certain activities do not proceed until other one-time activities complete, such as:
 
 - Ensuring that a computation does not proceed until resources it needs have been initialized.
 
@@ -168,24 +152,15 @@ activities complete, such as:
 
 - Waiting until all the parties involved in an activity, for instance the players in a multi-player game, are ready to proceed. In this case, the latch reaches the terminal state after all the players are ready.
 
-`CountDownLatch` is a flexible latch implementation that can be used in any of
-these situations; it allows one or more threads to wait for a set of events to occur.
-The latch state consists of a counter initialized to a positive number, representing
-the number of events to wait for. The `countDown` method decrements the counter,
-indicating that an event has occurred, and the await methods wait for the counter
-to reach zero, which happens when all the events have occurred. If the counter is
-nonzero on entry, `await` blocks until the counter reaches zero, the waiting thread
-is interrupted, or the wait times out.
+`CountDownLatch` is a flexible latch implementation that can be used in any of these situations; it allows one or more threads to wait for a set of events to occur. The latch state consists of a counter initialized to a positive number, representing the number of events to wait for. The `countDown` method decrements the counter, indicating that an event has occurred, and the await methods wait for the counter to reach zero, which happens when all the events have occurred. If the counter is nonzero on entry, `await` blocks until the counter reaches zero, the waiting thread is interrupted, or the wait times out.
 
 [Latch Code](./eclipse_projects/Threads/src/mainjava/com/thread/synchronizers/LatchTest.java)
-
 
 ### FutureTask
 
 `FutureTask` implements Future, which describes an abstract result-bearing computation. A computation represented by a `FutureTask` is implemented with a `Callable`, the result-bearing equivalent of `Runnable`, and can be in one of three states: waiting to run, running, or completed. Completion subsumes all the ways a computation can complete, including normal completion, cancellation, and exception. Once a `FutureTask` enters the completed state, it stays in that state forever.
 
 The behavior of Future.get depends on the state of the task. If it is completed, get returns the result immediately, and otherwise blocks until the task transitions to the completed state and then returns the result or throws an exception. `FutureTask` conveys the result from the thread executing the computation to the thread(s) retrieving the result; the specification of `FutureTask` guarantees that this transfer constitutes a safe publication of the result.
-
 
 ### Semaphores
 
@@ -194,11 +169,9 @@ The behavior of Future.get depends on the state of the task. If it is completed,
 ---
 # Thread Safety
 
-A class is thread safe if it behaves correctly when accessed from multiple threads, regardless of the scheduling or 
-interleaving of the execution of those threads by the runtime environment, and with no additional synchronization or 
-other coordination on the part of the calling code. 
+A class is thread safe if it behaves correctly when accessed from multiple threads, regardless of the scheduling or interleaving of the execution of those threads by the runtime environment, and with no additional synchronization or other coordination on the part of the calling code. 
 
-Stateless objects are always thread safe. *Stateless objects has no fields and references no fields from other classes*
+Stateless objects are always thread safe. *Stateless objects has no fields and references no fields from other classes.*
 
 ---
 

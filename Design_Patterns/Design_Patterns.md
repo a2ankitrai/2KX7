@@ -164,6 +164,19 @@ Use the Builder pattern when
 
 - Adapter lets classes work together, that could not otherwise because of incompatible interfaces.
 
+- Also known as **Wrapper**.
+
+**Applicability**
+
+Use the Adapter pattern when:
+
+- you want to use an existing class, and its interface does not match the one you need.
+
+- you want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don't necessarily have compatible interfaces.
+
+- (object adapter only) you need to use several existing subclasses, but it's impractical to adapt their interface by subclassing every one. An object adapter can adapt the interface of its parent class.
+
+
 ![adapter-pattern.png](./_image/adapter-pattern.png)
 
 The classes/objects participating in adapter pattern:
@@ -179,13 +192,24 @@ One can think of an Adapter as a real world adapter which is used to connect two
 An adapter uses composition to store the object it is supposed to adapt, and when the adapter’s methods are called, it translates those calls into something the adapted object can understand and passes the calls on to the adapted object. The code that calls the adapter never needs to know that it’s not dealing with the kind of object it thinks it is, but an adapted object instead.
 
 
-## Examples in Java
+### Examples in Java
 
-- java.util.Arrays#asList()
-- java.io.InputStreamReader(InputStream) (returns a Reader)
-- java.io.OutputStreamWriter(OutputStream) (returns a Writer)
+- `java.util.Arrays#asList()`
+- `java.io.InputStreamReader(InputStream)` (returns a Reader)
+- `java.io.OutputStreamWriter(OutputStream)` (returns a Writer)
 
----
+
+### Rules of thumb
+
+- Adapter makes things work after they're designed; Bridge makes them work before they are.
+
+- Bridge is designed up-front to let the abstraction and the implementation vary independently. Adapter is retrofitted to make unrelated classes work together.
+
+- Adapter provides a different interface to its subject. Proxy provides the same interface. Decorator provides an enhanced interface.
+
+- Adapter is meant to change the interface of an existing object. Decorator enhances another object without changing its interface. Decorator is thus more transparent to the application than an adapter is. As a consequence, Decorator supports recursive composition, which isn't possible with pure Adapters.
+
+- Facade defines a new interface, whereas Adapter reuses an old interface. Remember that Adapter makes two existing interfaces work together as opposed to defining an entirely new one.
 
 ---
 
