@@ -15,7 +15,22 @@ The primitive types in Java are boolean, char, byte, short, int, long, float, an
 
 ---
 
-## COMPUTING PARITY
+## Wrapper Classes
 
-The parity of a sequence of bits is 1 if the number of Is in the sequence is odd;
-otherwise, it is 0. Parity checks are used to detect single bit errors in data storage and communication.
+---
+
+## Autoboxing and Unboxing
+
+---
+
+## varags
+
+---
+
+## ENUMS
+
+---
+
+## Casting
+
+---

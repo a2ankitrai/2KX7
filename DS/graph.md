@@ -1,7 +1,7 @@
 # Graph
 ---
 
-![graph_representation](./graph_representation.png)
+![graph_representation](./_image/graph_representation.png)
 
 Graph is a data structure that consists of following two components:
 1. A finite set of vertices also called as nodes.
@@ -28,18 +28,18 @@ There are other representations also like, **Incidence Matrix** and **Incidence 
 
 Adjacency Matrix is a 2D array of size **V x V** where **V** is the number of vertices in a graph. Let the 2D array be `adj[][]`, a slot `adj[i][j] = 1` indicates that there is an edge from vertex i to vertex j. Adjacency matrix for undirected graph is always symmetric. Adjacency Matrix is also used to represent weighted graphs. If `adj[i][j] = w`, then there is an edge from vertex i to vertex j with weight w.
 
-![adjacency_matrix_representation.png](./adjacency_matrix_representation.png)
+![adjacency_matrix_representation.png](./_image/adjacency_matrix_representation.png)
 
-**Pros:** Representation is easier to implement and follow. Removing an edge takes O(1) time. Queries like whether there is an edge from vertex ‘u’ to vertex ‘v’ are efficient and can be done O(1).
+**Pros:** Representation is easier to implement and follow. Removing an edge takes O(1) time. Queries like whether there is an edge from vertex `u` to vertex `v` are efficient and can be done O(1).
 
-**Cons:** Consumes more space O(V^2). Even if the graph is sparse(contains less number of edges), it consumes the same space. Adding a vertex is O(V^2) time.
+**Cons:** Consumes more space O(V<sup>2</sup>). Even if the graph is sparse(contains less number of edges), it consumes the same space. Adding a vertex is O(V<sup>2</sup>) time.
 
 
 **Adjacency List**
 
-An array of linked lists is used. Size of the array is equal to number of vertices. Let the array be array[]. An entry array[i] represents the linked list of vertices adjacent to the ith vertex. This representation can also be used to represent a weighted graph. The weights of edges can be stored in nodes of linked lists.
+An array of linked lists is used. Size of the array is equal to number of vertices. Let the array be `array[]`. An entry `array[i]` represents the linked list of vertices adjacent to the i<sup>th</sup> vertex. This representation can also be used to represent a weighted graph. The weights of edges can be stored in nodes of linked lists.
 
-![adjacency_list_representation](./adjacency_list_representation.png)
+![adjacency_list_representation](./_image/adjacency_list_representation.png)
 
 ### Space and Time comparision
 
@@ -171,7 +171,7 @@ Set of vertices connected pairwise by **directed** edges.
 
 Order of things which should be done before one another.
 
-	DAG: Directed Acyclic Graph
+**DAG: Directed Acyclic Graph**
 
 - If directed cycle, topological order impossible.
 - If no directed cycle, DFS-based algorithm finds a topological order.

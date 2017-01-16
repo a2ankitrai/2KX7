@@ -164,9 +164,35 @@ The behavior of Future.get depends on the state of the task. If it is completed,
 
 ### Semaphores
 
+Counting semaphores are used to control the number of activities that can access a
+certain resource or perform a given action at the same time. Counting
+semaphores can be used to implement resource pools such as database connection pools or to impose a bound on a
+collection.
+
+A Semaphore manages a set of virtual permits; the initial number of permits is
+passed to the Semaphore constructor. Activities can acquire permits (as long as
+some remain) and release permits when they are done with them. If no permit is
+available, acquire blocks until one is (or until interrupted or the operation times
+out). The release method returns a permit to the semaphore. A degenerate case of a counting semaphore is a binary semaphore, a Semaphore with an initial count of one. A binary semaphore can be used as a mutex with nonreentrant locking
+semantics; whoever holds the sole permit holds the mutex.
+
+
 ### Barriers
 
+Barriers are similar to latches in that they block a group of threads until some
+event has occurred [CPJ 4.4.3]. The key difference is that with a barrier, all the
+threads must come together at a barrier point at the same time in order to proceed.
+Latches are for waiting for events; barriers are for waiting for other threads.
+
 ---
+
+# Task Execution
+
+to do....
+
+
+---
+
 # Thread Safety
 
 A class is thread safe if it behaves correctly when accessed from multiple threads, regardless of the scheduling or interleaving of the execution of those threads by the runtime environment, and with no additional synchronization or other coordination on the part of the calling code. 

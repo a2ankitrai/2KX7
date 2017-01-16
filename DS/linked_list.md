@@ -62,6 +62,23 @@ G4G LL question 17 to start
 	Actually, the pointers need not move one and two nodes at a time;it is only necessary that the pointers move at different rates.
 
 - Swap nodes in a linked list without swapping data. [solution](./LL/SwapNodes.java)	
+
+- Reverse a singly Linked List
+	
+	```java
+	public void reverseLL() {
+		Node currentNode = head, prevLink = null, nextNode = null;
+
+		while (currentNode != null) {
+			nextNode = currentNode.next;
+			currentNode.next = prevLink;
+			prevLink = currentNode;
+			currentNode = nextNode;
+		}
+		head = prevLink;
+	}
+	```
+	
 	
 - Check for median of a circular linked list.	
 	

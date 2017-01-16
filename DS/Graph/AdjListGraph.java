@@ -21,9 +21,18 @@ public class AdjListGraph {
 
 	}
 
+	public int getVertices(){
+		return v;
+	}
+
+	public LinkedList<Integer>[] getAdjList(){
+		return adjList;
+	}
+
 	public void addEdge(int v, int w) {
 		try {
 			adjList[v].add(w);
+			adjList[w].add(v);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("The vertex does not exists");
 		}
@@ -94,34 +103,6 @@ public class AdjListGraph {
 		}
 	}
 
-	private boolean checkForCycleUtil(int source, boolean[] marked) {
-		marked[source] = true;
-
-		for (int i : adjList[source]) {
-			if (marked[i]) {
-				return true;
-			}
-			if (checkForCycleUtil(i, marked)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean isCyclic() {
-		boolean[] marked = new boolean[v];
-		for (int i = 0; i < marked.length; i++) {
-			marked[i] = false;
-		}
-
-		for (int i = 0; i < v; i++) {
-			if (checkForCycleUtil(i, marked)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 
 	public static void main(String[] args) {
 		AdjListGraph g = new AdjListGraph(4);
@@ -143,10 +124,6 @@ public class AdjListGraph {
 
 		g.dfs(2);
 
-		System.out.println("Cyclicity checks");
-
-		System.out.println("Is graph g1 cyclic :" + g.isCyclic());
-
 		AdjListGraph g2 = new AdjListGraph(4);
 
 		g2.addEdge(0, 1);
@@ -155,8 +132,6 @@ public class AdjListGraph {
 		//g.addEdge(2, 0);
 		g2.addEdge(2, 3);
 		//g.addEdge(3, 3);
-
-		System.out.println("Is graph g2 cyclic :" + g2.isCyclic());
 
 	}
 }
