@@ -44,6 +44,40 @@ Don't get defensive: whenever your interviewer challenges your architectural cho
 Most of all, have fun. Dreaming up architectures is a very stimulating mental process - enjoy it and stay positive. You're already equipped with the right knowledge, just apply it during your interview and you'll do well.
 
 ---
+
+## Basic knowledge about System Design
+
+- [Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)
+
+- [CAP](https://github.com/henryr/cap-faq)
+
+- [Introduction to Architecting Systems for Scale](http://lethain.com/introduction-to-architecting-systems-for-scale/)
+
+- [Scalable System Design Patterns](http://horicky.blogspot.in/2010/10/scalable-system-design-patterns.html)
+
+- [Consistent Hashing](http://www.tom-e-white.com/2007/11/consistent-hashing.html)
+
+	![consistent_hashing](./_image/consistent_hashing.PNG)
+	
+	In caching Since the overall hashtable is distributed across many VNs, we need a way to map each key to the corresponding VN.
+
+	One way is to use 
+	partition = key mod (total_VNs)
+
+	The disadvantage of this scheme is when we alter the number of VNs, then the ownership of existing keys has changed dramatically, which requires full data redistribution. Most large scale store use a "consistent hashing" technique to minimize the amount of ownership changes.
+	
+	In the consistent hashing scheme, the key space is finite and lie on the circumference of a ring. The virtual node id is also allocated from the same key space. For any key, its owner node is defined as the first encountered virtual node if walking clockwise from that key. If the owner node crashes, all the key it owns will be adopted by its clockwise neighbor. Therefore, key redistribution happens only within the neighbor of the crashed node, all other nodes retains the same set of keys.
+	
+- [NOSQL Patterns](http://horicky.blogspot.in/2009/11/nosql-patterns.html)	
+	
+---
+
+## Products and Systems:
+
+- [MapReduce: Simplied Data Processing on Large Clusters](./_docs/mapreduce-osdi04.pdf)
+
+---
+
 ### Some Famous Designs
 
 - [Google Docs](http://blog.gainlo.co/index.php/2016/03/22/system-design-interview-question-how-to-design-google-docs/)

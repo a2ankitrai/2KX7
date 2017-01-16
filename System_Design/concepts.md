@@ -1,13 +1,12 @@
-# System Design Concepts
----
-
-## Scaling
+# Scaling
 
 Vertical scaling :  increasing processors (cores, caches), DISK, RAM
 
 Horizontal scaling:  using mutliple servers and increasing them as the load increses.
 
 ---
+
+# System Design Question Concepts
 
 - **Amount of data (disk)**
 
@@ -67,3 +66,36 @@ Horizontal scaling:  using mutliple servers and increasing them as the load incr
 
 - **Possible to work harder on writes in order to make reads easier**
 
+---
+
+# Platform Needs
+
+- Monitoring (app, resp. time, throughput, OS level, errors)
+
+- Alerting 
+
+- Metrics
+
+- Distributed tracing + logging
+
+- Datastores
+
+- Caching
+
+- Queues
+
+- Service discovery
+
+- Configuration
+
+- Debugging, profiling
+
+- ALM and deployment
+
+- Auto scaling
+
+- Load balancing, traffic splitting/control
+
+- KPIs and actions based on them
+
+- Deployment (blue-green), rollback, canary/testbed
