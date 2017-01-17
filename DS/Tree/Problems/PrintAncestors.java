@@ -48,7 +48,7 @@ class PrintAncestors {
 		l2e1.left = l3e1;
 		l2e1.right = l3e2;
 
-		printAncestorsFunc(root,l2e4);
+		printAncestorsFunc(root,l3e1);
 	}
 
 }

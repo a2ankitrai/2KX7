@@ -97,6 +97,44 @@ The diameter of a tree (sometimes called the width) is the number of nodes on th
 - the diameter of T’s right subtree
 - the longest path between leaves that goes through the root of T (this can be computed from the heights of the subtrees of T)
 
+```java
+/*The function Compute the "height" of a tree. Height is the
+	 number f nodes along the longest path from the root node
+	 down to the farthest leaf node.*/
+	static int height(BTNode node) {
+		/* base case tree is empty */
+		if (node == null)
+			return 0;
+
+		/* If tree is not empty then height = 1 + max of left
+		   height and right heights */
+		return (1 + Math.max(height(node.left), height(node.right)));
+	}
+
+	/* Method to calculate the diameter and return it to main */
+	int diameter(BTNode root) {
+		/* base case if tree is empty */
+		if (root == null)
+			return 0;
+
+		/* get the height of left and right sub trees */
+		int lheight = height(root.left);
+		int rheight = height(root.right);
+
+		/* get the diameter of left and right subtrees */
+		int ldiameter = diameter(root.left);
+		int rdiameter = diameter(root.right);
+
+		/* Return max of following three
+		  1) Diameter of left subtree
+		 2) Diameter of right subtree
+		 3) Height of left subtree + height of right subtree + 1 */
+		return Math.max(lheight + rheight + 1, Math.max(ldiameter, rdiameter));
+
+	}
+
+```
+
 ---
 
 # Threaded Binary Tree
@@ -115,13 +153,33 @@ There are two types of threaded binary trees.
 
 # Problems
 
-- [Write a Program to Find the Maximum Depth or Height of a Tree](http://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/)
+- Write a Program to Find the Maximum Depth or Height of a Tree
+
+	```java
+	int maxDepth(Node node) 
+    {
+        if (node == null)
+            return 0;
+        else
+        {
+            /* compute the depth of each subtree */
+            int lDepth = maxDepth(node.left);
+            int rDepth = maxDepth(node.right);
+  
+            /* use the larger one */
+            if (lDepth > rDepth)
+                return (lDepth + 1);
+             else
+                return (rDepth + 1);
+        }
+    }
+	```
 
 - If you are given two traversal sequences, can you construct the binary tree?
 	
 	It depends on what traversals are given. If one of the traversal methods is Inorder then the tree can be constructed, otherwise not.
 
-- Print Ancestors of a given node in Binary Tree. [code](./Tree/PrintAncestors.java)
+- Print Ancestors of a given node in Binary Tree. [code](./Tree/Problems/PrintAncestors.java)
 
 ```java
 public boolean printAncestorsFunc(BinaryTree.BTNode root, BinaryTree.BTNode target) {

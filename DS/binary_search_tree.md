@@ -178,4 +178,8 @@ class BinaryTree {
 }
 ```
 
-Q: Inorder Tree Traversal without recursion and without stack!
+Q. [K’th smallest element in BST using O(1) Extra Space](http://www.geeksforgeeks.org/kth-smallest-element-in-bst-using-o1-extra-space/)
+
+Q: [Inorder Tree Traversal without recursion and without stack!](http://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/)
+
+
