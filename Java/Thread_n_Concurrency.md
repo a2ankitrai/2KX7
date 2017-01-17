@@ -188,7 +188,65 @@ Latches are for waiting for events; barriers are for waiting for other threads.
 
 # Task Execution
 
-to do....
+**Tasks:** abstract, discrete units of work.
+
+**Executing tasks sequentially**: The simplest is to execute tasks sequentially in a single thread. Perform poorly in production because it can handle only one request at a time. In server applications, sequential processing rarely provides either good throughput or good responsiveness.
+
+**Explicitly creating threads for tasks**: A more responsive approach is to create a new thread for servicing each request. Under light to moderate load, the thread-per-task approach is an improvement
+over sequential execution. As long as the request arrival rate does not exceed the
+server’s capacity to handle requests, this approach offers better responsiveness
+and throughput.
+
+## Disadvantages of unbounded thread creation
+
+**Thread lifecycle overhead.** Thread creation and teardown are not free. The actual
+overhead varies across platforms, but thread creation takes time, introducing
+latency into request processing, and requires some processing activity
+by the JVM and OS. If requests are frequent and lightweight, as in most
+server applications, creating a new thread for each request can consume
+significant computing resources.
+
+**Resource consumption.** Active threads consume system resources, especially
+memory. When there are more runnable threads than available processors,
+threads sit idle. Having many idle threads can tie up a lot of memory,
+putting pressure on the garbage collector, and having many threads competing
+for the CPUs can impose other performance costs as well. If you have
+enough threads to keep all the CPUs busy, creating more threads won’t help
+and may even hurt.
+
+**Stability.** There is a limit on how many threads can be created. The limit varies
+by platform and is affected by factors including JVM invocation parameters,
+the requested stack size in the Thread constructor, and limits on threads
+placed by the underlying operating system. When you hit this limit, the
+most likely result is an OutOfMemoryError. Trying to recover from such an
+error is very risky; it is far easier to structure your program to avoid hitting
+this limit.
+
+## The Executor framework
+
+Executing tasks sequentially in a single thread, and execute each task in its
+own thread. Both have serious limitations: the sequential approach suffers from
+poor responsiveness and throughput, and the thread-per-task approach suffers
+from poor resource management.
+
+The primary abstraction for task execution in the Java class libraries is not Thread, but `Executor`
+
+```java
+public interface Executor {
+	void execute(Runnable command);
+}
+```
+
+It provides a standard means of decoupling task submission from task execution, describing tasks with Runnable.
+The `Executor` implementations also provide lifecycle support and hooks for adding statistics
+gathering, application management, and monitoring.
+
+`Executor` is based on the producer-consumer pattern, where activities that
+submit tasks are the producers (producing units of work to be done) and the
+threads that execute tasks are the consumers (consuming those units of work).
+Using an Executor is usually the easiest path to implementing a producer-consumer
+design in your application.
+
 
 
 ---

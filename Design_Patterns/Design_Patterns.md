@@ -324,10 +324,14 @@ Examples: Spring proxy in AOP
 
 ---
 
-## Behavioral
+# Behavioral
 ---
 
-### Chain of Responsibilty
+Behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
+
+Behavioral class patterns use inheritance to distribute behaviorbetween classes.
+
+## Chain of Responsibilty
 
 Gives more than one object an opportunity to handle a request by linking receiving objects together.
 
@@ -342,7 +346,24 @@ java.util.logging.Logger#log
 If the logger is currently enabled for the given message level then the given message is forwarded to all the registered output Handler objects.
 
 ---
-### Command
+
+## Command
+
+**Intent**
+
+- Encapsulate a request as an object, thereby letting you parametrize clients with different requests, queue or log requests, and support undoable operations.
+
+**Problem**
+
+Need to issue requests to objects without knowing anything about the operation being requested or the receiver of the request.
+
+**Rules of thumb**
+
+- Chain of Responsibility, Command, Mediator, and Observer, address how you can decouple senders and receivers, but with different trade-offs. Command normally specifies a sender-receiver connection with a subclass.
+
+to do ...
+
+---
 
 ### Interpreter
 
