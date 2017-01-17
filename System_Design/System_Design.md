@@ -57,7 +57,7 @@ Most of all, have fun. Dreaming up architectures is a very stimulating mental pr
 
 - [Consistent Hashing](http://www.tom-e-white.com/2007/11/consistent-hashing.html)
 
-	![consistent_hashing](./_image/consistent_hashing.PNG)
+	![consistent_hashing](./_image/consistent_hashing.png)
 	
 	In caching Since the overall hashtable is distributed across many VNs, we need a way to map each key to the corresponding VN.
 

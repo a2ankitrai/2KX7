@@ -43,8 +43,7 @@ A red-black tree is a binary search tree which has the following red-black prope
 
 5. Node and parent are both red. Node is left child, parent is right child. - rotate. (Single rotate right). This will give rise to case 4.
 
-	
-
+	 
 [Animation](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
 
 

@@ -85,7 +85,11 @@ class BinarySearchTree2 {
 			transplant(parent, temp, temp.left);
 		}
 		else {
-			
+			// to do when the node to be deleted has both left and right child.
+			Node successor = treeMinimum(temp.right);
+			if(temp.right != successor){
+				 temp.data = successor.data;
+			}
 		}
 
 
