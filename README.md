@@ -52,7 +52,7 @@
 - [Inside JVM](./Java/Inside_JVM.md)
 - [Java APIs](./Java/Java_API.md)
 - [Networking](./Java/Networking.md)
-- J2EE - Servlets
+- [J2EE - Servlets](./Java/servlets.md)
 - Services (Stateless and stateful)
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
