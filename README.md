@@ -26,7 +26,7 @@
 - [Arbit](./DS/arbit.md)
 
 ## Algorithms
-- [Overview](./Algo/analysisOfAlgorithms.md)
+- [Overview](./Algo/algorithms_overview.md)
 - Analysis of Algorithms
 - [Searching and Sorting](./Algo/Sorting.md)
 - [Divide and Conquer](./Algo/Divide_and_Conquer.md)

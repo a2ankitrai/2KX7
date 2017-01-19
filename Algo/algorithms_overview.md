@@ -1,5 +1,3 @@
-
-
 # Algorithm Design Canvas
 
 The Algorithm Design Canvas captures our process for tackling algorithm design problems.It's the most convenient way to represent algorithmic thinking. Every algorithmic problem, big or small, easy or hard, should eventually end up as a completed canvas.

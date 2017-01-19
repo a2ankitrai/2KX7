@@ -371,7 +371,58 @@ to do ...
 
 ### Mediator
 
-### Observer
+---
+
+## Observer
+
+**Intent**
+
+Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. Also Known As **Dependents**, **Publish-Subscribe**.
+
+**Motivation**
+
+The key objects in this pattern are **subject** and **observer**. A subject may have any number of dependent observers. All observers are notified whenever the subject undergoes a change in state. In response, each observer will query the subject to synchronize its state with the subject's state.
+
+This kind of interaction is also known as publish-subscribe. The subject is the publisher of notifications. It sends out these notifications without having to know who its observers are. Any number of observers can subscribe to receive notifications.
+
+**Applicability**
+
+Use the Observer pattern in any of the following situations:
+
+- When an abstraction has two aspects, one dependent on the
+other.Encapsulating these aspects in separate objects lets you vary
+and reuse them independently.
+
+- When a change to one object requires changing others, and youdon't know
+how many objects need to be changed.
+
+- When an object should be able to notify other objects without
+making assumptions about who these objects are. In other words, you don't want
+these objects tightly coupled.
+
+![observer_implementation](./_image/observer_implementation_-_uml_class_diagram.gif)
+
+**Participants**
+
+- Subject
+	- knows its observers. Any number of Observer objects may observe a subject.
+	- provides an interface for attaching and detaching Observer objects.
+
+- Observer
+	- defines an updating interface for objects that should be notified of changes in a subject.	
+	
+- ConcreteSubject
+	- stores state of interest to ConcreteObserver objects.
+	- sends a notification to its observers when its state changes.
+	
+- ConcreteObserver
+	- maintains a reference to a ConcreteSubject object.
+	- stores state that should stay consistent with the subject's.
+	- implements the Observer updating interface to keep its state consistent with the subject's.
+	
+[Observer Code](./../Java/eclipse_projects/Design_Patterns/src/behavioral/observer)	
+
+---
 
 ### Strategy
 

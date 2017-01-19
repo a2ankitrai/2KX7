@@ -22,7 +22,7 @@ User cases indicate the main functions of the system, and constraints list the s
 
 ### High-level architecture design
 
-Sketch the important components and the connections between them, but don't go into some details. Usually, a scalable system includes webserver (load balancer), service (service partition), database (master/slave database cluster plug cache).
+Sketch the important components and the connections between them, but don't go into some details. Usually, a scalable system includes webserver (load balancer), service (service partition), database (master/slave database cluster plug cache). Figure out vertical and horizontal scalabilities of these based on number of users.
 
 ### Component design
 
