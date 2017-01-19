@@ -71,6 +71,12 @@ States are bound to named, nested and parallel views, allowing you to powerfully
 
 ---
 
+## $compile
+
+Compiles an HTML string or DOM into a template and produces a template function, which can then be used to link scope and the template together.
+
+---
+
 ## Questions
 
 - How do you share data between controllers?

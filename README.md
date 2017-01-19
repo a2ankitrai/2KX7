@@ -27,7 +27,7 @@
 
 ## Algorithms
 - [Overview](./Algo/algorithms_overview.md)
-- Analysis of Algorithms
+- [Analysis of Algorithms](./Algo/analysis_algorithms.md)
 - [Searching and Sorting](./Algo/Sorting.md)
 - [Divide and Conquer](./Algo/Divide_and_Conquer.md)
 - [Dynamic Programming](./Algo/dynamic_programming.md)
