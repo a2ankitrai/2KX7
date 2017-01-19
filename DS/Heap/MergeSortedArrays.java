@@ -26,11 +26,7 @@ class MergeSortedArrays {
 			this.arrayId = arrayId;
 		}
 	}
-
-	
-
-
-
+ 
 	public static List<Integer> mergeSortedArrays(
 	    List<List<Integer>> sortedArrays) {
 		List<Iterator<Integer>> iters = new ArrayList<>(sortedArrays.size());

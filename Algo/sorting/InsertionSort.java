@@ -22,7 +22,7 @@ class InsertionSort {
 	}
 
 	public void insertSortCompact(int[] a) {
-		for (int i = 1; i < a.length; i++) {
+		for (int i = 1; i < a.length; i++) { // start with 1st element to compare between 0th and 1st
 			for (int j = i; j > 0 && a[j] < a[j - 1]; j--) { 
 				swap(a, j, j - 1);
 			}

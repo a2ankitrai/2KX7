@@ -9,7 +9,7 @@ A Binary Heap is a Binary Tree with following properties.
 
 **Why array based representation for Binary Heap?**
 
-Since a Binary Heap is a Complete Binary Tree, it can be easily represented as array and array based representation is space efficient. If the parent node is stored at index `I`, the left child can be calculated by `2 * I + 1` and right child by `2 * I + 2` (assuming the indexing starts at 0).
+Since a Binary Heap is a Complete Binary Tree, it can be easily represented as array and array based representation is space efficient. If the parent node is stored at index `I`, the left child can be calculated by `2 * I` and right child by `2 * I + 1` (assuming the indexing starts at 1).
 
 ## Heap-ordered binary tree
 - Key in nodes
@@ -74,7 +74,6 @@ Find the largest M items in a stream of N items
 
 ---
 
-
 ## Applications of Heaps:
 
 - Heap Sort: Heap Sort uses Binary Heap to sort an array in O(nLogn) time.
@@ -82,14 +81,6 @@ Find the largest M items in a stream of N items
 - Priority Queue: Priority queues can be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() 	operations in O(logn) time. Binomoial Heap and Fibonacci Heap are variations of Binary Heap. These variations perform union also efficiently.
 
 - Graph Algorithms: The priority queues are especially used in Graph Algorithms like Dijkstra’s Shortest Path and Prim’s Minimum Spanning Tree.
-
-- Many problems can be efficiently solved using Heaps. See following for example.
-
-- K’th Largest Element in an array.
-
-- Sort an almost sorted array
-
-- Merge K Sorted Arrays.
 
 ---
 
@@ -109,25 +100,6 @@ Find the largest M items in a stream of N items
 
 ---
 
-# Procedure for Heap Sort
-
-- Build a max heap of the input array elements.
-
-```java
-public void buildMaxHeap(int[] a) {
-		heapsize = a.length;
-		for (int i = (a.length / 2) - 1; i >= 0; i--) {
-			maxHeapify(a, i);
-		}
-	}
-```
-
-- After the max heap is built, Keep extract the root element (max element) and replacing it with the last element. Decrease the heap size by 1 and again call the maxHeapify procedure. Keep Repeating this process for the size of the input array. The resultant array will be sorted.
-
- 
-
----
-
 ## Time Complexity of building a heap
 
 Consider the following algorithm for building a Heap of an input array A.
@@ -143,13 +115,20 @@ What is the worst case time complexity of the above algo?
 
 Although the worst case complexity looks like O(nLogn), upper bound of time complexity is O(n).
 
-
 --- 
 
+## Problems
+
+- k largest(or smallest) elements in an array. [solution](./Heap/Problems/KthLargestElement.java)
+
+- Sort a nearly sorted (or K sorted) array. [solution](./Heap/Problems/SortKSortedArray.java)
+
+
+
+---
 
 ## Fibonacci Heap
 
-??
 
 ---
 # Java APIs
