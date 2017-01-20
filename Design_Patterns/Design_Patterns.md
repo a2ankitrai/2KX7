@@ -154,11 +154,14 @@ Use the Builder pattern when
 
 ---
 
-## Structural 
+
+# Structural 
+
+
+
 ---
 
-### Adapter
----
+## Adapter
 
 **Intent**
 
@@ -429,6 +432,8 @@ these objects tightly coupled.
 ---
 
 ## Template method
+
+
 
 Examples: 
 
