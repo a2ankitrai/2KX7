@@ -11,11 +11,9 @@ Graph is a data structure that consists of following two components:
 
 Networks: telephone, circuits, social (e.g. LinkedIn, Facebook)
 
-![graph_examples](./_image/graph_examples.png)
+neural network -  vertex: neuron , edge: synapse 
 
 ---
-
-![graph_processing_problems](./_image/graph_processing_problems.png)
 
 ## Representations of graphs
 
@@ -49,7 +47,7 @@ An array of linked lists is used. Size of the array is equal to number of vertic
 
 ## Breadth-first search
 
-Visit all the adjacent vertex before proceeding further.Put unvisited vertices on a queue.
+Visit all the adjacent vertex before proceeding further. Put unvisited vertices on a queue.
 
 ```java
 public void bfs(int s) {
@@ -139,7 +137,38 @@ public void dfs(int source) {
 
 **Application of DFS** :
 
-- Detect a cycle in a graph.
+- [Detect a cycle in a graph.](./Graph/Cycle_Detection/CycleDetectionDFS.java)  
+	
+**Iterative approach**
+
+```java
+public static boolean detectCycle(AdjListGraph g, int source) {
+		boolean[] visited = new boolean[g.getVertices()];
+		int[] edgeFrom = new int[g.getVertices()]; 
+
+		Set<Integer> visitedSet = new HashSet<>();
+		Stack<Integer> s = new Stack<>();
+		
+		s.push(source);
+		
+		while (!s.isEmpty()) {
+			int current = s.pop();
+			visitedSet.add(current);
+			Iterator<Integer> it = g.getAdjList()[current].descendingIterator();
+
+			while (it.hasNext()) {
+				int n = it.next();
+				if (!visitedSet.contains(n)) {					
+					s.push(n);
+					edgeFrom[n] = current;
+				} else if (n != edgeFrom[current]) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+```
 
 ---
 
@@ -175,8 +204,6 @@ Order of things which should be done before one another.
 
 - If directed cycle, topological order impossible.
 - If no directed cycle, DFS-based algorithm finds a topological order.
-
-DFS can be used to detect a cycle in a graph: Write code??
 
 **Directed cyclic detection application:** cyclic inheritance
 
@@ -223,17 +250,17 @@ Vertices v and w are **strongly connected** if there is a directed path from v t
 
 ---
 
-## Union-Find
-
-
-
----
-
 ## Minimum Spanning Tree
 
 A spanning tree of graph G is subgraph T that is both a **tree**(connected and acyclic) and **spanning**(includes all the vertices). The goal is to find a minimum weight spanning tree. A minimum spanning tree has (V – 1) edges where V is the number of vertices in the given graph.
 
 ![mst_applications](./_image/mst_applications.png)
+
+**Cut property**
+
+A cut in a graph is a partition of its vertices into two (non empty sets)
+
+![mst_cut_property](./_image/mst_cut_property.png)
 
 ### Kruskal's algorithm
 
@@ -244,11 +271,23 @@ formed so far. If cycle is not formed, include this edge. Else, discard it.
 
 3. Repeat step#2 until there are (V-1) edges in the spanning tree.
 
+Kruskal's algorithm computes MST in time proportional to `E logE` (in the worst case time).
 
+[Code](./Minimum_Spanning_Tree/KruskalMST.java)
 
 ---
 
 ### Prim's algorithm
+
+1. Start with vertex 0 and greedily grow tree T.
+
+2. Add to T the min weight edge with exactly one endpoint in T.
+
+3. Repeat until V-1 edges.
+
+[Lazy Prim's algorithm code](./Minimum_Spanning_Tree/LazyPrimMST.java)
+
+Lazy Prim's algorithm computes the MST in time proportional to `E log E` and extra space proportional to `E`(in the worst case).
 
 
 ---

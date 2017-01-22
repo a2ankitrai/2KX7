@@ -52,8 +52,6 @@ The iterators returned by this class's iterator and listIterator methods are fai
 
 ## Problems on Linked List
 
-G4G LL question 17 to start
-
 - Merge two Sorted lists without any additional storage.
 	[solution](../Problems/LinkedList/MergeSortedLists.java)
 	
@@ -78,7 +76,10 @@ G4G LL question 17 to start
 		head = prevLink;
 	}
 	```
-	
+
+## to do	
+
+- [Segregate even and odd nodes in a Linked List](http://www.practice.geeksforgeeks.org/problem-page.php?pid=400)	
 	
 - Check for median of a circular linked list.	
 	

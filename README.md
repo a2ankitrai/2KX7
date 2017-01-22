@@ -56,7 +56,6 @@
 - Services (Stateless and stateful)
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
-
 ## Design Patterns
 - [Overview](./Design_Patterns/Design_Patterns.md)
 - [Object Oriented Designs](./Arbit/OODesigns.md)
@@ -65,8 +64,9 @@
 - [Approaching System Design Questions](./System_Design/System_Design.md)
 - [System Design Concepts](./System_Design/concepts.md)
 
-
 ## [Mathematics](./Arbit/Mathematics.md)
+
+## [Operating System](./Arbit/operating_system.md)
 
 ## JavaScript
 - [My Learnings](https://github.com/a2ankitrai/JS_Learning)
@@ -86,7 +86,7 @@
 - [Caching](./Arbit/Cache.md)
 	- Redis n MemCache
 - [Storage](./Arbit/storage.md)	
-- Distributed Systems
+- [Distributed Systems]
 - Security
 - [What happens when](https://github.com/alex/what-happens-when)
 - [Awesome Interview Questions](https://github.com/MaximAbramchuck/awesome-interview-questions)

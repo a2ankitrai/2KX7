@@ -10,6 +10,8 @@ Array elements are being stored in contiguous locations in memory.
 
 **If the size is known in advance array should be preferred over ArrayList or Linkedlist.**
 
+## Problems
+
 - Given an array A[] and a number x, check for pair in A[] with sum as x. 
 	[solution](./Array/PairSum.java)
 	

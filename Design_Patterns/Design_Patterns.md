@@ -433,7 +433,22 @@ these objects tightly coupled.
 
 ## Template method
 
+**Intent**
 
+Define the skeleton of an algorithm in an operation, deferring some steps to client subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+**Rules of thumb**
+
+- Strategy is like Template Method except in its granularity.
+
+- Template Method uses inheritance to vary part of an algorithm. Strategy uses delegation to vary the entire algorithm.
+
+- Strategy modifies the logic of individual objects. Template Method modifies the logic of an entire class.
+
+- Factory Method is a specialization of Template Method.
+
+
+![Template_Method.svg](./_image/Template_Method.svg)
 
 Examples: 
 

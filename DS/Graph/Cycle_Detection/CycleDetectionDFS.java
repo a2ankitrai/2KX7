@@ -1,3 +1,5 @@
+package Cycle_Detection;
+
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -7,12 +9,12 @@ class CycleDetectionDFS {
 
 	public static boolean detectCycle(AdjListGraph g, int source) {
 		boolean[] visited = new boolean[g.getVertices()];
+		int[] edgeFrom = new int[g.getVertices()];
 
 		Set<Integer> visitedSet = new HashSet<>();
 		Stack<Integer> s = new Stack<>();
-		visitedSet.add(source);
+
 		s.push(source);
-		int parent = -1;
 
 		while (!s.isEmpty()) {
 			int current = s.pop();
@@ -21,30 +23,26 @@ class CycleDetectionDFS {
 
 			while (it.hasNext()) {
 				int n = it.next();
-				if (!visitedSet.contains(n)) {					
+				if (!visitedSet.contains(n)) {
 					s.push(n);
-					//from = current;
-				} else if (n != parent) {
+					edgeFrom[n] = current;
+				} else if (n != edgeFrom[current]) {
 					return true;
 				}
 			}
 		}
-
 		return false;
 	}
 
 	public static boolean detectCycleRecursiveMain(AdjListGraph g) {
-//		Set<Integer> visitedSet = new HashSet<>();
+		
 		int V = g.getVertices();
 		boolean[] visited = new boolean[V];
-
-		for (int i = 0; i < V; i++) {
-			visited[i] = false;
-		}
+		int[] edgeFrom = new int[V];
 
 		for (int i = 0 ; i < V; i++) {
 			if (!visited[i]) {
-				if (detectCycleRecursive(g, i, visited, -1)) {
+				if (detectCycleRecursive(g, i, visited, edgeFrom)) {
 					return true;
 				}
 			}
@@ -53,7 +51,7 @@ class CycleDetectionDFS {
 	}
 
 	private static boolean detectCycleRecursive(AdjListGraph g, int source,
-	        boolean[] visited, int parent) {
+	        boolean[] visited, int[] edgeFrom) {
 
 		visited[source] = true;
 		Integer n;
@@ -62,16 +60,18 @@ class CycleDetectionDFS {
 
 		while (it.hasNext()) {
 			n = it.next();
-			if (!visited[n]) {
-				if (detectCycleRecursive(g, n, visited, source)) {
+			if (!visited[n]) {				
+				edgeFrom[n] = source;
+				if(detectCycleRecursive(g, n, visited, edgeFrom)){
 					return true;
 				}
-			} else if (n != source) {
+			} else if (n != edgeFrom[source]) {
 				return true;
 			}
 		}
 		return false;
 	}
+
 
 
 	public static void main(String[] args) {
@@ -85,15 +85,18 @@ class CycleDetectionDFS {
 		g.addEdge(2, 3);
 		g.addEdge(3, 4);
 
-		System.out.println("Cycle exists: " + detectCycleRecursiveMain(g));
-		System.out.println("Cycle exists Iterative: " + detectCycle(g, 0));
+		System.out.println("G1");
+		System.out.println("Cycle existence Recursive check: " + detectCycleRecursiveMain(g));
+		System.out.println("Cycle existence Iterative check: " + detectCycle(g, 0));
 
 		AdjListGraph g1 = new AdjListGraph(3);
 		g1.addEdge(0, 1);
 		g1.addEdge(1, 2);
+		g1.addEdge(0, 2);
 
-		System.out.println("Cycle exists in g2: " + detectCycleRecursiveMain(g1));
-		System.out.println("Cycle exists Iterative: " + detectCycle(g1, 0));
+		System.out.println("G2");
+		System.out.println("Cycle existence Recursive check: " + detectCycleRecursiveMain(g1));
+		System.out.println("Cycle existence Iterative check:" + detectCycle(g1, 0));
 
 	}
 }

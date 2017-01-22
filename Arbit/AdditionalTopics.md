@@ -25,6 +25,11 @@ Services like Bootstrap CDN let users load the CSS and Javascript files for Twit
 
 ---
 
+# TCP/IP Model
+
+
+---
+
 # DNS routing
 
 

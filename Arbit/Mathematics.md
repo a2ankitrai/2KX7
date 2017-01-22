@@ -102,3 +102,9 @@ public int GCD(int a, int b)
 
 sum of n integers = n*(n+1)/2
 
+
+---
+
+## the essentials of combinatorics and probability
+
+
