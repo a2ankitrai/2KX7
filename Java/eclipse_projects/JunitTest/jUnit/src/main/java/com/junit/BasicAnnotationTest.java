@@ -1,4 +1,4 @@
-package com.junit.jUnit;
+package com.junit;
 
 import org.junit.After;
 import org.junit.AfterClass;

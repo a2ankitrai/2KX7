@@ -220,7 +220,7 @@ An adapter uses composition to store the object it is supposed to adapt, and whe
 
 ---
 
-### Bridge
+## Bridge
 
 **Intent**
 
@@ -284,6 +284,65 @@ Bridge emphasizes identifying and decoupling "interface" abstraction from "imple
 
 ---
 
+## State
+
+**Intent**
+
+- Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
+
+- Also Known As Objects for States. An object-oriented state machine . wrapper + polymorphic wrappee + collaboration
+
+**Problem**
+
+A monolithic object's behavior is a function of its state, and it must change its behavior at run-time depending on that state. Or, an application is characterized by large and numerous case statements that vector flow of control based on the state of the application.
+
+**Discussion**
+
+make behavior depend on state.
+
+- Define a **Context** class to present a single interface to the outside world.
+
+- Define a **State** abstract base class
+
+- Represent the different "states" of the state machine as derived classes of the State base class.
+
+- Define state-specific behavior in the appropriate State derived classes.
+
+- Maintain a pointer to the current "state" in the "context" class.
+
+- To change the state of the state machine, change the current "state" pointer.
+
+![state](./_image/state.png)
+
+**Rules of thumb**
+
+- State objects are often Singletons.
+
+- Flyweight explains when and how State objects can be shared.
+
+- Interpreter can use State to define parsing contexts.
+
+- Strategy has 2 different implementations, the first is similar to State. The difference is in binding times (Strategy is a bind-once pattern, whereas State is more dynamic).
+
+- The structure of State and Bridge are identical (except that Bridge admits hierarchies of envelope classes, whereas State allows only one). The two patterns use the same structure to solve different problems: State allows an object's behavior to change along with its state, while Bridge's intent is to decouple an abstraction from its implementation so that the two can vary independently.
+
+- The implementation of the State pattern builds on the Strategy pattern. The difference between State and Strategy is in the intent. With Strategy, the choice of algorithm is fairly stable. With State, a change in the state of the "context" object causes it to select from its "palette" of Strategy objects.
+ 
+**Applicability**
+
+- An object's behavior depends on its state, and it must change it's behavior at run-time depending on that state.
+
+- Operations have large, multipart conditional statements that depend on the object's state. This state is usually represented by one or more enumerated constants. Often, several operations will contain this same conditional structure. The State pattern puts each branch of the conditional in a separate class. This lets you treat the object's state as an object in its own right that can vary independently from other objects.
+
+
+**Known Uses**
+
+- Johnson and Zweig [JZ91] characterize theState pattern and its application to TCP connection protocols.
+
+[State Pattern Code](./../Java/eclipse_projects/Design_Patterns/src/behavioral/state)
+
+---
+
 ## Facade
 
 The Facade design pattern simplifies the interface to a complex system; because it is usually composed of all the classes which make up the subsystems of the complex system.
@@ -332,7 +391,7 @@ Examples: Spring proxy in AOP
 
 Behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
 
-Behavioral class patterns use inheritance to distribute behaviorbetween classes.
+Behavioral class patterns use inheritance to distribute behavior between classes.
 
 ## Chain of Responsibilty
 
@@ -424,9 +483,8 @@ these objects tightly coupled.
 	- implements the Observer updating interface to keep its state consistent with the subject's.
 	
 [Observer Code](./../Java/eclipse_projects/Design_Patterns/src/behavioral/observer)	
-
+ 
 ---
-
 ### Strategy
 
 ---

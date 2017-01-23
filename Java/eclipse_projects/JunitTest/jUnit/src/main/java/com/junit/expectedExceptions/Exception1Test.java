@@ -1,4 +1,4 @@
-package com.junit.jUnit;
+package com.junit.expectedExceptions;
 
 import java.util.ArrayList;
 
