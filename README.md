@@ -67,6 +67,10 @@
 ## [Mathematics](./Arbit/Mathematics.md)
 
 ## [Operating System](./Arbit/operating_system.md)
+- Process
+- Threads
+- Interprocess Communication
+- Deadlock
 
 ## JavaScript
 - [My Learnings](https://github.com/a2ankitrai/JS_Learning)

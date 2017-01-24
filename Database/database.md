@@ -64,3 +64,12 @@ Data can be stored only in one order on disk. To support faster access according
 
 ## ACID properties
 
+
+----
+
+
+# Question
+
+- Delete duplicate rows in table?
+
+- Kth largest row in a table.

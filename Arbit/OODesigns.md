@@ -6,8 +6,6 @@
 
 - Design ATM Machine
 
-- Design a Vending Machine in Java
-
 - Design a Lift system in your programming language.
 
 - Design and implement LRU cache.

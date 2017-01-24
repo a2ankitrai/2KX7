@@ -21,11 +21,11 @@ extends Collection<E>
 
 An ordered collection (also known as a sequence). The user of this interface has precise control over where in the list each element is inserted. The user can access elements by their integer index (position in the list), and search for elements in the list.
 
-lists typically allow duplicate elements. 
+Lists typically allow duplicate elements. 
 
 The `List` interface provides a special iterator, called a `ListIterator`, that allows element insertion and replacement, and bidirectional access in addition to the normal operations that the Iterator interface provides.
 
-Implementations:
+**Implementations**:
 
 ---
 
@@ -57,7 +57,7 @@ public void ensureCapacity(int minCapacity)
    List list = Collections.synchronizedList(new ArrayList(...));
 ```
 
-The iterators returned by this class's iterator and listIterator methods are **fail-fast**: if the list is structurally modified at any time after the iterator is created, in any way except through the iterator's own remove or add methods, the iterator will throw a `ConcurrentModificationException`. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
+The iterators returned by this class's `iterator()` and `listIterator()` methods are **fail-fast**: if the list is structurally modified at any time after the iterator is created, in any way except through the iterator's own remove or add methods, the iterator will throw a `ConcurrentModificationException`. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
 
 ---
    
@@ -89,7 +89,7 @@ A thread-safe variant of `ArrayList` in which all mutative operations (add, set,
 
 This is ordinarily too costly, but may be more efficient than alternatives when traversal operations vastly outnumber mutations, and is useful when you cannot or don't want to synchronize traversals, yet need to preclude interference among concurrent threads.
 
-The "snapshot" style iterator method uses a reference to the state of the array at the point that the iterator was created. This array never changes during the lifetime of the iterator, so interference is impossible and the iterator is guaranteed not to throw `ConcurrentModificationException`. The iterator will not reflect additions, removals, or changes to the list since the iterator was created. Element-changing operations on iterators themselves (remove, set, and add) are not supported. These methods throw `UnsupportedOperationException`.
+The "snapshot" style iterator method uses a reference to the state of the array at the point that the iterator was created. This array never changes during the lifetime of the iterator, so interference is impossible and the iterator is guaranteed not to throw `ConcurrentModificationException`. The iterator will not reflect additions, removals, or changes to the list since the iterator was created. Element-changing operations on iterators themselves (`remove()`, `set()`, and `add()`) are not supported. These methods throw `UnsupportedOperationException`.
 
 Memory consistency effects: As with other concurrent collections, actions in a thread prior to placing an object into a `CopyOnWriteArrayList` **happen-before** actions subsequent to the access or removal of that element from the `CopyOnWriteArrayList` in another thread.
 
@@ -182,7 +182,7 @@ implements NavigableSet<E>, Cloneable, Serializable
 
 A `NavigableSet` implementation based on a `TreeMap`. The elements are ordered using their natural ordering, or by a `Comparator` provided at set creation time, depending on which constructor is used.
 
-This implementation provides guaranteed log(n) time cost for the basic operations (`add`, `remove` and `contains`).
+This implementation provides guaranteed `O(log n)` time cost for the basic operations (`add`, `remove` and `contains`).
 
 Both `HashSet` and `LinkedHashSet` allows null but `TreeSet` doesn't allow `null` and throw `java.lang.NullPointerException` when you will insert `null` into `TreeSet`. Since `TreeSet` uses `compareTo()` method of respective elements to compare them  which throws NullPointerException while comparing with `null`.
 
@@ -262,9 +262,16 @@ ConcurrentSkipListSet does not permit the use of null elements, because null arg
 
 ---
 
-## Map
+# Map
 
 an object that maps keys to values, an associative array, a table: the map.
+
+---
+
+## HashMap
+
+
+
 
 
 ---
