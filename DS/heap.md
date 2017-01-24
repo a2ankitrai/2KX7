@@ -123,6 +123,10 @@ Although the worst case complexity looks like O(nLogn), upper bound of time comp
 
 - Sort a nearly sorted (or K sorted) array. [solution](./Heap/Problems/SortKSortedArray.java)
 
+---
+
+## Interval Heap
+
 
 
 ---

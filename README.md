@@ -22,7 +22,7 @@
 	- Single Source Shortest Paths
 	- All Source Shortest Paths
 	- Maximum Flow
-- Skip Lists
+- [Skip Lists](./DS/skip_list.md)
 - [Arbit](./DS/arbit.md)
 
 ## Algorithms
