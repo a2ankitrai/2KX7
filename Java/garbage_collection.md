@@ -2,6 +2,8 @@
 
 ---
 
+## Garbage
+
 **Garbage** means memory the system has previously allocated is no longer being used. For the illusion of infinite memory to work, the language needs to be very safe about “no longer being used”. In order to be collectible, the language has to ensure there’s no way for the program to use that object again. If it can’t get a reference to the object, then it obviously can’t use it again.
 
 The definition of **in use**:
@@ -16,6 +18,8 @@ The end result is a graph of reachable objects-all of the objects in the world t
 
 ---
 
+## Garbage Collector
+
 A garbage collector (GC) is a memory management tool. It achieves automatic memory management through the following operations:
 
 - Allocating objects to a young generation and promoting aged objects into an old generation.
@@ -28,7 +32,7 @@ A garbage collector (GC) is a memory management tool. It achieves automatic memo
 
 ## Some Pointers
 
-- Objects are created on the heap in Java irrespective of their scope e.g. local or member variable. while it's worth noting that class variables or static members are created in method area of Java memory space and both heap and method area is shared between different thread.
+- Objects are created on the heap in Java irrespective of their scope e.g. local or member variable. while it's worth noting that **class variables or static members are created in method area of Java memory space and both heap and method area is shared between different thread**.
 
 - Garbage Collection in Java is carried by a daemon thread called Garbage Collector.
 
@@ -41,7 +45,7 @@ A garbage collector (GC) is a memory management tool. It achieves automatic memo
 
 ## When an Object becomes Eligible for Garbage Collection
 
-- All references to that object explicitly set to null e.g. object = null
+- All references to that object explicitly set to null e.g. `object = null;`
 
 - The object is created inside a block and reference goes out scope once control exit that block.
 
@@ -60,32 +64,8 @@ These are called as **Young generation**, **Tenured** or **Old Generation** and 
 ![gc_jvm_image.jpg](./_image/gc_jvm_image.jpg)
 
 ---
-
-
-
-
----
-
-## Reference classes
-
-### Strong Reference 
-
-String s = "abc" , reference variable s has strong reference to String object "abc". Any object which has Strong reference attached to it is not eligible for garbage collection. Obviously these are objects which is needed by Java program.
-
-###  Weak Reference 
-
-Represented using `java.lang.ref.WeakReference` class and you can create Weak Reference by using following code :
-
-```java
-Counter counter = new Counter(); // strong reference - line 1
-WeakReference<Counter> weakCounter = new WeakReference<Counter>(counter); //weak reference
-counter = null; // now Counter object is eligible for garbage collection
-```
-
-SoftReference are more suitable for caches and WeakReference are more suitable for storing meta data. 
- 
----
-
+  
+  
 ## Marking and sweeping
 
 
@@ -95,7 +75,7 @@ Garbage collection algorithm must perform 2 basic operations. One, it should be 
 
 When an object is created, its mark bit is set to 0(false). In the Mark phase, we set the marked bit for all the reachable objects (or the objects which a user can refer to) to 1(true). This operation can be done by a graph traversal, a depth first search approach.  Consider every object as a node and then all the nodes (objects) that are reachable from this node (object) are visited and it goes on till we have visited all the reachable nodes.
 
-Algorithm -Mark phase:
+*Algorithm -Mark phase:*
 
 ```
 Mark(root)
@@ -111,7 +91,7 @@ it clears the heap memory for all the unreachable objects. All those objects who
 
 Now the mark value for all the reachable objects is set to false, since we will run the algorithm (if required) and again we will go through the mark phase to mark all the reachable objects.
 
-Algorithm – Sweep Phase
+*Algorithm – Sweep Phase:*
 
 ```
 Sweep()
@@ -134,9 +114,27 @@ The mark-and-sweep algorithm is called a tracing garbage collector because is tr
 
 - The main disadvantage of the mark-and-sweep approach is the fact that that normal program execution is suspended while the garbage collection algorithm runs.
 
-- Other disadvantage is that, after the Mark and Sweep Algorithm is run several times on a program, reachable objects end up being separated by many, small unused memory regions. Look at the below figure for better understanding.
-
-
-
+- Other disadvantage is that, after the Mark and Sweep Algorithm is run several times on a program, reachable objects end up being separated by many, small unused memory regions.
+ 
 ---
 
+
+## Reference classes
+
+### Strong Reference 
+
+String s = "abc" , reference variable s has strong reference to String object "abc". Any object which has Strong reference attached to it is not eligible for garbage collection. Obviously these are objects which is needed by Java program.
+
+###  Weak Reference 
+
+Represented using `java.lang.ref.WeakReference` class and you can create Weak Reference by using following code :
+
+```java
+Counter counter = new Counter(); // strong reference - line 1
+WeakReference<Counter> weakCounter = new WeakReference<Counter>(counter); //weak reference
+counter = null; // now Counter object is eligible for garbage collection
+```
+
+SoftReference are more suitable for caches and WeakReference are more suitable for storing meta data. 
+ 
+---
