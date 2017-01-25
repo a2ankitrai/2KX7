@@ -41,8 +41,11 @@ Native internal threads area contains all the informations related to native pla
 
 ## Execution Engine of JVM
 
+Execution Engine contains JIT (Just In Time) Compiler and Garbage collector compiler. Execution Engine also contains Interpreter.
 
+### JIT(Just In Time) compiler 
 
+JIT compiler compiles bytecodes to machine code at run time and improves the performance of Java applications.
 
 ---
  
