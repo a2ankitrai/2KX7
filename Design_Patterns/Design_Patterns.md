@@ -395,7 +395,9 @@ You want to add behavior or state to individual objects at run-time. Inheritance
 
 **Known Uses**
 
-Many object-oriented user interface toolkits use decorators to add graphical embellishments to widgets.
+- Many object-oriented user interface toolkits use decorators to add graphical embellishments to widgets.
+- Decorator pattern is used a lot in Java IO classes, such as `FileReader`, `BufferedReader`. BufferReader is wrapped to FileReader, ObjectOutputStream is wrapped to FileInputStream in serialization.
+
 
 **Check list**
 
