@@ -1,11 +1,7 @@
 import java.util.Stack;
 import java.util.*;
 
-public class BinaryTree {
-
-	public BTNode root;
-
-	static class BTNode {
+class BTNode {
 		public int data;
 		public BTNode left;
 		public BTNode right;
@@ -15,7 +11,17 @@ public class BinaryTree {
 			left =  null;
 			right = null;
 		}
+
+		public String toString(){
+			return "BTNode ["+data+"]";
+		}
 	}
+
+public class BinaryTree {
+
+	public BTNode root;
+
+	
 
 	public BinaryTree(BTNode root) {
 		this.root = root;

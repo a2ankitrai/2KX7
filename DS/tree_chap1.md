@@ -81,13 +81,11 @@ public class BinaryTree {
 
 - The maximum number of nodes at level `l` of a binary tree is 2<sup>(l-1)</sup>. (Assuming root is at level 1)
 
-- Maximum number of nodes in a binary tree of height `h` is `2h – 1`.
+- Maximum number of nodes in a binary tree of height **h** is **2<sup>h</sup> – 1**.
 
 - In a Binary Tree with N nodes, minimum possible height or minimum number of levels is  Log(N+1)
 
 - A Binary Tree with L leaves has at least   LogL + 1   levels 
-
----
 
 # Diameter of a Binary Tree
 
