@@ -30,7 +30,7 @@ class KthLastElement {
 		ll.append(6);
 		ll.append(7);
 
-		System.out.println(findKthLastElement(ll.head,3).data);	
+		System.out.println(findKthLastElement(ll.head,4).data);	
 
 	}
 

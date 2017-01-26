@@ -270,9 +270,18 @@ an object that maps keys to values, an associative array, a table: the map.
 
 ## HashMap
 
+```java
+public class HashMap<K,V>
+extends AbstractMap<K,V>
+implements Map<K,V>, Cloneable, Serializable
+```
 
+Hash table based implementation of the Map interface. This implementation permits null values and the null key. 
+This implementation provides constant-time performance for the basic operations (`get` and `put`), assuming the hash function disperses the elements properly among the buckets. Iteration over collection views requires time proportional to the "capacity" of the HashMap instance (the number of buckets) plus its size (the number of key-value mappings). 
 
+An instance of HashMap has two parameters that affect its performance: initial capacity and load factor. The capacity is the number of buckets in the hash table, and the initial capacity is simply the capacity at the time the hash table is created. The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased. When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is rehashed (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets.
 
+	
 
 ---
 

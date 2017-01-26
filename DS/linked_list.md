@@ -77,6 +77,20 @@ The iterators returned by this class's iterator and listIterator methods are fai
 	}
 	```
 
+- Palindrome: Implement a function to check if a linked list is a palindrome.
+
+	- Reverse linked list and compare
+	- Use a stack to store elements one by one and then compare with original linked list
+
+- Intersection: Given two (singly) linked lists, determine if the two lists intersect. Return the intersecting node.
+
+	1. Run through each linked list to get the lengths and the tails.
+	2. Compare the tails. If they are different (by reference, not by value), return immediately. There is no intersection.
+	3. Set two pointers to the start of each linked list.
+	4. On the longer linked list, advance its pointer by the difference in lengths.
+	5. Now, traverse on each linked list until the pointers are the same.
+
+	
 ## to do	
 
 - [Segregate even and odd nodes in a Linked List](http://www.practice.geeksforgeeks.org/problem-page.php?pid=400)	

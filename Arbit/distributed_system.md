@@ -24,3 +24,17 @@ A collection of independent computers that appear to its users as one computer.
 
 - Limited data access patterns
 
+## Consistent Hashing
+
+---
+
+## Distibuted Computation
+
+- Scatter/Gather
+- MapReduce
+- Hadoop
+- Spark
+- Storm
+
+
+

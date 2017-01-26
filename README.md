@@ -37,6 +37,7 @@
 - Bit Algorithms
 - Mathematical Algorithms
 - Approximation
+- Recursion
 - [Geeks4Geeks Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
 
 
@@ -45,6 +46,7 @@
 - [Classes & Interfaces](./Java/classes_n_interfaces.md)
 - [Garbage Collection](./Java/garbage_collection.md)
 - [Exceptions](./Java/exceptions.md)
+- [Serialization](./Java/serialization.md)
 - [Generics](./Java/generics.md)
 - [Collections](./Java/collections.md)
 - [Threads and Concurrency](./Java/Thread_n_Concurrency.md)
