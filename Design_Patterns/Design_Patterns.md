@@ -154,10 +154,9 @@ Use the Builder pattern when
 
 ---
 
-
 # Structural 
 
-
+Structural patterns are concerned with how classes and objects are composed to form larger structures. They identify a simple way to realize relationships between entities.
 
 ---
 
@@ -355,19 +354,81 @@ the Facade can be used to hide the inner workings of a third party library, or s
 
 Facade discusses encapsulating a complex subsystem within a single interface object. This reduces the learning curve necessary to successfully leverage the subsystem. It also promotes decoupling the subsystem from its potentially many clients. On the other hand, if the Facade is the only access point for the subsystem, it will limit the features and flexibility that "power users" may need.
 
-
-
 **Uses**:
 
 Service oriented architectures make use of the facade pattern. For example, in web services, one web service might provide access to a number of smaller services that have been hidden from the caller by the facade.
-
-
 
 ---
 
 ### Composite
 
-### Decorator
+
+---
+
+## Decorator
+
+**Intent**
+
+Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. Also known as Wrapper.
+
+You want to add behavior or state to individual objects at run-time. Inheritance is not feasible because it is static and applies to an entire class.
+
+**Applicability**
+
+- to add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects.
+- for responsibilities that can be withdrawn.
+- when extension by subclassing is impractical. Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination. Or a class definition may be hidden or otherwise unavailable for subclassing.
+
+![decorator](./_image/decorator.png)
+
+**Participants**
+
+- *Component* : defines the interface for objects that can have responsibilities added to them dynamically.
+- *ConcreteComponent* : defines an object to which additional responsibilities can be attached.
+- *Decorator* : maintains a reference to a Component object and defines an interface that conforms to Component's interface.
+- *ConcreteDecorator* : adds responsibilities to the component.
+
+**Benefits**
+
+- More flexibility than static inheritance.
+- Avoids feature-laden classes high up in the hierarchy. Decorator offers a pay-as-you-go approach to adding responsibilities.
+
+**Known Uses**
+
+Many object-oriented user interface toolkits use decorators to add graphical embellishments to widgets.
+
+**Check list**
+
+- Ensure the context is: a single core (or non-optional) component, several optional embellishments or wrappers, and an interface that is common to all.
+
+- Create a "Lowest Common Denominator" interface that makes all classes interchangeable.
+
+- Create a second level base class (Decorator) to support the optional wrapper classes.
+
+- The Core class and Decorator class inherit from the LCD interface.
+
+- The Decorator class declares a composition relationship to the LCD interface, and this data member is initialized in its constructor.
+
+- The Decorator class delegates to the LCD object
+
+- Define a Decorator derived class for each optional embellishment.
+
+- Decorator derived classes implement their wrapper functionality - and - delegate to the Decorator base class.
+
+- The client configures the type and ordering of Core and Decorator objects.
+
+
+**Related Patterns**
+
+*Adapter* : A decorator is different from an adapter in that a decorator only changes an object's responsibilities, not its interface; an adapter will give an object a completely new interface.
+
+*Composite* : A decorator can be viewed as a degenerate composite with only one component. However, a decorator adds additional responsibilities—it isn't intended for object aggregation.
+
+*Strategy* : A decorator lets you change the skin of an object; a strategy lets you change the guts. These are two alternative ways of changing an object.
+
+[Decorator Pattern Code](./../Java/eclipse_projects/Design_Patterns/src/structural/decorator)
+
+---
 
 ### Flyweight
 

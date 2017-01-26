@@ -2,7 +2,7 @@
 
 # S.O.L.I.D. principles in java
 
-![SOLID principle](./solid_class_design_principles.png) 
+![SOLID principle](./_image/solid_class_design_principles.png) 
 
 - Open closed design principles says that new functionality should be added by introducing new classes, methods or fields instead of modifying already tried and tested code. One of the way to achieve this is Inheritance where class is extended to introduce new functionality on top of inherited basic features.
  
