@@ -1,6 +1,184 @@
 # Angular-JS
 ---
 
+## Angular Modules
+
+*Module is a container for the different parts of your app – controllers, services, filters, directives, etc*.
+Most applications have a main method that instantiates and wires together the different parts of the application.
+AngularJS apps don't have a main method. Instead modules declaratively specify how an application should be bootstrapped. 
+
+Advantages to this approach :
+
+- The declarative process is easier to understand.
+- You can package code as reusable modules.
+- The modules can be loaded in any order (or even in parallel) because modules delay execution.
+- Unit tests only have to load relevant modules, which keeps them fast.
+ 
+ 
+```javascript
+// declare a module
+var myAppModule = angular.module('myApp', []);
+
+// configure the module.
+// in this example we will create a greeting filter
+myAppModule.filter('greet', function() {
+ return function(name) {
+    return 'Hello, ' + name + '!';
+  };
+});
+```
+
+`angular.Module` : Interface for configuring AngularJS modules.
+
+**Module Methods**
+
+We can specify functions to run at configuration and run time for a module by calling the `config` and `run` methods. These functions are injectable with dependencies just like the factory functions above.
+
+```
+angular.module('myModule', [])
+.config(['depProvider', function(depProvider) {
+  // ...
+}])
+.run(['depService', function(depService) {
+  // ...
+}]);
+
+```
+
+https://docs.angularjs.org/guide/module#module-loading-dependencies
+
+---
+ 
+## Dependency Injection
+
+Dependency Injection (DI) is a software design pattern that deals with how components get hold of their dependencies.
+
+The AngularJS injector subsystem is in charge of creating components, resolving their dependencies, and providing them to other components as requested.
+
+- Components such as services, directives, filters, and animations are defined by an injectable factory method or constructor function. These components can be injected with "service" and "value" components as dependencies.
+
+- Controllers are defined by a constructor function, which can be injected with any of the "service" and "value" components as dependencies, but they can also be provided with special dependencies. See Controllers below for a list of these special dependencies.
+
+ 
+**config method** : Use this method to register work which needs to be performed on module loading.
+
+The config method accepts a function, which can be injected with "provider" and "constant" components as dependencies. Note that you cannot inject "service" or "value" components into configuration.
+
+**run method**
+
+The run method accepts a function, which can be injected with "service", "value" and "constant" components as dependencies. Note that you cannot inject "providers" into run blocks.
+
+
+To manage the responsibility of dependency creation, each AngularJS application has an injector. The injector is a service locator that is responsible for construction and lookup of dependencies.
+
+
+---
+
+## Controllers
+
+Controllers are "classes" or "constructor functions" that are responsible for providing the application behavior that supports the declarative markup in the template
+
+Unlike services, there can be many instances of the same type of controller in an application.
+
+---
+
+## Providers
+
+Each web application you build is composed of objects that collaborate to get stuff done. These objects need to be instantiated and wired together for the app to work. In AngularJS apps most of these objects are instantiated and wired together automatically by the injector service.
+
+- The injector uses recipes to create two types of objects: services and special purpose objects
+- There are five recipe types that define how to create objects: Value, Factory, Service, Provider and Constant.
+- Factory and Service are the most commonly used recipes. The only difference between them is that the Service recipe works better for objects of a custom type, while the Factory can produce JavaScript primitives and functions.
+- The Provider recipe is the core recipe type and all the other ones are just syntactic sugar on it.
+- Provider is the most complex recipe type. You don't need it unless you are building a reusable piece of code that needs global configuration.
+- All special purpose objects except for the Controller are defined via Factory recipes.
+
+![service_vs_factory](./_image/service_vs_factory.png)
+
+
+## $provide
+
+The `$provide` service has a number of methods for registering components with the `$injector`. Many of these functions are also exposed on angular.Module.
+
+Get data and objects into your app. Injected singletons with a $get method, essentially.
+ 
+The low-level nitty gritty.
+
+```
+$provide.provider('foo', {$get: function(dep) {...}});
+$provide.provider('foo', function(){
+  this.$get = function(dep) {...}
+});
+```
+You just need a $get method.
+More storage options. Can $inject other providers when instantiated.
+
+**CONSTANT**
+
+A constant is a value injectable anywhere!
+
+```
+app.constant('jellyBean', 4.2);
+```
+
+- Can not be intercepted by a decorator. High priority.
+
+**VALUE**
+
+A simple injectable value.
+
+```
+app.value('name', 'Larry');
+```
+
+- Can not be injected into configurations.
+- Can be intercepted by decorators.
+
+**SERVICE**
+
+Injectable constructor.
+
+```
+app.service('api', function (dep) {...});
+```
+
+- A singleton. Good for cross app/controller communication.
+
+**FACTORY**
+
+Injectable function for returning factory stuff.
+
+```
+app.factory('widget', function (dep) {... return ?;})
+```
+
+- A provider with only a $get method, essentially.
+
+
+**DECORATOR**
+
+Decorators are a design pattern that is used to separate modification or decoration of a class without modifying the original source code. In AngularJS, decorators are functions that allow a service, directive or filter to be modified prior to its usage. 
+Modify or encapsulate other provisions.
+
+
+
+```
+app.config(function($provide) {
+  $provide.decorate('name', function($delegate) {
+    // Modifications to the 'name' provision.
+    return $delegate + ' the Great';
+  });
+});
+``` 
+
+Useful for modifying upstream services. Stackable.
+
+[differences between providers in angularjs](http://blog.xebia.com/differences-between-providers-in-angularjs/)
+ 
+
+
+---
+
 ## What is scope, rootscope?
 
 Scope is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application. Scopes can watch expressions and propagate events.
@@ -16,13 +194,29 @@ Every application has a single root scope. All other scopes are descendant scope
 
 ---
 
+## Services
+
+The Service recipe produces a service just like the Value or Factory recipes, but it does so by invoking a constructor with the new operator. The constructor can take zero or more arguments, which represent dependencies needed by the instance of this type.
+
+
+
+All services in AngularJS are singletons. That means that the injector uses each recipe at most once to create the object. The injector then caches the reference for all future needs.
+
+## Factories
+
+The Factory recipe constructs a new service using a function with zero or more arguments (these are dependencies on other services). The return value of this function is the service instance created by this recipe.
+
+
+---
+
 - Difference between controllers, services and factories?
 
 - directives?
 	
 	Directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS’s HTML compiler ($compile) to attach a specified behavior to that DOM element (e.g. via event listeners), or even to transform the DOM element and its children.
 
-- app.config module
+---
+
 
 ---
 
