@@ -432,20 +432,93 @@ You want to add behavior or state to individual objects at run-time. Inheritance
 
 ---
 
+## Proxy
+
+**Intent**
+
+- Provide a surrogate or placeholder for another object to control access to it.
+	
+- Use an extra level of indirection to support distributed, controlled, or intelligent access.
+
+- Add a wrapper and delegation to protect the real component from undue complexity.
+
+**Problem**
+
+You need to support resource-hungry objects, and you do not want to instantiate such objects unless and until they are actually requested by the client.
+
+**Discussion**
+
+Design a surrogate, or proxy, object that: instantiates the real object the first time the client makes a request of the proxy, remembers the identity of this real object, and forwards the instigating request to this real object. Then all subsequent requests are simply forwarded directly to the encapsulated real object.
+
+**Applicability**	
+	
+Proxy is applicable whenever there is a need for a more versatile or sophisticated reference to an object than a simple pointer.	
+	
+- A *remote proxy* provides a local representative for an object in a different address space.	
+
+- A *virtual proxy* creates expensive objects on demand. A virtual proxy is a placeholder for "expensive to create" objects. The real object is only created when a client first requests/accesses the object.
+
+- A *protection proxy* controls access to the original object. Protection proxies are useful when objects should have different access rights. The "surrogate" object checks that the caller has the access permissions required prior to forwarding the request.
+
+- A *smart reference* is a replacement for a bare pointer that performs additional actions when an object is accessed. Typical uses include:
+	- counting the number of references to the real object so that it can be freed automatically when there are no more references (also called smart pointers).
+	- loading a persistent object into memory when it's first referenced.
+	- checking that the real object is locked before it's accessed to ensure that no other object can change it.
+
+**Consequences**
+
+The Proxy pattern introduces a level of indirection when accessing an object. The additional indirection has many uses, depending on the kind of proxy:
+
+1. A remote proxy can hide the fact that an object resides in a different address space.
+2. A virtual proxy can perform optimizations such as creating an object on demand.
+3. Both protection proxies and smart references allow additional housekeeping tasks when an object is accessed.
+
+	
+**Structure**
+
+![proxy.png](./_image/proxy.png)
+
+Possible object diagram of a proxy structure at run-time
+
+![proxy_object](./_image/proxy_object.png)
+
+
+**Example**
+
+The Proxy provides a surrogate or place holder to provide access to an object. A check or bank draft is a proxy for funds in an account. A check can be used in place of cash for making purchases and ultimately controls access to cash in the issuer's account.
+
+*Java Remote Method Invocation (RMI)*
+
+In java RMI an object on one machine (executing in one JVM) called a client can invoke methods on an object in another machine (another JVM) the second object is called a remote object. The proxy (also called a stub) resides on the client machine and the client invokes the proxy in as if it is invoking the object itself (remember that the proxy implements the same interface that RealSubject implements). The proxy itself will handle communication to the remote object, invoke the method on that remote object, and would return the result if any to the client. The proxy in this case is a Remote proxy.
+
+Spring proxy in AOP
+
+**Check list**
+
+- Identify the leverage or "aspect" that is best implemented as a wrapper or surrogate.
+- Define an interface that will make the proxy and the original component interchangeable.
+- Consider defining a Factory that can encapsulate the decision of whether a proxy or original object is desirable.
+- The wrapper class holds a pointer to the real class and implements the interface.
+- The pointer may be initialized at construction, or on first use.
+- Each wrapper method contributes its leverage, and delegates to the wrappee object.
+
+**Related Patterns**
+
+*Adapter*: An adapter provides a different interface to the object it adapts. In contrast, a proxy provides the same interface as its subject. However, a proxy used for access protection might refuse to perform an operation that the subject will perform, so its interface may be effectively a subset of the subject's.
+
+*Decorator*: Although decorators can have similar implementations as proxies, decorators have a different purpose. A decorator adds one or more responsibilities to an object, whereas a proxy controls access to an object.
+
+*Iterator* describes another kind of proxy
+
+---
+
 ### Flyweight
 
 **Intent**
 
 - Use sharing to support large numbers of fine-grained objects efficiently.
 
-
 ### Memento
-
----
-
-## Proxy
-
-Examples: Spring proxy in AOP
 
 ---
 

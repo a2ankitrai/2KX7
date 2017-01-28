@@ -2,7 +2,7 @@ import java.util.*;
 
 class DepthList {
 
-	int height(BTNode root) {
+	static int height(BTNode root) {
 		if (root == null)
 			return 0;
 		else {
@@ -42,8 +42,69 @@ class DepthList {
 		return lists;
 	}
 
+	public static void levelOrderPrint(BTNode root) {
+		Stack<BTNode> s = new Stack<>();
+		Queue<BTNode> q = new LinkedList<>();
+
+		int h = height(root);
+		s.push(root);
+
+		while (h > 0) {
+
+			while (!s.isEmpty()) {
+				BTNode node = s.pop();
+				System.out.print(node.data + " ");
+				if (node.right != null) {
+					q.offer(node.right);
+				}
+				if (node.left != null) {
+					q.offer(node.left);
+				}
+
+			}
+
+			System.out.println("");
+
+			while (!q.isEmpty()) {
+				s.push(q.poll());
+			}
+			h--;
+		}
+
+	}
+
+	public static void levelOrderPrint2(BTNode root) {
+		Queue<BTNode> q1 = new LinkedList<>();
+		Queue<BTNode> q2 = new LinkedList<>();
+
+		int h = height(root);
+		q1.offer(root);
+
+		while (h > 0) {
+
+			while (!q1.isEmpty()) {
+				BTNode node = q1.poll();
+				System.out.print(node.data + " ");				
+				if (node.left != null) {
+					q2.offer(node.left);
+				}
+				if (node.right != null) {
+					q2.offer(node.right);
+				}
+			}
+
+			System.out.println("");
+
+			while (!q2.isEmpty()) {
+				q1.offer(q2.poll());
+			}
+			h--;
+		}
+
+	}
+
 	public static void main(String[] args) {
-		
+
 		BTNode root = new BTNode(1);
 
 		//Level 1 - nodes
@@ -81,15 +142,18 @@ class DepthList {
 
 		BinaryTree bt = new BinaryTree(root);
 
-		 ArrayList<LinkedList<BTNode>> dl = depthList(root);
-		 int count = 0;
-		 for(LinkedList<BTNode> list : dl){
-		 	System.out.println("Level " + ++count + "\n");	
-		 	for(BTNode node: list){
-		 		System.out.print(node+" ");
-		 	}
-		 	System.out.println();
-		 }
+		ArrayList<LinkedList<BTNode>> dl = depthList(root);
+		int count = 0;
+		/*for (LinkedList<BTNode> list : dl) {
+			System.out.println("Level " + ++count + "\n");
+			for (BTNode node : list) {
+				System.out.print(node + " ");
+			}
+			System.out.println();
+		}*/
+
+		levelOrderPrint2(root);
+
 	}
 
 }

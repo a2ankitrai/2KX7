@@ -37,7 +37,7 @@ During deserialization process when file is read till end using readObject() in 
 
 - Create a class `EofIndicatorClass` which `implements` `Serializable` interface.
 - During serialization - Write instance of EofIndicatorClass at EOF during serialization to indicate EOF during deSerialization process.
-- During serialization If oin.readObject() returns instanceof EofIndicatorClass that means it's EOF, exit while loop and EOFException will not be thrown.
+- During DeSerialization If oin.readObject() returns instanceof EofIndicatorClass that means it's EOF, exit while loop and EOFException will not be thrown.
 
 ---
 
