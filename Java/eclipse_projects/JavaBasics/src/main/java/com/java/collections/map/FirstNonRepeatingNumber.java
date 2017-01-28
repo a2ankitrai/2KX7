@@ -1,4 +1,4 @@
-package com.thread.basics;
+package com.java.collections.map;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

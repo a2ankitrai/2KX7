@@ -38,3 +38,11 @@ There are following two different ways to store the values so that these values 
 
 A given problems has Optimal Substructure Property if optimal solution of the given problem can be obtained by using optimal solutions of its subproblems.
 
+---
+
+DP refers to simplifying a complicated problem by breaking it down into simpler sub-problems in a recursive manner.
+
+---
+
+## Problems
+

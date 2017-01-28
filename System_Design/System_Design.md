@@ -28,6 +28,7 @@ Sketch the important components and the connections between them, but don't go i
 
 For each component, you need to write the specific APIs for each component. You may need to finish the detailed OOD design for a particular function. You may also need to design the database schema for the database.
 
+we can divide our architecture in two logical parts: 1) the logic, which will handle all incoming requests to the application and 2) the data storage that we will use to store all the data that needs to be persisted. If you learn enough about popular software systems, especially the ones that are accessed through a web browser you will notice that such a breakdown is quite popular and natural.
 
 ---
 

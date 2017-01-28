@@ -1,6 +1,18 @@
 # Threads and Concurrency
 ---
 
+## Threads and processes
+
+A thread is essentially a **subdivision of a process**, or "lightweight process" (LWP) on some systems. A process is generally the most major and separate unit of execution recognised by the OS.
+
+Crucially, **each process has its own memory space**.  A **thread** is a subdivision that **shares the memory space** of its parent process. On the other hand, each thread has its own private **stack** and **registers**, including program counter. These are essentially the things that threads need in order to be independent.
+
+---
+
+**Thread States**
+
+![Thread_states](./_image/Thread_states.png)
+
 ## Thread Implementation
 
 By extending the Thread class or implmenting the Runnable interface. In both cases need to implement the run() method.
@@ -75,13 +87,6 @@ that represents its interrupted status; interrupting a thread sets this status .
 thread.interrupt();
 ```
 
----
-
-## Threads and processes
-
-A thread is essentially a **subdivision of a process**, or "lightweight process" (LWP) on some systems. A process is generally the most major and separate unit of execution recognised by the OS.
-
-Crucially, **each process has its own memory space**.  A **thread** is a subdivision that **shares the memory space** of its parent process. On the other hand, each thread has its own private **stack** and **registers**, including program counter. These are essentially the things that threads need in order to be independent.
 
 ---
 
@@ -104,6 +109,19 @@ notify method wakes up only one thread waiting on the object and that thread sta
 ### notifyAll
 
 notifyAll method wakes up all the threads waiting on the object, although which one will process first depends on the OS implementation.
+
+
+---
+
+## Volatile
+
+Volatile members are never cached in CPU by jvm, they are always read from main memory i.e. from stack where variable lives.
+It is possible for multiple CPU’s to exist on machine, so it is possibility that thread might cache different values in different CPU’s for same variable, so it’s important that value is not cached in CPU and always read from main memory.
+
+A compile-time error will occur if a final variable is declared volatile.
+```
+ volatile final int x = 0; //The field x can be either final or volatile, not both. 
+```
 
 
 ---
