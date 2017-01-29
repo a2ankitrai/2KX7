@@ -48,7 +48,7 @@ try {
 
 ### **Yield**
 
-The java.lang.Thread.yield() method causes the currently executing thread object to temporarily pause and allow other threads to execute. This static method is essentially used to notify the system that the current thread is willing to "give up the CPU" for a while. The general idea is that:
+The `java.lang.Thread.yield()` method causes the currently executing thread object to temporarily pause and allow other threads to execute. This **static method** is essentially used to notify the system that the current thread is willing to "give up the CPU" for a while. The general idea is that:
 
 > The thread scheduler will select a different thread to run instead of the current one.
 
@@ -92,6 +92,25 @@ thread.interrupt();
 
 ## Synchronized
 
+### Acquiring lock on class, 2 Ways to acquire lock on class in java
+
+Thread can acquire lock on class’s class object by-
+- Entering synchronized block and parameter passed with synchronization tells which class has to be synchronized
+	
+	```java
+	synchronized (MyClass.class) {
+          //thread has acquired lock on MyClass’s class object.
+       }
+	```
+	
+- Entering static synchronized methods.
+
+	```java
+	public static synchronized void method1() {
+          //thread has acquired lock on MyRunnable’s class object.
+       }
+	```
+
 ---
 
 ## Waiting and Notifying
@@ -110,18 +129,45 @@ notify method wakes up only one thread waiting on the object and that thread sta
 
 notifyAll method wakes up all the threads waiting on the object, although which one will process first depends on the OS implementation.
 
+**Key Points**
+
+- Before calling these methods thread must own object’s monitor means `wait()` and `notify()` methods must be called from synchronized blocks or synchronized method otherwise `IllegalMonitorStateException` is thrown at runtime.
+- Native methods : implementation of wait() and notify() methods are provided by JVM.
+
+[Producer - Consumer problem](./eclipse_projects/Threads/src/main/java/com/thread/producerConsumer)
 
 ---
 
 ## Volatile
 
-Volatile members are never cached in CPU by jvm, they are always read from main memory i.e. from stack where variable lives.
+When a field is declared volatile, the compiler and runtime
+are put on notice that this variable is shared and that operations on it should not
+be reordered with other memory operations. Volatile variables are not cached in
+registers or in caches where they are hidden from other processors, so a read of a
+volatile variable always returns the most recent write by any thread.
+
 It is possible for multiple CPU’s to exist on machine, so it is possibility that thread might cache different values in different CPU’s for same variable, so it’s important that value is not cached in CPU and always read from main memory.
 
 A compile-time error will occur if a final variable is declared volatile.
 ```
  volatile final int x = 0; //The field x can be either final or volatile, not both. 
 ```
+
+**Key Points**
+
+- If a field is declared volatile, in that case the Java memory model ensures that all threads see a consistent value for the variable.
+- Locking can guarantee both visibility and atomicity; volatile variable can only guarantee visibilty.
+
+You can use volatile variables only when all the following criteria are met:
+- Writes to the variable do not depend on its current value, or you can ensure that only a single thread ever updates the value;
+- The variable does not participate in invariants with other state variables; and
+- Locking is not required for any other reason while the variable is being accessed.
+
+---
+
+## Race Conditions
+
+A race condition occurs when  the correctness of a computation depends on the relative timing or interleaving of multiple threads by the runtime; in other words, when getting the right answer relies on lucky timing. The most common type of race condition is check then act, where a potentially stale observation is used to make a decision on what to do next.
 
 
 ---
@@ -155,6 +201,22 @@ A producer-consumer design has one shared work queue for all consumers; in a wor
 Work stealing is well suited to problems in which consumers are also producers - when performing a unit of work is likely to result in the identification of more work. For example, processing a page in a web crawler usually results in the identification of new pages to be crawled. Similarly, many graph-exploring algorithms, such as marking the heap during garbage collection, can be efficiently parallelized using work stealing. When a worker identifies a new unit of work, it places it at the end of its own deque (or alternatively, in a work sharing design, on that of another worker); when its deque is empty, it looks for work at the end of someone else’s deque, ensuring that each worker stays busy.
 
 ---
+
+## Deadlocks
+
+Deadlock is a situation where two threads are waiting for each other to release lock holded by them on resources.
+
+**Measures to avoid Deadlock**
+
+- Lock specific member variables of class rather than locking whole class: We must try to lock specific member variables of class rather than locking whole class.
+
+Deadlocks Detecting Tool - VisualVM, jstack.
+
+- `suspend`, `resume` and `destroy` method are deprecated because they are deadlone prone.
+
+---
+
+
 
 ## Synchronizers
 
@@ -277,12 +339,6 @@ Stateless objects are always thread safe. *Stateless objects has no fields and r
 
 ---
 
-## Race Conditions
-
-A race condition occurs when  the correctness of a computation depends on the relative timing or interleaving of multiple threads by the runtime; in other words, when getting the right answer relies on lucky timing. The most common type of race condition is check then act, where a potentially stale observation is used to make a decision on what to do next.
-
----
-
 ## Thread local variables
 
 `ThreadLocal` is used to create thread local variables. Every thread has it’s own `ThreadLocal` variable and they can use it’s `get()` and `set()` methods to get the default value or change it’s value local to Thread.
@@ -366,13 +422,9 @@ Lock is acquired by `lock()` method and held by Thread until a call to `unlock()
 
 ### Difference between ReentrantLock and Synchronized in Java
 
----
-
-
-## Deadlocks
 
 ---
 
-## Producer - Consumer problem
+## 
 
 

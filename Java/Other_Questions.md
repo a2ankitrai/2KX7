@@ -25,19 +25,13 @@ Q. What will happen if we don’t override run method of thread in java?
 
 When we call start() method on thread, it internally calls run() method with newly created thread. So, if we don’t override run() method newly created thread won’t be called and nothing will happen.
 
----
-
 Q. What will happen if we override start method of thread?
 
 When we call start() method on thread, it internally calls run() method with newly created thread. So, if we override start() method, run() method will not be called until we write code for calling run() method.
 
----
-
 Q. Difference between starting thread with run() and start() methods in java
 
 When you call start() method, main thread internally calls run() method to start newly created Thread. So run() method is ultimately called by newly created thread. When you call run() method main thread rather than starting run() method with newly thread it start run() method by itself.
-
----
 
 Q. Can we start Thread again in java?
 
