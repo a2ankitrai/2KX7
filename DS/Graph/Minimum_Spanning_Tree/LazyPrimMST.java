@@ -61,6 +61,9 @@ public class LazyPrimMST {
 		String fileName = null;
 		if (args.length > 0) {
 			fileName = args[0];
+		} else {
+			System.out.println("Please pass file name in command line arguements");
+			return;
 		}
 		Scanner sc = new Scanner(new File(fileName));
 
@@ -69,7 +72,7 @@ public class LazyPrimMST {
 		for (Edge e : mst.edges()) {
 			System.out.println(e);
 		}
-	//	System.out.println(String.format("%.2f\n", mst.weight()));
+		//	System.out.println(String.format("%.2f\n", mst.weight()));
 	}
 
 }

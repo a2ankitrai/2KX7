@@ -137,7 +137,7 @@ public void dfs(int source) {
 
 **Application of DFS** :
 
-- [Detect a cycle in a graph.](./Graph/Cycle_Detection/CycleDetectionDFS.java)  
+- [Detect a cycle in an undirected graph.](./Graph/Cycle_Detection/CycleDetectionDFS.java)  
 	
 **Iterative approach**
 
@@ -194,16 +194,69 @@ Set of vertices connected pairwise by **directed** edges.
 
 	BFS in diagraph application : web crawler
 
+- When DFS is applied over a directed and connected graph, it will yield a tree. If the tree contains a back edge, we can say that the graph has a cycle present. A back edge is an edge that is from a node to itself (selfloop) or one of its ancestor in the tree produced by DFS. 	
+
+- To detect a back edge, we can keep track of vertices currently in 
+recursion stack of function for DFS traversal.  If we reach a vertex 
+that is already in the recursion stack, then there is a cycle in the 
+tree. The edge that connects current vertex to the vertex in the 
+recursion stack is back edge.  We have used recStack[] array to keep 
+track of vertices in the recursion stack.
+
+**Cycle Detection in Directed Graph**
+	
+```java
+	public boolean detectCycle() {
+
+		boolean[] visited = new boolean[v];
+		boolean[] recStack = new boolean[v];
+
+		for (int i = 0; i < v; i++) {
+			if (detectCycleHelper(visited, recStack, i)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean detectCycleHelper(boolean[] visited, boolean[] recStack, int source) {
+
+		if (!visited[source]) {
+			visited[source] = true;
+			recStack[source] = true;
+			Iterator<Integer> it = adjList[source].iterator();
+
+			while (it.hasNext()) {
+				int n = it.next();
+				if (!visited[n] && detectCycleHelper(visited, recStack, n)) {
+					return true;
+				} else if (recStack[n]) {
+					return true;
+				}
+			}
+		}
+		recStack[source] = false;
+		return false;
+	}
+```	
+	
 ---	
 
 ## Topological Sort
 
 Order of things which should be done before one another.
 
+Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge `u -> v`, vertex `u` comes before `v` in the ordering. Topological Sorting for a graph is not possible if the graph is not a DAG.
+
+a topological sorting of the following graph is “5 4 2 3 1 0”. There can be more than one topological sorting for a graph. For example, another topological sorting of the following graph is “4 5 2 3 1 0”. The first vertex in topological sorting is always a vertex with in-degree as 0 (a vertex with no in-coming edges).
+
+![topological_graph](./_image/topological_graph.png)
+
 **DAG: Directed Acyclic Graph**
 
 - If directed cycle, topological order impossible.
 - If no directed cycle, DFS-based algorithm finds a topological order.
+- A DAG G has at least one vertex with in-degree 0 and one vertex with out-degree 0.
 
 **Directed cyclic detection application:** cyclic inheritance
 
@@ -241,12 +294,24 @@ public void topologicalSort() {
 		}
 	}
 ```	
-	
----
 
-## Strongly-connected components
+Topological Sorting is mainly used for scheduling jobs from the given dependencies among jobs. 
 
-Vertices v and w are **strongly connected** if there is a directed path from v to w and a directed path from w to v. Strong connectivity is an equivalence relation.
+Kahn's Algorithm for finding the topological ordering of a DAG:
+
+Step-1: Compute in-degree (number of incoming edges) for each of the vertex present in the DAG and initialize the count of visited nodes as 0.
+
+Step-2: Pick all the vertices with in-degree as 0 and add them into a queue (Enqueue operation)
+
+Step-3: Remove a vertex from the queue (Dequeue operation) and then.
+
+Increment count of visited nodes by 1.
+Decrease in-degree by 1 for all its neighboring nodes.
+If in-degree of a neighboring nodes is reduced to zero, then add it to the queue.
+
+Step 4: Repeat Step 3 until the queue is empty.
+
+Step 5: If count of visited nodes is not equal to the number of nodes in the graph then the topological sort is not possible for the given graph.
 
 ---
 
@@ -273,7 +338,7 @@ formed so far. If cycle is not formed, include this edge. Else, discard it.
 
 Kruskal's algorithm computes MST in time proportional to `E logE` (in the worst case time).
 
-[Code](./Minimum_Spanning_Tree/KruskalMST.java)
+[Kruskal's MST Code](./Graph/Minimum_Spanning_Tree/KruskalMST.java)
 
 ---
 
@@ -288,6 +353,13 @@ Kruskal's algorithm computes MST in time proportional to `E logE` (in the worst 
 [Lazy Prim's algorithm code](./Minimum_Spanning_Tree/LazyPrimMST.java)
 
 Lazy Prim's algorithm computes the MST in time proportional to `E log E` and extra space proportional to `E`(in the worst case).
+	
+---
+
+## Strongly-connected components
+
+Vertices v and w are **strongly connected** if there is a directed path from v to w and a directed path from w to v. Strong connectivity is an equivalence relation.
+
 
 
 ---
@@ -302,22 +374,9 @@ Lazy Prim's algorithm computes the MST in time proportional to `E log E` and ext
 
 
 ---
-
-## Graph processing Challenges
-
-- Is the graph bipartite?
-	- Simple DFS based solution would do it.
-
-- Find a cycle in graph.
-	- **Euler cycle** : Is there a cycle that uses each edge exactly once.
-		A connected graph is Eulerian iff all vertices have even degree.out
 		
-	- ** Hamiltonion Cycle**: Find a cycle that visits every vertex exactly once. (Travelling salesman problem)	Classic NP-complete problem.
+## Graph Problems
 
-- Are two graphs identical? Graph Isomorphism. No one knows.	
+- Minimize Cash Flow among a given set of friends who have borrowed money from each other. [Link](http://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/)
 	
-- Lay out a graph in the plane without crossing edges?
-	- linear time DFS-based planarity Algorithm (Tarjan)
-	
-	
-## [Graph Problems](http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)
+- 	

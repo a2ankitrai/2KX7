@@ -1,8 +1,10 @@
 class AdjMatrixGraph {
 
 	private int[][] adjMatrix;
+	private int v;
 
 	public AdjMatrixGraph(int v) {
+		this.v = v;
 		adjMatrix = new int[v][v];
 	}
 
@@ -21,6 +23,15 @@ class AdjMatrixGraph {
 			System.out.println("The vertices does not exists");
 		}
 		return -1;
+	}
+
+
+	// To do...
+	public int[] colorGraph(int m){
+		int[] colored = new int[v];
+
+
+		return colored;
 	}
 	
 }

@@ -198,6 +198,30 @@ public boolean printAncestorsFunc(BinaryTree.BTNode root, BinaryTree.BTNode targ
 		return false;
 	}
 ```	
+
+- Given two binary trees, check whether two trees are identical or not. Write working code for it.
+
+```java
+/* Given two trees, return true if they are
+       structurally identical */
+    boolean identicalTrees(Node a, Node b) 
+    {
+        /*1. both empty */
+        if (a == null && b == null)
+            return true;
+             
+        /* 2. both non-empty -> compare them */
+        if (a != null && b != null) 
+            return (a.data == b.data
+                    && identicalTrees(a.left, b.left)
+                    && identicalTrees(a.right, b.right));
+  
+        /* 3. one empty, one not -> false */
+        return false;
+    }
+```
+
+- check whether one tree is subtree of another or not
 	
 - [Convert a Binary tree to DLL.](http://www.geeksforgeeks.org/convert-a-given-binary-tree-to-doubly-linked-list-set-4/)
 

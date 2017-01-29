@@ -37,3 +37,4 @@ Q. Can we start Thread again in java?
 
 No, we cannot start Thread again, doing so will throw runtimeException java.lang.IllegalThreadStateException. 
 
+
