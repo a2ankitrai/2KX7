@@ -6,7 +6,7 @@ import java.util.Map;
 class FirstNonRepeatingNumber {
 
 	public static int getNonRepeatingNum(int[] arr) {
-		Map<Integer, Integer> map = new LinkedHashMap<>();
+		Map<Integer, Integer> map = new LinkedHashMap<Integer, Integer>();
 
 		for (int i = 0; i < arr.length; i++) {
 			if (map.containsKey(arr[i])) {
