@@ -4,6 +4,8 @@ Stacks and queues are dynamic sets in which the element removed from the set by 
 
 Similarly, in a queue, the element deleted is always the one that has been in the set for the longest time: the queue implements a **first-in, first-out**,or **FIFO**, policy.
 
+A stack can also be used to implement a recursive algorithm iteratively.
+
 ## Applications of stack:
 
 - Balancing of symbols
@@ -55,7 +57,7 @@ In java the general-purpose implementations include `LinkedList` and `ArrayDeque
 
 Most ArrayDeque operations run in amortized constant time. Exceptions include remove, removeFirstOccurrence, removeLastOccurrence, contains, iterator.remove(), and the bulk operations, all of which run in linear time.
 
-The iterators returned by this class's iterator method are fail-fast: If the deque is modified at any time after the iterator is created, in any way except through the iterator's own remove method, the iterator will generally throw a ConcurrentModificationException. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
+The iterators returned by this class's iterator method are **fail-fast**: If the deque is modified at any time after the iterator is created, in any way except through the iterator's own remove method, the iterator will generally throw a `ConcurrentModificationException`. Thus, in the face of concurrent modification, the iterator fails quickly and cleanly, rather than risking arbitrary, non-deterministic behavior at an undetermined time in the future.
 
 ### Difference between ArrayDeque and LinkedList implementation
 

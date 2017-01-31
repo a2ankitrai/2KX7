@@ -27,7 +27,7 @@ public class StackAsLinkedList {
 	public String pop() {
 		String topValue = null;
 		if (top == null) {
-			System.out.println("STack is empty");
+			System.out.println("Stack is Empty");
 		} else {
 			topValue = top.data;
 			top = top.next;

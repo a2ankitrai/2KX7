@@ -128,6 +128,8 @@ Uses:
 
 servlet filters are pluggable and configured in deployment descriptor (web.xml) file. Servlets and filters both are unaware of each other and we can add or remove a servlet filter just by editing web.xml.
 
+create a Servlet Filter by implementing javax.servlet.Filter interface.
+
 
 
 
