@@ -32,7 +32,7 @@
 - [Divide and Conquer](./Algo/Divide_and_Conquer.md)
 - [Dynamic Programming](./Algo/dynamic_programming.md)
 - [Greedy Algorithms](./Algo/greedy_algorithms.md)
-- Backtracking
+- [Backtracking](./Algo/backtrcking.md)
 - Shuffling
 - [Bit Manipulation](./Algo/bit_manipulation.md)
 - Mathematical Algorithms
