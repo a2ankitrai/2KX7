@@ -3,6 +3,11 @@
 
 
 # Creational
+
+Creational design patterns abstract the instantiation process. These deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
+
+A class creational pattern uses inheritance to vary the class that's instantiated, whereas an object creational pattern will delegate instantiation to another object.
+
 ---
 
 ## Singleton
@@ -144,9 +149,32 @@ Use the Builder pattern when
 
 - the construction process must allow different representations for the object that's constructed.
 
-
 ---
-### Prototype
+
+## Prototype
+
+**Intent**
+
+- Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+- Co-opt one instance of a class for use as a breeder of all future instances.
+- The `new` operator considered harmful.
+
+**Applicability**
+
+Use the Prototype pattern when a system should be independent of how its products
+are created, composed, and represented; and
+
+- when the classes to instantiate are specified at run-time, for example, by dynamic loading; or
+- to avoid building a class hierarchy of factories that parallels the class hierarchy of products;
+- when instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state.
+
+**Rules of thumb**
+
+- Factory Method: creation through inheritance. Prototype: creation through delegation.
+- Designs that make heavy use of the Composite and Decorator patterns often can benefit from Prototype as well.
+- 
+
+
 
 ---
 ### Object Pool
