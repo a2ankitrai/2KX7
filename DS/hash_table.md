@@ -73,7 +73,7 @@ Choose the hash function randomly in a way that is independent of the keys that 
 		hash = (R * hash + s.charAt(i)) % M;
 	```
 
-- **Java conventions.** Java helps us address the basic problem that every type of data needs a hash function by requiring that every data type must implement a method called `hashCode()` (which returns a 32-bit integer). The implementation of `hashCode()` for an object must be consistent with equals. That is, if `a.equals(b)` is true, then `a.hashCode()` must have the same numerical value as `b.hashCode()`. If the `hashCode()` values are the same, the objects may or may not be equal, and we must use `equals()` to decide which condition holds.	
+- **Java conventions.** Java helps us address the basic problem that every type of data needs a hash function by requiring that every data type must implement a method called `hashCode()` (which returns a 32-bit integer between -2147483648 and 2147483647). The implementation of `hashCode()` for an object must be consistent with equals. That is, if `a.equals(b)` is true, then `a.hashCode()` must have the same numerical value as `b.hashCode()`. If the `hashCode()` values are the same, the objects may or may not be equal, and we must use `equals()` to decide which condition holds.	
 
 - Converting a hashCode() to an array index. Since our goal is an array index, not a 32-bit integer, we combine hashCode() with modular hashing in our implementations to produce integers between 0 and M-1 as follows:
 	
@@ -83,7 +83,7 @@ Choose the hash function randomly in a way that is independent of the keys that 
 	}
 	```
 	The code masks off the sign bit (to turn the 32-bit integer into a 31-bit nonnegative integer) and then computing the remainder when dividing by M, as in modular hashing.
-	
+
 ---
 
 Three primary requirements in implementing a good hash function for a given data type:
@@ -93,8 +93,10 @@ Three primary requirements in implementing a good hash function for a given data
 - It should be **efficient** to **compute**.
 
 - It should **uniformly distribute** the keys.	
-	
 
+----	
+
+	
 ---
  
 ## Collision

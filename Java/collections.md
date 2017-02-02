@@ -336,7 +336,13 @@ When to use ConcurrentHashMap in Java
 
 - `ConcurrentHashMap(Map<? extends K,? extends V> m)` - Creates a new map with the same mappings as the given map.
 
+---
 
+## IdentityHashMap
+
+java.util.IdentityHashMap = linear probing implementation
+
+This class implements the Map interface with a hash table, using reference-equality in place of object-equality when comparing keys (and values). In other words, in an IdentityHashMap, two keys k1 and k2 are considered equal if and only if (k1==k2). (In normal Map implementations (like HashMap) two keys k1 and k2 are considered equal if and only if (k1==null ? k2==null : k1.equals(k2)).)
 
 ---
 

@@ -27,8 +27,11 @@ It is not a predefined rule but  in a good number of the SQL queries, we use WHE
 
 ##  Join
 
-An SQL Join is used to combine data from two or more tables, based on a common field between them.
+JOIN is used to combine the results of two tables. To perform a JOIN, each of the tables must have at
+least one field that will be used to find matching records from the other table. The join type defines which
+records will go into the result set.
 
+INNER JOIN, OUTER JOIN: LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN:
 
 ## view in SQL? How to create one
 
@@ -56,8 +59,41 @@ A database index is a data structure that improves the speed of data retrieval o
 
 Data can be stored only in one order on disk. To support faster access according to different values, faster search like binary search for different values is desired, For this purpose, indexes are created on tables. These indexes need extra space on disk, but they allow faster search according to different frequently searched values
 
+---
 
+## Denormalized vs. Normalized Databases
 
+Normalized databases are designed to minimize redundancy, while denormalized databases are designed
+to optimize read time.
+
+In a traditional normalized database with data like Courses and Teachers, Courses might contain a
+column called TeacherID, which is a foreign key to Teacher. One benefit of this is that information about
+the teacher (name, address, etc.) is only stored once in the database. The drawback is that many common
+queries will require expensive joins.
+
+Instead, we can denormalize the database by storing redundant data. For example, if we knew that we
+would have to repeat this query often, we might store the teacher's name in the Courses table. Denormalization
+is commonly used to create highly scalable systems.
+
+Under denormalization, we decide that we're okay
+with some redundancy and some extra effort to update the database in order to get the efficiency advantages
+of fewer joins.
+
+Cons of Denormalization 
+
+- Updates and inserts are more expensive.
+
+- Denormalization can make update and insert code Queries to retrieve can be simpler (and therefore
+harder to write.
+
+- Data may be inconsistent. Which is the "correct" value for a piece of data?
+- Data redundancy necessitates more storage.
+
+Pros of Denormalization
+
+- Retrieving data is faster since we do fewer joins.
+- Queries to retrieve can be simpler (and therefore less likely to have bugs), since we need to look at
+fewer tables.
 
 
 

@@ -1,4 +1,5 @@
-## Problems to practice
+# Problems to practice
+---
 
 - Design a Vending Machine which can accept different coins, deliver different products?
 
@@ -18,7 +19,24 @@
 
 - Restaurant/hotel booking system
 
-- parking lot Design
+---
+
+## Parking lot Design
+
+**Assumptions**
+
+- The parking lot has multiple levels. Each level has multiple rows of spots.
+- The parking lot can park motorcycles, cars, and buses.
+- The parking lot has motorcycle spots, compact spots, and large spots.
+- A motorcycle can park in any spot.
+- A car can park in either a single compact spot or a single large spot.
+- A bus can park in five large spots that are consecutive and within the same row. It cannot park in small spots.
+
+
+
+
+
+
 
 ---
 

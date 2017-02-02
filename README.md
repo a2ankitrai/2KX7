@@ -38,8 +38,7 @@
 - Mathematical Algorithms
 - Approximation
 - Recursion
-- [Geeks4Geeks Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
-
+- [Edge Cases](./Algo/Edge_Cases.md)
 
 ## Java
 - [OOPS](./Java/oops_n_ooad.md)
@@ -60,13 +59,13 @@
 
 ## Design Patterns
 - [Overview](./Design_Patterns/Design_Patterns.md)
-- [Object Oriented Designs](./Arbit/OODesigns.md)
+- [Object Oriented Designs](./System_Design/OODesigns.md)
 
 ## System Design
 - [Approaching System Design Questions](./System_Design/System_Design.md)
 - [System Design Concepts](./System_Design/concepts.md)
 
-## [Mathematics](./Arbit/Mathematics.md)
+## [Mathematics](./Mathematics/Mathematics.md)
 
 ## [Operating System](./Arbit/operating_system.md)
 - Process

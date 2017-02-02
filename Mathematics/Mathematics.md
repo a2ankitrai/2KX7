@@ -6,10 +6,6 @@
 
 ---
 
-## Integer number factorization
-
----
-
 ## Prime numbers
 
 A number is prime if it is only divisible by 1 and itself. To find if a number n is prime we could simply check if it divides any numbers below it. We can use the modulus (%) operator to check for divisibility:
@@ -40,6 +36,22 @@ public boolean isPrime (int n)
    return true;
 }
 ```
+
+- all integer numbers (except 0 and 1) are made up of primes.
+- Some important cryptographic algorithms such as RSA critically depend on the fact that prime factorization of large numbers takes a long time. 
+- Basically you have a "public key" consisting of a product of two large primes used to encrypt a message, and a "secret key" consisting of those two primes used to decrypt the message. You can make the public key public, and everyone can use it to encrypt messages to you, but only you know the prime factors and can decrypt the messages. Everyone else would have to factor the number, which takes too long to be practical, given the current state of the art of number theory.
+- The product of the two prime numbers can be used as a public key, while the primes themselves as a private key. Any operation done to data that can only be undone by knowing one of the two factors will be non-trivial to unencrypt.
+- The RSA encryption algorithm which is commonly used in secure commerce web sites, is based on the fact that it is easy to take two (very large) prime numbers and multiply them, while it is extremely hard to do the opposite - meaning: take a very large number, given which it has only two prime factors, and find them.
+
+---
+
+## Integer number factorization
+
+Integer factorization is the decomposition of a composite number ( a positive integer that can be formed by multiplying together two smaller positive integers) into a product of smaller integers. If these integers are further restricted to prime numbers, the process is called prime factorization.
+
+When the numbers are very large, no efficient, non-quantum integer factorization algorithm is known. 
+ 
+If you multiply two large prime numbers, you get a huge non-prime number with only two (large) prime factors. A **semiprime** (also called biprime or 2-almost prime, or pq number) is a natural number that is the product of two (not necessarily distinct) prime numbers
 
 --- 
 ### The Sieve of Eratosthenes

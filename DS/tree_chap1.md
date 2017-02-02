@@ -227,6 +227,6 @@ public boolean printAncestorsFunc(BinaryTree.BTNode root, BinaryTree.BTNode targ
 
 - Spiral Print of Tree.
 
-- 
+- Linked List to Binary Tree conversion.
 
 	
