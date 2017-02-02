@@ -1,3 +1,5 @@
+// To do....
+
 class HamiltonianCycle {
 
 	final int v = 5;
@@ -32,7 +34,7 @@ class HamiltonianCycle {
 		}
 
 
-		for (int i = 1; i < v; i++) {
+		/*for (int i = 1; i < v; i++) {
 			if (isPathExists(graph, current, i)) {
 				cycle[count] = i;
 				if (getCycleUtil(graph, cycle, i, count + 1)) {
@@ -40,7 +42,7 @@ class HamiltonianCycle {
 				}
 				cycle[count] = -1;
 			}
-		}
+		}*/
 		return false;
 	}
 

@@ -36,7 +36,7 @@ we can divide our architecture in two logical parts: 1) the logic, which will ha
 
 So what should you do at your interview?
 
-First of all, follow the System Design Process. You already know how to apply it, so we'll be brief. Don't skip steps, don't make assumptions, start broad and go deep when asked.
+First of all, follow the System Design Process. Don't skip steps, don't make assumptions, start broad and go deep when asked.
 
 Second, keep in mind that system design questions serve as an idea exchange platform. Be prepared for discussions about tradeoffs, about pros and cons. Be prepared to give alternatives, to ask questions, to identify and solve bottlenecks, to go broad or deep depending on your interviewer's preferences.
 

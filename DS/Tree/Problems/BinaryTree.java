@@ -1,30 +1,17 @@
 import java.util.Stack;
 import java.util.*;
 
-class BTNode {
-		public int data;
-		public BTNode left;
-		public BTNode right;
-
-		public BTNode(int data) {
-			this.data = data;
-			left =  null;
-			right = null;
-		}
-
-		public String toString(){
-			return "BTNode ["+data+"]";
-		}
-	}
-
 public class BinaryTree {
 
 	public BTNode root;
 
-	
 
 	public BinaryTree(BTNode root) {
 		this.root = root;
+	}
+
+	public BinaryTree() {
+		this.root = null;
 	}
 
 	public void preOrderTraversalRecursive(BTNode root) {
