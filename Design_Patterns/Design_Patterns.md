@@ -649,8 +649,69 @@ these objects tightly coupled.
 [Observer Code](./../Java/eclipse_projects/Design_Patterns/src/behavioral/observer)	
  
 ---
-### Strategy
 
+## Strategy
+
+**Intent**
+
+- Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from the clients that use it. Also Known As Policy
+
+- Capture the abstraction in an interface, bury implementation details in derived classes.
+
+
+**Applicability**
+
+- many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors.
+- you need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms.
+- an algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
+- a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.
+- Strategy pattern is useful when we have multiple algorithms for specific task and we want our application to be flexible to chose any of the algorithm at runtime for specific task.
+
+
+**Structure**
+
+![strategy](./_image/strategy.png)
+
+**Participants**
+
+- *Strategy* - declares an interface common to all supported algorithms. Context uses this interface to call the algorithm defined by a ConcreteStrategy.
+
+- *ConcreteStrategy* - implements the algorithm using the Strategy interface.
+
+- *Context*
+	- is configured with a ConcreteStrategy object.
+	- maintains a reference to a Strategy object.
+	- may define an interface that lets Strategy access its data.
+
+	
+**Examples**
+
+- `Collections.sort()` and `Arrays.sort()` method that takes `Comparator` parameter. Based on the different implementations of `Comparator` interfaces, the Objects are getting sorted in different ways.
+
+	
+
+	
+**Check list**
+
+1. Identify an algorithm (i.e. a behavior) that the client would prefer to access through a "flex point".
+2. Specify the signature for that algorithm in an interface.
+3. Bury the alternative implementation details in derived classes.
+4. Clients of the algorithm couple themselves to the interface.
+
+**Rules of thumb**
+
+- Strategy is like Template Method except in its granularity.
+
+- State is like Strategy except in its intent.
+
+- Strategy lets you change the guts of an object. Decorator lets you change the skin.
+
+- State, Strategy, Bridge (and to some degree Adapter) have similar solution structures. They all share elements of the 'handle/body' idiom. They differ in intent - that is, they solve different problems.
+
+- Strategy has 2 different implementations, the first is similar to State. The difference is in binding times (Strategy is a bind-once pattern, whereas State is more dynamic).
+
+- Strategy objects often make good Flyweights.
+	
 ---
 
 ## Template method
