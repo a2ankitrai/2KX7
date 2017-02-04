@@ -229,4 +229,36 @@ public boolean printAncestorsFunc(BinaryTree.BTNode root, BinaryTree.BTNode targ
 
 - Linked List to Binary Tree conversion.
 
-	
+- Print Right View of a Binary Tree.
+Given a Binary Tree, print Right view of it. Right view of a Binary Tree is set of nodes visible when tree is visited from Right side.
+
+```java
+class MaxLevelSofar{
+		int maxlevelSoFar;
+	}
+
+	public void getRightView2Util(BTNode root, int level, MaxLevelSofar mxl) {
+
+		if (root == null) {
+			return ;
+		}
+
+		if ( mxl.maxlevelSoFar < level ) {
+			System.out.print(root.data + " ");
+			mxl.maxlevelSoFar = level;
+		}
+
+		getRightView2Util(root.right, level + 1, mxl);
+		getRightView2Util(root.left, level + 1, mxl);
+	}
+
+	public void getRightView2(BTNode root) {
+		MaxLevelSofar mxl = new MaxLevelSofar();
+		getRightView2Util(root, 1, mxl);
+	}
+```
+
+-  calculating the height in the same recursion rather than calling a height() function separately. (http://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/)
+
+- Write a function that returns true if the given Binary Tree is SumTree else false. SumTree is a Binary Tree where the value of a node is equal to sum of the nodes present in its left subtree and right subtree.
+

@@ -27,7 +27,7 @@ Identify High level Entities. High level entities are objects, or groups of obje
 - Class diagrams with all the methods,Properties,variables and relation between classes comes under LLD. 
 
 
-LLD basically oops concepts implementation for the given problem
+LLD is basically oops concepts implementation for the given problem
 
 ### Design how you'd represent a Football tournament.
 

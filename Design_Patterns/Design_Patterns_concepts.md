@@ -10,54 +10,10 @@ Take what varies and `encapsulate` it so it won't affect the rest of your code. 
 - ***Favor composition over inheritance.***
 	When you put two classes together in a HAS-A relationship you're using composition. Creating systems using composition gives you a lot more flexibility. Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behavior at runtime as long as the object you're composing with implements the correct behavior interface.
 
----
-# Creational design patterns
-
-These design patterns are all about class instantiation. This pattern can be further divided into class-creation patterns and object-creational patterns. While class-creation patterns use inheritance effectively in the instantiation process, object-creation patterns use delegation effectively to get the job done.
-
-
-
----	
-		
-## Strategy Pattern
-
-The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
-
----
-
-
-## Observer Pattern
-
-The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.
-	
-The subject and observers define the one-to-many relationship. The observers are dependent on the subject such that when the subject's state changes, the observers get notified. Depending on the style of notification, the observer may also be updated with new values.	
-	
 ### The power of Loose Coupling
 
 - Strive for loosely coupled designs between objects that interact. When two objects are loosely coupled, they can interact, but have very little knowledge of each other.  
-  
-- The Observer Pattern provides an object design where subjects and observers are loosely coupled.
-  
----	
-
-## Decorator Pattern
-
-The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
-  
-  ??? content missing ???
-		
+  	
 ### The Open-Closed Principle
   Classes should be open for extension, but closed for modification.
 	
----
-
-## Singleton Pattern
-
-It is used to eliminate the option of instantiating more than one object.
-
-- Create a static instance to make it available globally.
-
-- Make the constructor private so that it can not be called from outside.
-
-- Create a public method for getting the instance and lazily initialize the instance if it not already created.
-

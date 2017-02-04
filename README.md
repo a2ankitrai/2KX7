@@ -58,10 +58,13 @@
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
 ## Design Patterns
-- [Overview](./Design_Patterns/Design_Patterns.md)
-- [Object Oriented Designs](./System_Design/OODesigns.md)
+- [Design Patterns](./Design_Patterns/Design_Patterns.md)
+- [Concepts](./Design_Patterns/Design_Patterns_concepts.md)
 
 ## System Design
+- [Object Oriented Designs](./System_Design/OODesigns.md)
+- [High Level and Low Level Designs](./System_Design/hld_lld.md)
+- [UML](./System_Design/uml.md)
 - [Approaching System Design Questions](./System_Design/System_Design.md)
 - [System Design Concepts](./System_Design/concepts.md)
 
