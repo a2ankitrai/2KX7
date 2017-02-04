@@ -19,7 +19,6 @@ public class Consumer implements Runnable {
 						items.wait();
 						System.out.println("Consumer Waiting");
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} else {

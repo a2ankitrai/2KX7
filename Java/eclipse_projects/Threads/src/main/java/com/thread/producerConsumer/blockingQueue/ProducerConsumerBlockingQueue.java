@@ -18,6 +18,7 @@ class Producer implements Runnable {
 				System.out.println("Produced : " + i);
 				// put/produce into sharedQueue.
 				sharedQueue.put(i);
+				Thread.sleep(500);
 			} catch (InterruptedException ex) {
 
 			}

@@ -60,7 +60,7 @@ Yield implementation in Thread class is native.
 
 Java Thread join method can be used to pause the current thread execution until unless the specified thread is dead. 
 
-For suppose in main thread we call `t1.join()` (t1 being another thread) then the execution of main will stop until t1 has been completed.
+For suppose in main thread we call `t1.join()` (`t1` being another thread) then the execution of main will stop until `t1` has been completed.
 
 There are three overloaded join functions.
 
@@ -174,7 +174,7 @@ A race condition occurs when  the correctness of a computation depends on the re
 
 # BlockingQueue
 
-Blocking queues provide blocking put and take methods as well as the timed equivalents offer and poll. If the queue is full, put blocks until space becomes available; if the queue is empty, take blocks until an element is available. Queues can be bounded or unbounded; unbounded queues are never full, so a put on an unbounded queue never blocks.
+Blocking queues provide blocking `put` and `take` methods as well as the timed equivalents `offer` and `poll`. If the queue is full, put blocks until space becomes available; if the queue is empty, take blocks until an element is available. Queues can be bounded or unbounded; unbounded queues are never full, so a put on an unbounded queue never blocks.
 
 Blocking queues support the *producer-consumer* design pattern.
 
@@ -201,22 +201,6 @@ A producer-consumer design has one shared work queue for all consumers; in a wor
 Work stealing is well suited to problems in which consumers are also producers - when performing a unit of work is likely to result in the identification of more work. For example, processing a page in a web crawler usually results in the identification of new pages to be crawled. Similarly, many graph-exploring algorithms, such as marking the heap during garbage collection, can be efficiently parallelized using work stealing. When a worker identifies a new unit of work, it places it at the end of its own deque (or alternatively, in a work sharing design, on that of another worker); when its deque is empty, it looks for work at the end of someone else’s deque, ensuring that each worker stays busy.
 
 ---
-
-## Deadlocks
-
-Deadlock is a situation where two threads are waiting for each other to release lock holded by them on resources.
-
-**Measures to avoid Deadlock**
-
-- Lock specific member variables of class rather than locking whole class: We must try to lock specific member variables of class rather than locking whole class.
-
-Deadlocks Detecting Tool - VisualVM, jstack.
-
-- `suspend`, `resume` and `destroy` method are deprecated because they are deadlone prone.
-
----
-
-
 
 ## Synchronizers
 
@@ -259,10 +243,43 @@ semantics; whoever holds the sole permit holds the mutex.
 
 ### Barriers
 
-Barriers are similar to latches in that they block a group of threads until some
-event has occurred [CPJ 4.4.3]. The key difference is that with a barrier, all the
-threads must come together at a barrier point at the same time in order to proceed.
-Latches are for waiting for events; barriers are for waiting for other threads.
+Barriers are similar to latches in that they block a group of threads until some event has occurred. The key difference is that with a barrier, all the threads must come together at a barrier point at the same time in order to proceed. Latches are for waiting for events; barriers are for waiting for other threads.
+
+`java.util.concurrent.CyclicBarrier` is java implementation.
+
+[Cyclic Barrier](./eclipse_projects/Threads/src/main/java/com/thread/synchronizers/PatternPrint.java)
+
+- `public CyclicBarrier(int parties);`
+	Creates a new CyclicBarrier that will trip when the given number of parties (threads) are waiting upon it, and does not perform a predefined action when the barrier is tripped.
+	
+	Parameters: parties - the number of threads that must invoke await() before the barrier is tripped 
+	
+	Throws: IllegalArgumentException - if parties is less than 1 
+
+- `public CyclicBarrier(int parties, Runnable barrierAction)`
+	Creates a new CyclicBarrier that will trip when the given number of parties (threads) are waiting upon it, and which will execute the given barrier action when the barrier is tripped, performed by the last thread entering the barrier.
+
+	Parameters: 
+		
+	parties - the number of threads that must invoke await() before the barrier is tripped 
+	
+	barrierAction - the command to execute when the barrier is tripped, or null if there is no action 
+	
+	Throws: IllegalArgumentException - if parties is less than 1
+
+---
+
+## Deadlocks
+
+Deadlock is a situation where two threads are waiting for each other to release lock holded by them on resources.
+
+**Measures to avoid Deadlock**
+
+- Lock specific member variables of class rather than locking whole class: We must try to lock specific member variables of class rather than locking whole class.
+
+Deadlocks Detecting Tool - VisualVM, jstack.
+
+- `suspend`, `resume` and `destroy` method are deprecated because they are deadlone prone.
 
 ---
 
@@ -302,6 +319,8 @@ most likely result is an OutOfMemoryError. Trying to recover from such an
 error is very risky; it is far easier to structure your program to avoid hitting
 this limit.
 
+---
+
 ## The Executor framework
 
 Executing tasks sequentially in a single thread, and execute each task in its
@@ -321,11 +340,73 @@ It provides a standard means of decoupling task submission from task execution, 
 The `Executor` implementations also provide lifecycle support and hooks for adding statistics
 gathering, application management, and monitoring.
 
-`Executor` is based on the producer-consumer pattern, where activities that
-submit tasks are the producers (producing units of work to be done) and the
-threads that execute tasks are the consumers (consuming those units of work).
-Using an Executor is usually the easiest path to implementing a producer-consumer
-design in your application.
+`Executor` is based on the producer-consumer pattern, where activities that submit tasks are the producers (producing units of work to be done) and the threads that execute tasks are the consumers (consuming those units of work). Using an Executor is usually the easiest path to implementing a producer-consumer design in your application.
+
+---
+
+**Thread pools** : a homogeneous pool of worker threads. A thread pool is tightly bound to a work queue holding tasks waiting to be executed. Worker threads have a simple life: request the next task from the work queue, execute it, and go back to waiting for another task.
+
+Executing tasks in pool threads has a number of advantages over the threadper-
+task approach. Reusing an existing thread instead of creating a new one
+amortizes thread creation and teardown costs over multiple requests. Create a thread pool by calling
+one of the static factory methods in Executors:
+
+create a thread pool by calling
+one of the static factory methods in `Executors` class:
+
+**newFixedThreadPool.** A fixed-size thread pool creates threads as tasks are submitted,
+up to the maximum pool size, and then attempts to keep the pool
+size constant (adding new threads if a thread dies due to an unexpected
+Exception).
+
+**newCachedThreadPool.** A cached thread pool has more flexibility to reap idle
+threads when the current size of the pool exceeds the demand for processing,
+and to add new threads when demand increases, but places no bounds
+on the size of the pool.
+
+**newSingleThreadExecutor.** A single-threaded executor creates a single worker
+thread to process tasks, replacing it if it dies unexpectedly. Tasks are guaranteed
+to be processed sequentially according to the order imposed by the
+task queue (FIFO, LIFO, priority order).4
+
+**newScheduledThreadPool.** A fixed-size thread pool that supports delayed and
+periodic task execution, similar to Timer.
+
+Submitting a task with execute adds the task to the work
+queue, and the worker threads repeatedly dequeue tasks from the work queue
+and execute them.
+
+---
+
+### Executor lifecycle
+
+Since Executors provide a service to applications, they should be able to
+be shut down as well, both gracefully and abruptly, and feed back information to
+the application about the status of tasks that were affected by the shutdown.
+
+To address the issue of execution service lifecycle, the ExecutorService interface
+extends Executor, adding a number of methods for lifecycle management
+(as well as some convenience methods for task submission).
+
+```java
+public interface ExecutorService extends Executor {
+	void shutdown();
+	List<Runnable> shutdownNow();
+	boolean isShutdown();
+	boolean isTerminated();
+	boolean awaitTermination(long timeout, TimeUnit unit)
+	throws InterruptedException;
+	// ... additional convenience methods for task submission
+}
+```
+
+The lifecycle implied by ExecutorService has three states—running, shutting
+down, and terminated. ExecutorServices are initially created in the running state.
+The shutdown method initiates a graceful shutdown: no new tasks are accepted
+but previously submitted tasks are allowed to complete—including those that
+have not yet begun execution. The shutdownNow method initiates an abrupt shutdown:
+it attempts to cancel outstanding tasks and does not start any tasks that
+are queued but not begun.
 
 
 

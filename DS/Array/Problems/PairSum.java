@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+import java.util.*;
 class PairSum {
 
 	static class Pair {
@@ -21,27 +21,40 @@ class PairSum {
 		while (i < j) {
 			if (a[i] + a[j] == x) {
 				return new Pair(a[i], a[j]);
-			}
-			else if(a[i]+a[j]>x){
+			} else if (a[i] + a[j] > x) {
 				j--;
-			}
-			else{
+			} else {
 				i++;
 			}
 		}
 		return null;
 	}
 
-	public static void main(String[] args) {
-		int[] a = { -8, 1, 4, 6, 10, 45};
+	public static Pair checkForPair2(int[] a, int x) {
 
-		Arrays.sort(a);
+		HashSet<Integer> s = new HashSet<>();
 
-		Pair p = checkForPair(a,12);
-		if(p!= null){
-			System.out.println("Pair found "+ p.x + ", "+p.y);
+		for (int i = 0 ; i < a.length; i++) {
+
+			int diff = x - a[i];
+
+			if (diff >= 0 && s.contains(diff)) {
+				return new Pair(a[i], diff);
+			}
+			s.add(i);
 		}
-		else {
+		return null;
+	}
+
+	public static void main(String[] args) {
+		int[] a = { -8, 1, 4, 2, 10, 45};
+
+		//	Arrays.sort(a);
+
+		Pair p = checkForPair2(a, 12);
+		if (p != null) {
+			System.out.println("Pair found " + p.x + ", " + p.y);
+		} else {
 			System.out.println("No Pair found");
 		}
 	}

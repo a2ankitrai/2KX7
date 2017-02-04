@@ -82,7 +82,7 @@ To give each process on a multiprogrammed machine a fair share of the CPU, a har
 
 **Action of Kernel to Context Switch Among Threads**
 
-The threads share a lot of resources with other peer threads belonging to the same process. So a context switch among threads for the same process is easy. It involves switch of register set, the program counter and the stack. It is relatively easy for the kernel to accomplished this task.
+The threads share a lot of resources with other peer threads belonging to the same process. So a context switch among threads for the same process is easy. It **involves switch of register set, the program counter and the stack**. It is relatively easy for the kernel to accomplished this task.
 
 **Action of kernel to Context Switch Among Processes**
 

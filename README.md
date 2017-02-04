@@ -67,7 +67,7 @@
 
 ## [Mathematics](./Mathematics/Mathematics.md)
 
-## [Operating System](./Arbit/operating_system.md)
+## [Operating System](./Operating_System/operating_system.md)
 - Process
 - Threads
 - Interprocess Communication
