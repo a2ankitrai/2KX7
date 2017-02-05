@@ -97,5 +97,7 @@ The iterators returned by this class's iterator and listIterator methods are fai
 	
 - Check for median of a circular linked list.	
 	
-- Check for starting node of overlapping lists	
+- Check for starting node of overlapping lists.
+
+-  Clone a doubly Linked List.
 

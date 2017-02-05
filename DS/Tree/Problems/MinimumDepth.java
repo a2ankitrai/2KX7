@@ -1,7 +1,7 @@
 
 class MinimumDepth {
 
-	public int getMinimumDepth(BinaryTree.BTNode root) {
+	public int getMinimumDepth(BTNode root) {
 		 if (root == null) {
 			return 0;
 		} else {

@@ -149,6 +149,21 @@ There are two types of threaded binary trees.
 
 ---
 
+## Tree problems tips
+
+- **Bottom view or Vertical print**: Find the horizontal distance of each node. Mark the horizontal distance (hd) of root as zero and then recursively mark the hd of left and right child -1 and +1 respectively to their parent. Sort elements based on hd.
+
+- **mirror check**: Recursively check left child of first root with right child of second root.
+
+- Tree construction from inorder and post/pre order can be done by divide and conquer. take element from pre/post and search the same in inorder and divide the left and right elements recursively
+
+- Min/Max Depth - if root is null then it is 0 other wise it is the minimum of its left and right subtrees. Check this recursively.
+
+- [Print root to leaves path](./Tree/Problems/PrintRootToLeafPath.java)
+
+
+---
+
 # Problems
 
 - Write a Program to Find the Maximum Depth or Height of a Tree
@@ -223,7 +238,7 @@ public boolean printAncestorsFunc(BinaryTree.BTNode root, BinaryTree.BTNode targ
 
 - check whether one tree is subtree of another or not
 	
-- [Convert a Binary tree to DLL.](http://www.geeksforgeeks.org/convert-a-given-binary-tree-to-doubly-linked-list-set-4/)
+- **[Convert a Binary tree to DLL.](http://www.geeksforgeeks.org/convert-a-given-binary-tree-to-doubly-linked-list-set-4/)**
 
 - Spiral Print of Tree.
 

@@ -397,9 +397,9 @@ public class BinaryTree {
 
 		//System.out.println(bt.diameter());
 
-		//		bt.postOrderTraversalIterative2();
+				bt.postOrderTraversalIterative2();
 
-		bt.postOrderTraversalIterativeUsing2Stacks();
+		// bt.postOrderTraversalIterativeUsing2Stacks();
 	}
 
 }

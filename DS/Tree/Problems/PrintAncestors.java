@@ -1,6 +1,6 @@
 class PrintAncestors {
 
-	public static boolean printAncestorsFunc(BinaryTree.BTNode root, BinaryTree.BTNode target) {
+	public static boolean printAncestorsFunc(BTNode root, BTNode target) {
 
 		if (root == null) {
 			return false;
@@ -19,21 +19,21 @@ class PrintAncestors {
 	}
 
 	public static void main(String[] args) {
-		BinaryTree.BTNode root = new BinaryTree.BTNode(1);
+		BTNode root = new BTNode(1);
 
 		//Level 1 - nodes
-		BinaryTree.BTNode l1e1 = new BinaryTree.BTNode(2);
-		BinaryTree.BTNode l1e2 = new BinaryTree.BTNode(3);
+		BTNode l1e1 = new BTNode(2);
+		BTNode l1e2 = new BTNode(3);
 
 		root.left = l1e1;
 		root.right = l1e2;
 
 		//-------------------------------------------
 		//Level 2 - nodes
-		BinaryTree.BTNode l2e1 = new BinaryTree.BTNode(4);
-		BinaryTree.BTNode l2e2 = new BinaryTree.BTNode(5);
-		BinaryTree.BTNode l2e3 = new BinaryTree.BTNode(6);
-		BinaryTree.BTNode l2e4 = new BinaryTree.BTNode(7);
+		BTNode l2e1 = new BTNode(4);
+		BTNode l2e2 = new BTNode(5);
+		BTNode l2e3 = new BTNode(6);
+		BTNode l2e4 = new BTNode(7);
 
 		l1e1.left = l2e1;
 		l1e1.right = l2e2;
@@ -43,8 +43,8 @@ class PrintAncestors {
 		//-------------------------------------------
 		//Level 3 - nodes
 
-		BinaryTree.BTNode l3e1 = new BinaryTree.BTNode(8);
-		BinaryTree.BTNode l3e2 = new BinaryTree.BTNode(9);
+		BTNode l3e1 = new BTNode(8);
+		BTNode l3e2 = new BTNode(9);
 		l2e1.left = l3e1;
 		l2e1.right = l3e2;
 
