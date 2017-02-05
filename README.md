@@ -58,7 +58,10 @@
 - [Geeks4Geeks Java question](http://www.geeksforgeeks.org/java/)
 
 ## Design Patterns
-- [Design Patterns](./Design_Patterns/Design_Patterns.md)
+- Design Patterns
+	- [Creational](./Design_Patterns/creational_design_patterns.md)
+	- [Structural](./Design_Patterns/structural_design_patterns.md)
+	- [Behavioral](./Design_Patterns/behavioral_design_patterns.md)
 - [Concepts](./Design_Patterns/Design_Patterns_concepts.md)
 
 ## System Design

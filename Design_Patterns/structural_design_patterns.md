@@ -1,192 +1,8 @@
-# Design Patterns
----
-
-
-# Creational
-
-Creational design patterns abstract the instantiation process. These deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
-
-A class creational pattern uses inheritance to vary the class that's instantiated, whereas an object creational pattern will delegate instantiation to another object.
-
----
-
-## Singleton
-
-Only single instance of object is created. On further requests same object is being returned.
-
-[Singleton](./Singleton/Singleton.java)
-
-To avoid creation of object through cloning override the `clone()` method and throw `CloneNotSupportedException`.
-
-[Thread Safe Singleton](./Singleton/ThreadSingleton.java)
-
-Double null check is required in Thread Safe Singleton design.
-
-**Early instantiation using implementation with static field**
-
-```java
-//Early instantiation using implementation with static field.
-class Singleton
-{
-	private static Singleton instance = new Singleton();
-
-	private Singleton()
-	{
-		System.out.println("Singleton(): Initializing Instance");
-	}
-
-	public static Singleton getInstance()
-	{    
-		return instance;
-	}
-
-	public void doSomething()
-	{
-		System.out.println("doSomething(): Singleton does something!");
-	}
-}
-```
-
-### Examples
-
-- Logger Classes - This classes are usually implemented as a singletons, and provides a global logging access point in all the application components without being necessary to create an object each time a logging operations is performed.
-
-- Factories implemented as Singletons 
-
-- Beans defined in Spring config file are created only once unless the scope is specified as prototype.
-
-- `java.lang.Runtime#getRuntime()`
-
-- `java.awt.Desktop#getDesktop()`
-
-- `java.lang.System#getSecurityManager()`
-
-
-
-### Hot Spot:
-
-- **Multithreading** - A special care should be taken when singleton has to be used in a multithreading application.
-
-- **Serialization** - When Singletons are implementing Serializable interface they have to implement `readResolve` method in order to avoid having 2 different objects.
-
-- **Classloaders** - If the Singleton class is loaded by 2 different class loaders we'll have 2 different classes, one for each class loader.
-
-- **Global Access Point represented by the class name** - The singleton instance is obtained using the class name. At the first view this is an easy way to access it, but it is not very flexible. If we need to replace the Sigleton class, all the references in the code should be changed accordinglly.
-
-
----
-
-## Factory
-
-Creates objects without exposing the instantiation logic to the client and Refers to the newly created object through a common interface. When a method returns one of several possible classes that share a common super class.
-
-The factory pattern allows you to create objects without specifying the exact class of object that will be created.
-
-![factory](./_image/class_diagram_of_factory_pattern_in_java1.png)
-
-**Examples**
-
-- java.sql.DriverManager `getConnection()`
-- java.net.URL `openConnection()`
-- java.lang.Class `newInstance()`
-- java.lang.Class `forName()`
-
----
-
-### Factory Method
-
----
-### Abstract Factory
-
----
-
-### Builder
-
-**Version 1**
-
-Builder pattern is used to create objects of classes that have many attributes or properties and many of these are optional (they have default values). In such scenario constructor can take large number of arguements and to solve this problem a static nested class Builder is used which will build the object of the containing class.
-
-Eg. Building a cake.
-
-- Make a static nested class called Builder inside the class whose object will be build by Builder. In this example its Cake.
-
-- Builder class will have exactly same set of fields as original class.
-
-- Builder class will expose method for adding ingredients e.g. `sugar()` in this example. each method will return same Builder object. Builder will be enriched with each method call.
-
-- Builder.build() method will copy all builder field values into actual class and return object of Item class.
-
-- Item class (class for which we are creating Builder) should have private constructor to create its object from build() method and prevent outsider to access its constructor.
-
-[Builder Pattern Example](./../Java/eclipse_projects/Design_Patterns/src/creational/builder/BasicBuilderPatternExample.java)
-
----
-
-**Version 2**
-
-**Intent**
-
-Separate the construction of a complex object from its representation so that the same construction process can create different representations.
-
-![builder-pattern](./_image/builder-pattern.png)
-
-The participants classes in this pattern are:
-
-- The **Builder** class specifies an abstract interface for creating parts of a Product object.
-- The **ConcreteBuilder** constructs and puts together parts of the product by implementing the Builder interface. It defines and keeps track of the representation it creates and provides an interface for saving the product.
-- The **Director** class constructs the complex object using the Builder interface.
-- The **Product** represents the complex object that is being built.
-
-The client, that may be either another object or the actual client that calls the main() method of the application, initiates the Builder and Director class. The Builder represents the complex object that needs to be built in terms of simpler objects and types. The constructor in the Director class receives a Builder object as a parameter from the Client and is responsible for calling the appropriate methods of the Builder class. In order to provide the Client with an interface for all concrete Builders, the Builder class should be an abstract one. This way you can add new types of complex objects by only defining the structure and reusing the logic for the actual construction process. The Client is the only one that needs to know about the new types, the Director needing to know which methods of the Builder to call.
-
-[Builder Pattern](./../Java/eclipse_projects/Design_Patterns/src/creational/builder)
-
-**Applicability**
-
-Use the Builder pattern when
-
-- the algorithm for creating a complex object should be independent of the parts that make up the object and how they're assembled.
-
-- the construction process must allow different representations for the object that's constructed.
-
----
-
-## Prototype
-
-**Intent**
-
-- Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
-- Co-opt one instance of a class for use as a breeder of all future instances.
-- The `new` operator considered harmful.
-
-**Applicability**
-
-Use the Prototype pattern when a system should be independent of how its products
-are created, composed, and represented; and
-
-- when the classes to instantiate are specified at run-time, for example, by dynamic loading; or
-- to avoid building a class hierarchy of factories that parallels the class hierarchy of products;
-- when instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state.
-
-**Rules of thumb**
-
-- Factory Method: creation through inheritance. Prototype: creation through delegation.
-- Designs that make heavy use of the Composite and Decorator patterns often can benefit from Prototype as well.
-- 
-
-
-
----
-### Object Pool
-
-
----
-
 # Structural 
+---
 
 Structural patterns are concerned with how classes and objects are composed to form larger structures. They identify a simple way to realize relationships between entities.
 
----
 
 ## Adapter
 
@@ -227,9 +43,11 @@ An adapter uses composition to store the object it is supposed to adapt, and whe
 ### Examples in Java
 
 - `java.util.Arrays#asList()`
+- `java.util.Collections#list()`
+- `java.util.Collections#enumeration()`
 - `java.io.InputStreamReader(InputStream)` (returns a Reader)
 - `java.io.OutputStreamWriter(OutputStream)` (returns a Writer)
-
+- `javax.xml.bind.annotation.adapters.XmlAdapter#marshal()` and `#unmarshal()`
 
 ### Rules of thumb
 
@@ -307,6 +125,10 @@ Bridge emphasizes identifying and decoupling "interface" abstraction from "imple
 
 - If interface classes delegate the creation of their implementation classes (instead of creating/coupling themselves directly), then the design usually uses the Abstract Factory pattern to create the implementation objects.
 
+**Example**
+
+-  A fictive example would be `new LinkedHashMap(LinkedHashSet<K>, List<V>)` which returns an unmodifiable linked map which doesn't clone the items, but uses them. The `java.util.Collections#newSetFromMap()` and `singletonXXX()` methods however comes close.
+
 [Bridge Pattern Code](./../Java/eclipse_projects/Design_Patterns/src/structural/bridge)
 
 ---
@@ -364,13 +186,35 @@ make behavior depend on state.
 
 **Known Uses**
 
-- Johnson and Zweig [JZ91] characterize theState pattern and its application to TCP connection protocols.
+- Johnson and Zweig characterize theState pattern and its application to TCP connection protocols.
 
 [State Pattern Code](./../Java/eclipse_projects/Design_Patterns/src/behavioral/state)
 
 ---
 
 ## Facade
+
+**Intent**
+
+- Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+
+- Wrap a complicated subsystem with a simpler interface.
+
+**Problem**
+
+A segment of the client community needs a simplified interface to the overall functionality of a complex subsystem.
+
+**Discussion**
+
+Facade discusses encapsulating a complex subsystem within a single interface object. This reduces the learning curve necessary to successfully leverage the subsystem. It also promotes decoupling the subsystem from its potentially many clients. On the other hand, if the Facade is the only access point for the subsystem, it will limit the features and flexibility that "power users" may need.
+
+The Facade object should be a fairly simple advocate or facilitator. It should not become an all-knowing oracle or "god" object.
+
+**Motivation**
+
+![facade_pattern](./_image/facade_pattern.png)
+
+Structuring a system into subsystems helps reduce complexity. A common design goal is to minimize the communication and dependencies between subsystems. One way to achieve this goal is to introduce a **facade** object that provides a single, simplified interface to the more general facilities of a subsystem.
 
 The Facade design pattern simplifies the interface to a complex system; because it is usually composed of all the classes which make up the subsystems of the complex system.
 
@@ -380,16 +224,72 @@ the Facade can be used to hide the inner workings of a third party library, or s
 
 ![facade_seq.PNG](./_image/facade_seq.PNG)
 
-Facade discusses encapsulating a complex subsystem within a single interface object. This reduces the learning curve necessary to successfully leverage the subsystem. It also promotes decoupling the subsystem from its potentially many clients. On the other hand, if the Facade is the only access point for the subsystem, it will limit the features and flexibility that "power users" may need.
+
+**Applicability**
+
+Use the Facade pattern
+
+- to provide a simple interface to a complex subsystem. Subsystems
+often get more complex as they evolve. Most patterns, when applied, result
+in more and smaller classes. This makes the subsystem more reusable and
+easier to customize, but it also becomes harder to use for clients that
+don't need to customize it. A facade can provide a simple default view of
+the subsystem that is good enough for most clients. Only clients needing
+more customizability will need to look beyond the facade.
+
+- there are many dependencies between clients and the implementation classes
+of an abstraction. Introduce a facade to decouple the subsystem from clients
+and other subsystems, thereby promoting subsystem independence and
+portability.
+
+- you want to layer your subsystems. Use a facade to define an entry point
+to each subsystem level. If subsystems are dependent, then you can simplify
+the dependencies between them by making them communicate with each other
+solely through their facades.
+
+**Structure**
+
+![facade_structure](./_image/facade_structure.png)
+
+**Participants**
+
+- Facade 
+	- knows which subsystem classes are responsible for a request.
+	- delegates client requests to appropriate subsystem objects.
+	
+- subsystem classes
+	- implement subsystem functionality.
+	- handle work assigned by the Facade object.
+	- have no knowledge of the facade; that is, they keep no references to it.	
+
+**Rules of thumb**
+
+- Facade defines a new interface, whereas Adapter uses an old interface. Remember that Adapter makes two existing interfaces work together as opposed to defining an entirely new one.
+
+- Whereas Flyweight shows how to make lots of little objects, Facade shows how to make a single object represent an entire subsystem.
+
+- Mediator is similar to Facade in that it abstracts functionality of existing classes. Mediator abstracts/centralizes arbitrary communications between colleague objects. It routinely "adds value", and it is known/referenced by the colleague objects. In contrast, Facade defines a simpler interface to a subsystem, it doesn't add new functionality, and it is not known by the subsystem classes.
+
+- Abstract Factory can be used as an alternative to Facade to hide platform-specific classes.
+
+- Facade objects are often Singletons because only one Facade object is required.
+
+- Adapter and Facade are both wrappers; but they are different kinds of wrappers. The intent of Facade is to produce a simpler interface, and the intent of Adapter is to design to an existing interface. While Facade routinely wraps multiple objects and Adapter wraps a single object; Facade could front-end a single complex object and Adapter could wrap several legacy objects.
 
 **Uses**:
 
-Service oriented architectures make use of the facade pattern. For example, in web services, one web service might provide access to a number of smaller services that have been hidden from the caller by the facade.
+- Service oriented architectures make use of the facade pattern. For example, in web services, one web service might provide access to a number of smaller services that have been hidden from the caller by the facade.
+
+- `javax.faces.context.FacesContext`, it internally uses among others the abstract/interface types `LifeCycle`, `ViewHandler`, `NavigationHandler` and many more without that the enduser has to worry about it (which are however overrideable by injection).
+
+- `javax.faces.context.ExternalContext`, which internally uses `ServletContext`, `HttpSession`, `HttpServletRequest`, `HttpServletResponse`, etc.
 
 ---
 
 ### Composite
 
+- `java.awt.Container#add(Component)` (practically all over Swing thus)
+- `javax.faces.component.UIComponent#getChildren()` (practically all over JSF UI thus)
 
 ---
 
@@ -423,9 +323,9 @@ You want to add behavior or state to individual objects at run-time. Inheritance
 
 **Known Uses**
 
-- Many object-oriented user interface toolkits use decorators to add graphical embellishments to widgets.
-- Decorator pattern is used a lot in Java IO classes, such as `FileReader`, `BufferedReader`. BufferReader is wrapped to FileReader, ObjectOutputStream is wrapped to FileInputStream in serialization.
-
+- Decorator pattern is used a lot in Java IO classes, such as `FileReader`, `BufferedReader`. BufferReader is wrapped to FileReader, ObjectOutputStream is wrapped to FileInputStream in serialization. All subclasses of java.io.InputStream, OutputStream, Reader and Writer have a constructor taking an instance of same type.
+- java.util.Collections, the checkedXXX(), synchronizedXXX() and unmodifiableXXX() methods.
+- javax.servlet.http.HttpServletRequestWrapper and HttpServletResponseWrapper
 
 **Check list**
 
@@ -519,7 +419,13 @@ The Proxy provides a surrogate or place holder to provide access to an object. A
 
 In java RMI an object on one machine (executing in one JVM) called a client can invoke methods on an object in another machine (another JVM) the second object is called a remote object. The proxy (also called a stub) resides on the client machine and the client invokes the proxy in as if it is invoking the object itself (remember that the proxy implements the same interface that RealSubject implements). The proxy itself will handle communication to the remote object, invoke the method on that remote object, and would return the result if any to the client. The proxy in this case is a Remote proxy.
 
-Spring proxy in AOP
+- Spring proxy in AOP
+- `java.lang.reflect.Proxy`
+- `java.rmi.*`
+- `javax.ejb.EJB`
+- `javax.inject.Inject`
+- `javax.persistence.PersistenceContext`
+
 
 **Check list**
 
@@ -546,201 +452,12 @@ Spring proxy in AOP
 
 - Use sharing to support large numbers of fine-grained objects efficiently.
 
+**Uses:**
+
+(recognizeable by creational methods returning a cached instance, a bit the "multiton" idea)
+
+- `java.lang.Integer#valueOf(int)` (also on `Boolean`, `Byte`, `Character`, `Short`, `Long` and `BigDecimal`)
+
 ### Memento
-
----
-
-# Behavioral
----
-
-Behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
-
-Behavioral class patterns use inheritance to distribute behavior between classes.
-
-## Chain of Responsibilty
-
-Gives more than one object an opportunity to handle a request by linking receiving objects together.
-
-**Reference implementations in JDK**
-
-javax.servlet.Filter#doFilter()
-
-The doFilter method of the Filter is called by the container each time a request/response pair is passed through the chain due to a client request for a resource at the end of the chain. The FilterChain passed in to this method allows the Filter to pass on the request and response to the next entity in the chain.
-
-java.util.logging.Logger#log
-
-If the logger is currently enabled for the given message level then the given message is forwarded to all the registered output Handler objects.
-
----
-
-## Command
-
-**Intent**
-
-- Encapsulate a request as an object, thereby letting you parametrize clients with different requests, queue or log requests, and support undoable operations.
-
-**Problem**
-
-Need to issue requests to objects without knowing anything about the operation being requested or the receiver of the request.
-
-**Rules of thumb**
-
-- Chain of Responsibility, Command, Mediator, and Observer, address how you can decouple senders and receivers, but with different trade-offs. Command normally specifies a sender-receiver connection with a subclass.
-
-to do ...
-
----
-
-### Interpreter
-
-### Iterator
-
-### Mediator
-
----
-
-## Observer
-
-**Intent**
-
-Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. Also Known As **Dependents**, **Publish-Subscribe**.
-
-**Motivation**
-
-The key objects in this pattern are **subject** and **observer**. A subject may have any number of dependent observers. All observers are notified whenever the subject undergoes a change in state. In response, each observer will query the subject to synchronize its state with the subject's state.
-
-This kind of interaction is also known as publish-subscribe. The subject is the publisher of notifications. It sends out these notifications without having to know who its observers are. Any number of observers can subscribe to receive notifications.
-
-**Applicability**
-
-Use the Observer pattern in any of the following situations:
-
-- When an abstraction has two aspects, one dependent on the
-other.Encapsulating these aspects in separate objects lets you vary
-and reuse them independently.
-
-- When a change to one object requires changing others, and youdon't know
-how many objects need to be changed.
-
-- When an object should be able to notify other objects without
-making assumptions about who these objects are. In other words, you don't want
-these objects tightly coupled.
-
-![observer_implementation](./_image/observer_implementation_-_uml_class_diagram.gif)
-
-**Participants**
-
-- Subject
-	- knows its observers. Any number of Observer objects may observe a subject.
-	- provides an interface for attaching and detaching Observer objects.
-
-- Observer
-	- defines an updating interface for objects that should be notified of changes in a subject.	
-	
-- ConcreteSubject
-	- stores state of interest to ConcreteObserver objects.
-	- sends a notification to its observers when its state changes.
-	
-- ConcreteObserver
-	- maintains a reference to a ConcreteSubject object.
-	- stores state that should stay consistent with the subject's.
-	- implements the Observer updating interface to keep its state consistent with the subject's.
-	
-[Observer Code](./../Java/eclipse_projects/Design_Patterns/src/behavioral/observer)	
- 
----
-
-## Strategy
-
-**Intent**
-
-- Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from the clients that use it. Also Known As Policy
-
-- Capture the abstraction in an interface, bury implementation details in derived classes.
-
-
-**Applicability**
-
-- many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors.
-- you need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms.
-- an algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
-- a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.
-- Strategy pattern is useful when we have multiple algorithms for specific task and we want our application to be flexible to chose any of the algorithm at runtime for specific task.
-
-
-**Structure**
-
-![strategy](./_image/strategy.png)
-
-**Participants**
-
-- *Strategy* - declares an interface common to all supported algorithms. Context uses this interface to call the algorithm defined by a ConcreteStrategy.
-
-- *ConcreteStrategy* - implements the algorithm using the Strategy interface.
-
-- *Context*
-	- is configured with a ConcreteStrategy object.
-	- maintains a reference to a Strategy object.
-	- may define an interface that lets Strategy access its data.
-
-	
-**Examples**
-
-- `Collections.sort()` and `Arrays.sort()` method that takes `Comparator` parameter. Based on the different implementations of `Comparator` interfaces, the Objects are getting sorted in different ways.
-
-	
-
-	
-**Check list**
-
-1. Identify an algorithm (i.e. a behavior) that the client would prefer to access through a "flex point".
-2. Specify the signature for that algorithm in an interface.
-3. Bury the alternative implementation details in derived classes.
-4. Clients of the algorithm couple themselves to the interface.
-
-**Rules of thumb**
-
-- Strategy is like Template Method except in its granularity.
-
-- State is like Strategy except in its intent.
-
-- Strategy lets you change the guts of an object. Decorator lets you change the skin.
-
-- State, Strategy, Bridge (and to some degree Adapter) have similar solution structures. They all share elements of the 'handle/body' idiom. They differ in intent - that is, they solve different problems.
-
-- Strategy has 2 different implementations, the first is similar to State. The difference is in binding times (Strategy is a bind-once pattern, whereas State is more dynamic).
-
-- Strategy objects often make good Flyweights.
-	
----
-
-## Template method
-
-**Intent**
-
-Define the skeleton of an algorithm in an operation, deferring some steps to client subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
-
-**Rules of thumb**
-
-- Strategy is like Template Method except in its granularity.
-
-- Template Method uses inheritance to vary part of an algorithm. Strategy uses delegation to vary the entire algorithm.
-
-- Strategy modifies the logic of individual objects. Template Method modifies the logic of an entire class.
-
-- Factory Method is a specialization of Template Method.
-
-
-![Template_Method.svg](./_image/Template_Method.svg)
-
-Examples: 
-
-- used extensively in Spring to deal with boilerplate repeated code (such as closing connections cleanly, etc..). For example `JdbcTemplate`, `JmsTemplate`, `JpaTemplate`.
-
----
-
-### Visitor
-
-### Null Object
 
 ---
