@@ -45,7 +45,39 @@ Execution Engine contains JIT (Just In Time) Compiler and Garbage collector comp
 
 ### JIT(Just In Time) compiler 
 
-JIT compiler compiles bytecodes to machine code at run time and improves the performance of Java applications.
+JIT compiler compiles bytecodes to machine code at run time and improves the performance of Java applications. Very frequently used methods are compiled as soon as JVM has started, and less used methods are compiled later.
+
+### Garbage Collector
+
+Garbage Collector's Garbage collection is the process by which JVM clears objects (unused objects) from heap to reclaim heap space.
+
+***Interpreter*** is responsible for reading the bytecode and then executing the instructions.
+
+---
+
+***Native method libraries of JVM ***
+Native method interface is an interface that connects JVM with the native method libraries for executing platform specific native methods.
+
+Three components **Heap**, **JIT (Just In Time) Compiler** and **Garbage collector** are related to JVM’s performance tuning. There are many VM (JVM) options for 
+- Increasing and decreasing the heap size for managing object for best performance.
+- selecting the different garbage collector depending on your requirement.
+
+---
+
+## Java is platform independent language
+
+Once source code (i.e. **.java** file) is compiled on one platform(**bytecode** is formed). That bytecode can be executed (interpreted) on any other platform running a JVM. Every platform have different JVM implementation.
+
+
+
+
+
+
+
+
+
+
+
 
 ---
  
@@ -54,5 +86,3 @@ Java addresses the security challenge by providing an environment in which progr
 Platform independence, security, and network-mobility--these three facets of Java's architecture work
 together to make Java suitable for the emerging networked computing environment. Because Java
 programs are platform independent, network-delivery of software is more practical.
-
-A Java Virtual Machine's main job is to load class files and execute the bytecodes they contain.

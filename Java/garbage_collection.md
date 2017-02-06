@@ -63,6 +63,12 @@ These are called as **Young generation**, **Tenured** or **Old Generation** and 
 
 ![gc_jvm_image.jpg](./_image/gc_jvm_image.jpg)
 
+New objects are allocated in Young generation. Minor garbage collection occurs in Young Generation.
+
+The Old Generation is used for storing the long surviving aged objects (Some of the objects which aren't cleaned up survive in young generation and gets aged.  Eventually such objects are moved from young to old generation). Major garbage collection occurs in Old Generation.
+
+Permanent generation Space contains metadata required by JVM to describe the classes and methods used in the application. The permanent generation space also contains Java SE library classes and methods in java. Full garbage collection occurs in permanent generation in java
+
 ---
   
   
@@ -118,6 +124,45 @@ The mark-and-sweep algorithm is called a tracing garbage collector because is tr
  
 ---
 
+**Throughput** is the time not spent in garbage collection (GC) ( in percent). Throughput focuses on maximizing the amount of work by an application in a specific period of time. 
+
+**Pauses** is applications pauses i.e. when application doesn’t gives any response because of garbage collection (GC).
+
+---
+
+## Different Garbage Collectors
+
+### Serial GC (Garbage collector) 
+
+Serial collector is also called Serial GC (Garbage collector) in java. Designed for the single threaded environments in java.
+
+Serial GC uses a mark-compact collection method. This method moves older memory to the beginning of the heap so that new memory allocations are made into a single continuous chunk of memory at the end of the heap. This compacting of memory makes it faster to allocate new chunks of memory to the heap in java.
+
+### Throughput GC (Garbage collector) or Parallel collector
+
+Default garbage collector for JVM. Uses multiple threads to execute a minor collection and so reduces the serial execution time of the application in java. Should be used when application can afford low pauses in java and application is running on host with multiple CPU’s (to derive advantage of using multiple threads for garbage collection) in java.
+
+### Concurrent Mark Sweep (CMS) collector 
+
+Also called concurrent low pause collector. Collects the old/tenured generation (i.e. performs Major garbage collection process). Minimize the pauses by doing most of the garbage collection work concurrently with the application threads in java. 
+
+Concurrent Mark Sweep (CMS) Collector does not copy or compact the live objects. A garbage collection is done without moving the live objects. If fragmentation becomes a problem, allocate a larger heap in java.
+
+**Should be used if : **
+
+- applications that require low garbage collection pause times in java. 
+- application can afford to share processor resources with the garbage collector while the application is running.
+- applications which have a relatively large set of long-lived data (a large tenured generation) and run on machines with two or more processors in java.
+
+	
+### G1 Garbage Collector (or Garbage First)
+
+Introduced in Java 7. Designed to replace CMS collector(Concurrent Mark-Sweep garbage Collector). G1 is parallel and concurrent, and limits GC pause times and maximizes throughput. 
+
+
+
+
+---
 
 ## Reference classes
 
