@@ -1,6 +1,5 @@
 class ConstructTreeFromPost_InOrder {
 
-
 	class Index {
 		int index;
 	}

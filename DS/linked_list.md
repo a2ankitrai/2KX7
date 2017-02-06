@@ -16,7 +16,6 @@ A linked list is a data structure in which the objects are arranged in a linear 
 - Arrays have better cache locality that can make a pretty big difference in performance.
 
 ---
-
 ## Arbit
 
 - Use case of circular linked list
@@ -78,7 +77,6 @@ The iterators returned by this class's iterator and listIterator methods are fai
 	```
 
 - Palindrome: Implement a function to check if a linked list is a palindrome.
-
 	- Reverse linked list and compare
 	- Use a stack to store elements one by one and then compare with original linked list
 
@@ -90,6 +88,8 @@ The iterators returned by this class's iterator and listIterator methods are fai
 	4. On the longer linked list, advance its pointer by the difference in lengths.
 	5. Now, traverse on each linked list until the pointers are the same.
 
+- 	
+	
 	
 ## to do	
 
@@ -99,5 +99,17 @@ The iterators returned by this class's iterator and listIterator methods are fai
 	
 - Check for starting node of overlapping lists.
 
--  Clone a doubly Linked List.
+- Clone a doubly Linked List.
+
+- Add two Number represented by linked list.
+
+- http://www.geeksforgeeks.org/intersection-of-two-sorted-linked-lists/
+
+- Rearrange a linked list such that all even and odd positioned nodes are together 
+	
+	http://www.geeksforgeeks.org/rearrange-a-linked-list-such-that-all-even-and-odd-positioned-nodes-are-together/
+
+- 	
+	
+
 

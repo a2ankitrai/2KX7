@@ -1,6 +1,6 @@
 # Bit Manipulation
 
-![bit_rules](./image/bit_rules.png)
+![bit_truth_table](./_image/truth_table.png)
 
 ## Two's Complement and Negative Numbers
 
@@ -19,7 +19,7 @@ Two's complement is calculated as One's complement and adding 1 to the result. O
 There are two types of right shift operators. The arithmetic right shift essentially divides by two. The logical
 right shift does what we would visually see as shifting the bits.
 
-In a logical right shift, we shift the bits and put a 13 in the most significant bit. It is indicated with a >>>
+In a logical right shift, we shift the bits and put a 0 in the most significant bit. It is indicated with a `>>>`
 operator. On an 8-bit integer (where the sign bit is the most Significant bit), this would look like the image
 below. The sign bit is indicated with a gray background.
 
@@ -61,9 +61,9 @@ Result: 00000101b
 
 ### Get Bit
 
-This method shifts lover by i bits, creating a value that looks like eeElleeee. By performing an AND with
-num, we clear all bits other than the bit at bit i. Finally, we compare that to e. If that new value is not zero,
-then bit i must have a 1. Otherwise, bit i is a O.
+This method shifts lover by `i` bits, creating a value that looks like `00010000`. By performing an AND with
+num, we clear all bits other than the bit at bit `i`. Finally, we compare that to `0`. If that new value is not zero,
+then bit `i` must have a `1`. Otherwise, bit `i` is a `0`.
 
 ```java
 boolean getBit(int num, int i) {
@@ -73,37 +73,53 @@ boolean getBit(int num, int i) {
 
 ### Set Bit
 
-SetBit shifts lover by i bits, creating a value like eeeleeee. By performing an OR with num, only the
-value at bit i will change. All other bits of the mask are zero and will not affect num.
+SetBit shifts lover by `i` bits, creating a value like `00010000`. By performing an OR with num, only the
+value at bit `i` will change. All other bits of the mask are zero and will not affect num.
 ```java
 int setBit(int num, i nt i) {
- return num I (1 « i);
- }
+	return num I (1 << i);
+}
 ```
 
 ### Clear Bit
-This method operates in almost the reverse of setBit . First, we create a number like 11101111 by creating
-the reverse of it (00010000) and negating it. Then, we perform an AND with num. This will clear the ith bit
+This method operates in almost the reverse of setBit . First, we create a number like `11101111` by creating
+the reverse of `00010000` and negating it. Then, we perform an AND with num. This will clear the i<sup>th</sup> bit
 and leave the remainder unchanged.
 
 ```java
- int clearBit(int num, int i) {
- int mask = ~(1 << i);
- return num & mask;
- }
+int clearBit(int num, int i) {
+	int mask = ~(1 << i);
+	return num & mask;
+}
 ```
 
 ### Update Bit
 
-To set the ith bit to a value v, we first clear the bit at position i by using a mask that looks like 11101111.
+To set the i<sup>th</sup> bit to a value v, we first clear the bit at position `i` by using a mask that looks like 11101111.
 Then, we shift the intended value, v, left by i bits. This will create a number with bit i equal to v and all
 other bits equal to 0. Finally, we OR these two numbers, updating the ith bit if v is 1 and leaving it as 0
 otherwise.
 
 ```java
- int updateBit(int num, int i, boolean bitlsl) {
- int value = bitlsl ? 1 : 0;
- int mask = ~(1 « i);
- return (num & mask) I (value « i);
+ int updateBit(int num, int i, boolean bitIs1) {
+ int value = bitIs1 ? 1 : 0;
+ int mask = ~(1 << i);
+ return (num & mask) | (value << i);
  }
 ``` 
+
+---
+
+## Count set bits in an integer
+
+Brian Kernighan’s Algorithm:
+
+```
+   1  Initialize count: = 0
+   2  If integer n is not zero
+      (a) Do bitwise & with (n-1) and assign the value back to n
+          n: = n&(n-1)
+      (b) Increment count by 1
+      (c) go to step 2
+   3  Else return count
+```   

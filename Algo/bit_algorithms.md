@@ -7,7 +7,7 @@ The heart of bit manipulation are the bit-wise operators **&** (and), **|** (or)
 
 **Truth Table**
 
-![bit_truth_table](./_image/bit_truth_table.PNG)
+![bit_truth_table](./_image/truth_table.png)
 
 The other two operators are the shift operators **a << b** and **a >> b**. The former shifts all the bits in **a** to the left by **b** positions; the latter does the same but shifts right. For non-negative values, the newly exposed bits are filled with zeros.
 

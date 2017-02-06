@@ -2,16 +2,6 @@
 
 class SumTree {
 
-	class SumObject {
-		int sum;
-		boolean isSum;
-
-		SumObject(int sum, boolean isSum) {
-			this.sum = sum;
-			this.isSum = isSum;
-		}
-	}
-
 	public boolean isSumTree(BTNode root) {
 
 		return isSumTreeUtil(root);

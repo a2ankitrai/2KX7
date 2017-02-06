@@ -180,6 +180,37 @@ public void postOrderTraversalIterativeUsing2Stacks() {
 	}
 ```
 
+**Traversal Uses**
+
+*Use of Pre-Order:*
+
+- Pre-order traversal is used to create a copy of the tree.
+- Pre-order traversal is also used to get prefix expression on of an expression tree. 
+
+*Use of Post-Order :*
+
+- Postorder traversal is used to delete the tree.
+- Postorder traversal is also useful to get the postfix expression of an expression tree. 
+
+e.g. Parse Tree
+
+```
+    *
+   / \
+  +   \
+ / \   \
+A   B   C
+```
+You could serialize it as * + A B C by walking it in prefix order, or as A B + C * by walking it in postfix order. 
+
+
+*In Order*
+
+- If you know that the tree has an inherent sequence in the nodes, and you want to flatten the tree back into its original sequence, than an in-order traversal should be used. The tree would be flattened in the same way it was created. A pre-order or post-order traversal might not unwind the tree back into the sequence which was used to create it.
+
+
+
+
 
 
 **Level Order Traversal (also Line by Line)**
