@@ -194,14 +194,9 @@ Set of vertices connected pairwise by **directed** edges.
 
 	BFS in diagraph application : web crawler
 
-- When DFS is applied over a directed and connected graph, it will yield a tree. If the tree contains a back edge, we can say that the graph has a cycle present. A back edge is an edge that is from a node to itself (selfloop) or one of its ancestor in the tree produced by DFS. 	
+- When DFS is applied over a directed and connected graph, it will yield a tree. If the tree contains a back edge, we can say that the graph has a cycle present. A back edge is an edge that is from a node to itself (selfloop) or to one of its ancestor in the tree produced by DFS. 	
 
-- To detect a back edge, we can keep track of vertices currently in 
-recursion stack of function for DFS traversal.  If we reach a vertex 
-that is already in the recursion stack, then there is a cycle in the 
-tree. The edge that connects current vertex to the vertex in the 
-recursion stack is back edge.  We have used recStack[] array to keep 
-track of vertices in the recursion stack.
+- To detect a back edge, we can keep track of vertices currently in recursion stack of function for DFS traversal.  If we reach a vertex that is already in the recursion stack, then there is a cycle in the tree. The edge that connects current vertex to the vertex in the recursion stack is back edge.  We have used `recStack[]` array to keep track of vertices in the recursion stack.
 
 **Cycle Detection in Directed Graph**
 	
@@ -317,7 +312,7 @@ Step 5: If count of visited nodes is not equal to the number of nodes in the gra
 
 ## Minimum Spanning Tree
 
-A spanning tree of graph G is subgraph T that is both a **tree**(connected and acyclic) and **spanning**(includes all the vertices). The goal is to find a minimum weight spanning tree. A minimum spanning tree has (V – 1) edges where V is the number of vertices in the given graph.
+A spanning tree of graph G is subgraph T that is both a **tree**(connected and acyclic) and **spanning**(includes all the vertices). The goal is to find a minimum weight spanning tree. A minimum spanning tree has `(V – 1)` edges where `V` is the number of vertices in the given graph.
 
 ![mst_applications](./_image/mst_applications.png)
 

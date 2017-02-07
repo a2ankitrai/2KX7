@@ -60,12 +60,11 @@ Most of all, have fun. Dreaming up architectures is a very stimulating mental pr
 
 	![consistent_hashing](./_image/consistent_hashing.png)
 	
-	In caching Since the overall hashtable is distributed across many VNs, we need a way to map each key to the corresponding VN.
+	In caching Since the overall hashtable is distributed across many VNs, we need a way to map each key to the corresponding VN. If you have a collection of `n` cache machines then a common way of load balancing across them is to put object `o` in cache machine number `hash(o) mod n`. This works well until you add or remove cache machines (for whatever reason), for then `n` changes and every object is hashed to a new location. This can be catastrophic since the originating content servers are swamped with requests from the cache machines. It's as if the cache suddenly disappeared. 
 
-	One way is to use 
-	partition = key mod (total_VNs)
-
-	The disadvantage of this scheme is when we alter the number of VNs, then the ownership of existing keys has changed dramatically, which requires full data redistribution. Most large scale store use a "consistent hashing" technique to minimize the amount of ownership changes.
+	The disadvantage of this scheme : when we alter the number of VNs, then the ownership of existing keys has changed dramatically, which requires full data redistribution. Most large scale store use a "consistent hashing" technique to minimize the amount of ownership changes.
+	
+	The basic idea behind the consistent hashing algorithm is to hash both objects and caches using the same hash function. The reason to do this is to map the cache to an interval, which will contain a number of object hashes. If the cache is removed then its interval is taken over by a cache with an adjacent interval. All the other caches remain unchanged.
 	
 	In the consistent hashing scheme, the key space is finite and lie on the circumference of a ring. The virtual node id is also allocated from the same key space. For any key, its owner node is defined as the first encountered virtual node if walking clockwise from that key. If the owner node crashes, all the key it owns will be adopted by its clockwise neighbor. Therefore, key redistribution happens only within the neighbor of the crashed node, all other nodes retains the same set of keys.
 	

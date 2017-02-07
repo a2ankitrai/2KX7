@@ -9,11 +9,9 @@
 
 - Design a Lift system in your programming language.
 
-- Design and implement LRU cache.
-
 - Design a Traffic Controller System for a Junction
 
--  Filesystem Design
+- Filesystem Design
 
 - Cards game design 
 
