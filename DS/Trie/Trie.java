@@ -2,10 +2,12 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map.Entry;
+
 
 class Trie {
 
-	private TrieNode root;
+	TrieNode root;
 
 	public Trie() {
 		root = new TrieNode();
@@ -71,34 +73,48 @@ class Trie {
 		List<String> wordList =  new ArrayList<String>();
 		Map<Character, TrieNode> children = root.children;
 
-		String bWord = "";
-		TrieNode tempNode = null;
-		for (int i = 0; i < prefix.length(); i++) {
-			tempNode = children.get(prefix.charAt(i));
-			if (tempNode != null) {
-				children = tempNode.children;
-				bWord += tempNode.c;
-			} else {
-				break;
-			}
-		}		
+		String bWord = prefix;
+		TrieNode t = searchNode(prefix);
 
-		if (tempNode != null) {
-			children = tempNode.children;
-
-			
+		if (t != null) {
+			getWordsFromPrefixUtil(wordList, prefix, t);
 		}
 
-
 		return wordList;
+	}
+
+	public void printWordsFromPrefix(String prefix) {
+		List<String> wordList = getWordsFromPrefix(prefix);
+		if (!wordList.isEmpty()) {
+			for (String s : wordList) {
+				System.out.println(s);
+			}
+		}
+	}
+
+	private void getWordsFromPrefixUtil(List<String> wordList, String wordSoFar, TrieNode t) {
+		if (t.isLeaf) {
+			wordList.add(wordSoFar );
+		}
+
+		Map<Character, TrieNode> children = t.children;
+		for (Map.Entry<Character, TrieNode> entry : children.entrySet()) {
+			getWordsFromPrefixUtil(wordList, wordSoFar + entry.getKey(), entry.getValue());
+		}
 	}
 
 	public static void main(String[] args) {
 		Trie trie = new Trie();
 
-		trie.insert("ass");
-		trie.insert("asshole");
+		trie.insert("tiger");
+		trie.insert("titan");
 
-		System.out.println();
+		trie.insert("area");
+		trie.insert("are");
+		trie.insert("arealove");
+		trie.insert("car");
+		trie.insert("cat");
+
+		trie.printWordsFromPrefix("area");
 	}
 }
