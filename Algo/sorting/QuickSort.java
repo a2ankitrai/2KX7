@@ -25,6 +25,40 @@ class QuickSort {
 		return i + 1;
 	}
 
+	// version 2
+
+	private static int partition2(int[] a, int lo, int hi) {
+
+		int i = lo, j = hi + 1;
+
+		while (true) {
+			while (a[++i] < a[lo]) {
+				if (i == hi) {
+					break;
+				}
+			}
+
+			while (a[lo] < a [--j]) {
+				if (j == lo) {
+					break;
+				}
+			}
+
+			if(i>=j){
+				break;
+			}
+			swap(a,i,j);
+		}
+		swap(a, lo, j);
+		return j;
+	}
+
+	public static void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+
 	public static void main(String[] args) {
 		QuickSort qs = new QuickSort();
 		int b[] = {5, 2, 29, 9, 15, 4, 3, 2};
