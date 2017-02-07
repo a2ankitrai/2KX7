@@ -159,6 +159,11 @@ Concurrent Mark Sweep (CMS) Collector does not copy or compact the live objects.
 
 Introduced in Java 7. Designed to replace CMS collector(Concurrent Mark-Sweep garbage Collector). G1 is parallel and concurrent, and limits GC pause times and maximizes throughput. 
 
+G1 must be used when applications that require large heaps with limited GC latency. 
+
+---
+
+Static variables are not garbage collected in java.
 
 
 

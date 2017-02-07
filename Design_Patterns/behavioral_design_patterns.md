@@ -60,7 +60,65 @@ to do ...
 - All implementations of `java.util.Iterator` (thus among others also `java.util.Scanner`!).
 - All implementations of `java.util.Enumeration`
 
-### Mediator
+---
+
+## Mediator
+
+**Intent**
+
+- Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+
+- Design an intermediary to decouple many peers. Promote the many-to-many relationships between interacting peers to "full object status"
+
+A mediator is responsible for controlling and coordinating the interactions of a group of objects. The mediator serves as an intermediary that keeps objects in the group from referring to each other explicitly. The objects only know the mediator, thereby reducing the number of interconnections.
+
+Partitioning a system into many objects generally enhances reusability, but proliferating interconnections between those objects tend to reduce it again. The mediator object: encapsulates all interconnections, acts as the hub of communication, is responsible for controlling and coordinating the interactions of its clients, and promotes loose coupling by keeping objects from referring to each other explicitly.
+
+**Applicability** - Use the Mediator pattern when
+
+- a set of objects communicate in well-defined but complex ways. The resulting interdependencies are unstructured and difficult to understand.
+
+- reusing an object is difficult because it refers to and communicates with many other objects.
+
+- a behavior that's distributed between several classes should be customizable without a lot of subclassing.
+
+**Structure**
+
+![mediator](./_image/mediator.png)
+
+- *Mediator* 
+	- defines an interface for communicating with Colleague objects.
+- *ConcreteMediator*
+	- implements cooperative behavior by coordinating Colleague objects.
+	- knows and maintains its colleagues.
+- *Colleague classes*
+	- each Colleague class knows its Mediator object.
+	- each colleague communicates with its mediator whenever it would have otherwise communicated with another colleague.
+
+Colleagues send and receive requests from a Mediator object. The mediator implements the cooperative behavior by routing requests between the appropriate colleague(s).
+	
+**Check list**
+
+- Identify a collection of interacting objects that would benefit from mutual decoupling.
+- Encapsulate those interactions in the abstraction of a new class.	
+- Create an instance of that new class and rework all "peer" objects to interact with the Mediator only.
+- Balance the principle of decoupling with the principle of distributing responsibility evenly.
+
+**Rules of thumb**
+
+- Chain of Responsibility, Command, Mediator, and Observer, address how you can decouple senders and receivers, but with different trade-offs. Chain of Responsibility passes a sender request along a chain of potential receivers. Command normally specifies a sender-receiver connection with a subclass. Mediator has senders and receivers reference each other indirectly. Observer defines a very decoupled interface that allows for multiple receivers to be configured at run-time
+	
+- Mediator and Observer are competing patterns. The difference between them is that Observer distributes communication by introducing "observer" and "subject" objects, whereas a Mediator object encapsulates the communication between other objects. We've found it easier to make reusable Observers and Subjects than to make reusable Mediators
+
+- On the other hand, Mediator can leverage Observer for dynamically registering colleagues and communicating with them.
+
+- Mediator is similar to Facade in that it abstracts functionality of existing classes. Mediator abstracts/centralizes arbitrary communication between colleague objects, it routinely "adds value", and it is known/referenced by the colleague objects (i.e. it defines a multidirectional protocol). In contrast, Facade defines a simpler interface to a subsystem, it doesn't add new functionality, and it is not known by the subsystem classes (i.e. it defines a unidirectional protocol where it makes requests of the subsystem classes but not vice versa).
+
+	
+	
+	
+	
+**Examples**
 
 - `java.util.Timer` (all `scheduleXXX()` methods)
 - `java.util.concurrent.Executor#execute()`

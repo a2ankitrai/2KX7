@@ -25,13 +25,6 @@ class AdjMatrixGraph {
 		return -1;
 	}
 
-
-	// To do...
-	public int[] colorGraph(int m){
-		int[] colored = new int[v];
-
-
-		return colored;
-	}
+	
 	
 }
