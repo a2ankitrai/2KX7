@@ -10,6 +10,14 @@ class BTNode {
 	}
 
 	public String toString() {
-		return "BTNode [" + data + "]";
+		//	return "BTNode [" + data + "]";
+
+		if (this == null) {
+			return "-1";
+		} else {
+			return "" + data ;
+		}
+
+
 	}
 }
