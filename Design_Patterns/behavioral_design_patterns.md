@@ -282,9 +282,23 @@ Examples:
 
 ## Memento
 
+**Intent**
+
+Without violating encapsulation, capture and externalize an object's internal state so that the object can be returned to this state later. Also Known As Token.
+
+
+
+
+
+
+
+
+
 - `java.util.Date` (the setter methods do that, `Date` is internally represented by a long value)
 - All implementations of `java.io.Serializable`
 - All implementations of `javax.faces.component.StateHolder`
+
+---
 
 ### Visitor
 

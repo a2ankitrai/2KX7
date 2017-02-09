@@ -27,11 +27,11 @@ class ConstructTreeFrmPreOrderTraversal {
 
 		preIndex.index = preIndex.index + 1;
 
-
+		// No further child nodes ahead
 		if (low == high) {return root;}
 
 		int i;
-		for (i = low; i <= high; ++i) {
+		for (i = low; i <= high; i++) {
 			if (a[i] > root.data) {
 				break;
 			}

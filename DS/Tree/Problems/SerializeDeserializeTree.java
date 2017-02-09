@@ -1,6 +1,10 @@
 import java.util.*;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
 class SerializeDeserializeTree {
 
@@ -47,7 +51,7 @@ class SerializeDeserializeTree {
 			root = list.get(0) ;
 			list.remove(0);
 
-			if(root == null){return root;}
+			if (root == null) {return root;}
 
 			root.left = deSerializeTreeUtil(root.left, list);
 			root.right = deSerializeTreeUtil(root.right, list);
@@ -76,13 +80,10 @@ class SerializeDeserializeTree {
 		root.left.right.left  = new BTNode(10);
 		root.left.right.right = new BTNode(14);
 
-		/*	File file = new File("ser.txt");
-			file.createNewFile();*/
-
 		System.out.println("Initial inorder:\n");
 		sd.printInorder(root);
 		List<BTNode> serializedTreeList = sd.serializeTree(root);
-		
+
 		System.out.println("\nSerialized Tree:\n");
 		sd.printList(serializedTreeList);
 
@@ -91,7 +92,10 @@ class SerializeDeserializeTree {
 		System.out.println("\nAfter Deserialization inorder:\n");
 		sd.printInorder(root2);
 
+		File file = new File("ser.txt");
+		file.createNewFile();
 
+		OutputStream os = new FileOutputStream("ser.txt");
 
 	}
 
