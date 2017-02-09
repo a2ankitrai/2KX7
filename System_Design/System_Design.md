@@ -46,6 +46,13 @@ Most of all, have fun. Dreaming up architectures is a very stimulating mental pr
 
 ---
 
+## scalability
+
+A service is said to be scalable if when we increase the resources in a system, it results in increased performance in a manner proportional to resources added. Increasing performance in general means serving more units of work, but it can also be to handle larger units of work, such as when datasets grow.
+
+
+---
+
 ## Basic knowledge about System Design
 
 - [Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)

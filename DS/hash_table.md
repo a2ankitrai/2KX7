@@ -22,17 +22,13 @@ One-to-one mapping of key values in an array. The size of the direct address tab
 
 ## Hash Tables
 
-With direct addressing, an element with key k is stored in slot k. With hashing,
-this element is stored in slot h(k) that is, we use a hash function h to compute the
-slot from the key k. Here, h maps the universe U of keys into the slots of a **hash table** T[0,1...,m -1]:
+With direct addressing, an element with key `k` is stored in slot `k`. With hashing, this element is stored in slot `h(k)` that is, we use a hash function `h` to compute the slot from the key `k`. Here, `h` maps the universe `U` of keys into the slots of a **hash table** T[0,1...,m -1]:
 
 `h : U --> {0,1,....,m-1}`,
 
-where the size m of the hash table is typically much less than |U|. We say that an
-element with key k hashes to slot h(k); we also say that h(k) is the hash value of key k.
+where the size `m` of the hash table is typically much less than `|U|`. We say that an element with key `k` hashes to slot `h(k)`; we also say that `h(k)` is the hash value of key `k`.
 
-The hash function reduces the range of array indices and hence the size of the array. Instead of a size of |U|, the array
-can have size m.	
+The hash function reduces the range of array indices and hence the size of the array. Instead of a size of `|U|`, the array can have size `m`.	
 
 ---
 
@@ -42,13 +38,13 @@ A good hash function satisfies (approximately) the assumption of simple uniform 
 
 ### The division method
 
-In the division method for creating hash functions, we map a key k into one of m slots by taking the remainder of k divided by m. That is, the hash function is
+In the division method for creating hash functions, we map a key `k` into one of `m` slots by taking the remainder of `k` divided by `m`. That is, the hash function is
 
 `h(k) =  k mod m `
 
 ### The multiplication method
 
-The multiplication method for creating hash functions operates in two steps. First, we multiply the key k by a constant A in the range 0 < A < 1 and extract the fractional part of kA. Then, we multiply this value by m and take the floor of the result. In short, the hash function is
+The multiplication method for creating hash functions operates in two steps. First, we multiply the key `k` by a constant `A` in the range `0 < A < 1` and extract the fractional part of `kA`. Then, we multiply this value by `m` and take the floor of the result. In short, the hash function is
 
 `h(k) = Math.Floor( m (kA mod 1))`
 
@@ -61,7 +57,7 @@ Choose the hash function randomly in a way that is independent of the keys that 
 ---
 ## Hash functions in Java
 
-- **Positive integers.** The most commonly used method for hashing integers is called *modular hashing*: we choose the array size M to be prime, and, for any positive integer key k, compute the remainder when dividing k by M. This function is very easy to compute (k % M, in Java), and is effective in dispersing the keys evenly between 0 and M-1.
+- **Positive integers.** The most commonly used method for hashing integers is called *modular hashing*: we choose the array size `M` to be prime, and, for any positive integer key `k`, compute the remainder when dividing `k` by `M`. This function is very easy to compute (`k % M`, in Java), and is effective in dispersing the keys evenly between `0` and `M-1`.
 
 - **Floating-point numbers.** If the keys are real numbers between 0 and 1, we might just multiply by M and round off to the nearest integer to get an index between 0 and M-1. Although it is intuitive, this approach is defective because it gives more weight to the most significant bits of the keys; the least significant bits play no role. One way to address this situation is to use modular hashing on the binary representation of the key (this is what Java does).
 
@@ -75,7 +71,7 @@ Choose the hash function randomly in a way that is independent of the keys that 
 
 - **Java conventions.** Java helps us address the basic problem that every type of data needs a hash function by requiring that every data type must implement a method called `hashCode()` (which returns a 32-bit integer between -2147483648 and 2147483647). The implementation of `hashCode()` for an object must be consistent with equals. That is, if `a.equals(b)` is true, then `a.hashCode()` must have the same numerical value as `b.hashCode()`. If the `hashCode()` values are the same, the objects may or may not be equal, and we must use `equals()` to decide which condition holds.	
 
-- Converting a hashCode() to an array index. Since our goal is an array index, not a 32-bit integer, we combine hashCode() with modular hashing in our implementations to produce integers between 0 and M-1 as follows:
+- Converting a `hashCode()` to an array index. Since our goal is an array index, not a 32-bit integer, we combine `hashCode()` with modular hashing in our implementations to produce integers between `0` and `M-1` as follows:
 	
 	```java
 	private int hash(Key key) {
