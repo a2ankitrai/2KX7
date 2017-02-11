@@ -77,7 +77,7 @@ The iterators returned by this class's iterator and listIterator methods are fai
 
 	Deletion is fast is DLL because we can point the next of previous node to the next of current node and the previous of the next node to the previous of the current node. In singly linked list we have to traverse all the way maitaining prev pointer for the node to be deleted. Hence, deletion is fast in DLL compared to singly linked list.
 
-	
+
 ## Problems on Linked List
 
 - Merge two Sorted lists without any additional storage.

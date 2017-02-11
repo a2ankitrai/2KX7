@@ -20,9 +20,14 @@ A red-black tree is a binary search tree which has the following red-black prope
 - (**red property**) The children of a red node are black. 
 	( implies that on any path from the root to a leaf, red nodes must not be adjacent. However, any number of black nodes may appear in a sequence.)
 
-- (**black property**) For each node with at least one null child, the number of black nodes on the path from the root to the null child is the same.
+- (**black property**) Every path from root to a NULL node has same number of black nodes.
 
 - Every leaf (NULL) is black.
+
+http://www.geeksforgeeks.org/red-black-tree-set-2-insert/
+
+http://quiz.geeksforgeeks.org/c-program-red-black-tree-insertion/
+
 
 
 ### Insertion
@@ -35,7 +40,7 @@ A red-black tree is a binary search tree which has the following red-black prope
 	}	
 	```
 	
-2. Node and parent are both red. Uncle of node is red - push blackness down from grandparent. (Or make the grandparent red.).   If the grandparent is root make it black again.
+2. Node and parent are both red. Uncle of node is red - push blackness down from grandparent. (Or make the grandparent red). If the grandparent is root make it black again.
 
 3. Node and parent are both red. Node is left child, parent is left. Can fix extra redness with a single rotation (right).
 
@@ -45,6 +50,14 @@ A red-black tree is a binary search tree which has the following red-black prope
 
 	 
 [Animation](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
+
+## Deletion
+
+In insert operation, we check color of uncle to decide the appropriate case. In delete operation, we check color of sibling to decide the appropriate case.
+
+The main property that violates after insertion is two consecutive reds. In delete, the main violated property is, change of black height in subtrees as deletion of a black node may cause reduced black height in one root to leaf path.
+
+
 
 
 ---
