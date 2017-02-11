@@ -59,7 +59,6 @@ The main property that violates after insertion is two consecutive reds. In dele
 
 
 
-
 ---
 
 ## AVL Tree

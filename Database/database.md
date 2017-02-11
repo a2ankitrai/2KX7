@@ -25,6 +25,28 @@ The difference between the having and where clause in SQL is that the where clau
 
 It is not a predefined rule but  in a good number of the SQL queries, we use WHERE prior to GROUP BY and HAVING after GROUP BY. The Where clause acts as a pre filter where as Having as a post filter.
 
+---
+
+## Difference between `rownum` and `rowid`?
+
+ROWID uniquely identifies where a row resides on disk. The ROWNUM is a "pseudo-column", a placeholder that you can reference.
+
+The difference between ROWNUM and ROWID is that ROWNUM is temporary while ROWID is permanent.  Another difference is that ROWID can be used to fetch a row, while ROWNUM only has meaning within the context of a single SQL statement, a way of referencing rows within a fetched result set.
+
+to only display the first-10 rows, you might apply a ROWNUM filter:
+
+```
+select * 
+from (
+   select * from my_view where alert_level=3 order by alert_time desc) 
+where 
+    rownum<=10;
+```
+
+
+
+---
+
 ##  Join
 
 JOIN is used to combine the results of two tables. To perform a JOIN, each of the tables must have at
@@ -96,10 +118,7 @@ Pros of Denormalization
 fewer tables.
 
 
-
-
 ## ACID properties
-
 
 ----
 
@@ -109,3 +128,71 @@ fewer tables.
 - Delete duplicate rows in table?
 
 - Kth largest row in a table.
+
+- select the max salary
+	
+	```
+	SELECT Name, Salary FROM Minions
+	WHERE Salary = (SELECT Max(Salary) FROM Minions)
+	```
+	
+-  Difference between RANK() and DENSE_RANK() function?
+	
+	RANK gives you the ranking within your ordered partition. Ties are assigned the same rank, with the next ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed would be ranked 5. The analytic function rank() will rank the rows with gaps in ranking sequence if there are ties.
+
+	```
+	SQL> select ename
+	2        ,sal
+	3        ,rank() over (order by sal desc) ranking
+	4  from   emp;
+
+	ENAME             SAL    RANKING
+	---------- ---------- ----------
+	KING             5000          1
+	FORD             3000          2
+	SCOTT            3000          2
+	JONES            2975          4
+	CLARK            2850          5
+	BLAKE            2850          5
+	ALLEN            1600          7
+	TURNER           1500          8
+	```
+	
+	DENSE_RANK again gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are skipped if there are ranks with multiple items.
+	
+	```
+	SQL> select ename
+	2        ,sal
+	3        ,dense_rank() over (order by sal desc) ranking
+	4  from   emp;
+
+	ENAME             SAL    RANKING
+	---------- ---------- ----------
+	KING             5000          1
+	FORD             3000          2
+	SCOTT            3000          2
+	JONES            2975          3
+	CLARK            2850          4
+	BLAKE            2850          4
+	ALLEN            1600          5
+	```
+	
+	Wrap a filter around and pick out the Nth highest salary, say the 4th highest salary.
+
+	```
+	SQL> select *
+	2  from
+	3  (
+	4    select ename
+	5          ,sal
+	6          ,dense_rank() over (order by sal desc) ranking
+	7    from   emp
+	8  )
+	9  where ranking = 4 -- Replace 4 with any value of N
+	10  /
+
+	ENAME             SAL    RANKING
+	---------- ---------- ----------
+	BLAKE            2850          4
+	CLARK            2850          4
+	```
