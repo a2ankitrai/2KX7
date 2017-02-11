@@ -69,7 +69,6 @@ class Singleton
 
 - **Global Access Point represented by the class name** - The singleton instance is obtained using the class name. At the first view this is an easy way to access it, but it is not very flexible. If we need to replace the Sigleton class, all the references in the code should be changed accordinglly.
 
-
 ---
 
 ## Factory
@@ -102,8 +101,45 @@ The factory pattern allows you to create objects without specifying the exact cl
 - `javax.xml.bind.JAXBContext#createMarshaller()` and other similar methods
 
 ---
-### Abstract Factory
 
+## Abstract Factory
+
+**Intent**
+
+- Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+- A hierarchy that encapsulates: many possible "platforms", and the construction of a suite of "products".
+
+The purpose of the Abstract Factory is to provide an interface for creating families of related objects, without specifying concrete classes.
+
+
+
+**Applicability**
+
+Use the Abstract Factory pattern when
+- a system should be independent of how its products are created, composed, and represented.
+- a system should be configured with one of multiple families of products.
+- a family of related product objects is designed to be used together, and you need to enforce this constraint.
+- you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations.
+
+**Structure**
+
+![abstract_factory.png](./_image/abstract_factory.png)
+
+- *AbstractFactory* 
+	- declares an interface for operations that create abstract product objects.
+- *ConcreteFactory*
+	- implements the operations to create concrete product objects.
+- *AbstractProduct*
+	- declares an interface for a type of product object.
+- *ConcreteProduct*
+	- defines a product object to be created by the corresponding concrete factory.
+	- implements the AbstractProduct interface.
+- *Client*
+	- uses only interfaces declared by AbstractFactory and AbstractProduct classes.
+	
+
+	
+	
 **Examples**
 
 - `javax.xml.parsers.DocumentBuilderFactory#newInstance()`

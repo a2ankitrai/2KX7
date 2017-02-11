@@ -3,9 +3,9 @@
 
 A Binary Heap is a Binary Tree with following properties.
 
-1) It’s a complete tree (All levels are completely filled except possibly the last level and the last level has all keys as left as possible). This property of Binary Heap makes them suitable to be stored in an array.
+1) **It’s a complete tree** (All levels are completely filled except possibly the last level and the last level has all keys as left as possible). This property of Binary Heap makes them suitable to be stored in an array.
 
-2) A Binary Heap is either Min Heap or Max Heap. In a Min Binary Heap, the key at root must be minimum among all keys present in Binary Heap. The same property must be recursively true for all nodes in Binary Tree. Max Binary Heap is similar to Min Heap.
+2) A Binary Heap is either Min Heap or Max Heap. In a Min Binary Heap, the key at root must be minimum among all keys present in Binary Heap. The same property must be recursively true for all nodes in Binary Tree.
 
 **Why array based representation for Binary Heap?**
 
@@ -23,7 +23,7 @@ Since a Binary Heap is a Complete Binary Tree, it can be easily represented as a
 
 ## Binary Heap properties
 
-- Largest key is a[1], which is the root of the binary tree
+- Largest/Smallest key is a[1], for max/min heap respectively which is the root of the binary tree
 - Can use array indices to move through tree
 	- Parent of node at `k` is at `k/2`
 	- Children of node at `k` are at `2k` and `2k+1`
@@ -76,7 +76,7 @@ Find the largest M items in a stream of N items
 
 ## Applications of Heaps:
 
-- Heap Sort: Heap Sort uses Binary Heap to sort an array in O(nLogn) time.
+- Heap Sort: Heap Sort uses Binary Heap to sort an array in `O(n Logn)` time.
 
 - Priority Queue: Priority queues can be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() 	operations in O(logn) time. Binomoial Heap and Fibonacci Heap are variations of Binary Heap. These variations perform union also efficiently.
 

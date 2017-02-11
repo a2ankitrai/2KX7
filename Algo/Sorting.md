@@ -286,13 +286,11 @@ Not Stable
 
 Running time: `O(n * log n)`
 
-The (binary) heap data structure is an array object that we can view as a nearly [complete binary tree](./../DS/Tree/tree_chap1.md). The tree is completely
-filled on all levels except possibly the lowest, which is filled from the left up to a point. An array A that represents a heap is an object with two attributes:
-A:length, which (as usual) gives the number of elements in the array, and A:heap-size, which represents how many elements in the heap are stored within
-array A. That is, although A[1...A:length] may contain numbers, only the elements in A[1...A:heap-size], where 0 <= A:heap-size <= A:length, are valid elements of the heap.
+The (binary) heap data structure is an array object that we can view as a nearly [complete binary tree](./../DS/Tree/tree_chap1.md). The tree is completely filled on all levels except possibly the lowest, which is filled from the left up to a point. An array A that represents a heap is an object with two attributes:
+`A:length`, which (as usual) gives the number of elements in the array, and `A:heap-size`, which represents how many elements in the heap are stored within array `A`. That is, although `A[1...A:length]` may contain numbers, only the elements in `A[1...A:heap-size]`, where `0 <= A:heap-size <= A:length`, are valid elements of the heap.
 	
 **Heap features**
- - The minimum and maximum number of elements in a heap of height h are between 2^h and (2^(h+1) - 1) respectively.
+ - The minimum and maximum number of elements in a heap of height **h** are between **2<sup>h</sup>** and **(2<sup>(h+1)</sup> - 1)** respectively.
  - With the array representation for storing an n-element heap, the leaves are the nodes indexed by [n/2]+1, [n/2]+2 ,...,n.
 	
 [heapsort java code](./sorting/HeapSort.java)	

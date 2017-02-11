@@ -47,22 +47,17 @@ The iterators returned by this class's iterator and listIterator methods are fai
 
 ---
 
-- Insertion and Deletion speed comparision in Singly Linked List Vs Doubly Linked List ?
+## Reverse a singly linked list
 
-## Problems on Linked List
-
-- Merge two Sorted lists without any additional storage.
-	[solution](../Problems/LinkedList/MergeSortedLists.java)
+- Maintain 3 references. currentNode, prevNode and the nextNode
+- mark currentNode to the head, other two as null
+- while the currentNode is not null
+	- mark the nextNode as currentNode.next
+	- make currentNode.next refer to prevNode
+	- make prevNode to currentNode
+	- make currentNode to nextNode
 	
-- Checking for cyclicity in a Linked List.
-	[solution](../Problems/LinkedList/CheckingCycle.java)
-	Actually, the pointers need not move one and two nodes at a time;it is only necessary that the pointers move at different rates.
-
-- Swap nodes in a linked list without swapping data. [solution](./LL/SwapNodes.java)	
-
-- Reverse a singly Linked List
-	
-	```java
+	```
 	public void reverseLL() {
 		Node currentNode = head, prevLink = null, nextNode = null;
 
@@ -75,6 +70,24 @@ The iterators returned by this class's iterator and listIterator methods are fai
 		head = prevLink;
 	}
 	```
+	
+---
+
+- Insertion and Deletion speed comparision in Singly Linked List Vs Doubly Linked List ?
+
+	Deletion is fast is DLL because we can point the next of previous node to the next of current node and the previous of the next node to the previous of the current node. In singly linked list we have to traverse all the way maitaining prev pointer for the node to be deleted. Hence, deletion is fast in DLL compared to singly linked list.
+
+	
+## Problems on Linked List
+
+- Merge two Sorted lists without any additional storage.
+	[solution](../Problems/LinkedList/MergeSortedLists.java)
+	
+- Checking for cyclicity in a Linked List.
+	[solution](../Problems/LinkedList/CheckingCycle.java)
+	Actually, the pointers need not move one and two nodes at a time;it is only necessary that the pointers move at different rates.
+
+- Swap nodes in a linked list without swapping data. [solution](./LL/SwapNodes.java)	
 
 - Palindrome: Implement a function to check if a linked list is a palindrome.
 	- Reverse linked list and compare
@@ -87,8 +100,6 @@ The iterators returned by this class's iterator and listIterator methods are fai
 	3. Set two pointers to the start of each linked list.
 	4. On the longer linked list, advance its pointer by the difference in lengths.
 	5. Now, traverse on each linked list until the pointers are the same.
-
-- 	
 	
 	
 ## to do	
@@ -108,8 +119,4 @@ The iterators returned by this class's iterator and listIterator methods are fai
 - Rearrange a linked list such that all even and odd positioned nodes are together 
 	
 	http://www.geeksforgeeks.org/rearrange-a-linked-list-such-that-all-even-and-odd-positioned-nodes-are-together/
-
-- 	
-	
-
 
