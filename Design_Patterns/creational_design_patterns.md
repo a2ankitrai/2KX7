@@ -88,7 +88,24 @@ The factory pattern allows you to create objects without specifying the exact cl
 
 ---
 
-### Factory Method
+## Factory Method
+
+**Intent**
+
+- Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses. Also Known As Virtual Constructor
+
+**Structure**
+
+![facade_method](./_image/facade_method.png)
+
+- Product - defines the interface of objects the factory method creates.
+- ConcreteProduct - implements the Product interface.
+- Creator
+	- declares the factory method, which returns an object of type Product. Creator may also define a default implementation of the factory method that returns a default ConcreteProduct object.
+	- may call the factory method to create a Product object.
+- ConcreteCreator - overrides the factory method to return an instance of a ConcreteProduct.	
+
+
 
 **Example**
 
@@ -110,7 +127,6 @@ The factory pattern allows you to create objects without specifying the exact cl
 - A hierarchy that encapsulates: many possible "platforms", and the construction of a suite of "products".
 
 The purpose of the Abstract Factory is to provide an interface for creating families of related objects, without specifying concrete classes.
-
 
 
 **Applicability**

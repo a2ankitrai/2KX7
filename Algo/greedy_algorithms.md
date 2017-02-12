@@ -16,8 +16,6 @@ Greedy algorithms should be applied to problems exhibiting these two properties:
 - **Greedy choice property** - make whatever choice seems best at the moment and then solve the subproblems that arise later.
 
 - **Optimal substructure** - A problem exhibits optimal substructure if an optimal solution to the problem contains optimal solutions to the sub-problems.
-
-
  
 ---
 
@@ -49,7 +47,7 @@ Examples:
 
 - Huffman Coding
 
-	Huffman Coding is a loss-less compression technique. It assigns variable length bit codes to different characters. The Greedy Choice is to assign least bit length code to the most frequent character.
+	Huffman Coding is a loss-less compression technique. It assigns variable length bit codes to different characters. The Greedy Choice is to assign least bit length code to the most frequent character. 
 
 - Travelling Salesman Problem
 
