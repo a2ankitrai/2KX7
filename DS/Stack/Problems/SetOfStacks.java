@@ -1,3 +1,5 @@
+import java.util.*;
+
 class SetOfStacks{
 	
 	public static final int THRESHOLD = 10;

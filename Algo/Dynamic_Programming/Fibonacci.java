@@ -26,8 +26,10 @@ class Fibonacci {
 		if (memo[n] != -1) {
 			return memo[n];
 		} else {
-			return fibonacciMemoAux(n - 1, memo) + fibonacciMemoAux(n - 2, memo);
+			memo[n] = fibonacciMemoAux(n - 1, memo) + fibonacciMemoAux(n - 2, memo);
+			return memo[n];
 		}
+
 	}
 
 	int fibonacci(int n) {

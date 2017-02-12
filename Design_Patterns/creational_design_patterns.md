@@ -105,6 +105,17 @@ The factory pattern allows you to create objects without specifying the exact cl
 	- may call the factory method to create a Product object.
 - ConcreteCreator - overrides the factory method to return an instance of a ConcreteProduct.	
 
+**Rules of thumb**
+
+- Abstract Factory classes are often implemented with Factory Methods, but they can be implemented using Prototype
+
+- Factory Methods are usually called within Template Methods.
+
+- Factory Method: creation through inheritance. Prototype: creation through delegation.
+
+- Often, designs start out using Factory Method (less complicated, more customizable, subclasses proliferate) and evolve toward Abstract Factory, Prototype, or Builder (more flexible, more complex) as the designer discovers where more flexibility is needed.
+
+- Prototype doesn't require subclassing, but it does require an Initialize operation. Factory Method requires subclassing, but doesn't require Initialize.
 
 
 **Example**
