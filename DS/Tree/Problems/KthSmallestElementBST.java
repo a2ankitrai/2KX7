@@ -55,20 +55,50 @@ class KthSmallestElementBST {
 		return kthNode;
 	}
 
-	public void getKthSmallestUtilRecursive(BTNode root, Counter c, int k) {
+	public void getKthSmallestUtilRecursive(BTNode root, int count, int k) {
 		if (root != null) {
-			getKthSmallestUtilRecursive(root.left, c, k);
+			getKthSmallestUtilRecursive(root.left, count, k);
+			count++;
+			if (count == k) {
+				System.out.println (k + " position element is: " + root.data);
+			}
+			getKthSmallestUtilRecursive(root.right, count, k);
+		}
+	}
+
+	public void getKthSmallestUtilRecursiveC(BTNode root, Counter c, int k) {
+		if (root != null) {
+			getKthSmallestUtilRecursiveC(root.left, c, k);
 			c.count++;
 			if (c.count == k) {
 				System.out.println (k + " position element is: " + root.data);
 			}
-			getKthSmallestUtilRecursive(root.right, c, k);
+			getKthSmallestUtilRecursiveC(root.right, c, k);
 		}
 	}
 
 	public void getKthSmallestRecursiveWrap(BTNode root, int k) {
 		Counter c = new Counter();
-		getKthSmallestUtilRecursive(root, c, k);
+//		getKthSmallestUtilRecursive(root, 0, k);
+
+		getKthSmallestUtilRecursiveC(root, c, k);
+	}
+
+	public int kthSmallest(BTNode root, int k) {
+		int count = countNodes(root.left);
+		if (k <= count) {
+			return kthSmallest(root.left, k);
+		} else if (k > count + 1) {
+			return kthSmallest(root.right, k - 1 - count); // 1 is counted as current node
+		}
+
+		return root.data;
+	}
+
+	public int countNodes(BTNode n) {
+		if (n == null) return 0;
+
+		return 1 + countNodes(n.left) + countNodes(n.right);
 	}
 
 
@@ -85,11 +115,10 @@ class KthSmallestElementBST {
 		root.left.right.right = new BTNode(14);
 
 		KthSmallestElementBST ks = new KthSmallestElementBST();
-		ks.getKthSmallest(root, 3);
-		ks.getKthSmallest(root, 5);
+		//	ks.getKthSmallest(root, 3);
+		//	ks.getKthSmallest(root, 5);
 
 		ks.getKthSmallestRecursiveWrap(root, 3);
-
 		ks.getKthSmallestRecursiveWrap(root, 5);
 	}
 

@@ -241,6 +241,30 @@ You could serialize it as * + A B C by walking it in prefix order, or as A B + C
 
 - ***Line By Line***
 
+	```java
+		public static void levelOrder(Node root) {
+
+			if (root ==  null) return ;
+
+			Queue<Node> q = new LinkedList<>();
+
+			q.offer(root);
+
+			while (!q.isEmpty()) {
+
+				int size = q.size();
+
+				for (int i = 0; i < size ; i++) {
+					Node cur = q.poll();
+					System.out.print(cur.data + " ");
+					if (cur.left != null) q.add(cur.left);
+					if (cur.right != null) q.add(cur.right);
+				}
+				System.out.println();
+			}
+		}
+	```
+
   ```java
   int height(BTNode root) {
 		if (root == null)
