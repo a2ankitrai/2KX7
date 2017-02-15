@@ -32,25 +32,40 @@ class QuickSort {
 		int i = lo, j = hi + 1;
 
 		while (true) {
-			while (a[++i] < a[lo]) {
+			while (a[++i] < a[lo]) { // find item on left to swap
 				if (i == hi) {
 					break;
 				}
 			}
 
-			while (a[lo] < a [--j]) {
+			while (a[lo] < a [--j]) { // find item on right to swap
 				if (j == lo) {
 					break;
 				}
 			}
 
-			if(i>=j){
+			if (i >= j) { 	// check if pointers cross
 				break;
 			}
-			swap(a,i,j);
+			swap(a, i, j);	// exchange
 		}
 		swap(a, lo, j);
 		return j;
+	}
+
+	private static void sort2(int[] a, int low, int high) {
+		if (high <= low) return;
+		int j  = partition2(a, low, high);
+		sort2(a, low, j - 1);
+		sort2(a, j + 1, high);
+	}
+
+	private static void sort2(int[] a){
+		if(a==null || a.length == 0) return ;
+
+		int low = 0;
+		int high = a.length -1;
+		sort2(a,low,high);
 	}
 
 	public static void swap(int[] a, int i, int j) {
@@ -62,7 +77,9 @@ class QuickSort {
 	public static void main(String[] args) {
 		QuickSort qs = new QuickSort();
 		int b[] = {5, 2, 29, 9, 15, 4, 3, 2};
-		qs.sort(b, 0, b.length - 1);
+		//qs.sort(b, 0, b.length - 1);
+		
+		qs.sort2(b);
 		for (int i : b) {
 			System.out.print(i + " -> ");
 		}
