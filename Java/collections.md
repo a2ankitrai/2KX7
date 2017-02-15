@@ -10,7 +10,7 @@ public interface Collection<E>
 extends Iterable<E>
 ```
 
-The root interface in the collection hierarchy. A collection represents a group of objects, known as its elements.
+The root interface in the collection hierarchy. A **collection represents a group of objects, known as its elements**.
 
 ## List << Interface >>
 
@@ -26,9 +26,7 @@ Lists typically allow duplicate elements.
 The `List` interface provides a special iterator, called a `ListIterator`, that allows element insertion and replacement, and bidirectional access in addition to the normal operations that the Iterator interface provides.
 
 **Implementations**:
-
----
-
+ 
 ### ArrayList (Class)
 
 ```java
@@ -302,6 +300,8 @@ Retrieval operations (including `get`) generally do not block, so may overlap wi
 The allowed concurrency among update operations is guided by the optional `concurrencyLevel` constructor argument (default 16), which is used as a hint for internal sizing. The table is internally partitioned to try to permit the indicated number of concurrent updates without contention. Because placement in hash tables is essentially random, the actual concurrency will vary. Ideally, you should choose a value to accommodate as many threads as will ever concurrently modify the table. Using a significantly higher value than you need can waste space and time, and a significantly lower value can lead to thread contention. But overestimates and underestimates within an order of magnitude do not usually have much noticeable impact. A value of one is appropriate when it is known that only one thread will modify and all others will only read. Also, resizing this or any other kind of hash table is a relatively slow operation, so, when possible, it is a good idea to provide estimates of expected table sizes in constructors.
 
 Like `Hashtable` but unlike `HashMap`, this class does **not** allow `null` to be used as a key or value.
+
+The main reason that nulls aren't allowed in ConcurrentMaps (ConcurrentHashMaps, ConcurrentSkipListMaps) is that ambiguities that may be just barely tolerable in non-concurrent maps can't be accommodated. The main one is that if `map.get(key)` returns `null`, you can't detect whether the key explicitly maps to `null` vs the key isn't mapped. In a non-concurrent map, you can check this via  `map.contains(key)`, but in a concurrent one, the map might have changed between calls.
 
 ---
 

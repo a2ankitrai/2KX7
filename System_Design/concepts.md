@@ -43,10 +43,21 @@ Horizontal scaling:  using mutliple servers and increasing them as the load incr
 - **Caching**
 
 - **Load-balancing**
+	
+	Load balancer is a dispatcher that determines which worker instance will handle the request based on different policies. The application should best be "stateless" so any worker instance can handle the request.
+	
+- **Scatter and Gather**
+	
+	the dispatcher multicast the request to all workers of the pool. Each worker will compute a local result and send it back to the dispatcher, who will consolidate them into a single response and then send back to the client.
+
+	This pattern is used in Search engines like Yahoo, Google to handle user's keyword search request ... etc.	
+	
 
 - **High availability**
 
 - **MapReduce**
+
+	
 
 - **CDN**
 
