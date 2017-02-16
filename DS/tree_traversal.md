@@ -137,7 +137,9 @@ public void postOrderTraversalIterative2() {
 					s.push(curr.right);
 				}
 			} else if (prev == curr.left) {
-				s.push(curr.right);	// we are traversing up the tree from the left
+				if(curr.right != null){// we are traversing up the tree from the left
+					s.push(curr.right);	
+				}				 	
 			} else {
 				treeElements += curr.data + " "; // we are traversing up the tree from the right when `prev == curr.right`
 				s.pop();
@@ -207,11 +209,6 @@ You could serialize it as * + A B C by walking it in prefix order, or as A B + C
 *In Order*
 
 - If you know that the tree has an inherent sequence in the nodes, and you want to flatten the tree back into its original sequence, than an in-order traversal should be used. The tree would be flattened in the same way it was created. A pre-order or post-order traversal might not unwind the tree back into the sequence which was used to create it.
-
-
-
-
-
 
 **Level Order Traversal (also Line by Line)**
 
