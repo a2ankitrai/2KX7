@@ -1,11 +1,41 @@
 import java.util.*;
 
-/***
-Not Working...
+public class AddTwoNumbers {
 
-*/ 
+	class ListNode{
+		int val;
+		ListNode next;
+		public ListNode(int val){
+			this.val = val;
+		}
+	}
 
-class AddTwoNumbers {
+/**Time complexity : O(max(m,n)). 
+Assume that mm and nn represents the length of l1l1 and l2l2 respectively, 
+the algorithm above iterates at most max(m,n) times.
+
+Space complexity : O(max(m,n)). 
+The length of the new list is at most max(m,n)+1.*/	
+
+	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		ListNode dummyHead = new ListNode(0);
+		ListNode p = l1, q = l2, curr = dummyHead;
+		int carry = 0;
+		while (p != null || q != null) {
+			int x = (p != null) ? p.val : 0;
+			int y = (q != null) ? q.val : 0;
+			int sum = carry + x + y;
+			carry = sum / 10;
+			curr.next = new ListNode(sum % 10);
+			curr = curr.next;
+			if (p != null) p = p.next;
+			if (q != null) q = q.next;
+		}
+		if (carry > 0) {
+			curr.next = new ListNode(carry);
+		}
+		return dummyHead.next;
+	}
 
 	public static LinkedList sum(LinkedList l1, LinkedList l2) {
 		LinkedList.Node sumHead = null, sumCurrent = null;
@@ -32,7 +62,7 @@ class AddTwoNumbers {
 
 
 		if (temp1 != null) {
-			sumList.append();
+			//sumList.append();
 		}
 		if (temp2 != null) {
 			sumCurrent.next = new LinkedList.Node(temp2.data + carryOver);
@@ -43,7 +73,7 @@ class AddTwoNumbers {
 			}
 		}
 
-		if(carryOver == 1){
+		if (carryOver == 1) {
 			sumList.append(1);
 		}
 
@@ -58,7 +88,7 @@ class AddTwoNumbers {
 		l1.append(1);
 		l1.append(3);
 		l1.append(4);
-		
+
 		l2.append(2);
 		l2.append(4);
 		l2.append(6);
