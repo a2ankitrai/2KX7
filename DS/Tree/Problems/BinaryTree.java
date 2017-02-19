@@ -157,7 +157,7 @@ public class BinaryTree {
 				} else if (curr.right != null) {
 					s.push(curr.right);
 				}
-			} else if (prev == curr.left) {
+			} else if (prev == curr.left && curr.right != null) {
 				s.push(curr.right);
 			} else {
 				treeElements += curr.data + " ";
@@ -166,8 +166,6 @@ public class BinaryTree {
 
 			prev = curr;
 		}
-
-
 		System.out.println(treeElements);
 	}
 
@@ -179,18 +177,18 @@ public class BinaryTree {
 		String treeElements = "";
 		s.push(root);
 
-		while(!s.empty()){
+		while (!s.empty()) {
 			BTNode curr = s.pop();
-			if(curr.left!=null){
+			if (curr.left != null) {
 				s.push(curr.left);
 			}
-			if(curr.right!=null){
+			if (curr.right != null) {
 				s.push(curr.right);
 			}
 			output.push(curr);
 		}
 
-		while(!output.empty()){
+		while (!output.empty()) {
 			treeElements += output.pop().data + " ";
 		}
 
@@ -277,25 +275,24 @@ public class BinaryTree {
 
 	// Not working ...
 	public void trueLevelOrderTraversal() {
-		if (root == null)
-			return;
+		if (root ==  null) return ;
 
-		Queue<BTNode> q = new LinkedList<BTNode>();
+		Queue<BTNode> q = new LinkedList<>();
+
 		q.offer(root);
-		int level = 1 ;
+
 		while (!q.isEmpty()) {
-			BTNode temp = q.poll();
-			System.out.println("Level " + level + ": " + temp.data);
-			if (temp.left != null) {
-				q.offer(temp.left);
-				level++;
-			}
-			if (temp.right != null) {
-				q.offer(temp.right);
-			}
 
+			int size = q.size();
+
+			for (int i = 0; i < size ; i++) {
+				BTNode cur = q.poll();
+				System.out.print(cur.data + " ");
+				if (cur.left != null) q.add(cur.left);
+				if (cur.right != null) q.add(cur.right);
+			}
+			System.out.println();
 		}
-
 	}
 
 	/*The function Compute the "height" of a tree. Height is the
@@ -391,8 +388,13 @@ public class BinaryTree {
 		//System.out.println(bt.diameter());
 
 		//		bt.postOrderTraversalIterative2();
+		//		bt.postOrderTraversalIterativeUsing2Stacks();
 
-		bt.postOrderTraversalIterativeUsing2Stacks();
+		BTNode root2 = new BTNode(1);
+		root2.left = new BTNode(2);
+		root2.left.left = new BTNode(3);
+		BinaryTree bt2 = new BinaryTree(root2);
+		bt2.postOrderTraversalIterative2();
 	}
 
 }
