@@ -177,6 +177,8 @@ String s = "abc" , reference variable s has strong reference to String object "a
 
 ###  Weak Reference 
 
+A weak reference, simply put, is a reference that isn't strong enough to force an object to remain in memory. Weak references allow you to leverage the garbage collector's ability to determine reachability for you, so you don't have to do it yourself. 
+
 Represented using `java.lang.ref.WeakReference` class and you can create Weak Reference by using following code :
 
 ```java
@@ -185,6 +187,18 @@ WeakReference<Counter> weakCounter = new WeakReference<Counter>(counter); //weak
 counter = null; // now Counter object is eligible for garbage collection
 ```
 
+### Soft references
+
+A soft reference is exactly like a weak reference, except that it is less eager to throw away the object to which it refers. An object which is only weakly reachable (the strongest references to it are WeakReferences) will be discarded at the next garbage collection cycle, but an object which is softly reachable will generally stick around for a while.
+
+SoftReferences aren't required to behave any differently than WeakReferences, but in practice softly reachable objects are generally retained as long as memory is in plentiful supply. This makes them an excellent foundation for a cache, since you can let the garbage collector worry about both how reachable the objects are (a strongly reachable object will never be removed from the cache) and how badly it needs the memory they are consuming.
+
 SoftReference are more suitable for caches and WeakReference are more suitable for storing meta data. 
+ 
+### Phantom references
+
+A phantom reference is quite different than either `SoftReference` or `WeakReference`. Its grip on its object is so tenuous that you can't even retrieve the object -- its get() method always returns null. The only use for such a reference is keeping track of when it gets enqueued into a ReferenceQueue, as at that point you know the object to which it pointed is dead 
+ 
+
  
 ---

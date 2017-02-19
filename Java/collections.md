@@ -138,6 +138,8 @@ Since HashSet doesn't provide any direct method for retrieving object e.g. get(K
 
 Methods add(), remove(), contains() and size() are constant time operation.
 
+If the elements used in set does not implement comparable interface. Then the uniqueness or duplicity is determined by the reference of the objects.
+
 #### Constructors
 
 - `HashSet()` : 
@@ -338,6 +340,27 @@ When to use ConcurrentHashMap in Java
 
 ---
 
+## LinkedHashMap
+
+```
+public class LinkedHashMap<K,V>
+extends HashMap<K,V>
+implements Map<K,V>
+```
+
+Hash table and linked list implementation of the Map interface, with predictable iteration order. This implementation differs from HashMap in that it maintains a doubly-linked list running through all of its entries.
+
+---
+
+## WeakHashMap
+
+Hash table based implementation of the Map interface, with weak keys. An entry in a WeakHashMap will automatically be removed when its key is no longer in ordinary use.
+
+WeakHashMap does not implement Serializable interface . As a result , WeakHashMap object will not have any of their state serialized or deserialized.(i.e state of the WeakHashMap object cannot be saved and again resume from the saved state). 
+
+
+---
+
 ## IdentityHashMap
 
 java.util.IdentityHashMap = linear probing implementation
@@ -345,6 +368,10 @@ java.util.IdentityHashMap = linear probing implementation
 This class implements the Map interface with a hash table, using reference-equality in place of object-equality when comparing keys (and values). In other words, in an IdentityHashMap, two keys k1 and k2 are considered equal if and only if (k1==k2). (In normal Map implementations (like HashMap) two keys k1 and k2 are considered equal if and only if (k1==null ? k2==null : k1.equals(k2)).)
 
 ---
+
+## Collections
+
+Collections is utility class.
 
 ## Questions
 
