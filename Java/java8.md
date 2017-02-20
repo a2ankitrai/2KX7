@@ -1,4 +1,10 @@
+# Java 7
+
+- Generics Type inference for constructors
+
 # Java 8
+
+## Lambdas : functional programming.
 
 ## Abstract classes versus interfaces in Java 8
 
