@@ -345,7 +345,7 @@ Kruskal's algorithm computes MST in time proportional to `E logE` (in the worst 
 
 3. Repeat until V-1 edges.
 
-[Lazy Prim's algorithm code](./Minimum_Spanning_Tree/LazyPrimMST.java)
+[Lazy Prim's algorithm code](./Graph/Minimum_Spanning_Tree/LazyPrimMST.java)
 
 Lazy Prim's algorithm computes the MST in time proportional to `E log E` and extra space proportional to `E`(in the worst case).
 	

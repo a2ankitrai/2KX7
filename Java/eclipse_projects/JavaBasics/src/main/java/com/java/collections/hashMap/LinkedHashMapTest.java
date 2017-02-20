@@ -6,7 +6,7 @@ public class LinkedHashMapTest {
 
 	public static void main(String[] args) {
 		
-		LinkedHashMap<Integer, String> lmap = new LinkedHashMap<>();
+		LinkedHashMap<Integer, String> lmap = new LinkedHashMap<Integer, String>();
 		
 		lmap.put(1,"a");
 		lmap.put(2,"b");

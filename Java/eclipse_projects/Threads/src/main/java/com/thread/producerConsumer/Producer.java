@@ -19,7 +19,8 @@ public class Producer implements Runnable {
 			while (true) {
 				if (items.size() > 5) {
 					try {
-						System.out.println("Producer Waiting");
+						System.out.println("Producer Waiting : items size - "+ items.size());
+						Thread.sleep(100);
 						items.wait();
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block

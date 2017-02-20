@@ -52,7 +52,7 @@ The `java.lang.Thread.yield()` method causes the currently executing thread obje
 
 > The thread scheduler will select a different thread to run instead of the current one.
 
-Yield implementation in Thread class is native.
+Yield implementation in Thread class is native. During yield the thread still owns synchronization locks it has acquired.
 
 [Details](http://www.javamex.com/tutorials/threads/yield.shtml)
 
@@ -228,17 +228,22 @@ The behavior of Future.get depends on the state of the task. If it is completed,
 
 ### Semaphores
 
-Counting semaphores are used to control the number of activities that can access a
-certain resource or perform a given action at the same time. Counting
-semaphores can be used to implement resource pools such as database connection pools or to impose a bound on a
-collection.
+Counting semaphores are used to control the number of activities that can access a certain resource or perform a given action at the same time. Counting semaphores can be used to implement resource pools such as database connection pools or to impose a bound on a collection.
 
-A Semaphore manages a set of virtual permits; the initial number of permits is
-passed to the Semaphore constructor. Activities can acquire permits (as long as
-some remain) and release permits when they are done with them. If no permit is
-available, acquire blocks until one is (or until interrupted or the operation times
-out). The release method returns a permit to the semaphore. A degenerate case of a counting semaphore is a binary semaphore, a Semaphore with an initial count of one. A binary semaphore can be used as a mutex with nonreentrant locking
-semantics; whoever holds the sole permit holds the mutex.
+A Semaphore manages a set of virtual permits; the initial number of permits is passed to the Semaphore constructor. Activities can acquire permits (as long as some remain) and release permits when they are done with them. If no permit is available, acquire blocks until one is (or until interrupted or the operation times out). The release method returns a permit to the semaphore. A degenerate case of a counting semaphore is a binary semaphore, a Semaphore with an initial count of one. A binary semaphore can be used as a mutex with nonreentrant locking semantics; whoever holds the sole permit holds the mutex.
+
+A semaphore controls access to a shared resource by using permits in java.
+
+- If permits are greater than zero, then semaphore allow access to shared resource.
+- If permits are zero or less than zero, then semaphore does not allow access to shared resource.
+
+These permits are sort of counters, which allow access to the shared resource. Thus, to access the resource, a thread must be granted a permit from the semaphore.
+
+**Methods**
+
+- void acquire( ) throws InterruptedException
+- void release( )
+
 
 
 ### Barriers
@@ -279,7 +284,7 @@ Deadlock is a situation where two threads are waiting for each other to release 
 
 Deadlocks Detecting Tool - VisualVM, jstack.
 
-- `suspend`, `resume` and `destroy` method are deprecated because they are deadlone prone.
+- `suspend`, `resume` and `destroy` method are deprecated because they are deadlock prone.
 
 ---
 
@@ -367,7 +372,7 @@ on the size of the pool.
 **newSingleThreadExecutor.** A single-threaded executor creates a single worker
 thread to process tasks, replacing it if it dies unexpectedly. Tasks are guaranteed
 to be processed sequentially according to the order imposed by the
-task queue (FIFO, LIFO, priority order).4
+task queue (FIFO, LIFO, priority order).
 
 **newScheduledThreadPool.** A fixed-size thread pool that supports delayed and
 periodic task execution, similar to Timer.
@@ -490,7 +495,14 @@ extends Executor
 An Executor that provides methods to manage termination and methods that can produce a Future for tracking progress of one or more asynchronous tasks.
 
 An `ExecutorService` can be shut down, which will cause it to reject new tasks. Two different methods are provided for shutting down an `ExecutorService`. The `shutdown()` method will allow previously submitted tasks to execute before terminating, while the `shutdownNow()` method prevents waiting tasks from starting and attempts to stop currently executing tasks. Upon termination, an executor has no tasks actively executing, no tasks awaiting execution, and no new tasks can be submitted. An unused `ExecutorService` should be shut down to allow reclamation of its resources.
+ 
+---
 
+## Atomic operations
+
+- `AtomicInteger` - AtomicInteger  provides you with int value that is updated atomically,
+- `AtomicLong` - AtomicInteger  provides you with long value that is updated atomically, and
+- `AtomicBoolean` - AtomicInteger  provides you with boolean value that is updated atomically.
 
 
 ---
@@ -504,8 +516,6 @@ Lock is acquired by `lock()` method and held by Thread until a call to `unlock()
 ### Difference between ReentrantLock and Synchronized in Java
 
 
----
 
-## 
 
 

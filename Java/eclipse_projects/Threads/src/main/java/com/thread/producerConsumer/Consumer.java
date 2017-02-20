@@ -17,7 +17,8 @@ public class Consumer implements Runnable {
 				if (items.size() <= 0) {
 					try {
 						items.wait();
-						System.out.println("Consumer Waiting");
+						System.out.println("Consumer Waiting : items size - "+ items.size());
+						Thread.sleep(100);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}

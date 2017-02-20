@@ -5,11 +5,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-/**
- *
- * @author
- */
+ 
 public class ThreadLocalTest {
 
     public static void main(String args[]) throws IOException {
