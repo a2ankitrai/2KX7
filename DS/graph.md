@@ -320,7 +320,7 @@ A spanning tree of graph G is subgraph T that is both a **tree**(connected and a
 
 A cut in a graph is a partition of its vertices into two (non empty sets)
 
-![mst_cut_property](./_image/mst_cut_property.png)
+![mst_cut_property](./_image/mst_cut_property.PNG)
 
 ### Kruskal's algorithm
 
