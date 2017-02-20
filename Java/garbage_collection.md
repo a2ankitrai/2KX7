@@ -67,7 +67,7 @@ New objects are allocated in Young generation. Minor garbage collection occurs i
 
 The Old Generation is used for storing the long surviving aged objects (Some of the objects which aren't cleaned up survive in young generation and gets aged.  Eventually such objects are moved from young to old generation). Major garbage collection occurs in Old Generation.
 
-Permanent generation Space contains metadata required by JVM to describe the classes and methods used in the application. The permanent generation space also contains Java SE library classes and methods in java. Full garbage collection occurs in permanent generation in java
+Permanent generation Space contains metadata required by JVM to describe the classes and methods used in the application. The permanent generation space also contains Java SE library classes and methods in java. Full garbage collection occurs in permanent generation in java.
 
 ---
   
@@ -79,13 +79,13 @@ Garbage collection algorithm must perform 2 basic operations. One, it should be 
 
 **Mark Phase**
 
-When an object is created, its mark bit is set to 0(false). In the Mark phase, we set the marked bit for all the reachable objects (or the objects which a user can refer to) to 1(true). This operation can be done by a graph traversal, a depth first search approach.  Consider every object as a node and then all the nodes (objects) that are reachable from this node (object) are visited and it goes on till we have visited all the reachable nodes.
+When an object is created, its mark bit is set to 0(false). In the Mark phase, we set the marked bit for all the reachable objects (or the objects which a user can refer to) to 1(true). This operation can be done by a graph traversal, a depth first search approach. Consider every object as a node and then all the nodes (objects) that are reachable from this node (object) are visited and it goes on till we have visited all the reachable nodes.
 
-*Algorithm -Mark phase:*
+*Algorithm - Mark phase:*
 
 ```
 Mark(root)
-    If markedBit(root) = false then
+    If markedBit(root) == false then
         markedBit(root) = true
         For each v referenced by root
              Mark(v)

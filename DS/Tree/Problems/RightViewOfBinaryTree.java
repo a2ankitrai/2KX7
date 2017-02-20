@@ -80,6 +80,28 @@ class RightViewOfBinaryTree {
 		getRightView2Util(root, 1, mxl);
 	}
 
+
+	// Approach 3
+
+	public List<Integer> rightSideView(BTNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+        rightView(root, result, 0);
+        return result;
+    }
+    
+    public void rightView(BTNode curr, List<Integer> result, int currDepth){
+        if(curr == null){
+            return;
+        }
+        if(currDepth == result.size()){
+            result.add(curr.data);
+        }
+        
+        rightView(curr.right, result, currDepth + 1);
+        rightView(curr.left, result, currDepth + 1);
+        
+    }
+
 	public static void main(String[] args) {
 
 		RightViewOfBinaryTree rv = new RightViewOfBinaryTree();
