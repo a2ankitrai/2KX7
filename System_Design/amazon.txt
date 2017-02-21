@@ -1,0 +1,102 @@
+Amazon products and services
+
+- Retail
+- Amazon Marketplace is an e-commerce platform owned and operated by Amazon.com Inc. that enables third-party sellers to sell new and used offerings on Amazon.com's fixed-price online marketplace alongside Amazon's regular offerings.
+- A9.com is a subsidiary of Amazon.com that develops search engine and search advertising technology.
+
+- In 2013, Amazon launched its site in India, Amazon.in. It started with electronic goods.[4] In July 2014, Amazon said it would invest $2 billion (Rs 12,000 crore) in India to expand business, after its largest Indian rival Flipkart announced $1 billion in funding.[5]
+- Amazon Prime
+- In November 2007, Amazon launched the Kindle, an e-reader 
+- Amazon Video is an Internet video on demand service by Amazon
+- Amazon Drive, formerly known as Cloud Drive, is a cloud storage application offering secure cloud storage, file synchronization, file sharing, and Photo printing.
+
+- Amazon launched Amazon Web Services (AWS) in 2002, which provides programmatic access to latent features on its website.
+
+- Amazon Web Services (AWS), a subsidiary of Amazon.com,[2] offers a suite of cloud-computing services that make up an on-demand computing platform. 
+
+-----------
+
+About Eaton:
+
+Meters, Relays, Breakers, Switches. 
+Protection Devices
+	- Digitrip Breaker DT,optim
+	
+
+
+The Power Xpert Gateway 900 (PXG) is a powerful tool for monitoring electrical systems. Delivers real-time, Web-enabled monitoring of electrical distribution and control equipment. 
+
+The Power Xpert® Gateway 900 (PXG 900) has been designed to be installed in electrical assemblies or systems—low- and medium-voltage switchgear, switchboards, panelboards, transfer switches, and motor control centers to acquire and consolidate data available from components such as trip units, meters, relays, drives, and I/O. 
+
+It can also serve as a data aggregation point if used with Eaton's Power Xpert Insight or third party software.
+
+Security:
+---
+
+Password protection and management
+
+Role-Based Access Control (RBAC) as part of any access control
+effort. To support this, the PXG 900 has a robust set of tools you
+can use to create the set of users and role-based permissions as
+well as a comprehensive set of password management features
+
+Secure Web browsing
+
+SSL Encryption option ensures that information and passwords exchanged with the PXG’s Web server cannot be intercepted on the LAN
+
+
+
+----
+
+Protocols
+
+incom
+
+The Eaton Cutler-Hammer INCOM (INdustrial COMmunications) Network is designed to
+provide two-way communication between a network master and a variety of Cutler-Hammer
+products such as breakers, digital meters, or motor overload relays. 
+
+- Carrier generation and detection
+- Data modulation/demodulation
+- Address decoding
+- Generation and checking of a 5-bit cyclic redundant BCH error code 
+
+What is Modbus?
+
+Modbus is a serial communication protocol developed by Modicon published by Modicon® in 1979 for use with its programmable logic controllers (PLCs). In simple terms, it is a method used for transmitting information over serial lines between electronic devices. The device requesting the information is called the Modbus Master and the devices supplying information are Modbus Slaves.
+
+Modbus is an open protocol, meaning that it's free for manufacturers to build into their equipment without having to pay royalties.
+
+----
+
+Technical specifications
+
+Memory
+- Flash: 2 GB
+- RAM: 1 GB
+
+Network protocols supported
+
+- Modbus TCP/IP: Supports data access from Modbus TCP clients
+- Web server: Supports data access from Web browsers
+(HTTP and HTTPS)
+- DHCP: Supports automatic IP address assignments, if enabled
+- NTP: Supports time synchronization via a network time server
+for PXG synchronization
+- SMTP: Supports mail server for email notification
+- BACnet/IP: Supports data access from BACnet clients
+- SNMP v.1 / v.3: Supports data access from SNMP clients using
+the following supported MIBs (Eaton OIDs reference MIB,
+Eaton Alarms+Traps MIB, RFC 4133 Entity MIB, and RFC 4268
+Entity State MIB)
+
+Serial protocols supported
+- INCOM
+- Modbus RTU
+
+serial communication is the process of sending data one bit at a time, sequentially, over a communication channel or computer bus. This is in contrast to parallel communication, where several bits are sent as a whole, on a link with several parallel channels.
+
+The basic difference between a parallel and a serial communication channel is the number of electrical conductors used at the physical layer to convey bits.
+
+
+

@@ -76,6 +76,24 @@ A service is said to be scalable if when we increase the resources in a system, 
 	In the consistent hashing scheme, the key space is finite and lie on the circumference of a ring. The virtual node id is also allocated from the same key space. For any key, its owner node is defined as the first encountered virtual node if walking clockwise from that key. If the owner node crashes, all the key it owns will be adopted by its clockwise neighbor. Therefore, key redistribution happens only within the neighbor of the crashed node, all other nodes retains the same set of keys.
 	
 - [NOSQL Patterns](http://horicky.blogspot.in/2009/11/nosql-patterns.html)	
+
+- **service oriented architectures**, map-reduce, distributed caching, load balancing,
+- how browsers work at a high level, 
+- from DNS lookups and 
+- TCP/IP, 
+- to socket connections.	
+
+- n-tiered software architecture 
+
+- Amazon Elastic Compute Cloud (Amazon 
+EC2), 
+-Amazon Simple Storage Service (Amazon S3), 
+
+-Amazon SimpleDB, Amazon Simple Queue Service (Amazon SQS),
+
+- Amazon Flexible Payments Service (Amazon FPS), 
+- Amazon Mechanical Turk, and Amazon CloudFront.	
+	
 	
 ---
 

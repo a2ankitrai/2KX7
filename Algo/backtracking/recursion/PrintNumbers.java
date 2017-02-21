@@ -22,7 +22,7 @@ class PrintNumbers {
 
 	public static void main(String[] args) {
 
-			printRange(5, 9);
+//			printRange(5, 9);
 			mystery(2);
 		
 	}
