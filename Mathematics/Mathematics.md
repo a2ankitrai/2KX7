@@ -38,9 +38,13 @@ public boolean isPrime (int n)
 ```
 
 - all integer numbers (except 0 and 1) are made up of primes.
+
 - Some important cryptographic algorithms such as RSA critically depend on the fact that prime factorization of large numbers takes a long time. 
+
 - Basically you have a "public key" consisting of a product of two large primes used to encrypt a message, and a "secret key" consisting of those two primes used to decrypt the message. You can make the public key public, and everyone can use it to encrypt messages to you, but only you know the prime factors and can decrypt the messages. Everyone else would have to factor the number, which takes too long to be practical, given the current state of the art of number theory.
+
 - The product of the two prime numbers can be used as a public key, while the primes themselves as a private key. Any operation done to data that can only be undone by knowing one of the two factors will be non-trivial to unencrypt.
+
 - The RSA encryption algorithm which is commonly used in secure commerce web sites, is based on the fact that it is easy to take two (very large) prime numbers and multiply them, while it is extremely hard to do the opposite - meaning: take a very large number, given which it has only two prime factors, and find them.
 
 ---
