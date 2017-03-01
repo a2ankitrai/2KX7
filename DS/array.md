@@ -19,4 +19,4 @@ Array elements are being stored in contiguous locations in memory.
 
 - String handling problems: Reverse string, reverse every word in a string.
 
-- Given an array, find the index of first occurrence of a number ‘x’. First, I gave O(n) solution, after that he asked to optimize it and find it in less than O(n).
+- Given an array, find the index of first occurrence of a number 'x'.

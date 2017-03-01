@@ -4,30 +4,23 @@
 the lists provided as input. Your function should use O(1) additional storage,
 */
 
-class MergeSortedLists {
+public class MergeSortedLists {
 
-	public static void mergeList(LinkedList list1, LinkedList list2) {
+	public static LinkedList.Node mergeList(LinkedList list1, LinkedList list2) {
 		LinkedList.Node tempNode1 = list1.head;
 		LinkedList.Node tempNode2 = list2.head;
 
-		LinkedList.Node current = null;
+		LinkedList.Node head = new LinkedList.Node(0);
+		LinkedList.Node current = head;
 
 		while (tempNode1 != null && tempNode2 != null) {
 			if (tempNode1.data <= tempNode2.data) {
-				if (current == null) {
-					current = tempNode1;
-				} else {
-					current.next = tempNode1;
-					current = tempNode1;
-				}
+				current.next = tempNode1;
+				current = tempNode1;
 				tempNode1 = tempNode1.next;
 			} else {
-				if (current == null) {
-					current = tempNode2;
-				} else {
-					current.next = tempNode2;
-					current = tempNode2;
-				}
+				current.next = tempNode2;
+				current = tempNode2;
 				tempNode2 = tempNode2.next;
 			}
 		}
@@ -45,6 +38,7 @@ class MergeSortedLists {
 		}*/
 
 		current.next = tempNode1 != null ? tempNode1 : tempNode2;
+		return head.next;
 	}
 
 	public static void main(String[] args) {
@@ -61,9 +55,13 @@ class MergeSortedLists {
 		list1.printList();
 		System.out.println();
 		list2.printList();
-		mergeList(list1, list2);
+		LinkedList.Node merged = mergeList(list1, list2);
 		System.out.println("\n Merged List");
-		list1.printList();
+		//list1.printList();
+		while(merged != null){
+			System.out.print(merged.data+" -> ");
+			merged = merged.next;		
+		}
 
 	}
 }

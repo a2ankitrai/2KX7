@@ -81,10 +81,10 @@ The iterators returned by this class's iterator and listIterator methods are fai
 ## Problems on Linked List
 
 - Merge two Sorted lists without any additional storage.
-	[solution](../Problems/LinkedList/MergeSortedLists.java)
+	[solution](./LL/Problems/MergeSortedLists.java)
 	
 - Checking for cyclicity in a Linked List.
-	[solution](../Problems/LinkedList/CheckingCycle.java)
+	[solution](./LL/Problems/CheckingCycle.java)
 	Actually, the pointers need not move one and two nodes at a time;it is only necessary that the pointers move at different rates.
 
 - Swap nodes in a linked list without swapping data. [solution](./LL/SwapNodes.java)	

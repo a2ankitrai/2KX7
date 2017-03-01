@@ -130,22 +130,21 @@ servlet filters are pluggable and configured in deployment descriptor (web.xml) 
 
 create a Servlet Filter by implementing javax.servlet.Filter interface.
 
+---
 
 
 
+A Java Servlet is a Java object that responds to HTTP requests. It runs inside a Servlet container.
 
+A Servlet is part of a Java web application. A Servlet container may run multiple web applications at the same time, each having multiple servlets running inside.
 
+**HTTP Request and Response**
 
+The browser sends an HTTP request to the Java web server. The web server checks if the request is for a servlet. If it is, the servlet container is passed the request. The servlet container will then find out which servlet the request is for, and activate that servlet. The servlet is activated by calling the Servlet.service() method.
 
+Once the servlet has been activated via the service() method, the servlet processes the request, and generates a response. The response is then sent back to the browser.
 
+---
 
+The request and response objects are of course thread safe to use. A new instance of these are created for every request into your servlet, and thus for every thread executing in your servlet.
 
-
-
-
-
-
-
-Filter
-Interceptor
-Listener
