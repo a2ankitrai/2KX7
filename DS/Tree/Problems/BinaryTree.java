@@ -106,6 +106,36 @@ public class BinaryTree {
 		System.out.println(treeElements);
 	}
 
+	// below attempt does not work
+	public void inOrderTraversalIterativeWhile2() {
+		if (root == null) {
+			System.out.println("Empty tree");
+			return ;
+		}
+		Stack<BTNode> s = new Stack<BTNode>();
+		s.push(root);
+
+		String treeElements = "";
+		boolean done =  false;
+
+		while (!s.empty()) {
+			BTNode curr = s.pop();
+			System.out.println(curr.data);	
+			while (curr!= null) {
+				s.push(curr);
+				curr = curr.left;
+			}
+			curr = s.pop();
+			treeElements += " --> " + curr.data;
+			if (curr.right != null) {
+				s.push(curr.right);
+			}
+
+		}
+
+		System.out.println(treeElements);
+	}
+
 	public void postOrderTraversalIterative() {
 		if (root == null) {
 			System.out.println("Empty tree");
@@ -273,7 +303,7 @@ public class BinaryTree {
 		}
 	}
 
-	// Not working ...
+// Not working ...
 	public void trueLevelOrderTraversal() {
 		if (root ==  null) return ;
 
@@ -381,7 +411,7 @@ public class BinaryTree {
 		//		bt.postOrderTraversalIterative();
 		//		bt.levelOrderTraversalReverse();
 		// 		bt.trueLevelOrderTraversal();
-		// 		bt.inOrderTraversalIterative();
+		 		bt.inOrderTraversalIterative();
 		//		System.out.println(bt.max(root));
 		// 		bt.bfs();
 
@@ -394,7 +424,8 @@ public class BinaryTree {
 		root2.left = new BTNode(2);
 		root2.left.left = new BTNode(3);
 		BinaryTree bt2 = new BinaryTree(root2);
-		bt2.postOrderTraversalIterative2();
+		// bt2.postOrderTraversalIterative2();
+
 	}
 
 }
