@@ -218,7 +218,7 @@ A *latch* is a synchronizer that can delay the progress of threads until it reac
 
 `CountDownLatch` is a flexible latch implementation that can be used in any of these situations; it allows one or more threads to wait for a set of events to occur. The latch state consists of a counter initialized to a positive number, representing the number of events to wait for. The `countDown` method decrements the counter, indicating that an event has occurred, and the await methods wait for the counter to reach zero, which happens when all the events have occurred. If the counter is nonzero on entry, `await` blocks until the counter reaches zero, the waiting thread is interrupted, or the wait times out.
 
-[Latch Code](./eclipse_projects/Threads/src/mainjava/com/thread/synchronizers/LatchTest.java)
+[Latch Code](./eclipse_projects/Threads/src/main/java/com/thread/synchronizers/LatchTest.java)
 
 ### FutureTask
 
