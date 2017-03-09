@@ -1,20 +1,3 @@
-Amazon products and services
-
-- Retail
-- Amazon Marketplace is an e-commerce platform owned and operated by Amazon.com Inc. that enables third-party sellers to sell new and used offerings on Amazon.com's fixed-price online marketplace alongside Amazon's regular offerings.
-- A9.com is a subsidiary of Amazon.com that develops search engine and search advertising technology.
-
-- In 2013, Amazon launched its site in India, Amazon.in. It started with electronic goods.[4] In July 2014, Amazon said it would invest $2 billion (Rs 12,000 crore) in India to expand business, after its largest Indian rival Flipkart announced $1 billion in funding.[5]
-- Amazon Prime
-- In November 2007, Amazon launched the Kindle, an e-reader 
-- Amazon Video is an Internet video on demand service by Amazon
-- Amazon Drive, formerly known as Cloud Drive, is a cloud storage application offering secure cloud storage, file synchronization, file sharing, and Photo printing.
-
-- Amazon launched Amazon Web Services (AWS) in 2002, which provides programmatic access to latent features on its website.
-
-- Amazon Web Services (AWS), a subsidiary of Amazon.com,[2] offers a suite of cloud-computing services that make up an on-demand computing platform. 
-
------------
 
 About Eaton:
 
