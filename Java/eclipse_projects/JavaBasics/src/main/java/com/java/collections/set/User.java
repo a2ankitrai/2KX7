@@ -1,6 +1,6 @@
 package com.java.collections.set;
 
-class User {
+class User implements Comparable<User>{
 	 User(int id,String name){
 	  this.id = id;
 	  this.name = name;
@@ -19,7 +19,6 @@ class User {
 	 public void setName(String name) {
 	  this.name = name;
 	 }
-	 /*@Override
 	 public int compareTo(User o) {
 	  if(o==null)
 	   return 1;
@@ -29,5 +28,5 @@ class User {
 	   return -1;
 	  
 	  return 0;
-	 }*/
+	 }
 } 

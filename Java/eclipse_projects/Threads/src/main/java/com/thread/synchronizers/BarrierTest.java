@@ -85,7 +85,7 @@ class CyclicBarrierEvent implements Runnable {
 
 }
 
-public class PatternPrint {
+public class BarrierTest {
 
 	public static void main(String[] args) {
 
