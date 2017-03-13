@@ -2,8 +2,7 @@ package com.thread.basics;
 
 public class ThreadLocalTest2 {
 
-
-    public static class MyRunnable implements Runnable {
+    static class MyRunnable implements Runnable {
 
         private ThreadLocal<Integer> threadLocal =
                new ThreadLocal<Integer>();

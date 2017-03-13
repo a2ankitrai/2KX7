@@ -4,8 +4,8 @@ public class StaticException {
 
 	static {
 		try {
-			throw new Exception();
-		} catch (Exception e) {
+			throw new RuntimeException();
+		} catch (RuntimeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
