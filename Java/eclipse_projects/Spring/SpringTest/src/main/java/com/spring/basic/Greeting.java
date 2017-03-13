@@ -1,4 +1,4 @@
-package com.spring.rest;
+package com.spring.basic;
 
 public class Greeting {
 

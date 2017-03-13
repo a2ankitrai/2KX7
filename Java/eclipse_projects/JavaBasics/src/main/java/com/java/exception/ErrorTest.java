@@ -13,7 +13,7 @@ public class ErrorTest {
 		catch(StackOverflowError e){
 			System.out.println("Stack is overflowed");
 			e.printStackTrace();
-			throw e;
+		//	throw e;
 		}
 	}
 	
