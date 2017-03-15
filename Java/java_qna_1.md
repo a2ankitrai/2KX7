@@ -46,6 +46,11 @@ So, the answer is *emphatically* that `str` absolutely ought to be declared with
 
 **A.**  The second prints `false` because `b1` and `b2` are references to different Integer objects. The first and third code fragments rely on autoboxing. Surprisingly the first prints true because values between -128 and 127 appear to refer to the same immutable Integer objects (Java's implementation of `valueOf()` retrieves a cached values if the integer is between -128 and 127), while Java constructs new objects for each integer outside this range.	
 
+**Q.** Disadvantages of making Java objects immutable.
+
+**A.** The disadvantage is that you must create a new object to change its "value". If your class is representing something that "changes" frequently, you'll create a lot of objects, putting load on the garbage collector.
+
+
 ## Algorithm Analysis
 
 **Q.** How do I increase the amount of memory and stack space that Java allocates?  

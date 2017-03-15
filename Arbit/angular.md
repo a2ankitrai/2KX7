@@ -215,8 +215,6 @@ The Factory recipe constructs a new service using a function with zero or more a
 	
 	Directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS’s HTML compiler ($compile) to attach a specified behavior to that DOM element (e.g. via event listeners), or even to transform the DOM element and its children.
 
----
-
 
 ---
 
@@ -279,7 +277,7 @@ Compiles an HTML string or DOM into a template and produces a template function,
 
 - What is the difference between ng-show/ng-hide and ng-if directives?
 
-	`ng-show/ng-hide` will always insert the DOM element, but will display/hide it based on the condition. `ng-if` will not insert the DOM element until the condition is not fulfilled. `ng-if` is better when we needed the DOM to be loaded conditionally, as it will help load page bit faster compared to `ng-show/ng-hide`.
+	`ng-show/ng-hide` will always insert the DOM element, but will display/hide it based on the condition. `ng-if` will not insert the DOM element until the condition is not fulfilled. `ng-if` is better when we needed the DOM to be loaded conditionally, as it will help load page bit faster compared to `ng-show/ng-hide`. ng-if creates new scope.
 
 - digest cycle in AngularJS.
 
@@ -291,4 +289,10 @@ Compiles an HTML string or DOM into a template and produces a template function,
 
 	`$scope.$apply` re-evaluates all the declared ng-models and applies the change to any that have been altered (i.e. assigned to a new value).
 
+- Events in angular js? What is event loop.
+
+- What is execution context.
+
+
+	
 	
