@@ -269,6 +269,10 @@ Compiles an HTML string or DOM into a template and produces a template function,
 
 ---
 
+## transclude
+
+---
+
 ## Questions
 
 - How do you share data between controllers?
