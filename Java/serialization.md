@@ -45,7 +45,7 @@ During deserialization process when file is read till end using readObject() in 
 
 - Primitive types are also part of serialization process.
 - ArrayList, HashSet and HashMap implements Serializable interface, so if we will use them as member of class they will get Serialized and DeSerialized as well.
-- If any of the member does not implement Serializable than `NotSerializableException` is thrown.
+- If any of the member does not implement Serializable than `NotSerializableException` is thrown. (In java 8 null is returned)
 - If superClass has implemented Serializable that means subclass is also Serializable (as subclass always inherits all features from its parent class), for avoiding Serialization in sub-class we can define `writeObject()` method and throw `NotSerializableException()` from there as done below.
 
 	```java
