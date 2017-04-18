@@ -1,14 +1,14 @@
 #Interview Preparation
 ---
 >Before everything else, getting ready is the secret of success. 
-	-H. FORD
+	- H. Ford
 	
-##The interview lifecycle
+## The interview lifecycle
 1. Identify companies that you are interested in, and, ideally, find people you know at these companies.
 
 2. Prepare your resume using the guidelines below, and submit it via a personal contact (preferred), or through an online submission process.
 		
-	###The resume
+	### The resume
 	  Key points to keep in mind when writing a resume:
 	  - Have a clear statement of your objective; in particular, make sure that you tailor your resume for a given employer.
 		E.g., "My outstanding ability is developing solutions to computationally challenging problems; communicating them in written and oral form; and working with teams to implement them. I would like to apply these abilities at XYZ."
@@ -17,14 +17,15 @@
 		
 ---
 
-##Strategies For A Great Interview
+## Strategies For A Great Interview
 
 >The essence of strategy is choosing what not to do.  
 -M. E. PORTER		
 	
 A typical one hour interview with a single interviewer consists of five minutes of introductions and questions about the candidate's resume. This is followed by five to fifteen minutes of questioning on basic programming concepts. The core of the interview is one or two detailed design questions where the candidate is expected to present a detailed solution on a whiteboard, paper, or IDE. Depending on the interviewer and the question, the solution may be required to include syntactically correct code and tests.	
 	
-###Approaching the problem
+### Approaching the problem
+
 No matter how clever and well prepared you are, the solution to an interview problem may not occur to you immediately. Here are some things to keep in mind when this happens.
 
 
@@ -54,7 +55,8 @@ algorithmic technique, e.g., divideand conquer, recursion, or dynamic programmin
 and mapping the problem to a graph.
 
 
-###Presenting the solution
+### Presenting the solution
+
 Once you have an algorithm, it is important to present it in a clear manner. Your
 solution will be much simpler if you use Java or C++,and take advantage of libraries
 such as Collections or Boost. However, it is far more important that you use the
@@ -103,91 +105,48 @@ hm for HashMap, s for a String, sb for a StringBuilder, etc.
 
 ---
 
-##Algorithms, Data Structures, and System Design
-Algorithms, data structures, and system design underlie all software. Algorithms and data structure
-code is usually a small component of a system dominated by the user interface
-(UI), I/O, and format conversion. It is often hidden in library calls. However, such
-code is usually the crucial component in terms of performance and correctness, and
-often serves to differentiate products. Furthermore, platforms and programming
-languages change quickly but a firm grasp of data structures, algorithms, and system
-design principles, will always be a foundational part of any successful software
-endeavor. Finally, many of the most successful software companies have hired based
-on ability and potential rather than experience or knowledge of specifics, underlying
-the effectiveness of this approach to selecting candidates.
+## Algorithms, Data Structures, and System Design
 
----
-##General conversation
-
-Often interviewers will ask you questions about your past projects. The point of this conversation is to answer the
-following questions:
-
-***Can the candidate clearly communicate a complex idea?*** This is one of the most
-important skills for working in an engineering team. If you have a grand idea to
-redesign a big system, can you communicate it to your colleagues and bring them
-on board? It is crucial to practice how you will present your best work. Being
-precise, clear, and having concrete examples can go a long way here. Candidates
-communicating in a language that is not their first language, should take extra care
-to speak slowly and make more use of the whiteboard to augment their words.
-
-***Is the candidate passionate about his work?*** We always want our colleagues to
-be excited, energetic, and inspiring to work with. If you feel passionately about your
-work, and your eyes light up when describing what you've done, it goes a long way
-in establishing you as a great colleague. Hence when you are asked to describe a project from the past, it is best to pick something that you are passionate about rather than a project that was complex but did not interest you.
+Algorithms, data structures, and system design underlie all software. Algorithms and data structure code is usually a small component of a system dominated by the user interface (UI), I/O, and format conversion. It is often hidden in library calls. However, such code is usually the crucial component in terms of performance and correctness, and often serves to differentiate products. Furthermore, platforms and programming languages change quickly but a firm grasp of data structures, algorithms, and system design principles, will always be a foundational part of any successful software endeavor. Finally, many of the most successful software companies have hired based on ability and potential rather than experience or knowledge of specifics, underlying the effectiveness of this approach to selecting candidates.
 
 ---
 
-##Stress interviews
-Some companies, primarily in the finance industry, make a practice of having one
-of the interviewers create a stressful situation for the candidate. The stress may be
-injected technically, e.g., via a ninja problem, or through behavioral means, e.g., the
-interviewer rejecting a correct answer or ridiculing the candidate. The goal is to see
-how a candidate reacts to such situations-does he fall apart, become belligerent, or
-get swayed easily. (Bear in mind you will not know a priori if a particular interviewer
-will be conducting a stress interview.)
+## General conversation
+
+Often interviewers will ask you questions about your past projects. The point of this conversation is to answer the following questions:
+
+***Can the candidate clearly communicate a complex idea?*** This is one of the most important skills for working in an engineering team. If you have a grand idea to redesign a big system, can you communicate it to your colleagues and bring them on board? It is crucial to practice how you will present your best work. Being precise, clear, and having concrete examples can go a long way here. Candidates communicating in a language that is not their first language, should take extra care to speak slowly and make more use of the whiteboard to augment their words.
+
+***Is the candidate passionate about his work?*** We always want our colleagues to be excited, energetic, and inspiring to work with. If you feel passionately about your work, and your eyes light up when describing what you've done, it goes a long way in establishing you as a great colleague. Hence when you are asked to describe a project from the past, it is best to pick something that you are passionate about rather than a project that was complex but did not interest you.
 
 ---
 
-##Learning from bad outcomes
-The reality is that not every interview results in a job offer. There are many reasons
-for not getting a particular job. Some are technical
+## Stress interviews
 
-Often, your interviewer may have spent a few minutes looking at your resume - this is a depressingly common practice. This can lead to your being asked questions
-on topics outside of the area of expertise you claimed on your resume, e.g., routing
-protocols or Structured Query Language (SQL). If so, make sure your resume is
-accurate, and brush up on that topic for the future.
-
-You can fail an interview for nontechnical reasons, e.g., you came across as uninterested, or you did not communicate clearly. The company may have decided
-not to hire in your area, or another candidate with similar ability but more relevant
-experience was hired.
-
-**You will not get any feedback from a bad outcome, so it is your responsibility
-to try and piece together the causes. Remember the only mistakes are the ones you
-don't learn from.**
+Some companies, primarily in the finance industry, make a practice of having one of the interviewers create a stressful situation for the candidate. The stress may be injected technically, e.g., via a ninja problem, or through behavioral means, e.g., the interviewer rejecting a correct answer or ridiculing the candidate. The goal is to see how a candidate reacts to such situations-does he fall apart, become belligerent, or get swayed easily. (Bear in mind you will not know a priori if a particular interviewer will be conducting a stress interview.)
 
 ---
 
-##Negotiating an offer
-An offer is not an offer till it is on paper, with all the details filled in. All offers are
-negotiable. We have seen compensation packages bargained up to twice the initial
-offer, but 10-20% is more typical. When negotiating, remember there is nothing to be
-gained, and much to lose, by being rude. (Being firm is not the same as being rude.)
+## Learning from bad outcomes
 
-To get the best possible offer, get multiple offers, and be flexible about the form of
-your compensation. For example, base salary is less flexible than stock options, signon
-bonus, relocation expenses, and Immigration and Naturalization Service (INS)
-filing costs. Be concrete—instead of just asking for more money, ask for a P% higher
-salary. Otherwise the recruiter will simply come back with a small increase in the
-sign-on bonus and claim to have met your request.
+The reality is that not every interview results in a job offer. There are many reasons for not getting a particular job. Some are technical..
 
-Your HR contact is a professional negotiator, whose fiduciary duty is to the company. He will know and use negotiating techniques such as reciprocity, getting
-consensus, putting words in your mouth ("don't you think that's reasonable?"), as well as threats, to get the best possible deal for the company. (This is what recruiters themselves are evaluated on internally.) The Wikipedia article on negotiation lays bare many tricks we have seen recruiters employ.
+Often, your interviewer may have spent a few minutes looking at your resume - this is a depressingly common practice. This can lead to your being asked questions on topics outside of the area of expertise you claimed on your resume, e.g., routing protocols or Structured Query Language (SQL). If so, make sure your resume is accurate, and brush up on that topic for the future.
 
-One suggestion: stick to email, where it is harder for someone to paint you into
-a corner. If you are asked for something (such as a copy of a competing offer), get
-something in return. Often it is better to bypass the HR contact and speak directly
-with the hiring manager.
+You can fail an interview for nontechnical reasons, e.g., you came across as uninterested, or you did not communicate clearly. The company may have decided not to hire in your area, or another candidate with similar ability but more relevant experience was hired.
 
-At the end of the day, remember your long term career is what counts, and joining
-a company that has a brighter future (social-mobile vs. legacy enterprise), or offers
-a position that has more opportunities to rise (developer vs. tester) is much more
-important than a 10-20% difference in compensation.
+**You will not get any feedback from a bad outcome, so it is your responsibility to try and piece together the causes. Remember the only mistakes are the ones you don't learn from.**
+
+---
+
+## Negotiating an offer
+
+An offer is not an offer till it is on paper, with all the details filled in. All offers are negotiable. We have seen compensation packages bargained up to twice the initial offer, but 10-20% is more typical. When negotiating, remember there is nothing to be gained, and much to lose, by being rude. (Being firm is not the same as being rude.)
+
+To get the best possible offer, get multiple offers, and be flexible about the form of your compensation. For example, base salary is less flexible than stock options, signon bonus, relocation expenses, and Immigration and Naturalization Service (INS) filing costs. Be concrete—instead of just asking for more money, ask for a P% higher salary. Otherwise the recruiter will simply come back with a small increase in the sign-on bonus and claim to have met your request.
+
+Your HR contact is a professional negotiator, whose fiduciary duty is to the company. He will know and use negotiating techniques such as reciprocity, getting consensus, putting words in your mouth ("don't you think that's reasonable?"), as well as threats, to get the best possible deal for the company. (This is what recruiters themselves are evaluated on internally.) The Wikipedia article on negotiation lays bare many tricks we have seen recruiters employ.
+
+One suggestion: stick to email, where it is harder for someone to paint you into a corner. If you are asked for something (such as a copy of a competing offer), get something in return. Often it is better to bypass the HR contact and speak directly with the hiring manager.
+
+At the end of the day, remember your long term career is what counts, and joining a company that has a brighter future (social-mobile vs. legacy enterprise), or offers a position that has more opportunities to rise (developer vs. tester) is much more important than a 10-20% difference in compensation.
