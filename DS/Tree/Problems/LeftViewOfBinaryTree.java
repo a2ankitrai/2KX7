@@ -83,7 +83,7 @@ class LeftViewOfBinaryTree {
 		root.right.right = new BTNode(7);
 
 		root.right.right.right = new BTNode(8);
-		//root.right.left.left = new BTNode(9);
+		root.right.left.left = new BTNode(9);
 
 		//	lv.getLeftView(root);
 		lv.getLeftView2(root);
