@@ -76,9 +76,6 @@ When Exception is thrown we catch it and throws some other Exception than the co
 
 - If any RuntimeException occurs in static initialization block of class then java.lang.ExceptionInInitializerError is thrown. So, we can catch ExceptionInInitializerError and handle exception thrown from static block in java.
 
-
-
-
 ---
 
 ## ArrayStoreException
