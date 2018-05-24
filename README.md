@@ -1,5 +1,7 @@
 # 2KX7
 
+This Repository is aimed at collecting information and resources for preparation of technical interviews.
+
 ## DS                  
 - [String](./DS/string.md)
 - [Array](./DS/array.md)             
