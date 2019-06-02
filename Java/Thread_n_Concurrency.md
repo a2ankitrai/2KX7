@@ -87,6 +87,8 @@ that represents its interrupted status; interrupting a thread sets this status .
 thread.interrupt();
 ```
 
+[Detailed Article](https://dzone.com/articles/understanding-thread-interruption-in-java)
+
 
 ---
 
