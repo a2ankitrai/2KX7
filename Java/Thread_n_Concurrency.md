@@ -252,9 +252,9 @@ These permits are sort of counters, which allow access to the shared resource. T
 
 Barriers are similar to latches in that they block a group of threads until some event has occurred. The key difference is that with a barrier, all the threads must come together at a barrier point at the same time in order to proceed. Latches are for waiting for events; barriers are for waiting for other threads.
 
-`java.util.concurrent.CyclicBarrier` is java implementation.
+`java.util.concurrent.CyclicBarrier` is java implementation. 
 
-[Cyclic Barrier](./eclipse_projects/Threads/src/main/java/com/thread/synchronizers/PatternPrint.java)
+[Cyclic Barrier](./eclipse_projects/Threads/src/main/java/com/thread/synchronizers/BarrierTest.java)
 
 - `public CyclicBarrier(int parties);`
 	Creates a new CyclicBarrier that will trip when the given number of parties (threads) are waiting upon it, and does not perform a predefined action when the barrier is tripped.
