@@ -503,8 +503,8 @@ An `ExecutorService` can be shut down, which will cause it to reject new tasks. 
 ## Atomic operations
 
 - `AtomicInteger` - AtomicInteger  provides you with int value that is updated atomically,
-- `AtomicLong` - AtomicInteger  provides you with long value that is updated atomically, and
-- `AtomicBoolean` - AtomicInteger  provides you with boolean value that is updated atomically.
+- `AtomicLong` - AtomicLong  provides you with long value that is updated atomically, and
+- `AtomicBoolean` - AtomicBoolean  provides you with boolean value that is updated atomically.
 
 
 ---
